@@ -2,15 +2,15 @@
 
 #include <gtest/gtest.h>
 
-#include "include/complex_number.h"
+#include "include/set.h"
 
 TEST(Levitsky_Ilya_setTest, Can_Create_Set) {
   // Arrange
-	set A;
-	int x;
+  set A;
+  int x;
 
   // Act
-	A.Insert(x);
+  A.Insert(x);
 
   // Assert
   EXPECT_EQ(x, A.Get(1));
