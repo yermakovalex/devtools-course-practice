@@ -1,5 +1,5 @@
 #include <iostream>
-#include "BitField.h"
+#include "include/BitField.h"
 using namespace std;
 
 class set{
