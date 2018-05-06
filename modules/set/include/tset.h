@@ -1,36 +1,38 @@
-#ifndef __SET_H__
+// Copyright 2018 Levitsky Ilya
+
+#ifndef MODULES_SET_INCLUDE_TBITFIELD_H_
 #define __SET_H__
 
 #include "include/tbitfield.h"
 
-class TSet
-{
-private:
+class TSet{
+ private:
   int MaxPower;
   TBitField BitField;
-public:
-  TSet(int mp);
-  TSet(const TSet &s);
-  TSet(const TBitField &bf);
-  operator TBitField();
 
-  int GetMaxPower(void) const;
-  void InsElem(const int Elem);
-  void DelElem(const int Elem);
-  int IsMember(const int Elem) const;
+ public:
+    TSet(int mp);
+    TSet(const TSet &s);
+    TSet(const TBitField &bf);
+    operator TBitField();
 
-  int operator== (const TSet &s) const;
-  int operator!= (const TSet &s) const;
-  TSet& operator=(const TSet &s);
-  TSet operator+ (const int Elem);
+    int GetMaxPower(void) const;
+    void InsElem(const int Elem);
+    void DelElem(const int Elem);
+    int IsMember(const int Elem) const;
 
-  TSet operator- (const int Elem);
+    int operator== (const TSet &s) const;
+    int operator!= (const TSet &s) const;
+    TSet& operator=(const TSet &s);
+    TSet operator+ (const int Elem);
 
-  TSet operator+ (const TSet &s);
-  TSet operator* (const TSet &s);
-  TSet operator~ (void);
+    TSet operator- (const int Elem);
 
-  friend istream &operator>>(istream &istr, TSet &bf);
-  friend ostream &operator<<(ostream &ostr, const TSet &bf);
+    TSet operator+ (const TSet &s);
+    TSet operator* (const TSet &s);
+    TSet operator~ (void);
+
+    friend istream &operator>>(istream &istr, TSet &bf);
+    friend ostream &operator<<(ostream &ostr, const TSet &bf);
 };
-#endif
+#endif  // MODULES_SET_INCLUDE_TBITFIELD_H_
