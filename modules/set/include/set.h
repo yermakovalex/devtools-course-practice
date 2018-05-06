@@ -6,15 +6,16 @@
 class set{
     int MaxPow;
     bitfield BF;
+	int k;
 
  public:
     set(int mp = 10);
     set(set&);
     ~set(void) {}
 
-    void Insert(int);
-    void Del(int);
-    int Get(int);
+    void Insert(int k);
+    void Del(int k);
+    int Get(int k);
 
     set operator+(set&);
     set operator*(set&);

@@ -6,17 +6,18 @@ class bitfield{
     int* arr;
     int n;
     int sizeU;
-    int Mem_index(int);
-    int Mask(int);
+	int k;
+    int Mem_index(int k);
+    int Mask(int k);
 
  public:
     bitfield(int _SizeU = 100);
     bitfield(bitfield&);
     ~bitfield(void);
 
-    void setbit(int);
-    int getbit(int);
-    void Clearbit(int);
+    void setbit(int k);
+    int getbit(int k);
+    void Clearbit(int k);
 
     bitfield operator ~();
     bitfield operator &(bitfield&);
