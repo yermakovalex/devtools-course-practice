@@ -12,14 +12,6 @@ TSet::TSet(const TBitField &bf) : BitField(-1)
 {
 }
 
-TSet::operator TBitField()
-{
-}
-
-int TSet::GetMaxPower(void) const 
-{
-}
-
 int TSet::IsMember(const int Elem) const
 {
     return 0;
@@ -28,10 +20,6 @@ int TSet::IsMember(const int Elem) const
 void TSet::InsElem(const int Elem)
 {
 }
-
-void TSet::DelElem(const int Elem)
-}
-
 
 TSet& TSet::operator=(const TSet &s)
 {
