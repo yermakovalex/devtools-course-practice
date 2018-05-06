@@ -1,12 +1,13 @@
 // Copyright 2018 Levitsky Ilya
+#ifndef MODULES_SET_INCLUDE_SET_H_
+
 #include <iostream>
 #include "include/bitfield.h"
-#ifndef MODULES_SET_INCLUDE_SET_H_
 
 class set{
     int MaxPow;
     bitfield BF;
-	int k;
+    int k;
 
  public:
     set(int mp = 10);
@@ -23,4 +24,4 @@ class set{
     set& operator=(set&);
     set operator==(set&);
 };
-#endif //MODULES_SET_INCLUDE_SET_H_
+#endif // MODULES_SET_INCLUDE_SET_H_

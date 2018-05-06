@@ -1,12 +1,13 @@
 // Copyright 2018 Levitsky Ilya
+#ifndef MODULES_SET_INCLUDE_BITFIELD_H_ 
+
 #pragma once
 #include <iostream>
-using namespace std;
 class bitfield{
     int* arr;
     int n;
     int sizeU;
-	int k;
+    int k;
     int Mem_index(int k);
     int Mask(int k);
 
@@ -24,4 +25,4 @@ class bitfield{
     bitfield operator |(bitfield&);
     bitfield& operator =(bitfield&);
 };
-
+#endif // MODULES_SET_INCLUDE_BITFIELD_H_
