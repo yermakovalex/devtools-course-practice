@@ -2,12 +2,11 @@
 #include "BitField.h"
 using namespace std;
 
-class set
-{
-    int MaxPow; // максимальная мощность множества
+class set{
+    int MaxPow;
     bitfield BF;
 
-public:
+ public:
     set(int mp = 10);
     set(set&);
     ~set(void) {}

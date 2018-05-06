@@ -1,23 +1,21 @@
 #pragma once
 #include <iostream>
 using namespace std;
-class bitfield
-{
-    int* arr; // память для представления битового поля
-    int n; // кол-во элементов для представления битового поля
-    int sizeU; // кол-во битов
-
+class bitfield{
+    int* arr;
+    int n;
+    int sizeU;
     int Mem_index(int);
     int Mask(int);
 
-public:
+ public:
     bitfield(int _SizeU = 100);
     bitfield(bitfield&);
     ~bitfield(void);
 
-    void setbit(int); // установить бит
-    int getbit(int);	// получить значение бита
-    void Clearbit(int);	// очистить бит
+    void setbit(int);
+    int getbit(int);
+    void Clearbit(int);
 
     bitfield operator ~();
     bitfield operator &(bitfield&);
