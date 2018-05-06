@@ -1,5 +1,6 @@
 // Copyright 2018 Levitsky Ilya
-#ifndef MODULES_SET_INCLUDE_BITFIELD_H_ 
+
+#ifndef MODULES_SET_INCLUDE_BITFIELD_H_
 
 #pragma once
 #include <iostream>
@@ -12,7 +13,7 @@ class bitfield{
     int Mask(int k);
 
  public:
-    bitfield(int _SizeU = 100);
+    explict bitfield(int _SizeU = 100);
     bitfield(bitfield&);
     ~bitfield(void);
 
@@ -25,4 +26,4 @@ class bitfield{
     bitfield operator |(bitfield&);
     bitfield& operator =(bitfield&);
 };
-#endif // MODULES_SET_INCLUDE_BITFIELD_H_
+#endif  // MODULES_SET_INCLUDE_BITFIELD_H_

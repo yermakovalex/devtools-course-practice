@@ -1,4 +1,5 @@
 // Copyright 2018 Levitsky Ilya
+
 #ifndef MODULES_SET_INCLUDE_SET_H_
 
 #include <iostream>
@@ -10,7 +11,7 @@ class set{
     int k;
 
  public:
-    set(int mp = 10);
+    explict set(int mp = 10);
     set(set&);
     ~set(void) {}
 
