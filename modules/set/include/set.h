@@ -1,7 +1,7 @@
 // Copyright 2018 Levitsky Ilya
 #include <iostream>
 #include "include/bitfield.h"
-using namespace std;
+#ifndef MODULES_SET_INCLUDE_SET_H_
 
 class set{
     int MaxPow;
@@ -21,5 +21,5 @@ class set{
     set operator~();
     set& operator=(set&);
     set operator==(set&);
-
 };
+#endif //MODULES_SET_INCLUDE_SET_H_
