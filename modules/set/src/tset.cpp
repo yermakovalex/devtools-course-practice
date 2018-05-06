@@ -25,11 +25,3 @@ int TSet::operator==(const TSet &s) const
 {
     return 0;
 }
-
-istream &operator>>(istream &istr, TSet &s)
-{
-}
-
-ostream& operator<<(ostream &ostr, const TSet &s)
-{
-}
