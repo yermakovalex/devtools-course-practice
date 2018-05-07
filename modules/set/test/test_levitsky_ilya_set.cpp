@@ -105,3 +105,14 @@ TEST(Levitsky_Ilya_setTest, Can_Assign_Set) {
     EXPECT_EQ(6, B.GetN(6));
     EXPECT_EQ(2, B.GetN(2));
 }
+
+TEST(Levitsky_Ilya_setTest, Can_Not_Get_Num) {
+    // Arrange
+    set A;
+
+    // Act
+    A.Insert(5);
+
+    // Assert
+    EXPECT_EQ(0, A.GetN(4));
+}
