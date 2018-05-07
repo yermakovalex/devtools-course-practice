@@ -22,6 +22,13 @@ void set::Del(int k) {
     BF.Clearbit(k);
 }
 
+int set::GetN(int k) {
+    int isEmpty = 1;
+    if (Get(k)) {
+        return k;
+    }
+}
+
 int set::Get(int k) {
     return BF.getbit(k);
 }
