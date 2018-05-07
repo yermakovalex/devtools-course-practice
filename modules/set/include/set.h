@@ -18,7 +18,7 @@ class set{
     void Insert(int k);
     void Del(int k);
     int Get(int k);
-	int GetN(int k);
+    int GetN(int k);
 
     set operator+(const set&);
     set operator*(const set&);
