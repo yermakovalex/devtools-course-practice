@@ -12,7 +12,7 @@ TEST(Levitsky_Ilya_setTest, Can_Create_Set) {
   A.Insert(5);
 
   // Assert
-  EXPECT_EQ(x, A.Get(5));
+  EXPECT_EQ(5, A.Get(5));
 }
 
 TEST(Levitsky_Ilya_setTest, Disjunctio_Sets) {
@@ -28,8 +28,8 @@ TEST(Levitsky_Ilya_setTest, Disjunctio_Sets) {
   C = A + B;
 
   // Assert
-  EXPECT_EQ(4, C->Get(4));
-  EXPECT_EQ(7, C->Get(7));
+  EXPECT_EQ(4, C.Get(4));
+  EXPECT_EQ(7, C.Get(7));
 }
 
 TEST(Levitsky_Ilya_setTest, Conjuctio_Sets) {
