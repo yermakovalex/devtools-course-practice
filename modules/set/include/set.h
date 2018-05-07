@@ -23,6 +23,6 @@ class set{
     set operator*(const set&);
     set operator~();
     set& operator=(const set&);
-    set operator==(const set&);
+    bool operator==(const set&);
 };
 #endif  // MODULES_SET_INCLUDE_SET_H_

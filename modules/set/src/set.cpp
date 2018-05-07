@@ -66,11 +66,11 @@ set& set :: operator=(const set& x) {
     return *this;
 }
 
-set set :: operator ==(const set& x) {
+bool set :: operator ==(const set& x) {
     for (int i = 0; i < MaxPow; i++) {
-        if (Get(i) != x.Get(i)) {
-            return;
+        if (Get(i) != *this.Get(i)) {
+            return 0;
         }
     }
-    return;
+	return 1;
 }
