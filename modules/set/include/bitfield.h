@@ -22,8 +22,8 @@ class bitfield{
     void Clearbit(int k);
 
     bitfield operator ~();
-    bitfield operator &(bitfield&);
-    bitfield operator |(bitfield&);
-    bitfield& operator =(bitfield&);
+    bitfield operator &(const bitfield&);
+    bitfield operator |(const bitfield&);
+    bitfield& operator =(const bitfield&);
 };
 #endif  // MODULES_SET_INCLUDE_BITFIELD_H_

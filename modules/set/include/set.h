@@ -19,10 +19,10 @@ class set{
     void Del(int k);
     int Get(int k);
 
-    set operator+(set&);
-    set operator*(set&);
+    set operator+(const set&);
+    set operator*(const set&);
     set operator~();
-    set& operator=(set&);
-    set operator==(set&);
+    set& operator=(const set&);
+    set operator==(const set&);
 };
 #endif  // MODULES_SET_INCLUDE_SET_H_
