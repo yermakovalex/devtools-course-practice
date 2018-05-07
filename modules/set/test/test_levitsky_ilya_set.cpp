@@ -76,3 +76,32 @@ TEST(Levitsky_Ilya_setTest, Addition_Set) {
   EXPECT_EQ(9, C.GetN(9));
   EXPECT_EQ(10, C.GetN(10));
 }
+
+TEST(Levitsky_Ilya_setTest, Can_Get_Bit) {
+    // Arrange
+    set A;
+    
+    // Act
+    A.Insert(5);
+
+    // Assert
+    EXPECT_EQ(256, A.Get(5));
+}
+
+TEST(Levitsky_Ilya_setTest, Can_Assign_Set) {
+    // Arrange
+    set A;
+    set B;
+
+    // Act
+    A.Insert(5);
+    A.Insert(6);
+    A.Insert(2);
+
+    B = A;
+
+    // Assert
+    EXPECT_EQ(5, B.GetN(5));
+    EXPECT_EQ(6, B.GetN(6));
+    EXPECT_EQ(2, B.GetN(2));
+}
