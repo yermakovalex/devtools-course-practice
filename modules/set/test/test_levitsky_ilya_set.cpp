@@ -80,7 +80,7 @@ TEST(Levitsky_Ilya_setTest, Addition_Set) {
 TEST(Levitsky_Ilya_setTest, Can_Get_Bit) {
     // Arrange
     set A;
-    
+
     // Act
     A.Insert(5);
 
