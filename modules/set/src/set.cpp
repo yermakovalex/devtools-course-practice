@@ -18,10 +18,6 @@ void set::Insert(int k) {
     BF.setbit(k);
 }
 
-void set::Del(int k) {
-    BF.Clearbit(k);
-}
-
 int set::GetN(int k) {
     int isEmpty = 1;
     if (Get(k)) {
