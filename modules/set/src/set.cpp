@@ -26,13 +26,12 @@ int set::Get(int k) {
     return BF.getbit(k);
 }
 
-set set :: operator+(set& x) {
+set set :: operator+(const set& x) {
     if (MaxPow > x.MaxPow) {
         set tmp(MaxPow);
         tmp.BF = BF | x.BF;
         return(tmp);
-    }
-    else{
+    } else {
         set tmp(x.MaxPow);
         tmp.BF = BF | x.BF;
         return(tmp);
@@ -45,8 +44,7 @@ set set :: operator*(set& x) {
         set tmp(MaxPow);
         tmp.BF = BF&x.BF;
         return(tmp);
-    }
-    else{
+    } else {
         set tmp(x.MaxPow);
         tmp.BF = BF&x.BF;
         return(tmp);
@@ -59,7 +57,7 @@ set set :: operator~() {
     return tmp;
 }
 
-set& set :: operator=(set& x) {
+set& set :: operator=(const set& x) {
     if (MaxPow != x.MaxPow) {
         BF = bitfield(x.MaxPow);
         MaxPow = x.MaxPow;
@@ -68,9 +66,8 @@ set& set :: operator=(set& x) {
     return *this;
 }
 
-
-set set :: operator ==(set& x) {
-    for (int i = 0; i<MaxPow; i++) {
+set set :: operator ==(const set& x) {
+    for (int i = 0; i < MaxPow; i++) {
         if (Get(i) != x.Get(i)) {
             return 0;
         }

@@ -48,7 +48,7 @@ void bitfield::Clearbit(int T) {
     arr[Mem_index(T)] &= ~Mask(T);
 }
 
-bitfield bitfield :: operator&(bitfield& X) {
+bitfield bitfield :: operator&(const bitfield& X) {
     int len = sizeU;
     if (X.sizeU > len)
         len = X.sizeU;
@@ -62,7 +62,7 @@ bitfield bitfield :: operator&(bitfield& X) {
     return res;
 }
 
-bitfield bitfield :: operator|(bitfield& X) {
+bitfield bitfield :: operator|(const bitfield& X) {
     int len = sizeU;
     if (X.sizeU > len)
         len = X.sizeU;
@@ -76,14 +76,14 @@ bitfield bitfield :: operator|(bitfield& X) {
     return res;
 }
 
-bitfield& bitfield :: operator=(bitfield& X) {
+bitfield& bitfield :: operator=(const bitfield& X) {
     sizeU = X.sizeU;
     if (n != X.n)
         n = X.n;
     if (arr != NULL)
         delete arr;
     arr = new int[n];
-    for (int i = 0; i<n; i++) {
+    for (int i = 0; i < n; i++) {
         arr[i] = X.arr[i];
     }
     return *this;
