@@ -68,9 +68,9 @@ set& set :: operator=(const set& x) {
 
 bool set :: operator ==(const set& x) {
     for (int i = 0; i < MaxPow; i++) {
-        if (Get(i) != *this.Get(i)) {
-            return 0;
+        if (Get(i) != this->Get(i)) {
+            return false;
         }
     }
-	return 1;
+    return true;
 }
