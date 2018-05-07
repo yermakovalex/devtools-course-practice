@@ -7,13 +7,13 @@
 TEST(Levitsky_Ilya_setTest, Can_Create_Set) {
   // Arrange
   set A;
-  int x;
+  int x = 5;
 
   // Act
   A.Insert(x);
 
   // Assert
-  EXPECT_EQ(x, A.Get(1));
+  EXPECT_EQ(x, A.Get(5));
 }
 
 TEST(Levitsky_Ilya_setTest, Disjunctio_Sets) {
