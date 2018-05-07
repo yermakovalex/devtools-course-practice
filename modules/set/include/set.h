@@ -1,6 +1,6 @@
 // Copyright 2018 Levitsky Ilya
-#ifndef __SET_H__
-#define __SET_H__
+#ifndef MODULES_SET_INCLUDE_SET_H_
+#define MODULES_SET_INCLUDE_SET_H_
 
 #include <iostream>
 #include "include/bitfield.h"
@@ -25,4 +25,4 @@ class set{
     set& operator=(set&);
     set operator==(set&);
 };
-#endif  // __SET_H__
+#endif  // MODULES_SET_INCLUDE_SET_H_
