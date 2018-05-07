@@ -1,6 +1,6 @@
 // Copyright 2018 Levitsky Ilya
-
-#ifndef MODULES_SET_INCLUDE_BITFIELD_H_
+#ifndef __BITFIELD_H__
+#define __BITFIELD_H__
 
 #pragma once
 #include <iostream>
@@ -26,4 +26,4 @@ class bitfield{
     bitfield operator |(bitfield&);
     bitfield& operator =(bitfield&);
 };
-#endif  // MODULES_SET_INCLUDE_BITFIELD_H_
+#endif  // __BITFIELD_H__
