@@ -44,10 +44,6 @@ int bitfield::getbit(int T) {
     return arr[Mem_index(T)] & Mask(T);
 }
 
-void bitfield::Clearbit(int T) {
-    arr[Mem_index(T)] &= ~Mask(T);
-}
-
 bitfield bitfield :: operator&(const bitfield& X) {
     int len = sizeU;
     if (X.sizeU > len)
