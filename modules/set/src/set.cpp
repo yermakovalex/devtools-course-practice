@@ -30,28 +30,16 @@ int set::Get(int k) {
 }
 
 set set :: operator+(const set& x) {
-    if (MaxPow > x.MaxPow) {
-        set tmp(MaxPow);
-        tmp.BF = BF | x.BF;
-        return(tmp);
-    } else {
-        set tmp(x.MaxPow);
-        tmp.BF = BF | x.BF;
-        return(tmp);
-    }
+    set tmp(x.MaxPow);
+    tmp.BF = BF | x.BF;
+    return(tmp);
 }
 
 
 set set :: operator*(const set& x) {
-    if (MaxPow < x.MaxPow) {
-        set tmp(MaxPow);
-        tmp.BF = BF&x.BF;
-        return(tmp);
-    } else {
-        set tmp(x.MaxPow);
-        tmp.BF = BF&x.BF;
-        return(tmp);
-    }
+    set tmp(x.MaxPow);
+    tmp.BF = BF&x.BF;
+    return(tmp);
 }
 
 set set :: operator~() {
@@ -61,10 +49,6 @@ set set :: operator~() {
 }
 
 set& set :: operator=(const set& x) {
-    if (MaxPow != x.MaxPow) {
-        BF = bitfield(x.MaxPow);
-        MaxPow = x.MaxPow;
-    }
     BF = x.BF;
     return *this;
 }

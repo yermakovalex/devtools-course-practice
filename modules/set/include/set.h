@@ -12,7 +12,6 @@ class set{
  public:
     explicit set(int mp = 10);
     set(set&);
-    ~set(void) {}
 
     void Insert(int k);
     int Get(int k);

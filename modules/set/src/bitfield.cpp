@@ -13,17 +13,6 @@ bitfield::bitfield(int _SizeU) {
     }
 }
 
-bitfield::bitfield(bitfield& tmp) {
-    if (sizeU != 0) {
-        sizeU = tmp.sizeU;
-        n = tmp.n;
-        arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = tmp.arr[i];
-        }
-    }
-}
-
 bitfield::~bitfield() {
     delete[] arr;
 }
@@ -46,8 +35,6 @@ int bitfield::getbit(int T) {
 
 bitfield bitfield :: operator&(const bitfield& X) {
     int len = sizeU;
-    if (X.sizeU > len)
-        len = X.sizeU;
     bitfield res(len);
     for (int i = 0; i < n; i++) {
         res.arr[i] = arr[i];
@@ -60,8 +47,6 @@ bitfield bitfield :: operator&(const bitfield& X) {
 
 bitfield bitfield :: operator|(const bitfield& X) {
     int len = sizeU;
-    if (X.sizeU > len)
-        len = X.sizeU;
     bitfield res(len);
     for (int i = 0; i < n; i++) {
     res.arr[i] = arr[i];
@@ -74,8 +59,6 @@ bitfield bitfield :: operator|(const bitfield& X) {
 
 bitfield& bitfield :: operator=(const bitfield& X) {
     sizeU = X.sizeU;
-    if (n != X.n)
-        n = X.n;
     if (arr != NULL)
         delete arr;
     arr = new int[n];
