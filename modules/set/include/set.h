@@ -8,7 +8,6 @@
 class set{
     int MaxPow;
     bitfield BF;
-    int k;
 
  public:
     explicit set(int mp = 10);
