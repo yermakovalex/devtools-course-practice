@@ -22,7 +22,7 @@ int set::GetN(int k) {
     if (Get(k)) {
         return k;
     }
-	return 0;
+    return 0;
 }
 
 int set::Get(int k) {
