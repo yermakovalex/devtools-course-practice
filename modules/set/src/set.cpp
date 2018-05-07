@@ -19,7 +19,6 @@ void set::Insert(int k) {
 }
 
 int set::GetN(int k) {
-    int isEmpty = 1;
     if (Get(k)) {
         return k;
     }
