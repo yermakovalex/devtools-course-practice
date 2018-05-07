@@ -11,7 +11,7 @@ class set{
     int k;
 
  public:
-    explict set(int mp = 10);
+    set(int mp = 10);
     set(set&);
     ~set(void) {}
 

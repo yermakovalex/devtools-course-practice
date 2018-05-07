@@ -13,7 +13,7 @@ class bitfield{
     int Mask(int k);
 
  public:
-    explict bitfield(int _SizeU = 100);
+    bitfield(int _SizeU = 100);
     bitfield(bitfield&);
     ~bitfield(void);
 
