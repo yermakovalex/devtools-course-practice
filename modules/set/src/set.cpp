@@ -39,7 +39,7 @@ set set :: operator+(const set& x) {
 }
 
 
-set set :: operator*(set& x) {
+set set :: operator*(const set& x) {
     if (MaxPow < x.MaxPow) {
         set tmp(MaxPow);
         tmp.BF = BF&x.BF;
