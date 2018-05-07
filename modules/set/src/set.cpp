@@ -69,8 +69,8 @@ set& set :: operator=(const set& x) {
 set set :: operator ==(const set& x) {
     for (int i = 0; i < MaxPow; i++) {
         if (Get(i) != x.Get(i)) {
-            return 0;
+            return;
         }
     }
-    return 1;
+    return;
 }

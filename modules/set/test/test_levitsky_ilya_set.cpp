@@ -22,8 +22,8 @@ TEST(Levitsky_Ilya_setTest, Disjunctio_Sets) {
   set B;
   set C;
 
-  A.insert(4);
-  B.insert(7);
+  A.Insert(4);
+  B.Insert(7);
 
   // Act
   C = A + B;
@@ -76,19 +76,4 @@ TEST(Levitsky_Ilya_setTest, Addition_Set) {
   EXPECT_EQ(8, C.Get(8));
   EXPECT_EQ(9, C.Get(9));
   EXPECT_EQ(10, C.Get(10));
-}
-
-TEST(Levitsky_Ilya_setTest, Delete_Element) {
-  // Arrange
-  set A;
-
-  A.Insert(5);
-  A.Insert(8);
-
-  // Act
-  A.Del(5);
-
-  // Assert
-  ASSERT_FALSE(5, A.Get(5));
-  EXPECT_EQ(8, C.Get(8));
 }
