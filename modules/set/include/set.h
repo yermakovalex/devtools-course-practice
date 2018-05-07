@@ -16,7 +16,6 @@ class set{
     ~set(void) {}
 
     void Insert(int k);
-    void Del(int k);
     int Get(int k);
     int GetN(int k);
 
