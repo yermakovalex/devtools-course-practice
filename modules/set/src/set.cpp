@@ -1,7 +1,6 @@
 // Copyright 2018 Levitsky Ilya
 #include "include/set.h"
 
-
 set::set(int mp) {
     MaxPow = mp;
     BF = bitfield(mp);
