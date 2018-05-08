@@ -116,3 +116,22 @@ TEST(Levitsky_Ilya_setTest, Can_Not_Get_Num) {
     // Assert
     EXPECT_EQ(0, A.GetN(4));
 }
+
+TEST(Levitsky_Ilya_setTest, Dif_Disjunctio_Sets) {
+	// Arrange
+	set A;
+	set B;
+	set C;
+
+	A.Insert(4);
+	B.Insert(7);
+    B.Insert(5);
+
+	// Act
+	C = A + B;
+
+	// Assert
+	EXPECT_EQ(4, C.GetN(4));
+	EXPECT_EQ(7, C.GetN(7));
+    EXPECT_EQ(5, C.GetN(5));
+}

@@ -72,8 +72,6 @@ bitfield bitfield :: operator|(const bitfield& X) {
 
 bitfield& bitfield :: operator=(const bitfield& X) {
     sizeU = X.sizeU;
-    if (n != X.n)
-        n = X.n;
     if (arr != NULL)
         delete arr;
     arr = new int[n];
