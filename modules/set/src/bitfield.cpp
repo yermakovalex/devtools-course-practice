@@ -13,17 +13,6 @@ bitfield::bitfield(int _SizeU) {
     }
 }
 
-bitfield::bitfield(bitfield& tmp) {
-    if (sizeU != 0) {
-        sizeU = tmp.sizeU;
-        n = tmp.n;
-        arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = tmp.arr[i];
-        }
-    }
-}
-
 bitfield::~bitfield() {
     delete[] arr;
 }
