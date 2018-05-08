@@ -58,8 +58,6 @@ bitfield bitfield :: operator&(const bitfield& X) {
 
 bitfield bitfield :: operator|(const bitfield& X) {
     int len = sizeU;
-    if (X.sizeU > len)
-        len = X.sizeU;
     bitfield res(len);
     for (int i = 0; i < n; i++) {
     res.arr[i] = arr[i];
