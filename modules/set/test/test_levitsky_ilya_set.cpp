@@ -143,7 +143,7 @@ TEST(Levitsky_Ilya_setTest, Can_Copy) {
     // Act
     A.Insert(5);
     set B(A);
-    
+
     // Assert
     EXPECT_EQ(5, B.GetN(5));
 }
