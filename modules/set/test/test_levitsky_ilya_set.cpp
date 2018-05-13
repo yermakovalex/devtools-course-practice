@@ -135,3 +135,15 @@ TEST(Levitsky_Ilya_setTest, Dif_Disjunctio_Sets) {
     EXPECT_EQ(7, C.GetN(7));
     EXPECT_EQ(5, C.GetN(5));
 }
+
+TEST(Levitsky_Ilya_setTest, Can_Copy) {
+    // Arrange
+    set A;
+
+    // Act
+    A.Insert(5);
+    set B(A);
+    
+    // Assert
+    EXPECT_EQ(5, B.GetN(5));
+}
