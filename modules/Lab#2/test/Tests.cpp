@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include"Student.h"
+#include"include/Student.h"
 
 TEST(Student, can_create_student)
 {
