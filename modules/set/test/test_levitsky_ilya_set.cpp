@@ -123,7 +123,7 @@ TEST(Levitsky_Ilya_setTest, Dif_Disjunctio_Sets) {
     set B;
     set C;
 
-	// Act
+    // Act
     A.Insert(4);
     B.Insert(7);
     B.Insert(5);
