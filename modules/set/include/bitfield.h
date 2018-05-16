@@ -7,7 +7,7 @@
 class bitfield{
     int* arr;
     int n;
-    int sizeU;
+    int sizeU = 10;
     int k;
     int Mem_index(int k);
     int Mask(int k);
