@@ -14,7 +14,7 @@ class bitfield{
 
  public:
     explicit bitfield(int _SizeU = 10);
-    bitfield(const bitfield&)
+	bitfield(const bitfield&);
     ~bitfield(void);
 
     void setbit(int k);
