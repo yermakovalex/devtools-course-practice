@@ -49,11 +49,11 @@ TEST(Student, can_not_student_create_from_wrong_file) {
 }
 
 TEST(Student, can_create_student_with_negative_amountMark) {
-	Student st(1, -1);
+    Student st(1, -1);
 
     EXPECT_EQ(st.GetAmountMarks(), 0);
 }
 
 TEST(Student, can_create_student_from_right_file) {
-	ASSERT_NO_THROW(Student::Create_Students("Students.txt"));
+    ASSERT_NO_THROW(Student::Create_Students("Students.txt"));
 }
