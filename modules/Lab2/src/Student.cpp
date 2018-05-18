@@ -18,8 +18,7 @@ void Student::CreateMemory(int amountStudents) {
             for (int i = 0; i < lenght; i++)
                  students[i] = new Student();
         }
-        else 
-        {
+        else {
             Student** buf = new Student*[amountStudents];
             for (int i = 0; i < amountStudents; i++)
                 buf[i] = students[i];
@@ -50,8 +49,7 @@ Student** Student::Create_Students(const char* path) {
                 if (buf[i] != ' ') {
                     line += buf[i];
                 }
-                else 
-                {
+                else {
                     switch (count) {
                     case 0:
                         students[countStudents]->id = atoi(line.c_str());
@@ -80,8 +78,7 @@ Student** Student::Create_Students(const char* path) {
         }
         amountStudents = countStudents;
     }
-    else 
-    {
+    else {
         code = 1;
         return NULL;
     }
