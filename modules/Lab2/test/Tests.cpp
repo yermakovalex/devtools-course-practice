@@ -1,6 +1,13 @@
 #include <gtest/gtest.h>
 #include"include/Student.h"
 
+int main(int argc, char **argv)
+{
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
+}
+
+
 TEST(Student, can_create_student)
 {
     ASSERT_NO_THROW(Student s);
