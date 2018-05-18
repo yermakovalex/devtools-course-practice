@@ -1,3 +1,4 @@
+// Copyright 2018 Matyasov Mixail
 #include"Student.h"
 
 ifstream *file;

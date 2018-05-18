@@ -1,3 +1,4 @@
+// Copyright 2018 Matyasov Mixail
 #ifndef MODULES_LAB2_INCLUDE_STUDENT_H_
 #define MODULES_LAB2_INCLUDE_STUDENT_H_
 #include<iostream>
