@@ -8,7 +8,6 @@ int Student::delta = 1;
 Student** Student::students;
 
 void Student::CreateMemory(int amountStudents) {
-
     int lenght = 10;
 
     if (amountStudents == (delta - 1) * lenght) {
@@ -35,7 +34,6 @@ void Student::CreateMemory(int amountStudents) {
 }
 
 Student** Student::Create_Students(const char* path) {// в файле в конце каждой строки нужно ставить 1 пробел
-
     code = 0;
     file = new ifstream(path);
     if (file->is_open()) {
@@ -95,7 +93,6 @@ Student** Student::Create_Students(const char* path) {// в файле в конце каждой 
 }
 
 void Student::Delete_All_Students() {
-
     for (int i = 0; i < amountStudents; i++)
         delete[] students[i]->marks;
 
@@ -103,7 +100,6 @@ void Student::Delete_All_Students() {
 }
 
 Student::Student(int id, int amountmarks, int * marks, string sName, string group) {
-
     this->id = id;
     this->amountMarks = amountmarks;
     this->marks = new int[amountmarks];
@@ -119,7 +115,6 @@ Student::Student(int id, int amountmarks, int * marks, string sName, string grou
 }
 
 float Student::CalculateMediumMark() {
-
     float sum = 0;
     for (int i = 0; i < amountMarks; i++)
          sum += marks[i];
@@ -127,7 +122,6 @@ float Student::CalculateMediumMark() {
 }
 
 void Student::PrintStatistic() {
-
     cout << endl << "---------------------------------------------";
     cout << endl;
     cout << "Id: " << id << endl;
@@ -155,7 +149,6 @@ void Student::PrintStatistic() {
 }
 
 string Student::GetGroup(int id) {
-
     int i;
     for (i = 0; i < amountStudents; i++)
         if (students[i]->id == id)
@@ -165,7 +158,6 @@ string Student::GetGroup(int id) {
 }
 
 void Student::PrintStatus() {
-
     cout << "Status: ";
     float mark = CalculateMediumMark();
     if (mark >= 4.5 && mark <= 5)
