@@ -61,7 +61,7 @@ TEST(Student, can_student_create_from_right_file)
 
 TEST(Student, can_delete_students)
 {
-    Student::Create_Students("Students.txt");
+    Student::Create_Students("include/Students.txt");
 
     ASSERT_NO_THROW(Student::Delete_All_Students());
 }
