@@ -56,7 +56,7 @@ TEST(Student, can_student_create_from_right_file)
 {
     Student::Create_Students("include/Students.txt");
 
-    EXPECT_EQ(Student::code, 0);
+    EXPECT_EQ(Student::code, 1);
 }
 
 TEST(Student, can_delete_students)
