@@ -1,4 +1,4 @@
-#include"include/Student.h"
+#include"Student.h"
 
 ifstream *file;
 
@@ -50,7 +50,7 @@ Student** Student::Create_Students(const char* path)// в файле в конце каждой ст
         while (getline(*file,buf))
         {
             CreateMemory(countStudents);
-            for (int i = 0; i < buf.length(); i++)
+            for (unsigned int i = 0; i < buf.length(); i++)
             {
                 if (buf[i] != ' ')
                 {
@@ -68,7 +68,7 @@ Student** Student::Create_Students(const char* path)// в файле в конце каждой ст
                         break;
                     case 2:
                         students[countStudents]->marks = new int[line.length()];
-                        for (int i = 0; i < line.length(); i++)
+                        for (unsigned int i = 0; i < line.length(); i++)
                         {
                             students[countStudents]->marks[i] = line[i] - '0';
                             students[countStudents]->amountMarks++;
@@ -141,7 +141,7 @@ void Student::PrintStatistic()
     }
     cout << endl;
     cout << "sName: ";
-    for (int i = 0; i < sName.length(); i++)
+    for (unsigned int i = 0; i < sName.length(); i++)
     {
          cout << sName[i];
     }
@@ -150,7 +150,7 @@ void Student::PrintStatistic()
     float mediumMark = CalculateMediumMark();
     cout << "MediumMark: " << mediumMark << endl;
     cout << "Group: ";
-    for (int i = 0; i < group.length(); i++)
+    for (unsigned int i = 0; i < group.length(); i++)
         cout << group[i];
     cout << endl;
     PrintStatus();
