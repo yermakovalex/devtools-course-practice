@@ -1,7 +1,7 @@
 // Copyright 2018 Matyasov Mixail
 #include "include/Student.h"
-#include <string>
 #include <gtest/gtest.h>
+#include <string>
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
