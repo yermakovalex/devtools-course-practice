@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include"include/Student.h"
+#include"Student.h"
 
 TEST(Student, can_create_student)
 {
@@ -21,7 +21,7 @@ TEST(Student, can_get_group)
     Student st(1, 2, marks, "Volickov", res);
 
     string gr = Student::GetGroup(1);
-    for (int i = 0; i < gr.length(); i++)
+    for (unsigned int i = 0; i < gr.length(); i++)
         if (gr[i] != res[i])
            eq = false;
 
