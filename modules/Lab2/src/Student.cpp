@@ -12,7 +12,6 @@ void Student::CreateMemory(int amountStudents) {
     int lenght = 10;
 
     if (amountStudents == (delta - 1) * lenght) {
-
         if (amountStudents == 0) {
             students = new Student*[lenght];
             for (int i = 0; i < lenght; i++)
@@ -34,7 +33,7 @@ void Student::CreateMemory(int amountStudents) {
     }
 }
 
-Student** Student::Create_Students(const char* path) {// в файле в конце каждой строки нужно ставить 1 пробел
+Student** Student::Create_Students(const char* path) {
     code = 0;
     file = new ifstream(path);
     if (file->is_open()) {
@@ -43,19 +42,14 @@ Student** Student::Create_Students(const char* path) {// в файле в конце каждой 
         int count = 0;
         int countStudents = 0;
 
-        while (getline(*file,buf)) {
-
+        while (getline(*file, buf)) {
             CreateMemory(countStudents);
             for (unsigned int i = 0; i < buf.length(); i++) {
-
                 if (buf[i] != ' ') {
-
                     line += buf[i];
                 }
                 else {
-
                     switch (count) {
-
                     case 0:
                         students[countStudents]->id = atoi(line.c_str());
                         break;
@@ -65,7 +59,6 @@ Student** Student::Create_Students(const char* path) {// в файле в конце каждой 
                     case 2:
                         students[countStudents]->marks = new int[line.length()];
                         for (unsigned int i = 0; i < line.length(); i++) {
-
                             students[countStudents]->marks[i] = line[i] - '0';
                             students[countStudents]->amountMarks++;
                         }
@@ -85,7 +78,6 @@ Student** Student::Create_Students(const char* path) {// в файле в конце каждой 
         amountStudents = countStudents;
     }
     else {
-
         code = 1;
         return NULL;
     }
