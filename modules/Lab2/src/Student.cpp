@@ -35,7 +35,7 @@ void Student::CreateMemory(int amountStudents) {
 
 Student** Student::Create_Students(const char* path) {
     code = 0;
-    file = new ifstream(path);
+    file = new std::ifstream(path);
     if (file->is_open()) {
         std::string buf;
         std::string line;
@@ -113,28 +113,28 @@ float Student::CalculateMediumMark() {
 }
 
 void Student::PrintStatistic() {
-    std::cout << endl << "---------------------------------------------";
-    std::cout << endl;
-    std::cout << "Id: " << id << endl;
+    std::cout << std::endl << "---------------------------------------------";
+    std::cout << std::endl;
+    std::cout << "Id: " << id << std::endl;
     std::cout << "Marks: ";
     for (int i = 0; i < amountMarks; i++) {
-        cout << marks[i];
+        std::cout << marks[i];
     }
-    std::cout << endl;
+    std::cout << std::endl;
     std::cout << "sName: ";
     for (unsigned int i = 0; i < sName.length(); i++) {
          std::cout << sName[i];
     }
-    std::cout << endl;
+    std::cout << std::endl;
 
     float mediumMark = CalculateMediumMark();
-    std::cout << "MediumMark: " << mediumMark << endl;
+    std::cout << "MediumMark: " << mediumMark << std::endl;
     std::cout << "Group: ";
     for (unsigned int i = 0; i < group.length(); i++)
         std::cout << group[i];
-    std::cout << endl;
+    std::cout << std::endl;
     PrintStatus();
-    std::cout << "---------------------------------------------" << endl;
+    std::cout << "---------------------------------------------" << std::endl;
 }
 
 std::string Student::GetGroup(int id) {
@@ -157,5 +157,5 @@ void Student::PrintStatus() {
         std::cout << "Bad";
     else
         std::cout << "Very bad";
-    std::cout << endl;
+    std::cout << std::endl;
 }
