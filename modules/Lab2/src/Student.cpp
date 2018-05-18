@@ -1,5 +1,6 @@
 // Copyright 2018 Matyasov Mixail
 #include"Student.h"
+#include<string>
 
 ifstream *file;
 
@@ -17,7 +18,8 @@ void Student::CreateMemory(int amountStudents) {
             for (int i = 0; i < lenght; i++)
                  students[i] = new Student();
         }
-        else {
+        else 
+        {
             Student** buf = new Student*[amountStudents];
             for (int i = 0; i < amountStudents; i++)
                 buf[i] = students[i];
@@ -48,7 +50,8 @@ Student** Student::Create_Students(const char* path) {
                 if (buf[i] != ' ') {
                     line += buf[i];
                 }
-                else {
+                else 
+                {
                     switch (count) {
                     case 0:
                         students[countStudents]->id = atoi(line.c_str());
@@ -77,7 +80,8 @@ Student** Student::Create_Students(const char* path) {
         }
         amountStudents = countStudents;
     }
-    else {
+    else 
+    {
         code = 1;
         return NULL;
     }
@@ -119,13 +123,11 @@ void Student::PrintStatistic() {
     std::cout << "Id: " << id << endl;
     std::cout << "Marks: ";
     for (int i = 0; i < amountMarks; i++) {
-
         cout << marks[i];
     }
     std::cout << endl;
     std::cout << "sName: ";
     for (unsigned int i = 0; i < sName.length(); i++) {
-
          std::cout << sName[i];
     }
     std::cout << endl;
