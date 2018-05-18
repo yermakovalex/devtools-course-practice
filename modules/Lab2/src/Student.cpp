@@ -2,7 +2,7 @@
 #include"include/Student.h"
 #include<string>
 
-ifstream *file;
+std::ifstream *file;
 
 int Student::amountStudents = 0;
 int Student::code = 0;
@@ -37,8 +37,8 @@ Student** Student::Create_Students(const char* path) {
     code = 0;
     file = new ifstream(path);
     if (file->is_open()) {
-        string buf;
-        string line;
+        std::string buf;
+        std::string line;
         int count = 0;
         int countStudents = 0;
 
@@ -90,7 +90,7 @@ void Student::Delete_All_Students() {
 }
 
 Student::Student(int id, int amountmarks,
-int * marks, string sName, string group) {
+int * marks, std::string sName, std::string group) {
     this->id = id;
     this->amountMarks = amountmarks;
     this->marks = new int[amountmarks];
@@ -137,7 +137,7 @@ void Student::PrintStatistic() {
     std::cout << "---------------------------------------------" << endl;
 }
 
-string Student::GetGroup(int id) {
+std::string Student::GetGroup(int id) {
     int i;
     for (i = 0; i < amountStudents; i++)
         if (students[i]->id == id)

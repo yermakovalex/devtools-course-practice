@@ -22,10 +22,10 @@ TEST(Student, can_create_default_student) {
 TEST(Student, can_get_group) {
     int marks[] = { 2, 4, 5 };
     bool eq = true;
-    string res = "123";
+    std::string res = "123";
     Student st(1, 2, marks, "Volickov", res);
 
-    string gr = Student::GetGroup(1);
+    std::string gr = Student::GetGroup(1);
     for (int i = 0; i < gr.length(); i++)
         if (gr[i] != res[i])
            eq = false;

@@ -14,8 +14,8 @@ class Student {
     int id;
     int amountMarks;
     int* marks;
-    string sName;
-    string group;
+    std::string sName;
+    std::string group;
     static Student** students;
     static void CreateMemory(int size);
  public:
@@ -26,10 +26,10 @@ class Student {
     float GetId() { return id; }
     static Student** Create_Students(const char* path);
     static void Delete_All_Students();
-    explicit Student(int = 0, int = 0, int* = 0, string = "", string = "");
+    explicit Student(int = 0, int = 0, int* = 0, std::string = "", std::string = "");
     float CalculateMediumMark();
     void PrintStatistic();
-    static string GetGroup(int id);
+    static std::string GetGroup(int id);
     void PrintStatus();
 };
 
