@@ -20,7 +20,7 @@ TEST(Student, can_create_default_student) {
 }
 
 TEST(Student, can_get_group) {
-	int marks[] = { 2, 4, 5 };
+    int marks[] = { 2, 4, 5 };
     bool eq = true;
     string res = "123";
     Student st(1, 2, marks, "Volickov", res);

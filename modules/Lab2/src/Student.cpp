@@ -17,8 +17,7 @@ void Student::CreateMemory(int amountStudents) {
             students = new Student*[lenght];
             for (int i = 0; i < lenght; i++)
                  students[i] = new Student();
-        }
-   else {
+    } else {
             Student** buf = new Student*[amountStudents];
             for (int i = 0; i < amountStudents; i++)
                 buf[i] = students[i];
