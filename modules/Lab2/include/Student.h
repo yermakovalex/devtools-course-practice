@@ -9,23 +9,22 @@
 
 const int MAX = 255;
 
-class Student
-{
-private:
+class Student {
+ private:
     int id;
     int amountMarks;
     int* marks;
     string sName;
     string group;
     static Student** students;
-    static void CreateMemory(int);
-public:
+    static void CreateMemory(int size);
+ public:
     static int delta;
     static int code;
     static int amountStudents;
 
-    float GetId() { return id; };
-    static Student** Create_Students(const char*);
+    float GetId() { return id; }
+    static Student** Create_Students(const char* path);
     static void Delete_All_Students();
     Student(int = 0, int = 0, int* = 0, string = "", string = "");
     float CalculateMediumMark();
@@ -35,4 +34,4 @@ public:
 };
 
 
-#endif // STUDENT_H_INCLUDED
+#endif  // MODULES_LAB2_INCLUDE_STUDENT_H_
