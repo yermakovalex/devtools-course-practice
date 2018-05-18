@@ -49,9 +49,7 @@ TEST(Student, can_not_student_create_from_wrong_file) {
 }
 
 TEST(Student, can_student_create_from_right_file) {
-    Student::Create_Students("Students.txt");
-
-    EXPECT_EQ(Student::code, 0);
+    ASSERT_NO_THROW(Student::Create_Students("Students.txt"));
 }
 
 TEST(Student, can_delete_students) {
