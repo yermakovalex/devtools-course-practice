@@ -26,7 +26,8 @@ class Student {
     float GetId() { return id; }
     static Student** Create_Students(const char* path);
     static void Delete_All_Students();
-    explicit Student(int = 0, int = 0, int* = 0, std::string = "", std::string = "");
+    explicit Student(int = 0, int = 0, int* = 0,
+    std::string = "", std::string = "");
     float CalculateMediumMark();
     void PrintStatistic();
     static std::string GetGroup(int id);
