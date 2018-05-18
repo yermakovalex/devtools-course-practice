@@ -47,8 +47,7 @@ Student** Student::Create_Students(const char* path) {
             for (unsigned int i = 0; i < buf.length(); i++) {
                 if (buf[i] != ' ') {
                     line += buf[i];
-                }
-                else {
+                } else {
                     switch (count) {
                     case 0:
                         students[countStudents]->id = atoi(line.c_str());
@@ -76,8 +75,7 @@ Student** Student::Create_Students(const char* path) {
             line = "";
         }
         amountStudents = countStudents;
-    }
-    else {
+    } else {
         code = 1;
         return NULL;
     }
@@ -91,7 +89,8 @@ void Student::Delete_All_Students() {
     amountStudents = 0;
 }
 
-Student::Student(int id, int amountmarks, int * marks, string sName, string group) {
+Student::Student(int id, int amountmarks,
+int * marks, string sName, string group) {
     this->id = id;
     this->amountMarks = amountmarks;
     this->marks = new int[amountmarks];
