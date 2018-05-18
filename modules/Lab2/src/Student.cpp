@@ -92,6 +92,8 @@ void Student::Delete_All_Students() {
 Student::Student(int id, int amountmarks,
 int * marks, std::string sName, std::string group) {
     this->id = id;
+    if (amountmarks < 0)
+        amountmarks = 0;
     this->amountMarks = amountmarks;
     this->marks = new int[amountmarks];
     for (int i = 0; i < amountmarks; i++)

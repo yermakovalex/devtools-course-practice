@@ -48,13 +48,12 @@ TEST(Student, can_not_student_create_from_wrong_file) {
     EXPECT_EQ(Student::code, 1);
 }
 
-TEST(Student, can_student_create_from_right_file) {
-    ASSERT_NO_THROW(Student::Create_Students("Students.txt"));
+TEST(Student, can_create_student_with_negative_amountMark) {
+	Student st(1, -1);
+
+    EXPECT_EQ(st.GetAmountMarks(), 0);
 }
 
-TEST(Student, can_delete_students) {
-    Student::Create_Students("Students.txt");
-
-    ASSERT_NO_THROW(Student::Delete_All_Students());
-    system("pause");
+TEST(Student, can_create_student_from_right_file) {
+	ASSERT_NO_THROW(Student::Create_Students("Students.txt"));
 }

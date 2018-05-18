@@ -24,6 +24,7 @@ class Student {
     static int amountStudents;
 
     float GetId() { return id; }
+    int GetAmountMarks() { return amountMarks; }
     static Student** Create_Students(const char* path);
     static void Delete_All_Students();
     explicit Student(int = 0, int = 0, int* = 0,
