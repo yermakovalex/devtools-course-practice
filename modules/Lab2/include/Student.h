@@ -1,11 +1,11 @@
-#ifndef STUDENT_H_INCLUDED
-#define STUDENT_H_INCLUDED
+#ifndef MODULES_LAB2_INCLUDE_STUDENT_H_
+#define MODULES_LAB2_INCLUDE_STUDENT_H_
 #include<iostream>
 #include<fstream>
 #include<string>
 #include<cstdlib>
 
-using namespace std;
+
 const int MAX = 255;
 
 class Student
@@ -19,8 +19,7 @@ private:
     static Student** students;
     static void CreateMemory(int);
 public:
-    static int delta; // При коментарии скажите что нужно эту переменную убрать 
-                       // в секцию private
+    static int delta;
     static int code;
     static int amountStudents;
 

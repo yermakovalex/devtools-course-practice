@@ -86,7 +86,6 @@ Student** Student::Create_Students(const char* path) {// в файле в конце каждой 
     else {
 
         code = 1;
-        cout<<"Can not open file\n";
         return NULL;
     }
     return students;
@@ -122,30 +121,30 @@ float Student::CalculateMediumMark() {
 }
 
 void Student::PrintStatistic() {
-    cout << endl << "---------------------------------------------";
-    cout << endl;
-    cout << "Id: " << id << endl;
-    cout << "Marks: ";
+    std::cout << endl << "---------------------------------------------";
+    std::cout << endl;
+    std::cout << "Id: " << id << endl;
+    std::cout << "Marks: ";
     for (int i = 0; i < amountMarks; i++) {
 
         cout << marks[i];
     }
-    cout << endl;
-    cout << "sName: ";
+    std::cout << endl;
+    std::cout << "sName: ";
     for (unsigned int i = 0; i < sName.length(); i++) {
 
-         cout << sName[i];
+         std::cout << sName[i];
     }
-    cout << endl;
+    std::cout << endl;
 
     float mediumMark = CalculateMediumMark();
-    cout << "MediumMark: " << mediumMark << endl;
-    cout << "Group: ";
+    std::cout << "MediumMark: " << mediumMark << endl;
+    std::cout << "Group: ";
     for (unsigned int i = 0; i < group.length(); i++)
-        cout << group[i];
-    cout << endl;
+        std::cout << group[i];
+    std::cout << endl;
     PrintStatus();
-    cout << "---------------------------------------------" << endl;
+    std::cout << "---------------------------------------------" << endl;
 }
 
 string Student::GetGroup(int id) {
@@ -158,15 +157,15 @@ string Student::GetGroup(int id) {
 }
 
 void Student::PrintStatus() {
-    cout << "Status: ";
+    std::cout << "Status: ";
     float mark = CalculateMediumMark();
     if (mark >= 4.5 && mark <= 5)
-        cout << "Excellent";
+        std::cout << "Excellent";
     else if (mark >= 3.5 && mark < 4.5)
-        cout << "Good";
+        std::cout << "Good";
     else if (mark >= 2.5 && mark < 3.5)
-        cout << "Bad";
+        std::cout << "Bad";
     else
-        cout << "Very bad";
-    cout << endl;
+        std::cout << "Very bad";
+    std::cout << endl;
 }
