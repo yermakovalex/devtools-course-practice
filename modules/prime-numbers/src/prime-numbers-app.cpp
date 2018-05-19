@@ -1,13 +1,13 @@
 // Copyright 2018 Kudalin Roman
 
-#include "include/PrimeNumbers.h"
-#include "include/prime-numbers-app.h"
-
 #include <string>
 #include <exception>
 #include <sstream>
 #include <fstream>
 #include <vector>
+
+#include "include/PrimeNumbers.h"
+#include "include/prime-numbers-app.h"
 
 PrimeNumbersApp::PrimeNumbersApp() : message_("") {}
 
