@@ -26,7 +26,7 @@ class Student {
     float CalculateMediumMark();
     void PrintStatistic();
     void PrintStatus();
-	Student operator=(const Student& st);
+    Student operator=(const Student& st);
 };
 
 

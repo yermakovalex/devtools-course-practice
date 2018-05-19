@@ -77,7 +77,7 @@ Student Student::operator=(const Student & st) {
     sName = st.sName;
     group = st.group;
     code = st.code;
-    
+
     for (int i = 0; i < amountMarks; i++)
         marks[i] = st.marks[i];
 
