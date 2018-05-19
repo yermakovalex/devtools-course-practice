@@ -1,7 +1,14 @@
-#include <iostream>
+// Copyright 2018 Kudalin Roman
 
-int main()
-{
-	std::cout << "Hello, world!" << std::endl;
-	return 0;
+#include <string>
+#include <stdio.h>
+
+#include "include/prime-numbers-app.h"
+
+int main(int argc, const char** argv) {
+    PrimeNumbersApp app;
+    std::string output = app(argc, argv);
+    printf("%s\n", output.c_str());
+    return 0;
 }
+
