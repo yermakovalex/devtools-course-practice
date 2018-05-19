@@ -71,5 +71,4 @@ TEST(Student, can_print_status) {
     st3.PrintStatus();
 
     EXPECT_EQ(st3.code, 0);
-	system("pause");
 }
