@@ -59,12 +59,17 @@ TEST(Student, can_copy_student) {
 TEST(Student, can_print_status) {
     int marks[] = { 2 };
     Student st(1, 1, marks, "Matyasov", "381608-2");
+    st.PrintStatus();
     int marks1[] = { 3 };
-    Student st1(1, 1, marks, "Matyasov", "381608-2");
+    Student st1(1, 1, marks1, "Matyasov", "381608-2");
+    st1.PrintStatus();
     int marks2[] = { 4 };
-    Student st2(1, 1, marks, "Matyasov", "381608-2");
+    Student st2(1, 1, marks2, "Matyasov", "381608-2");
+    st2.PrintStatus();
     int marks3[] = { 5 };
-    Student st3(1, 1, marks, "Matyasov", "381608-2");
+    Student st3(1, 1, marks3, "Matyasov", "381608-2");
+    st3.PrintStatus();
 
     EXPECT_EQ(st3.code, 0);
+	system("pause");
 }
