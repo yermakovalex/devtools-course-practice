@@ -17,7 +17,7 @@ class PrimeNumbersApp {
     typedef struct {
         int left_border;
         int right_border;
-        char* output_file_name;
+        const char* output_file_name;
     } Arguments;
 };
 
