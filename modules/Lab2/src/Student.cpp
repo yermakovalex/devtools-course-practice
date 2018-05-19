@@ -1,5 +1,5 @@
 // Copyright 2018 Matyasov Mixail
-#include"Student.h"
+#include"include/Student.h"
 #include<string>
 
 int Student::amountStudents = 0;
