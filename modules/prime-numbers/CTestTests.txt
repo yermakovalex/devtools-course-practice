@@ -55,7 +55,7 @@ add_test(
     NAME ${prefix}_can_Detect_If_Right_Border_Is_Less_Than_Left
     COMMAND ${APPLICATION} 1000 100 out.txt
 )
-set_tests_properties (${prefix}_can_Detect_If_Right_Border_Is_Less_Than_Left ROPERTIES
+set_tests_properties (${prefix}_can_Detect_If_Right_Border_Is_Less_Than_Left PROPERTIES
     PASS_REGULAR_EXPRESSION "Error! Max can't be less than min!"
     LABELS "${MODULE}")
 
