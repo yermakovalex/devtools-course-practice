@@ -1,7 +1,7 @@
 // Copyright 2018 Matyasov Mixail
 #include <gtest/gtest.h>
 #include <string>
-#include "include/Student.h"
+#include "Student.h"
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
@@ -9,28 +9,24 @@ int main(int argc, char **argv) {
 }
 
 
-TEST(Student, can_create_student) {
-    ASSERT_NO_THROW(Student s);
+TEST(Student, can_create_student_with_negative_amount_marks) {
+    int marks[] = { 2, 4, 5, 2, 5, 5 };
+    Student st(1, -1, marks, "Matyasov", "381608-2");
+
+    EXPECT_EQ(st.GetAmountMarks(), 0);
+}
+
+TEST(Student, can_create_student_with_large_amount_marks) {
+    int marks[] = { 2, 4, 5, 2, 5, 5 };
+    Student st(1, MAX + 1, marks, "Matyasov", "381608-2");
+
+    EXPECT_EQ(st.GetAmountMarks(), MAX);
 }
 
 TEST(Student, can_create_default_student) {
     Student s;
 
     EXPECT_EQ(s.GetId(), 0);
-}
-
-TEST(Student, can_get_group) {
-    int marks[] = { 2, 4, 5 };
-    bool eq = true;
-    std::string res = "123";
-    Student st(1, 2, marks, "Volickov", res);
-
-    std::string gr = Student::GetGroup(1);
-    for (unsigned int i = 0; i < gr.length(); i++)
-        if (gr[i] != res[i])
-           eq = false;
-
-    EXPECT_TRUE(eq);
 }
 
 TEST(Student, can_calculate_medium_mark) {
@@ -42,18 +38,19 @@ TEST(Student, can_calculate_medium_mark) {
     EXPECT_EQ(mark, (2 + 4 + 5) / (float)3);
 }
 
-TEST(Student, can_not_student_create_from_wrong_file) {
-    Student::Create_Students("123");
+TEST(Student, can_print_statistic) {
+    int marks[] = { 2, 4, 5, 2, 5, 5 };
+    Student st(1, 6, marks, "Matyasov", "381608-2");
 
-    EXPECT_EQ(Student::code, 1);
+    st.PrintStatistic();
+
+    EXPECT_EQ(st.code, 0);
 }
 
-TEST(Student, can_create_student_with_negative_amountMark) {
-    Student st(1, -1);
+TEST(Student, can_copy_student) {
+    int marks[] = { 2, 4, 5, 2, 5, 5 };
+    Student st(1, 6, marks, "Matyasov", "381608-2");
+    Student stud = st;
 
-    EXPECT_EQ(st.GetAmountMarks(), 0);
-}
-
-TEST(Student, can_create_student_from_right_file) {
-    ASSERT_NO_THROW(Student::Create_Students("Students.txt"));
+    EXPECT_EQ(stud.GetId(), 1);
 }
