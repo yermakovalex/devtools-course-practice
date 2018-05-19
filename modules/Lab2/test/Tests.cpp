@@ -50,7 +50,21 @@ TEST(Student, can_print_statistic) {
 TEST(Student, can_copy_student) {
     int marks[] = { 2, 4, 5, 2, 5, 5 };
     Student st(1, 6, marks, "Matyasov", "381608-2");
-    Student stud = st;
+    Student stud;
+    stud = st;
 
     EXPECT_EQ(stud.GetId(), 1);
+}
+
+TEST(Student, can_print_status) {
+    int marks[] = { 2 };
+    Student st(1, 1, marks, "Matyasov", "381608-2");
+    int marks1[] = { 3 };
+    Student st1(1, 1, marks, "Matyasov", "381608-2");
+    int marks2[] = { 4 };
+    Student st2(1, 1, marks, "Matyasov", "381608-2");
+    int marks3[] = { 5 };
+    Student st3(1, 1, marks, "Matyasov", "381608-2");
+
+    EXPECT_EQ(st3.code, 0);
 }
