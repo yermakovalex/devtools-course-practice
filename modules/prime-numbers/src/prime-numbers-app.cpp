@@ -3,10 +3,6 @@
 #include "include/PrimeNumbers.h"
 #include "include/prime-numbers-app.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
 #include <string>
 #include <exception>
 #include <sstream>
