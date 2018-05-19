@@ -10,8 +10,8 @@ int * marks, std::string sName, std::string group) {
     this->id = id;
     if (amountmarks < 0)
         amountmarks = 0;
-	if (amountmarks > MAX)
-		amountmarks = MAX;
+    if (amountmarks > MAX)
+        amountmarks = MAX;
     for (int i = 0; i < amountmarks; i++)
         this->marks[i] = marks[i];
     this->sName = sName;
@@ -79,7 +79,7 @@ Student Student::operator=(const Student & st) {
     code = st.code;
     
     for (int i = 0; i < amountMarks; i++)
-        marks[i] = st.marks[i];	
+        marks[i] = st.marks[i];
 
-	return *this;
+    return *this;
 }
