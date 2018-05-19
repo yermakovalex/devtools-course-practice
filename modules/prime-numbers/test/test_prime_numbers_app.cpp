@@ -62,7 +62,7 @@ TEST_F(PrimeNumbersAppTest, Can_Detect_Wrong_Number_Format) {
     
     Act(args);
 
-    Assert("invalid stoi argument");
+    Assert("Wrong format or value is out of range");
 }
 
 TEST_F(PrimeNumbersAppTest, Can_Detect_Integer_Overflow) {
@@ -71,7 +71,7 @@ TEST_F(PrimeNumbersAppTest, Can_Detect_Integer_Overflow) {
 
     Act(args);
 
-    Assert("stoi argument out of range");
+    Assert("Wrong format or value is out of range");
 }
 
 TEST_F(PrimeNumbersAppTest, Can_Detect_Negative_Left_Border) {
@@ -99,7 +99,7 @@ TEST_F(PrimeNumbersAppTest, Can_Save_Found_Numbers_To_File) {
 }
 
 TEST_F(PrimeNumbersAppTest, Do_Print_Error_If_File_Cannot_Be_Opened) {
-    vector<string> args = {"2", "10", "C:\\\\"};
+    vector<string> args = {"2", "10", "Nonexistent:\\/"};
 
     Act(args);
 

@@ -32,7 +32,7 @@ add_test(
     COMMAND ${APPLICATION} aa bb out.txt
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "invalid stoi argument"
+    PASS_REGULAR_EXPRESSION "Wrong format or value is out of range"
     LABELS "${MODULE}")
 
 add_test(
@@ -40,7 +40,7 @@ add_test(
     COMMAND ${APPLICATION} 999999999999999 9999999999999999 out.txt
 )
 set_tests_properties (${prefix}_can_Detect_Integer_Overflow PROPERTIES
-    PASS_REGULAR_EXPRESSION "stoi argument out of range"
+    PASS_REGULAR_EXPRESSION "Wrong format or value is out of range"
     LABELS "${MODULE}")
 
 add_test(
@@ -69,7 +69,7 @@ set_tests_properties (${prefix}_can_Save_Found_Numbers_To_File PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Print_Error_If_File_Cannot_Be_Opened
-    COMMAND ${APPLICATION} 10 20 C:\\\\
+    COMMAND ${APPLICATION} 10 20 nonexistent:\\/
 )
 set_tests_properties (${prefix}_can_Print_Error_If_File_Cannot_Be_Opened PROPERTIES
     PASS_REGULAR_EXPRESSION "Cannot open"

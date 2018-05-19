@@ -52,7 +52,7 @@ std::string PrimeNumbersApp::operator()(int argc, const char** argv) {
         args.output_file_name = argv[3];
     }
     catch (std::exception& exc) {
-        return std::string(exc.what());
+        return std::string("Wrong format or value is out of range");
     }
 
     try {
