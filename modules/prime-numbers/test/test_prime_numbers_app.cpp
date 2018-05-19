@@ -59,7 +59,7 @@ TEST_F(PrimeNumbersAppTest, Is_Checking_Number_Of_Arguments) {
 
 TEST_F(PrimeNumbersAppTest, Can_Detect_Wrong_Number_Format) {
     vector<string> args = {"aa", "bb", "out.txt"};
-    
+
     Act(args);
 
     Assert("Wrong format or value is out of range");

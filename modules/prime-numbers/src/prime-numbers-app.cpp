@@ -3,10 +3,15 @@
 #include "include/PrimeNumbers.h"
 #include "include/prime-numbers-app.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
 #include <string>
 #include <exception>
 #include <sstream>
 #include <fstream>
+#include <vector>
 
 PrimeNumbersApp::PrimeNumbersApp() : message_("") {}
 
@@ -69,8 +74,7 @@ std::string PrimeNumbersApp::operator()(int argc, const char** argv) {
 
             stream << "Successfully written to " <<
                 args.output_file_name;
-        }
-        else {
+        } else {
             stream << "Cannot open " << args.output_file_name;
         }
         message_ = stream.str();
