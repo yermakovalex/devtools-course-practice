@@ -26,8 +26,7 @@ bool BooksApplication::ValidateNumberOfArguments(int argc, const char ** argv) {
     if (argc == 1) {
         Help(argv[0]);
         return false;
-    }
-    else if (argc != 7) {
+    } else if (argc != 7) {
         Help(argv[0], "ERROR: Should be 6 arguments.\n\n");
         return false;
     }
@@ -64,9 +63,9 @@ std::string BooksApplication::operator()(int argc, const char ** argv) {
             output_file_stream.close();
 
             stream << "Successfully written to " << args.output_file_name;
-        }
-        else 
+        } else {
             stream << "Cannot open " << args.output_file_name;
+        }
 
         message_ = stream.str();
         return message_;
