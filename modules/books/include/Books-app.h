@@ -1,7 +1,7 @@
 // Copyright 2018 Kozorez Alexandr
 
-#ifndef BOOKS_CLASS_INCLUDE_APPLICATION_H_
-#define BOOKS_CLASS_INCLUDE_APPLICATION_H_
+#ifndef MODULES_BOOKS_INCLUDE_BOOKS_APP_H_
+#define MODULES_BOOKS_INCLUDE_BOOKS_APP_H_
 
 #include <string>
 
@@ -19,4 +19,4 @@ class BooksApplication {
     } Arguments;
 };
 
-#endif  // !BOOKS_CLASS_INCLUDE_APPLICATION_H_
+#endif  // !MODULES_BOOKS_INCLUDE_BOOKS_APP_H_
