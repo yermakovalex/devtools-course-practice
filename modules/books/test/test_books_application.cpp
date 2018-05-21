@@ -73,14 +73,6 @@ TEST_F(BooksApplicationTest, Can_Detect_Wrong_Operation_Format) {
 	Assert("Wrong format or value is out of range");
 }
 
-TEST_F(BooksApplicationTest, Can_Detect_Negative_Number_Of_Books) {
-	vector<string> args = { "-1", "2", "2", "2", "2", "out.txt" };
-
-	Act(args);
-
-	Assert("Error! Negative books can't be calculated!");
-}
-
 TEST_F(BooksApplicationTest, Can_Save_Found_Numbers_To_File) {
 	vector<string> args = { "1", "2", "2", "2", "2", "out.txt" };
 

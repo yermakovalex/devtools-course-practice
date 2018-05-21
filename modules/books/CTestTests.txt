@@ -44,14 +44,6 @@ set_tests_properties (${prefix}_can_Detect_Integer_Overflow PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Negative_Number_Of_Books
-    COMMAND ${APPLICATION} -1 2 2 2 2 out.txt
-)
-set_tests_properties (${prefix}_can_Detect_Negative_Number_Of_Books PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error! Negative books can't be calculated!"
-    LABELS "${MODULE}")
-
-add_test(
     NAME ${prefix}_can_Save_Found_Numbers_To_File
     COMMAND ${APPLICATION} 1 2 2 2 2 out.txt
 )
