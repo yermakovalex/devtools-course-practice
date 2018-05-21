@@ -53,7 +53,6 @@ std::string BooksApplication::operator()(int argc, const char ** argv) {
         return std::string("Wrong format or value is out of range");
     }
 
-    try {
         Books books_area(5, args.books);
         std::ostringstream stream;
         std::ofstream output_file_stream(args.output_file_name);
@@ -69,8 +68,4 @@ std::string BooksApplication::operator()(int argc, const char ** argv) {
 
         message_ = stream.str();
         return message_;
-    }
-    catch (const char* exc) {
-        return std::string(exc);
-    }
 }
