@@ -64,10 +64,8 @@ std::string BooksApplication::operator()(int argc, const char ** argv) {
 
         message_ = stream.str();
         return message_;
-
     }
     catch (std::exception& exc) {
         return std::string("Wrong format or value is out of range");
     }
-
 }
