@@ -5,7 +5,7 @@
 #include <sstream>
 #include <fstream>
 
-#include "include/Books.h";
+#include "include/Books.h"
 #include "include/Books-app.h"
 
 BooksApplication::BooksApplication() : message_("") {}
