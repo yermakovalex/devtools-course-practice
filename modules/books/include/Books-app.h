@@ -19,4 +19,4 @@ class BooksApplication {
     } Arguments;
 };
 
-#endif  // !MODULES_BOOKS_INCLUDE_BOOKS_APP_H_
+#endif  // MODULES_BOOKS_INCLUDE_BOOKS_APP_H_
