@@ -75,14 +75,14 @@ TEST_F(HypothecCalculatorAppTest, Can_Detect_Float_Overflow) {
 }
 
 TEST_F(HypothecCalculatorAppTest, Can_Detect_Negative_Numbers) {
-    vector<string> args = {"-1000", "0", "-6", "-10", "out.txt"};
+    vector<string> args = {"-1000", "0", "6", "10", "out.txt"};
 
     Act(args);
 
     Assert("Error! Negative numbers!");
 }
 
-TEST_F(HypothecCalculatorAppTest, Can_Save_Found_Numbers_To_File) {
+TEST_F(HypothecCalculatorAppTest, Can_Save_Result_To_File) {
     vector<string> args = {"1000", "0", "6", "10", "out.txt"};
 
     Act(args);
@@ -90,8 +90,8 @@ TEST_F(HypothecCalculatorAppTest, Can_Save_Found_Numbers_To_File) {
     Assert("Successfully written to.*");
 }
 
-TEST_F(HypothecCalculatorAppTest, Can_Print_Error_If_File_Cannot_Be_Opened) {
-    vector<string> args = {"1000", "0", "6", "10", "wefsdrf43245:\\/"};
+TEST_F(HypothecCalculatorAppTest, Do_Print_Error_If_File_Cannot_Be_Opened) {
+    vector<string> args = {"1000", "0", "6", "10", "Nonexistent:\\/"};
 
     Act(args);
 

@@ -45,23 +45,23 @@ set_tests_properties (${prefix}_can_Detect_Float_Overflow PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Detect_Negative_Numbers
-    COMMAND ${APPLICATION} -1000 0 -6 -10 out.txt
+    COMMAND ${APPLICATION} -1000 0 6 10 out.txt
 )
 set_tests_properties (${prefix}_can_Detect_Negative_Numbers PROPERTIES
     PASS_REGULAR_EXPRESSION "Error! Negative numbers!"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Save_Found_Numbers_To_File
+    NAME ${prefix}_can_Save_Result_To_File
     COMMAND ${APPLICATION} 1000 0 6 10 out.txt
 )
-set_tests_properties (${prefix}_can_Save_Found_Numbers_To_File PROPERTIES
+set_tests_properties (${prefix}_can_Save_Result_To_File PROPERTIES
     PASS_REGULAR_EXPRESSION "Successfully written to"
     LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Print_Error_If_File_Cannot_Be_Opened
-    COMMAND ${APPLICATION} 1000 0 6 10 wefsdrf43245:\\/
+    COMMAND ${APPLICATION} 1000 0 6 10 Nonexistent:\\/
 )
 set_tests_properties (${prefix}_can_Print_Error_If_File_Cannot_Be_Opened PROPERTIES
     PASS_REGULAR_EXPRESSION "Cannot open"
