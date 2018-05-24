@@ -3,12 +3,10 @@
 #include "include/hypothec_calculator.h"
 #include "include/hypothec_calculator_app.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
 #include <string>
+#include <exception>
 #include <sstream>
+#include <fstream>
 
 HypothecCalculatorApp::HypothecCalculatorApp() : message_("") {}
 
