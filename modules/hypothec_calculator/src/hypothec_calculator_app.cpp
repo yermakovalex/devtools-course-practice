@@ -13,18 +13,16 @@ HypothecCalculatorApp::HypothecCalculatorApp() : message_("") {}
 void HypothecCalculatorApp::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
-          "This is a hypothec calculator application.\n\n" +
-          "Please provide arguments in the following format:\n\n"+
+        "This is a hypothec calculator application.\n\n" +
+        "Please provide arguments in the following format:\n\n" +
 
-          "  $ " + appname + " <apartments_cost> <an_initial_fee> " +
-          "<credit_term_in_month> <interest_rate_in_month>" +
-          "<output_file_name>\n\n" +
+        "  $ " + appname + " <apartments_cost> <an_initial_fee> " +
+        "<credit_term_in_month> <interest_rate_in_month>" +
+        "<output_file_name>\n\n" +
 
-          "Where the first, second and forth arguments are non-negative " +
-          "floating point numbers, " + " and the third one is " +
-          "non-negative integer" +
-          "and and <output_file_name> is the filename where you " +
-          "want to save your result.\n";
+        "Where the first, second and forth arguments are non-negative " +
+        "floating point numbers, " + " and the third one is " +
+        "non-negative integer.\n";
 }
 
 bool HypothecCalculatorApp::validateNumberOfArguments
@@ -32,8 +30,8 @@ bool HypothecCalculatorApp::validateNumberOfArguments
     if (argc == 1) {
         help(argv[0]);
         return false;
-    } else if (argc != 6) {
-        help(argv[0], "ERROR: Should be 5 arguments.\n\n");
+    } else if (argc != 5) {
+        help(argv[0], "ERROR: Should be 4 arguments.\n\n");
         return false;
     }
     return true;
@@ -60,7 +58,6 @@ std::string HypothecCalculatorApp::operator()(int argc, const char** argv) {
         args.an_initial_fee         = parseFloat(argv[2]);
         args.credit_term_in_month   = parseInt(argv[3]);
         args.interest_rate_in_month = parseFloat(argv[4]);
-        args.output_file_name       = argv[3];
     }
     catch (std::exception& exc) {
         return std::string("Wrong format or value is out of range");
@@ -71,16 +68,8 @@ std::string HypothecCalculatorApp::operator()(int argc, const char** argv) {
             args.credit_term_in_month, args.interest_rate_in_month);
 
         std::ostringstream stream;
-        std::ofstream output_file_stream(args.output_file_name);
-
-        if (output_file_stream.is_open()) {
-            output_file_stream << hc.return_final_amount_of_payment();
-            output_file_stream.close();
-                stream << "Successfully written to " << args.output_file_name;
-        } else {
-            stream << "Cannot open " << args.output_file_name;
-        }
-
+        hc.return_final_amount_of_payment();
+            
         message_ = stream.str();
         return message_;
         }

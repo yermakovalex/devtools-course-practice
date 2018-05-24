@@ -54,11 +54,11 @@ TEST_F(HypothecCalculatorAppTest, Is_Checking_Number_Of_Arguments) {
 
     Act(args);
 
-    Assert("ERROR: Should be 5 arguments\\..*");
+    Assert("ERROR: Should be 4 arguments\\..*");
 }
 
 TEST_F(HypothecCalculatorAppTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = {"aa", "bb", "cc", "dd", "out.txt"};
+    vector<string> args = {"aa", "bb", "cc", "dd"};
 
     Act(args);
 
@@ -67,33 +67,9 @@ TEST_F(HypothecCalculatorAppTest, Can_Detect_Wrong_Number_Format) {
 
 TEST_F(HypothecCalculatorAppTest, Can_Detect_Float_Overflow) {
     vector<string> args = {"99999999999999999999", "99999999999999999999",
-        "99999999999999999999", "99999999999999999999", "out.txt"};
+        "99999999999999999999", "99999999999999999999"};
 
         Act(args);
 
         Assert("Wrong format or value is out of range");
-}
-
-TEST_F(HypothecCalculatorAppTest, Can_Detect_Negative_Numbers) {
-    vector<string> args = {"-1000", "0", "6", "10", "out.txt"};
-
-    Act(args);
-
-    Assert("Error! Negative numbers!");
-}
-
-TEST_F(HypothecCalculatorAppTest, Can_Save_Result_To_File) {
-    vector<string> args = {"1000", "0", "6", "10", "out.txt"};
-
-    Act(args);
-
-    Assert("Successfully written to.*");
-}
-
-TEST_F(HypothecCalculatorAppTest, Do_Print_Error_If_File_Cannot_Be_Opened) {
-    vector<string> args = {"1000", "0", "6", "10", "Nonexistent:\\/"};
-
-    Act(args);
-
-    Assert("Cannot open.*");
 }
