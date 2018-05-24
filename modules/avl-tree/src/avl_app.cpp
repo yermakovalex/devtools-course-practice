@@ -10,8 +10,6 @@
 #include <string>
 #include <sstream>
 
-using namespace std;
-
 AVL_App::AVL_App() : message_("") {}
 
 void AVL_App::help(const char* appname, const char* message) {
@@ -21,9 +19,9 @@ void AVL_App::help(const char* appname, const char* message) {
     "Please provide arguments in the following format:\n\n" +
 
     "  $ " + appname + "\n<count of nodes> <first_key> , <second_key> " +
-    "<third_key> and e.t.c.\n\n" +
+    "<third_key> and e.t.c.\n\n";
 
-    "While all arguments numbers type of int, " +
+    message += "While all arguments numbers type of int, " +
     "AVL Tree makes right \n" +
     "Then put one of the operation:\n" +
     "1) + - Add node in tree, put key then\n" +
@@ -31,8 +29,7 @@ void AVL_App::help(const char* appname, const char* message) {
     "3) fmin - Find node with min key in tree\n" +
     "4) min- -  Remove node with min key tree\n" +
     "5) search - Search node in treeput key then\n" +
-    "example: 3 4 5 2 fmin\n";
-		
+    "example: 3 4 5 2 fmin\n";	
 }
 
 bool AVL_App::validateNumberOfArguments(int argc, const char** argv) {
@@ -60,40 +57,34 @@ int parseOperation(const char* arg) {
     int op;
     if (strcmp(arg, "+") == 0) {
         op = 0;
-    }
-    else if (strcmp(arg, "-") == 0) {
+    } else if (strcmp(arg, "-") == 0) {
         op = 1;
-    }
-    else if (strcmp(arg, "fmin") == 0) {
+    } else if (strcmp(arg, "fmin") == 0) {
         op = 2;
-    }
-    else if (strcmp(arg, "min-") == 0) {
+    } else if (strcmp(arg, "min-") == 0) {
         op = 3;
-    }
-    else if (strcmp(arg, "search") == 0) {
+    } else if (strcmp(arg, "search") == 0) {
         op = 4;
-    }
-    else {
+    } else {
         throw std::string("Wrong operation format!");
     }
     return op;
 }
 
-void Show(AVLNode *node, string &str)
+void Show(AVLNode *node, std::string *str)
 { 
     if (node == NULL)
     {
         return;
     }
     Show(node->left, str);
-    str += to_string(node->key) + " ";
+    str += std::to_string(node->key) + " ";
     Show(node->right, str);
 }
 
-string ShowAVL(AVL &tree)
-{
+std::string ShowAVL(AVL &tree) {
     // Output in ascending order
-    string str;
+    std::string str;
     Show(tree.getRoot(), str);
     return str;
 }
@@ -116,8 +107,7 @@ std::string AVL_App::operator()(int argc, const char** argv) {
     }
 
     try {
-        for (int i = 2; i < 2 + valNode; i++)
-        {
+        for (int i = 2; i < 2 + valNode; i++) {
             int node = parseInt(argv[i]);
             AVL_Tree.insert(AVL_Tree.getRoot(), node);
         }
@@ -128,7 +118,7 @@ std::string AVL_App::operator()(int argc, const char** argv) {
     catch (std::string& str) {
         return str;
     }
-    string str;
+    std::string str;
     std::ostringstream stream;
     switch (op) {
     case Add:
