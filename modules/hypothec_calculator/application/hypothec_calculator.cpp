@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string>
 
-#include "include/hypothec_calculator.h"
+#include "include/hypothec_calculator_app.h"
 
 int main(int argc, const char** argv) {
     HypothecCalculatorApp app;
