@@ -69,7 +69,7 @@ std::string HypothecCalculatorApp::operator()(int argc, const char** argv) {
 
         std::ostringstream stream;
         hc.return_final_amount_of_payment();
-            
+
         message_ = stream.str();
         return message_;
         }
