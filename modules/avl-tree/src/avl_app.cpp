@@ -25,8 +25,8 @@ void AVL_App::help(const char* appname, const char* message) {
     "AVL Tree makes right \n" +
     "Then put one of the operation:\n" +
     "1) + - Add node in tree, put key then\n" +
-    "2) - - Remove node from tree put key then\n" +
-    "3) fmin - Find node with min key in tree\n" +
+    "2) - - Remove node from tree put key then\n";
+    message += "3) fmin - Find node with min key in tree\n" +
     "4) min- -  Remove node with min key tree\n" +
     "5) search - Search node in treeput key then\n" +
     "example: 3 4 5 2 fmin\n";	
@@ -71,10 +71,8 @@ int parseOperation(const char* arg) {
     return op;
 }
 
-void Show(AVLNode *node, std::string *str)
-{ 
-    if (node == NULL)
-    {
+void Show(AVLNode *node, std::string *str) { 
+    if (node == NULL) {
         return;
     }
     Show(node->left, str);
@@ -82,7 +80,7 @@ void Show(AVLNode *node, std::string *str)
     Show(node->right, str);
 }
 
-std::string ShowAVL(AVL &tree) {
+std::string ShowAVL(AVL const &tree) {
     // Output in ascending order
     std::string str;
     Show(tree.getRoot(), str);
