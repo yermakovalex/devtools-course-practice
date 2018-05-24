@@ -1,14 +1,14 @@
 // Copyright 2018 Tarakanov Kirill
 
+#include "include/avl_app.h"
+#include "include/avl_tree.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
-
-#include "include\avl_app.h"
-#include "include\avl_tree.h"
 
 using namespace std;
 
