@@ -77,8 +77,7 @@ std::string HypothecCalculatorApp::operator()(int argc, const char** argv) {
             output_file_stream << hc.return_final_amount_of_payment();
             output_file_stream.close();
                 stream << "Successfully written to " << args.output_file_name;
-        }
-        else {
+        } else {
             stream << "Cannot open " << args.output_file_name;
         }
 

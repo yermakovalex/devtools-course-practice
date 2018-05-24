@@ -1,12 +1,12 @@
 // Copyright 2018 Bederdinov Daniil
-
-#ifndef MODULES_HYPOTHEC_CALCULATOR_INCLUDE_HYPOTHEC_CALCULATOR_APP_H_
-#define MODULES_HYPOTHEC_CALCULATOR_INCLUDE_HYPOTHEC_CALCULATOR_APP_H_
+#pragma once
+// #ifndef MODULES_HYPOTHEC_CALCULATOR_INCLUDE_HYPOTHEC_CALCULATOR_APP_H_
+// #define MODULES_HYPOTHEC_CALCULATOR_INCLUDE_HYPOTHEC_CALCULATOR_APP_H_
 #include <string>
 
 class HypothecCalculatorApp {
  public:
-     HypothecCalculatorApp();
+    HypothecCalculatorApp();
     std::string operator()(int argc, const char** argv);
 
  private:
@@ -22,4 +22,4 @@ class HypothecCalculatorApp {
     } Arguments;
 };
 
-#endif  // MODULES_HYPOTHEC_CALCULATOR_INCLUDE_HYPOTHEC_CALCULATOR_APP_H_
+// #endif  // MODULES_HYPOTHEC_CALCULATOR_INCLUDE_HYPOTHEC_CALCULATOR_APP_H_

@@ -87,7 +87,7 @@ TEST_F(HypothecCalculatorAppTest, Can_Save_Found_Numbers_To_File) {
 
     Act(args);
 
-    Assert("Successfully written to.*"); 
+    Assert("Successfully written to.*");
 }
 
 TEST_F(HypothecCalculatorAppTest, Can_Print_Error_If_File_Cannot_Be_Opened) {
