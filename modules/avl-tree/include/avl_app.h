@@ -18,3 +18,5 @@ class AVL_App {
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
 };
+
+#endif  // MODULES_AVL_TREE_INCLUDE_AVL_APP_H_
