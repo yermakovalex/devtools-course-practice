@@ -7,7 +7,7 @@
 #include "include/hypothec_calculator.h"
 
 int main(int argc, const char** argv) {
-    HypothecCalculator app;
+    HypothecCalculatorApp app;
     std::string output = app(argc, argv);
     printf("%s\n", output.c_str());
     return 0;

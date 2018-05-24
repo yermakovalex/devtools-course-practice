@@ -37,7 +37,7 @@ class HypothecCalculatorAppTest : public ::testing::Test {
     }
 
  private:
-    HypothecCalculator app_;
+    HypothecCalculatorApp app_;
     string output_;
 };
 
