@@ -22,7 +22,8 @@ void DigitsApplication::Help(const char * appname, const char * message) {
         "<output_file_name> is the filename where you want to save result.\n";
 }
 
-bool DigitsApplication::ValidateNumberOfArguments(int argc, const char ** argv) {
+bool DigitsApplication::ValidateNumberOfArguments(int argc,
+    const char ** argv) {
     if (argc == 1) {
         Help(argv[0]);
         return false;
@@ -42,13 +43,11 @@ std::string DigitsApplication::operator()(int argc, const char ** argv) {
     Arguments args;
 
     if (!ValidateNumberOfArguments(argc, argv)) return message_;
-
     try {
-
-	Digits Init;
-	int number = parseInt(argv[1]);
-	args.output_file_name=argv[2];
-	args.digit_str = Init.getNumber(number);
+    Digits Init;
+    int number = parseInt(argv[1]);
+    args.output_file_name = argv[2];
+    args.digit_str = Init.getNumber(number);
 
         std::ostringstream stream;
         std::ofstream output_file_stream(args.output_file_name);
