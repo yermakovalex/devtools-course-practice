@@ -13,10 +13,10 @@
 AVL_App::AVL_App() : message_("") {}
 
 void AVL_App::help(const char* appname, const char* message) {
-	message_ = message_ +
+    message_ = message_ +
     std::string(message) +
     "This is a AVL_Tree application.\n\n";
-	message_ =  message_ +"To make the AVL_Tree put argumets" +
+    message_ =  message_ +"To make the AVL_Tree put argumets" +
     "Please provide arguments in the following format:\n\n" +
 
     "  $ " + appname + "\n<count of nodes> <first_key> , <second_key> " +
