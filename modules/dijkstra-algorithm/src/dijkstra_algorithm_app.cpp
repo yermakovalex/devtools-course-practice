@@ -72,7 +72,6 @@ std::string DijkstraAlgorithmApp::operator()(int argc, const char** argv) {
             for (int j = 0; j < args.n; ++j) {
                 args.graph_matrix[i][j] = parseDouble(argv[i*args.n + j + 2]);
             }
-        int k = args.n*args.n + 2;
         args.start = parseInt(argv[args.n*args.n + 2]);
         args.finish = parseInt(argv[args.n*args.n + 3]);
     }
