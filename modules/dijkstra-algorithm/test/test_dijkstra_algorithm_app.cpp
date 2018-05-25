@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "include\dijkstra_algorithm_app.h"
+#include "include/dijkstra_algorithm_app.h"
 
 using ::testing::internal::RE;
 using std::vector;

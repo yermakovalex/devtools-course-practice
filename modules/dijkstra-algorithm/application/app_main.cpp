@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-#include "include\dijkstra_algorithm_app.h"
+#include "include/dijkstra_algorithm_app.h"
 
 int main(int argc, const char** argv) {
     DijkstraAlgorithmApp app;
