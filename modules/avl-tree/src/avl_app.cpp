@@ -13,7 +13,7 @@
 AVL_App::AVL_App() : message_("") {}
 
 void AVL_App::help(const char* appname, const char* message) {
-    message_ +=
+	message_ = message_ +
     std::string(message) +
     "This is a AVL_Tree application.\n\n" + "To make the AVL_Tree put argumets" +
     "Please provide arguments in the following format:\n\n" +
@@ -21,15 +21,15 @@ void AVL_App::help(const char* appname, const char* message) {
     "  $ " + appname + "\n<count of nodes> <first_key> , <second_key> " +
     "<third_key> and e.t.c.\n\n";
 
-    message += "While all arguments numbers type of int, " +
+    message_ = message_ + "While all arguments numbers type of int, " +
     "AVL Tree makes right \n" +
     "Then put one of the operation:\n" +
     "1) + - Add node in tree, put key then\n" +
-    "2) - - Remove node from tree put key then\n";
-    message += "3) fmin - Find node with min key in tree\n" +
+    "2) - - Remove node from tree put key then\n" +
+    "3) fmin - Find node with min key in tree\n" +
     "4) min- -  Remove node with min key tree\n" +
     "5) search - Search node in treeput key then\n" +
-    "example: 3 4 5 2 fmin\n";	
+    "example: 3 4 5 2 fmin\n";
 }
 
 bool AVL_App::validateNumberOfArguments(int argc, const char** argv) {
@@ -71,19 +71,19 @@ int parseOperation(const char* arg) {
     return op;
 }
 
-void Show(AVLNode *node, std::string *str) { 
+void Show(AVLNode *node, std::string *str) {
     if (node == NULL) {
         return;
     }
     Show(node->left, str);
-    str += std::to_string(node->key) + " ";
+   *str += std::to_string(node->key) + " ";
     Show(node->right, str);
 }
 
-std::string ShowAVL(AVL const &tree) {
+std::string ShowAVL(AVL *tree) {
     // Output in ascending order
     std::string str;
-    Show(tree.getRoot(), str);
+    Show(tree->getRoot(), &str);
     return str;
 }
 
@@ -121,18 +121,18 @@ std::string AVL_App::operator()(int argc, const char** argv) {
     switch (op) {
     case Add:
         AVL_Tree.insert(AVL_Tree.getRoot(), node);
-        stream << ShowAVL(AVL_Tree);
+        stream << ShowAVL(&AVL_Tree);
         break;
     case Remove:
         AVL_Tree.remove(AVL_Tree.getRoot(), node);
-        stream << ShowAVL(AVL_Tree);
+        stream << ShowAVL(&AVL_Tree);
         break;
     case FindMin:
         stream << AVL_Tree.findMin(AVL_Tree.getRoot())->key;
         break;
     case RemoveMin:
         AVL_Tree.removeMin(AVL_Tree.getRoot());
-        stream << ShowAVL(AVL_Tree);
+        stream << ShowAVL(&AVL_Tree);
         break;
     case Search:
         AVLNode* Node = AVL_Tree.search(AVL_Tree.getRoot(), node);
