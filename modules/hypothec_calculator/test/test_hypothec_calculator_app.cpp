@@ -71,3 +71,19 @@ TEST_F(HypothecCalculatorAppTest, Can_Detect_Float_Overflow) {
 
         Assert("Wrong format or value is out of range");
 }
+
+TEST_F(HypothecCalculatorAppTest, Can_Detect_Zero_Appartment_Cost) {
+    vector<string> args = { "0", "0", "6", "10"};
+
+        Act(args);
+
+        Assert("Error! Appartment cost cant be zero!");
+}
+
+TEST_F(HypothecCalculatorAppTest, Can_Print_Result) {
+    vector<string> args = { "1000", "0", "6", "10" };
+
+    Act(args);
+
+    Assert("Successfully printed");
+}
