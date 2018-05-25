@@ -117,7 +117,6 @@ std::string AVL_App::operator()(int argc, const char** argv) {
     catch (std::string& str) {
         return str;
     }
-    std::string str;
     std::ostringstream stream;
     switch (op) {
     case Add:
