@@ -15,10 +15,11 @@ private:
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
     typedef struct {
-        int first_param;
-        int second_param;
-        int third_param;
-        int forth_param;
+        double first_param;
+        double second_param;
+        double third_param;
+        double forth_param;
+        char operation;
     } Arguments;
 };
 

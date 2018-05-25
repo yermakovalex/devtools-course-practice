@@ -14,7 +14,7 @@ using ::testing::internal::RE;
 using std::vector;
 using std::string;
 
-class NumberInWordsTest : public ::testing::Test {
+class ElasticityCalculatorTest: public ::testing::Test {
 protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
@@ -39,10 +39,82 @@ private:
     string output_;
 };
 
-TEST_F(NumberInWordsTest, Do_Print_Help_Without_Arguments) {
+TEST_F(ElasticityCalculatorTest, Do_Print_Help_Without_Arguments) {
     vector<string> args = {};
 
     Act(args);
 
-    Assert("This is a number in elasticity calculator application\\..*");
+    Assert("This is an elasticity calculator application\\..*");
+}
+
+TEST_F(ElasticityCalculatorTest, Can_Check_Number_Of_Arguments) {
+    vector<string> args = { "22", "7"};
+
+    Act(args);
+
+    Assert("ERROR: Should be 5 arguments\\..*");
+}
+
+TEST_F(ElasticityCalculatorTest, Can_Detect_Wrong_Number_Format) {
+    vector<string> args = { "3", "Liverpool", "will", "win", "3" };
+
+    Act(args);
+
+    Assert("Wrong number format!");
+}
+
+TEST_F(ElasticityCalculatorTest, Can_Detect_Wrong_Operation_Format) {
+    vector<string> args = { "1", "2", "3", "4", "5" };
+
+    Act(args);
+
+    Assert("Wrong operation format!");
+}
+
+TEST_F(ElasticityCalculatorTest, Can_Detect_Divide_By_Zero_1) {
+    vector<string> args = { "27", "30", "10", "10", "1" };
+
+    Act(args);
+
+    Assert("Can't divide by zero");
+}
+
+TEST_F(ElasticityCalculatorTest, Can_Detect_Divide_By_Zero_2) {
+    vector<string> args = { "5", "18", "44", "44", "2" };
+
+    Act(args);
+
+    Assert("Can't divide by zero");
+}
+
+TEST_F(ElasticityCalculatorTest, Can_Detect_Divide_By_Zero_3) {
+    vector<string> args = { "28", "33", "16", "16", "3" };
+
+    Act(args);
+
+    Assert("Can't divide by zero");
+}
+
+TEST_F(ElasticityCalculatorTest, Can_Make_First_Operation) {
+    vector<string> args = { "45", "55", "45", "55", "1" };
+
+    Act(args);
+
+    Assert("Answer = unit elasticity Coeff = 1");
+}
+
+TEST_F(ElasticityCalculatorTest, Can_Make_Second_Operation) {
+    vector<string> args = { "15", "35", "5", "45", "2" };
+
+    Act(args);
+
+    Assert("Answer = normal goods Coeff = 0.5");
+}
+
+TEST_F(ElasticityCalculatorTest, Can_Make_Third_Operation) {
+    vector<string> args = { "45", "55", "45", "55", "3" };
+
+    Act(args);
+
+    Assert("Answer = goods are interchangeable Coeff = 1");
 }
