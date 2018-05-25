@@ -53,7 +53,7 @@ set_tests_properties (${prefix}_can_Save_Found_Numbers_To_File PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Print_Error_If_File_Cannot_Be_Opened
-    COMMAND ${APPLICATION} 910 nonexistent:\\/
+    COMMAND ${APPLICATION} 910 Nonexistent:\\/
 )
 set_tests_properties (${prefix}_can_Print_Error_If_File_Cannot_Be_Opened PROPERTIES
     PASS_REGULAR_EXPRESSION "Cannot open"
