@@ -38,6 +38,7 @@ endforeach()
 #
 # Add compiler options: enable C++11, all warnings, fail on warnings
 #
+# cmake_policy(SET CMP0054 NEW)
 
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR
     "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")

@@ -1,18 +1,20 @@
-# Объявляем переменные для будущих исполняемых файлов
+﻿# Declare variables for binaries' names
 get_filename_component(DIR_NAME ${CMAKE_CURRENT_LIST_DIR} NAME)
 set(MODULE      "${DIR_NAME}")
 set(LIBRARY     "lib_${MODULE}")
 set(TESTS       "test_${MODULE}")
+set(APPLICATION "app_${MODULE}")
 
-# Включаем папку с включаемыми файлами
+# Include directory with public headers
 include_directories("./")
 
-# Добавляем подмодули
+# Add all submodules
 add_subdirectory(src)
 add_subdirectory(test)
+add_subdirectory(application)
 
 #############################################
-##### Тестирование
+##### Testing
 #############################################
 
 include("CTestTests.txt")
