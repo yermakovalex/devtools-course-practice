@@ -38,7 +38,7 @@ bool AVL_App::validateNumberOfArguments(int argc, const char** argv) {
         help(argv[0]);
         return false;
     } else if (argc <= 4) {
-        help(argv[0], "ERROR: Should be more then 6 arguments.\n\n");
+        help(argv[0], "ERROR: Should be more then 4 arguments.\n\n");
         return false;
     }
     return true;
