@@ -52,11 +52,19 @@ TEST_F(AVLTreeTest, Is_Checking_Number_Of_Arguments) {
 
     Act(args);
 
-    Assert("ERROR: Should be more then 6 arguments\\..*");
+    Assert("ERROR: Should be more then 4 arguments\\..*");
 }
 
 TEST_F(AVLTreeTest, Can_Detect_Wrong_Number_Format) {
     vector<string> args = { "3", "pi", "2", "4", "+" "9" };
+
+    Act(args);
+
+    Assert("Wrong number format!");
+}
+
+TEST_F(AVLTreeTest, Can_Detect_Wrong_Value_Node) {
+    vector<string> args = { "tri", "1", "2", "4", "+" "9" };
 
     Act(args);
 
