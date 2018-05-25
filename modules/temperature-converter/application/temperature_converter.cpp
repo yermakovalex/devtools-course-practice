@@ -5,7 +5,6 @@
 #include <string>
 
 #include "include/temperature_calculator.h"
-// #include "temperature_calculator.h"
 
 int main(int argc, const char** argv) {
     TemperatureCalculator app;

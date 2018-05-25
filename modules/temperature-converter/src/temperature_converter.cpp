@@ -1,7 +1,6 @@
 // Copyright 2018 Nifadyev Vadim
 
 #include "include/temperature_converter.h"
-// #include "temperature_converter.h"
 
 TemperatureConverter::TemperatureConverter(double current_temperature_,
     char current_scale_) {
@@ -28,12 +27,6 @@ TemperatureConverter & TemperatureConverter::operator=
 double TemperatureConverter::getCurrentTemperature() {
     return this->current_temperature;
 }
-
-// void TemperatureConverter::setCurrentTemperature
-// (double current_temperature_) {
-//     current_temperature = current_temperature_;
-// }
-
 
 TemperatureConverter TemperatureConverter::convert
 (TemperatureConverter temperature, char new_scale) {

@@ -9,8 +9,6 @@
 
 #include "include/temperature_converter.h"
 #include "include/temperature_calculator.h"
-// #include "temperature_converter.h"
-// #include "temperature_calculator.h"
 
 TemperatureCalculator::TemperatureCalculator() : message_("") {}
 
@@ -34,8 +32,7 @@ bool TemperatureCalculator::validateNumberOfArguments(int argc,
     if (argc == 1) {
         help(argv[0]);
         return false;
-    } else if (argc != 4 /* 5 */) {
-        // FIXME: Maybe change to 4 argument
+    } else if (argc != 4) {
         help(argv[0], "ERROR: Should be 3 arguments.\n\n");
         return false;
     }
@@ -81,14 +78,13 @@ std::string TemperatureCalculator::operator()(int argc, const char** argv) {
         args.current_temperature = parseDouble(argv[1]);
         args.current_scale       = parseChar(argv[2]);
         args.desired_scale       = parseChar(argv[3]);
-        // args.output_filename = parseDouble(argv[4]);
     }
     catch(std::string& str) {
         return str;
     }
 
     TemperatureConverter sourceConverter(args.current_temperature,
-                                   args.current_scale);
+                                         args.current_scale);
 
     TemperatureConverter resultConverter;
 

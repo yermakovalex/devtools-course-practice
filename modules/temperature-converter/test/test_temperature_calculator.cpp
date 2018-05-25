@@ -9,9 +9,6 @@
 #include <iterator>
 
 #include "include/temperature_calculator.h"
-// #include "temperature_calculator.h"
-
-// FIXME: reconfig git to my email
 
 using ::testing::internal::RE;
 using std::vector;
@@ -19,8 +16,6 @@ using std::string;
 
 class TemperatureCalculatorTest : public ::testing::Test {
  protected:
-    // virtual void SetUp() {}
-
     void Act(vector<string> args_) {
         vector<const char*> options;
 
