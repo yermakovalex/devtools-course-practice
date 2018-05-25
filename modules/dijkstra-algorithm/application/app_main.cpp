@@ -1,9 +1,9 @@
 // Copyright 2018 Bogatova Margarita
 
-#include "include\dijkstra_algorithm_app.h"
-
 #include <iostream>
 #include <string>
+
+#include "include\dijkstra_algorithm_app.h"
 
 int main(int argc, const char** argv) {
     DijkstraAlgorithmApp app;

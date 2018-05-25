@@ -1,12 +1,9 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2018 Bogatova Margarita
 
 #include <gtest/gtest.h>
 
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <functional>
-#include <iterator>
 
 #include "include\dijkstra_algorithm_app.h"
 
