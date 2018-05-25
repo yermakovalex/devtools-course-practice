@@ -3,10 +3,9 @@
 #include "include/Graph.h"
 #include "include/dijkstra_algorithm_app.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
+#include <iostream>
+#include <exception>
+#include <cstdlib>
 #include <string>
 #include <sstream>
 
@@ -33,9 +32,8 @@ validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc != (4 + atoi(argv[1])*atoi(argv[1]))) {
-        help(argv[0], 
+    } else if (argc != (4 + atoi(argv[1])*atoi(argv[1]))) {
+        help(argv[0],
             "ERROR: Should be 3 + <size matrix>*<size matrix> arguments\n\n");
         return false;
     }
@@ -56,9 +54,9 @@ double parseDouble(const char* arg) {
     char* end;
     double value = strtod(arg, &end);
 
-    if (end[0]) 
+    if (end[0])
         throw std::string("Wrong number format!");
-    
+
     return value;
 }
 
