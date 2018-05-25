@@ -151,9 +151,9 @@ TEST(Levitsky_Ilya_setTest, Can_Copy) {
 TEST(Levitsky_Ilya_setTest, Test_BF) {
     // Arrange
     bitfield X(100);
+    bitfield Y(X);
 
     // Act
-    bitfield Y(X);
     Y = X;
 
     // Assert
