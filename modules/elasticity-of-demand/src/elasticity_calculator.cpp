@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <cstdint>
 #include <cstring>
+#include <string>
 #include <sstream>
 
 ElasticityCalculator::ElasticityCalculator() : message_("") {}
@@ -24,15 +25,16 @@ void ElasticityCalculator::help(const char* appname, const char* message) {
 
         "Where all arguments are double-precision numbers, " +
         "and <operation> is one of '1', '2', '3',\n" +
-        "where is '1' - PriceElasticity, '2' - IncomeElasticity, '3' - CrossElasticity.\n";
+        "where is '1' - PriceElasticity" +
+        "'2' - IncomeElasticity, '3' - CrossElasticity.\n";
 }
 
-bool ElasticityCalculator::validateNumberOfArguments(int argc, const char** argv) {
+bool ElasticityCalculator::validateNumberOfArguments(int argc,
+    const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc != 6) {
+    }    else if (argc != 6) {
         help(argv[0], "ERROR: Should be 5 arguments.\n\n");
         return false;
     }
@@ -54,14 +56,11 @@ char parseOperation(const char* arg) {
     char op;
     if (strcmp(arg, "1") == 0) {
         op = '1';
-    }
-    else if (strcmp(arg, "2") == 0) {
+    }    else if (strcmp(arg, "2") == 0) {
         op = '2';
-    }
-    else if (strcmp(arg, "3") == 0) {
+    }    else if (strcmp(arg, "3") == 0) {
         op = '3';
-    }
-    else {
+    }    else {
         throw std::string("Wrong operation format!");
     }
     return op;
@@ -90,7 +89,8 @@ std::string ElasticityCalculator::operator()(int argc, const char** argv) {
     switch (args.operation) {
     case '1':
         try {
-            E.PriceElasticity(args.first_param, args.second_param, args.third_param, args.forth_param);
+            E.PriceElasticity(args.first_param, args.second_param,
+                args.third_param, args.forth_param);
             E.PriceAnswer();
             stream << "Answer = " << E.GetAns() << " "
                 << "Coeff = " << E.GetCoeff();
@@ -101,7 +101,8 @@ std::string ElasticityCalculator::operator()(int argc, const char** argv) {
         }
     case '2':
         try {
-            E.IncomeElasticity(args.first_param, args.second_param, args.third_param, args.forth_param);
+            E.IncomeElasticity(args.first_param, args.second_param,
+                args.third_param, args.forth_param);
             E.IncomeAnswer();
             stream << "Answer = " << E.GetAns() << " "
                 << "Coeff = " << E.GetCoeff();
@@ -112,7 +113,8 @@ std::string ElasticityCalculator::operator()(int argc, const char** argv) {
         }
     case '3':
         try {
-            E.CrossElasticity(args.first_param, args.second_param, args.third_param, args.forth_param);
+            E.CrossElasticity(args.first_param, args.second_param,
+                args.third_param, args.forth_param);
             E.CrossAnswer();
             stream << "Answer = " << E.GetAns() << " "
                 << "Coeff = " << E.GetCoeff();

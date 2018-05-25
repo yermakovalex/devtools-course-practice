@@ -10,3 +10,59 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Run PROPERTIES
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is an elasticity calculator application"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 17 71
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 5 arguments."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format
+    COMMAND ${APPLICATION} 6 3 3 s 4
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Operation_Format
+    COMMAND ${APPLICATION} 1 1 2 3 <3
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong operation format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Divide_By_Zero_1
+    COMMAND ${APPLICATION} 11 11 13 15 1
+)
+set_tests_properties (${prefix}_can_Detect_Divide_By_Zero_1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Can't divide by zero"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Divide_By_Zero_2
+    COMMAND ${APPLICATION} 17 36 6 6 2
+)
+set_tests_properties (${prefix}_can_Detect_Divide_By_Zero_2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Can't divide by zero"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Divide_By_Zero_3
+    COMMAND ${APPLICATION} 18 19 0 0 3
+)
+set_tests_properties (${prefix}_can_Detect_Divide_By_Zero_3 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Can't divide by zero"
+    LABELS "${MODULE}")
