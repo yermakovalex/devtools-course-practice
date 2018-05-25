@@ -113,16 +113,11 @@ std::string TemperatureCalculator::operator()(int argc, const char** argv) {
                << "Scale = K" << std::endl;
         break;
      case 'N':
-        try {
         resultConverter = sourceConverter.convert(sourceConverter, 'N');
         stream << "Converted temperature = " <<
                resultConverter.getCurrentTemperature() << " "
                << "Scale = N" << std::endl;
-            break;
-        }
-        catch(std::string& str) {
-            return str;
-        }
+        break;
     }
 
     message_ = stream.str();
