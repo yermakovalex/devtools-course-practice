@@ -1,4 +1,4 @@
-// Copyright 2018 Bolshakov Konstantin	
+// Copyright 2018 Bolshakov Konstantin
 
 #include <gtest/gtest.h>
 
