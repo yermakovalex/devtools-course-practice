@@ -74,7 +74,7 @@ TEST_F(DijkstraAlgorithmAppTest, can_detect_wrong_start_vertex_format) {
 
     Act(args);
 
-    Assert("invalid stoi argument");
+    Assert("Wrong format integer number or out of range");
 }
 
 TEST_F(DijkstraAlgorithmAppTest, can_detect_longer_start_vertex_format) {
@@ -87,7 +87,7 @@ TEST_F(DijkstraAlgorithmAppTest, can_detect_longer_start_vertex_format) {
 
     Act(args);
 
-    Assert("stoi argument out of range");
+    Assert("Wrong format integer number or out of range");
 }
 
 TEST_F(DijkstraAlgorithmAppTest, can_find_distantion) {

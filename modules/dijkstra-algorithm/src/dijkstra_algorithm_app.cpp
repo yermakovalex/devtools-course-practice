@@ -79,7 +79,8 @@ std::string DijkstraAlgorithmApp::operator()(int argc, const char** argv) {
         return str;
     }
     catch (std::exception& exc) {
-        return std::string(exc.what());
+        return
+            std::string("Wrong format integer number or out of range");
     }
 
     try {
