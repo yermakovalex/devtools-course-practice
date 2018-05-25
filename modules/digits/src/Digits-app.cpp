@@ -46,7 +46,7 @@ std::string DigitsApplication::operator()(int argc, const char ** argv) {
     Digits Init;
     int number = parseInt(argv[1]);
     args.output_file_name = argv[2];
-    args.digit_str = Init.getNumber(number);
+    args.digit_str = static_cast<string>(Init.getNumber(number));
 
         std::ostringstream stream;
         std::ofstream output_file_stream(args.output_file_name);
