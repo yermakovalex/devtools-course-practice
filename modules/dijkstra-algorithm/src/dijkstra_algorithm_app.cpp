@@ -1,13 +1,13 @@
 // Copyright 2018 Bogatova Margarita
 
-#include "include/Graph.h"
-#include "include/dijkstra_algorithm_app.h"
-
 #include <iostream>
 #include <exception>
 #include <cstdlib>
 #include <string>
 #include <sstream>
+
+#include "include/Graph.h"
+#include "include/dijkstra_algorithm_app.h"
 
 DijkstraAlgorithmApp::DijkstraAlgorithmApp() : message_("") {}
 
@@ -41,11 +41,7 @@ validateNumberOfArguments(int argc, const char** argv) {
 }
 
 int parseInt(const char* arg) {
-    std::size_t pos;
-    int value = std::stoi(std::string(arg), &pos);
-
-    if (pos == 0)
-        throw std::string("Wrong number format!");
+    int value = std::stoi(std::string(arg));
 
     return value;
 }
@@ -68,31 +64,41 @@ std::string DijkstraAlgorithmApp::operator()(int argc, const char** argv) {
     }
     try {
         args.n = parseInt(argv[1]);
+        args.graph_matrix = new double*[args.n];
         for (int i = 0; i < args.n; ++i)
-            for (int j = 0; j < args.n; ++j)
+            args.graph_matrix[i] = new double[args.n];
+
+        for (int i = 0; i < args.n; ++i)
+            for (int j = 0; j < args.n; ++j) {
                 args.graph_matrix[i][j] = parseDouble(argv[i*args.n + j + 2]);
+            }
+        int k = args.n*args.n + 2;
         args.start = parseInt(argv[args.n*args.n + 2]);
         args.finish = parseInt(argv[args.n*args.n + 3]);
     }
     catch (std::string& str) {
         return str;
     }
+    catch (std::exception& exc) {
+        return std::string(exc.what());
+    }
 
     try {
         Graph graph(args.n, args.graph_matrix);
 
         std::ostringstream stream;
-        stream << "Graph: " << std::endl;
+        stream << "Graph: \n";
         for (int i = 0; i < args.n; ++i) {
             for (int j = 0; j < args.n; ++j)
                 stream << args.graph_matrix[i][j] << " ";
-            stream << std::endl;
+            stream <<"\n";
         }
 
         stream << "The shortest path from vertex " << args.start;
         stream << " to vertex " << args.finish << " is ";
-        stream << graph.FindDistance(args.start, args.finish) << std::endl;
+        stream << graph.FindDistance(args.start, args.finish) << "\n";
 
+        message_ = stream.str();
         return message_;
     }
     catch (std::exception& exc) {
