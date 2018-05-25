@@ -4,9 +4,6 @@
 
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <functional>
-#include <iterator>
 
 #include "include/q_sort_app.h"
 
@@ -16,8 +13,6 @@ using std::string;
 
 class QuickSortAppTest : public ::testing::Test {
  protected:
-    // virtual void SetUp() {}
-
     void Act(vector<string> args_) {
         vector<const char*> options;
 

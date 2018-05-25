@@ -3,10 +3,6 @@
 #include "include/q_sort_app.h"
 #include "include/q_sort.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
 #include <string>
 #include <vector>
 #include <sstream>
