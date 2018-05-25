@@ -16,7 +16,7 @@ class DigitsApplication {
     void Help(const char* appname, const char* message = "");
     bool ValidateNumberOfArguments(int argc, const char** argv);
     typedef struct {
-        string* digit_str;
+        std::string* digit_str;
         const char* output_file_name;
     } Arguments;
 };
