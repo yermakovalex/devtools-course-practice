@@ -7,19 +7,19 @@
 
 class DijkstraAlgorithmApp {
 public:
-	DijkstraAlgorithmApp();
-	std::string operator()(int argc, const char** argv);
+    DijkstraAlgorithmApp();
+    std::string operator()(int argc, const char** argv);
 
 private:
-	void help(const char* appname, const char* message = "");
-	bool validateNumberOfArguments(int argc, const char** argv);
-	std::string message_;
-	typedef struct {
-		int n;
-		int **graph_matrix;
-		int start;
-		int finish;
-	} Arguments;
+    void help(const char* appname, const char* message = "");
+    bool validateNumberOfArguments(int argc, const char** argv);
+    std::string message_;
+    typedef struct {
+        int n;
+        double **graph_matrix;
+        int start;
+        int finish;
+    } Arguments;
 };
 
 #endif  // MODULES_DIJKSTRA_ALGORITHM_INCLUDE_DIJKSTRA_ALGORITHM_APP_H_
