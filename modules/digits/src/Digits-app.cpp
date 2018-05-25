@@ -68,4 +68,4 @@ std::string DigitsApplication::operator()(int argc, const char ** argv) {
     catch (std::exception& exc) {
         return std::string("Wrong format or value is out of range");
     }
-}.
+}

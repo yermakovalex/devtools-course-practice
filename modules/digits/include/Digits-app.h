@@ -22,3 +22,4 @@ class DigitsApplication {
 };
 
 #endif  // MODULES_DIGITS_INCLUDE_DIGITS_APP_H_
+
