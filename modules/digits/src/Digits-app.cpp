@@ -10,7 +10,6 @@
 
 DigitsApplication::DigitsApplication() : message_("") {}
 
-
 void DigitsApplication::Help(const char * appname, const char * message) {
     message_ =
         std::string(message) +
