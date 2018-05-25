@@ -1,7 +1,7 @@
 // Copyright 2018 Bolshakov Konstantin
 
-#ifndef MODULES_DIGITS_APP_INCLUDE_DIGITS_H_
-#define MODULES_DIGITS_APP_INCLUDE_DIGITS_H_
+#ifndef MODULES_DIGITS_INCLUDE_DIGITS_APP_H_
+#define MODULES_DIGITS_INCLUDE_DIGITS_APP_H_
 
 #include <iostream>
 
@@ -21,4 +21,4 @@ class DigitsApplication {
     } Arguments;
 };
 
-#endif  // MODULES_DIGITS_APP_INCLUDE_DIGITS_H_
+#endif  // MODULES_DIGITS_INCLUDE_DIGITS_APP_H_
