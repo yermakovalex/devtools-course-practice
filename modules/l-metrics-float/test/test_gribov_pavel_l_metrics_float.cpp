@@ -9,7 +9,7 @@ namespace MyEpsilon {
     float eps = 0.001f;
 }  // namespace MyEpsilon
 
-TEST(Gribov_Pavel_LMetricsFloatTest, Linf_Dist_IsCorrect) {
+TEST(LMetricsFloatTest, Linf_Dist_IsCorrect) {
     // Arrange
     std::vector<float> vec1 = { 2.4f, -7.8f, -1.3f };
     std::vector<float> vec2 = { -9.2f, -1.5f, 8.0f };
@@ -22,7 +22,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, Linf_Dist_IsCorrect) {
     EXPECT_NEAR(expected_res, res, MyEpsilon::eps);
 }
 
-TEST(Gribov_Pavel_LMetricsFloatTest, L1_Dist_IsCorrect) {
+TEST(LMetricsFloatTest, L1_Dist_IsCorrect) {
     // Arrange
     std::vector<float> vec1 = { 1.0f, 1.4f, -3.7f };
     std::vector<float> vec2 = { -4.0f, -5.1f, 3.8f, 0.0f };
@@ -35,7 +35,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L1_Dist_IsCorrect) {
     EXPECT_NEAR(expected_res, res, MyEpsilon::eps);
 }
 
-TEST(Gribov_Pavel_LMetricsFloatTest, L2_Dist_IsCorrect) {
+TEST(LMetricsFloatTest, L2_Dist_IsCorrect) {
     // Arrange
     std::vector<float> vec1 = { 1.0f, 1.0f, 0.0f };
     std::vector<float> vec2 = { 4.0f, 5.0f };
@@ -48,7 +48,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L2_Dist_IsCorrect) {
     EXPECT_NEAR(expected_res, res, MyEpsilon::eps);
 }
 
-TEST(Gribov_Pavel_LMetricsFloatTest, L3_Dist_IsCorrect) {
+TEST(LMetricsFloatTest, L3_Dist_IsCorrect) {
     // Arrange
     std::vector<float> vec1 = { 3.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
     std::vector<float> vec2 = { 0.0f, -2.075f, 0.0f };
@@ -61,7 +61,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L3_Dist_IsCorrect) {
     EXPECT_NEAR(expected_res, res, MyEpsilon::eps);
 }
 
-TEST(Gribov_Pavel_LMetricsFloatTest, L4_Dist_IsCorrect) {
+TEST(LMetricsFloatTest, L4_Dist_IsCorrect) {
     // Arrange
     std::vector<float> vec1 = { 1.1f, 2.2f, 3.3f };
     std::vector<float> vec2 = { -4.4f, 5.5f, -6.6f };
@@ -74,7 +74,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L4_Dist_IsCorrect) {
     EXPECT_NEAR(expected_res, res, MyEpsilon::eps);
 }
 
-TEST(Gribov_Pavel_LMetricsFloatTest, L2_EqualDistancesAreEqual) {
+TEST(LMetricsFloatTest, L2_EqualDistancesAreEqual) {
     // Arrange
     std::vector<float> vec1 = { 0.0f };
     std::vector<float> vec2 = { 0.0f, 2.3f };
@@ -89,7 +89,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L2_EqualDistancesAreEqual) {
     EXPECT_NEAR(res1, res2, MyEpsilon::eps);
 }
 
-TEST(Gribov_Pavel_LMetricsFloatTest, Test_Empty_Data) {
+TEST(LMetricsFloatTest, Test_Empty_Data) {
     // Arrange
     std::vector<float> vec1 = {};
     std::vector<float> vec2 = {};
@@ -106,7 +106,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, Test_Empty_Data) {
     EXPECT_NEAR(sum, 0.0f, MyEpsilon::eps);
 }
 
-TEST(Gribov_Pavel_LMetricsFloatTest, Same_Vectors_Distance_Check) {
+TEST(LMetricsFloatTest, Same_Vectors_Distance_Check) {
     // Arrange
     std::vector<float> vec1 = { 1.0, 2.0, 3.0 };
     std::vector<float> vec2 = { 1.0, 2.0, 3.0 };
