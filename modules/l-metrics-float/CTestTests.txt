@@ -26,3 +26,36 @@ add_test(
 set_tests_properties (${prefix}_Test_Bad_Mode_Type PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Bad distance type!*"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Test_Bad_First_Vector_Length
+    COMMAND ${APPLICATION} L1 10 1.0 1 1.0
+)
+set_tests_properties (${prefix}_Test_Bad_First_Vector_Length PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Wrong arguments count \(first vector length\)*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Test_Bad_Second_Vector_Length
+    COMMAND ${APPLICATION} L1 1 1.0 1
+)
+set_tests_properties (${prefix}_Test_Bad_Second_Vector_Length PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Wrong arguments count \(second vector length\)*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Test_Invalid_Format
+    COMMAND ${APPLICATION} L1 dfv 1.0 1 1 1.7
+)
+set_tests_properties (${prefix}_Test_Invalid_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Invalid arguments format!*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Test_Simple_Input
+    COMMAND ${APPLICATION} Linf 1 1.0 1 2.0
+)
+set_tests_properties (${prefix}_Test_Simple_Input PROPERTIES
+    PASS_REGULAR_EXPRESSION "Distance: 1*"
+    LABELS "${MODULE}")
+
