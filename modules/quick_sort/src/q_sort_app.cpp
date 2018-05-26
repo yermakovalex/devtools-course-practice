@@ -19,14 +19,14 @@ void QuickSortApp::help(const char* appname, const char* message) {
           "<right index> , <array> \n\n" +
 
           "Examples: " +
-          " $" + appname + "9, 0, 8, 0 3 1 5 7 4 2 6 9 " ;
+          " $" + appname + "9, 0, 8, 0 3 1 5 7 4 2 6 9 ";
 }
 
 bool QuickSortApp::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    } if (argc <= 3) {
+    } else if (argc <= 3) {
         help(argv[0], "ERROR: Should be more arguments.\n\n");
         return false;
     }
@@ -41,7 +41,7 @@ double parseInt(const char* arg) {
 
     return value;
 }
-void CheckParam( int first, int last, std::vector<int> *array) {
+void CheckParam(int first, int last, std::vector<int> *array) {
     if ((first < 0) || (last < 0))
         throw std::string("Array index can't be < 0");
     if (static_cast<int>(array->size()) < last)
@@ -50,7 +50,6 @@ void CheckParam( int first, int last, std::vector<int> *array) {
 
 
 std::string QuickSortApp::operator()(int argc, const char** argv) {
-
     Arguments args;
     std::ostringstream stream;
 
@@ -71,7 +70,7 @@ std::string QuickSortApp::operator()(int argc, const char** argv) {
     try {
             sort::quickSort(&args.mas, args.left, args.right);
             for (int i = 0; i <  args.mas.size(); i++)
-                stream << args.mas[i]<<" ";
+                stream << args.mas[i] << " ";
         }
         catch(std::string& str) {
             return str;
