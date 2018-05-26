@@ -18,7 +18,7 @@ class IntegralApp {
         double low;
         double up;
         int N;
-        std::string Method;
+        int Method;
     } Arguments;
 };
 
