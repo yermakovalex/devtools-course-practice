@@ -47,7 +47,7 @@ add_test(
     NAME ${prefix}_Can_Sort
     COMMAND ${APPLICATION} 5, 0, 4 2 1 5 3 4
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
+set_tests_properties (${prefix}_Can_Sort PROPERTIES
     PASS_REGULAR_EXPRESSION "1 2 3 4 5 "
     LABELS "${MODULE}")
 
