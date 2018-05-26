@@ -1,11 +1,10 @@
 // Copyright 2018 Krasikova Ekaterina
 
-#ifndef MODULES_OPERATIONS_ON_3D_VECTORS_COPY_INCLUDE_OPERATIONS_\
-ON_3D_VECTORS_APP_H_
-#define MODULES_OPERATIONS_ON_3D_VECTORS_COPY_INCLUDE_OPERATIONS_\
-ON_3D_VECTORS_APP_H_
+#ifndef MODULES_OPERATIONS_ON_3D_VECTORS_COPY_INCLUDE_OPERATIONS_ON_3D_VECTORS_APP_H_
+#define MODULES_OPERATIONS_ON_3D_VECTORS_COPY_INCLUDE_OPERATIONS_ON_3D_VECTORS_APP_H_
+
 #include <string>
-#include "operations_on_3d_vectors.h"
+#include "include/operations_on_3d_vectors.h"
 
 class OperationsOn3dVectorsApp {
  private:
@@ -22,5 +21,4 @@ class OperationsOn3dVectorsApp {
     std::string operator()(int argc, const char** argv);
 };
 
-#endif  // MODULES_OPERATIONS_ON_3D_VECTORS_COPY_INCLUDE_OPERATIONS_
-        // ON_3D_VECTORS_APP_H_
+#endif  // MODULES_OPERATIONS_ON_3D_VECTORS_COPY_INCLUDE_OPERATIONS_ON_3D_VECTORS_APP_H_
