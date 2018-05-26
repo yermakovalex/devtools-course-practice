@@ -29,8 +29,6 @@ std::string LMetricsFloatCalculator::operator()(int argc, const char ** argv) {
     case Mode::L4:
         ss << LMetricsFloat::L4VecDistance(args.vec1, args.vec2);
         break;
-    default:
-        break;
     }
     message_ = "Distance: " + ss.str();
     return message_;
@@ -44,7 +42,8 @@ void LMetricsFloatCalculator::help(const char * appname, const char * message) {
         "<first vector length = n> <v1[0]> <v1[1]> ... <v1[n]>\n"
         "<second vector length = n> <v2[0]> <v2[1]> ... <v2[n]>\n\n"
 
-        "Where <length> are integer, vectors values are float numbers, "
+        "Where <length> are integer and more then 0, "
+        "vectors values are float numbers, "
         "and <distance type> is one of 'Linf', 'L1', 'L2', 'L3', 'L4'\n";
 }
 

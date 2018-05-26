@@ -88,3 +88,35 @@ TEST_F(LMetricsFloatCalculatorTest, Test_Simple_Input) {
 
     Assert("Distance: 1*");
 }
+
+TEST_F(LMetricsFloatCalculatorTest, Test_L1Distance) {
+    vector<string> args = { "L1", "2", "1,0", "2.0", "1", "2.0" };
+
+    Act(args);
+
+    Assert("Distance: 3*");
+}
+
+TEST_F(LMetricsFloatCalculatorTest, Test_L2Distance) {
+    vector<string> args = { "L2", "1", "1,0", "2", "2.0" , "3"};
+
+    Act(args);
+
+    Assert("Distance: 3.16*");
+}
+
+TEST_F(LMetricsFloatCalculatorTest, Test_L3Distance) {
+    vector<string> args = { "L3", "1", "1,0", "4", "2.0", "2", "3", "10" };
+
+    Act(args);
+
+    Assert("Distance: 10.11*");
+}
+
+TEST_F(LMetricsFloatCalculatorTest, Test_L4Distance) {
+    vector<string> args = { "L4", "4", "2.0", "2", "3", "5", "1", "1"};
+
+    Act(args);
+
+    Assert("Distance: 5.18*");
+}
