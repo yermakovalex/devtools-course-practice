@@ -75,7 +75,7 @@ char* parseMethod(const char* arg) {
     } else if (strcmp(arg, "GaussianQuadrature") == 0) {
         return "GaussianQuadrature";
     } else {
-        throw std::string("Wrong operation format!");
+        throw std::string("Wrong method format!");
     }
 }
 
