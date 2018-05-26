@@ -36,7 +36,7 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_Double PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Wrong_Operation_Format_Int
+    NAME ${prefix}_can_Detect_Wrong_Number_Format_Int
     COMMAND ${APPLICATION} 0.0 1.0 pi RiemannSumLeft
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_Int PROPERTIES
