@@ -59,8 +59,17 @@ TEST_F(OperationsOn3dVectorsAppTest, Can_Detect_Wrong_Number_Format) {
     Assert("Wrong number format!.*");
 }
 
-TEST_F(OperationsOn3dVectorsAppTest, Can_Detect_Wrong_Operation_Format) {
+TEST_F(OperationsOn3dVectorsAppTest,
+    Can_Detect_Wrong_Unary_Operation_Format) {
     vector<string> args = { "hello,world", "1", "1", "1" };
+
+    Act(args);
+
+    Assert("Wrong operation format!");
+}
+TEST_F(OperationsOn3dVectorsAppTest,
+    Can_Detect_Wrong_Binary_Operation_Format) {
+    vector<string> args = { "hello,world", "1", "1", "1", "1", "1", "1" };
 
     Act(args);
 
