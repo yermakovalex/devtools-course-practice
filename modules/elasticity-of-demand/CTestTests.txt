@@ -45,7 +45,7 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Detect_Divide_By_Zero_1
-    COMMAND ${APPLICATION} 11 -11 13 15 1
+    COMMAND ${APPLICATION} 11 181 13 13 1
 )
 set_tests_properties (${prefix}_can_Detect_Divide_By_Zero_1 PROPERTIES
     PASS_REGULAR_EXPRESSION "Can't divide by zero"
@@ -69,24 +69,24 @@ set_tests_properties (${prefix}_can_Detect_Divide_By_Zero_3 PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Do_First_Operations
-    COMMAND ${APPLICATION} 5 45 15 35 1
+    COMMAND ${APPLICATION} 44.5 54.5 44.5 54.5 1
 )
-set_tests_properties (${prefix}_can_Do_First_Operations
-    PASS_REGULAR_EXPRESSION "Answer = demand is elastic Coeff = 2"
+set_tests_properties (${prefix}_can_Do_First_Operations PROPERTIES
+    PASS_REGULAR_EXPRESSION "Answer = unit elasticity Coeff = 1"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Second_First_Operations
+    NAME ${prefix}_can_Do_Second_Operations
     COMMAND ${APPLICATION} 10 90 40 60 2
 )
-set_tests_properties (${prefix}_can_Second_First_Operations
+set_tests_properties (${prefix}_can_Do_Second_Operations PROPERTIES
     PASS_REGULAR_EXPRESSION "Answer = normal goods Coeff = 4"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Third_First_Operations
+    NAME ${prefix}_can_Do_Third_Operations
     COMMAND ${APPLICATION} 15 30 30 15 3
 )
-set_tests_properties (${prefix}_can_Third_First_Operations
+set_tests_properties (${prefix}_can_Do_Third_Operations PROPERTIES
     PASS_REGULAR_EXPRESSION "Answer = mutually complementary goods Coeff = -1"
     LABELS "${MODULE}")
