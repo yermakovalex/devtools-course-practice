@@ -48,20 +48,35 @@ double parseDouble(const char* arg) {
     return value;
 }
 
-char parseOperation(const char* arg) {
-    char op;
-    if (strcmp(arg, "+") == 0) {
-        op = '+';
-    } else if (strcmp(arg, "-") == 0) {
-        op = '-';
-    } else if (strcmp(arg, "*") == 0) {
-        op = '*';
-    } else if (strcmp(arg, "/") == 0) {
-        op = '/';
+double parseInt(const char* arg) {
+    char* end;
+    int value = (int)strtol(arg, &end);
+
+    if (end[0]) {
+        throw std::string("Wrong number format!");
+    }
+
+    return value;
+}
+
+char* parseMethod(const char* arg) {
+    if (strcmp(arg, "RiemannSumLeft") == 0) {
+        return "RiemannSumLeft";
+    } else if (strcmp(arg, "TrapezoidalRule") == 0) {
+        return "TrapezoidalRule";
+    } else if (strcmp(arg, "SimpsonRule") == 0) {
+        return "SimpsonRule";
+    } else if (strcmp(arg, "Simpson3_8Rule") == 0) {
+        return "Simpson3_8Rule";
+    } else if (strcmp(arg, "BooleRule") == 0) {
+        return "BooleRule";
+    } else if (strcmp(arg, "NewtonCotes5") == 0) {
+        return "NewtonCotes5";
+    } else if (strcmp(arg, "GaussianQuadrature") == 0) {
+        return "GaussianQuadrature";
     } else {
         throw std::string("Wrong operation format!");
     }
-    return op;
 }
 
 std::string IntegralApp::operator()(int argc, const char** argv) {
@@ -85,35 +100,38 @@ std::string IntegralApp::operator()(int argc, const char** argv) {
     I.setLower(args.low);
     I.setUpper(args.up);
     I.setDevisions(args.N);
-
-    ComplexNumber I1;
+    
+    double result;
     std::ostringstream stream;
     switch (args.Method) {
-     case 'RiemannSumLeft':
-        z = z1 + z2;
-        stream << "Real = " << z.getRe() << " "
-               << "Imaginary = " << z.getIm();
+     case "RiemannSumLeft":
+        result = I.RiemannSumLeft();
+        stream << "result = " << result;
         break;
-     case '-':
-        z = z1 - z2;
-        stream << "Real = " << z.getRe() << " "
-               << "Imaginary = " << z.getIm();
+     case "TrapezoidalRule":
+        result = I.TrapezoidalRule();
+        stream << "result = " << result;
         break;
-     case '*':
-        z = z1 * z2;
-        stream << "Real = " << z.getRe() << " "
-               << "Imaginary = " << z.getIm();
+     case "SimpsonRule":
+        result = I.SimpsonRule();
+        stream << "result = " << result;
         break;
-     case '/':
-        try {
-            z = z1 / z2;
-            stream << "Real = " << z.getRe() << " "
-                   << "Imaginary = " << z.getIm();
-            break;
-        }
-        catch(std::string& str) {
-            return str;
-        }
+     case "Simpson3_8Rule":
+        result = I.Simpson3_8Rule();
+        stream << "result = " << result;
+        break;
+     case "BooleRule":
+        result = I.BooleRule();
+        stream << "result = " << result;
+        break;
+     case "NewtonCotes5":
+        result = I.NewtonCotes5();
+        stream << "result = " << result;
+        break;
+     case "GaussianQuadrature":
+        result = I.GaussianQuadrature();
+        stream << "result = " << result;
+        break;
     }
 
     message_ = stream.str();
