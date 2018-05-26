@@ -49,9 +49,9 @@ double parseDouble(const char* arg) {
     return value;
 }
 
-double parseInt(const char* arg) {
+int parseInt(const char* arg) {
     char* end;
-    int value = static_cast<int>(strtol(arg, &end));
+    int value = static_cast<int>(strtol(arg, &end, 10));
 
     if (end[0]) {
         throw std::string("Wrong number format!");
@@ -60,21 +60,21 @@ double parseInt(const char* arg) {
     return value;
 }
 
-char* parseMethod(const char* arg) {
+int parseMethod(const char* arg) {
     if (strcmp(arg, "RiemannSumLeft") == 0) {
-        return "RiemannSumLeft";
+        return 1;
     } else if (strcmp(arg, "TrapezoidalRule") == 0) {
-        return "TrapezoidalRule";
+        return 2;
     } else if (strcmp(arg, "SimpsonRule") == 0) {
-        return "SimpsonRule";
+        return 3;
     } else if (strcmp(arg, "Simpson3_8Rule") == 0) {
-        return "Simpson3_8Rule";
+        return 4;
     } else if (strcmp(arg, "BooleRule") == 0) {
-        return "BooleRule";
+        return 5;
     } else if (strcmp(arg, "NewtonCotes5") == 0) {
-        return "NewtonCotes5";
+        return 6;
     } else if (strcmp(arg, "GaussianQuadrature") == 0) {
-        return "GaussianQuadrature";
+        return 7;
     } else {
         throw std::string("Wrong method format!");
     }
@@ -100,36 +100,36 @@ std::string IntegralApp::operator()(int argc, const char** argv) {
 
     I.setLower(args.low);
     I.setUpper(args.up);
-    I.setDevisions(args.N);
+    I.setDivisions(args.N);
 
     double result;
     std::ostringstream stream;
     switch (args.Method) {
-     case "RiemannSumLeft":
+     case 1:
         result = I.RiemannSumLeft();
         stream << "result = " << result;
         break;
-     case "TrapezoidalRule":
+     case 2:
         result = I.TrapezoidalRule();
         stream << "result = " << result;
         break;
-     case "SimpsonRule":
+     case 3:
         result = I.SimpsonRule();
         stream << "result = " << result;
         break;
-     case "Simpson3_8Rule":
+     case 4:
         result = I.Simpson3_8Rule();
         stream << "result = " << result;
         break;
-     case "BooleRule":
+     case 5:
         result = I.BooleRule();
         stream << "result = " << result;
         break;
-     case "NewtonCotes5":
+     case 6:
         result = I.NewtonCotes5();
         stream << "result = " << result;
         break;
-     case "GaussianQuadrature":
+     case 7:
         result = I.GaussianQuadrature();
         stream << "result = " << result;
         break;
