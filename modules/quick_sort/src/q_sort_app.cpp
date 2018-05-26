@@ -33,7 +33,7 @@ bool QuickSortApp::validateNumberOfArguments(int argc, const char** argv) {
     return true;
 }
 
-double parseInt(const char* arg) {
+int parseInt(const char* arg) {
     int value = atoi(arg);
     if (value ==0 && arg[0] != '0') {
         throw std::string("Wrong number format!");
@@ -69,7 +69,7 @@ std::string QuickSortApp::operator()(int argc, const char** argv) {
     }
     try {
             sort::quickSort(&args.mas, args.left, args.right);
-            for (int i = 0; i <  args.mas.size(); i++)
+            for (int i = 0; i <  static_cast<int>(args.mas.size()); i++)
                 stream << args.mas[i] << " ";
         }
         catch(std::string& str) {
