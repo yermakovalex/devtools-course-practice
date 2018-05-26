@@ -88,3 +88,20 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L2_EqualDistancesAreEqual) {
     // Assert
     EXPECT_NEAR(res1, res2, MyEpsilon::eps);
 }
+
+TEST(Gribov_Pavel_LMetricsFloatTest, Test_Empty_Data) {
+    // Arrange
+    std::vector<float> vec1 = {};
+    std::vector<float> vec2 = {};
+
+    // Act
+    float sum = 0.0f;
+    sum += LMetricsFloat::LinfVecDistance(vec1, vec2);
+    sum += LMetricsFloat::L1VecDistance(vec1, vec2);
+    sum += LMetricsFloat::L2VecDistance(vec1, vec2);
+    sum += LMetricsFloat::L3VecDistance(vec1, vec2);
+    sum += LMetricsFloat::L4VecDistance(vec1, vec2);
+
+    // Assert
+    EXPECT_NEAR(sum, 0.0f, MyEpsilon::eps);
+}

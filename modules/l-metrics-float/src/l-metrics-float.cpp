@@ -26,7 +26,8 @@ std::vector<float> LMetricsFloat::VecSubstractMod(std::vector<float> vec1,
 float LMetricsFloat::LinfVecDistance(const std::vector<float>& vec1,
                                      const std::vector<float>& vec2) {
     std::vector<float> vec3 = VecSubstractMod(vec1, vec2);
-    return *std::max_element(vec3.cbegin(), vec3.cend());
+    return vec3.empty() ? 0.0f :
+           *std::max_element(vec3.cbegin(), vec3.cend());
 }
 
 float LMetricsFloat::L1VecDistance(const std::vector<float>& vec1,
