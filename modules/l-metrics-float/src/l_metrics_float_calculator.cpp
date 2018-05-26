@@ -47,7 +47,7 @@ void LMetricsFloatCalculator::help(const char * appname, const char * message) {
         "and <distance type> is one of 'Linf', 'L1', 'L2', 'L3', 'L4'\n";
 }
 
-bool LMetricsFloatCalculator::parseArguments(int argc, const char ** argv, 
+bool LMetricsFloatCalculator::parseArguments(int argc, const char ** argv,
                                              Arguments* out_args) {
     if (argc < 5) {
         help(argv[0]);
