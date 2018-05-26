@@ -86,7 +86,7 @@ bool LMetricsFloatCalculator::parseArguments(int argc, const char ** argv,
         auto max = v1_len + static_cast<size_t>(4) + v2_len;
         for (size_t i = v1_len + static_cast<size_t>(4); i < max; i++)
             out_args->vec2.emplace_back(std::stof(argv[i]));
-    } catch (...) {
+    } catch (const std::invalid_argument& ia) {
         help(argv[0], "ERROR: Invalid arguments format!\n\n");
         return false;
     }
