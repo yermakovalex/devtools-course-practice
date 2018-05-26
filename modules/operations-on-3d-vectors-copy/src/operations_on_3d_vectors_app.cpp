@@ -18,23 +18,25 @@ void OperationsOn3dVectorsApp::help(const char* appname, const char* message) {
         "  $ " + appname + " <unary operation> " +
         "<x1> <x2> <x3>\n\n" +
 
-        "Where x1, x2, x3 are the components of the vector, double-precision numbers, " +
-        "and <unary operation> is one of the following operations: norm, normalize.\n\n" +
+        "Where x1, x2, x3 are the components of the vector," +
+        "double-precision numbers, and <unary operation> is one of the " +
+        "following operations: norm, normalize.\n\n" +
 
         "  $ " + appname + " <binary operation> " +
         "<x1> <x2> <x3> <y1> <y2> <y3>\n\n" +
 
-        "Where x1, x2, x3 are the components of the first vector, double-precision numbers, " +
-        "y1, y2, y3 are the components of the second vector, double - precision numbers, " +
-        "and <binary operation> is one of the following operations: dotproduct, crossproduct.\n";
+        "Where x1, x2, x3 are the components of the first vector, " +
+        "double-precision numbers, y1, y2, y3 are the components of the " +
+        "second vector, double - precision numbers, and <binary operation> " +
+        "is one of the following operations: dotproduct, crossproduct.\n";
 }
 
-bool OperationsOn3dVectorsApp::validateNumberOfArguments(int argc, const char** argv) {
+bool OperationsOn3dVectorsApp::validateNumberOfArguments(int argc,
+    const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if ((argc != 5) && (argc != 8)) {
+    } else if ((argc != 5) && (argc != 8)) {
         help(argv[0], "ERROR: Wrong number of arguments.\n\n");
         return false;
     }
@@ -47,24 +49,19 @@ double parseDouble(const char* arg) {
     if (end[0]) {
         throw std::string("Wrong number format!");
     }
-
     return value;
 }
 std::string parseOperation(const char* arg) {
     std::string op;
     if (strcmp(arg, "norm") == 0) {
         op = "norm";
-    }
-    else if (strcmp(arg, "normalize") == 0) {
+    } else if (strcmp(arg, "normalize") == 0) {
         op = "normalize";
-    }
-    else if (strcmp(arg, "dotproduct") == 0) {
+    } else if (strcmp(arg, "dotproduct") == 0) {
         op = "dotproduct";
-    }
-    else if (strcmp(arg, "crossproduct") == 0) {
+    } else if (strcmp(arg, "crossproduct") == 0) {
         op = "crossproduct";
-    }
-    else {
+    } else {
         throw std::string("Wrong operation format!");
     }
     return op;
@@ -90,9 +87,10 @@ std::string OperationsOn3dVectorsApp::operator()(int argc, const char** argv) {
             stream << "Norm of the vector = " << norm;
         }
         if (args.operation == "normalize") {
-            Vector3d normalized = OperationsOn3dVectors::GetNormalizedVector(args.v1);
-            stream << "Normalized vector = " << normalized.x << ',' << normalized.y;
-            stream << ',' << normalized.z;
+            Vector3d normalized =
+                OperationsOn3dVectors::GetNormalizedVector(args.v1);
+            stream << "Normalized vector = " << normalized.x << ',';
+            stream << normalized.y << ',' << normalized.z;
         }
     }
     if (argc == 8) {
@@ -109,11 +107,13 @@ std::string OperationsOn3dVectorsApp::operator()(int argc, const char** argv) {
             return str;
         }
         if (args.operation == "dotproduct") {
-            double dotproduct = OperationsOn3dVectors::DotProduct(args.v1, args.v2);
+            double dotproduct =
+                OperationsOn3dVectors::DotProduct(args.v1, args.v2);
             stream << "Dot product of the vectors = " << dotproduct;
         }
         if (args.operation == "crossproduct") {
-            Vector3d crossproduct = OperationsOn3dVectors::CrossProduct(args.v1, args.v2);
+            Vector3d crossproduct =
+                OperationsOn3dVectors::CrossProduct(args.v1, args.v2);
             stream << "Cross product of the vectors = " << crossproduct.x;
             stream << ',' << crossproduct.y << ',' << crossproduct.z;
         }
