@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string>
 
-#include "include/numerical-integration-app.h"
+#include "include/numerical_integration_app.h"
 
 int main(int argc, const char** argv) {
     IntegralApp app;
