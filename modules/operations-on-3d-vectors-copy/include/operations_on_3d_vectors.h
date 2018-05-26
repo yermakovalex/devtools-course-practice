@@ -19,4 +19,4 @@ class OperationsOn3dVectors {
 };
 
 #endif  // MODULES_OPERATIONS_ON_3D_VECTORS_COPY_INCLUDE_OPERATIONS_
-        //ON_3D_VECTORS_H_
+        // ON_3D_VECTORS_H_

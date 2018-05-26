@@ -24,4 +24,3 @@ bool operator!=(const Vector3d & vector1, const Vector3d & vector2) {
         (vector1.y != vector2.y) ||
         (vector1.z != vector2.z);
 }
-

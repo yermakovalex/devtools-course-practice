@@ -50,5 +50,48 @@ TEST_F(OperationsOn3dVectorsAppTest, Is_Checking_Number_Of_Arguments) {
 
     Act(args);
 
-    Assert("ERROR: Not enough arguments\\..*");
+    Assert("ERROR: Wrong number of arguments\\..*");
+}
+TEST_F(OperationsOn3dVectorsAppTest, Can_Detect_Wrong_Number_Format) {
+    vector<string> args = { "norm", "pi", "2", "4" };
+
+    Act(args);
+
+    Assert("Wrong number format!.*");
+}
+
+TEST_F(OperationsOn3dVectorsAppTest, Can_Detect_Wrong_Operation_Format) {
+    vector<string> args = { "hello,world", "1", "1", "1" };
+
+    Act(args);
+
+    Assert("Wrong operation format!");
+}
+TEST_F(OperationsOn3dVectorsAppTest, Can_Get_Correct_Norm) {
+    vector<string> args = { "norm", "0", "3", "-4" };
+
+    Act(args);
+
+    Assert("Norm of the vector = 5");
+}
+TEST_F(OperationsOn3dVectorsAppTest, Can_Get_Correct_Normalized_Vector) {
+    vector<string> args = { "normalize", "0", "3", "-4" };
+
+    Act(args);
+
+    Assert("Normalized vector = 0,0.6,-0.8");
+}
+TEST_F(OperationsOn3dVectorsAppTest, Can_Get_Correct_Dot_Product) {
+    vector<string> args = { "dotproduct", "1", "2", "3", "2", "3", "-4" };
+
+    Act(args);
+
+    Assert("Dot product of the vectors = -4");
+}
+TEST_F(OperationsOn3dVectorsAppTest, Can_Get_Correct_Cross_Product) {
+    vector<string> args = { "crossproduct", "0", "1", "0", "1", "0", "0" };
+
+    Act(args);
+
+    Assert("Cross product of the vectors = 0,0,-1");
 }
