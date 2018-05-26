@@ -6,12 +6,6 @@
 
 #include "include/quadratic_equation.h"
 
-TEST(Romanov_Alexander_QuadraticEquationTest,
-     Able_Create_Equation_Defauld_Constructor) {
-    // AAA
-    ASSERT_NO_THROW(quadraticEquation q());
-}
-
 TEST(Chvanov_Leonid_QuadraticEquationTest,
      Able_Create_Quadratic_Equation) {
     // AAA
@@ -27,7 +21,7 @@ TEST(Chvanov_Leonid_QuadraticEquationTest,
 TEST(Chvanov_Leonid_QuadraticEquationTest,
     Able_Get_Roots) {
     // Arrange
-	quadraticEquation q(1, -2, -3);
+    quadraticEquation q(1, -2, -3);
     std::vector<double> roots;
 
     // Act and assert
@@ -37,7 +31,7 @@ TEST(Chvanov_Leonid_QuadraticEquationTest,
 TEST(Chvanov_Leonid_QuadraticEquationTest,
     Able_Get_Roots_Multiple_Times) {
     // Arrange
-	quadraticEquation q(1, -2, -3);
+    quadraticEquation q(1, -2, -3);
     std::vector<double> roots;
 
     // Act
@@ -50,7 +44,7 @@ TEST(Chvanov_Leonid_QuadraticEquationTest,
 TEST(Chvanov_Leonid_QuadraticEquationTest,
     Able_Get_Correct_Roots) {
     // Arrange
-	quadraticEquation q(1, -2, -3);
+    quadraticEquation q(1, -2, -3);
     std::vector<double> roots;
 
     // Act
@@ -64,7 +58,7 @@ TEST(Chvanov_Leonid_QuadraticEquationTest,
 TEST(Chvanov_Leonid_QuadraticEquationTest,
     Returns_One_Root_Discriminant_Zero) {
     // Arrange
-	quadraticEquation q(1, -2, 1);
+    quadraticEquation q(1, -2, 1);
     std::vector<double> roots;
 
     // Act
@@ -77,7 +71,7 @@ TEST(Chvanov_Leonid_QuadraticEquationTest,
 TEST(Chvanov_Leonid_QuadraticEquationTest,
     Throws_If_No_Real_Roots) {
     // Arrange
-	quadraticEquation q(1, -2, 2);
+    quadraticEquation q(1, -2, 2);
 
     // Act and assert
     ASSERT_ANY_THROW(q.getRoots());
@@ -86,7 +80,7 @@ TEST(Chvanov_Leonid_QuadraticEquationTest,
 TEST(Chvanov_Leonid_QuadraticEquationTest,
     Able_Set_Corfficients) {
     // Arrange
-	quadraticEquation q(1, -2, 2);
+    quadraticEquation q(1, -2, 2);
 
     // Act and assert
     ASSERT_NO_THROW(q.setCoefficients(1, -2, 2));
@@ -95,7 +89,7 @@ TEST(Chvanov_Leonid_QuadraticEquationTest,
 TEST(Chvanov_Leonid_QuadraticEquationTest,
     Setting_Coefficients_Changes_Roots) {
     // Arrange
-	quadraticEquation q(1, -2, 1);
+    quadraticEquation q(1, -2, 1);
     std::vector<double> roots;
 
     // Act
