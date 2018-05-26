@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <stdexcept>
 #include "include/l_metrics_float_calculator.h"
 
 LMetricsFloatCalculator::LMetricsFloatCalculator() {
