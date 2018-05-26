@@ -49,21 +49,22 @@ bool LMetricsFloatCalculator::parseArguments(int argc, const char ** argv, Argum
     try {
         int v1_len = std::stoi(argv[2]);
         if (argc < v1_len + 4) {
-            help(argv[0]);
+            help(argv[0], "ERROR: Wrong arguments count!\n\n");
             return false;
         }
         int v2_len = std::stoi(argv[3 + v1_len]);
         if (argc < v1_len + 4 + v2_len) {
-            help(argv[0]);
+            help(argv[0], "ERROR: Wrong arguments count!\n\n");
             return false;
         }
-        for (size_t i = 3; i < v1_len + 3; i++)
+        for (size_t i = 3; i < v1_len + static_cast<size_t>(3); i++)
             out_args->vec1.emplace_back(std::stof(argv[i]));
-        for (size_t i = v1_len + 4; i < v1_len + 4 + v2_len; i++)
-            out_args->vec1.emplace_back(std::stof(argv[i]));
+        auto max = v1_len + static_cast<size_t>(4) + v2_len;
+        for (size_t i = v1_len + static_cast<size_t>(4); i < max; i++)
+            out_args->vec2.emplace_back(std::stof(argv[i]));
     }
-    catch (std::invalid_argument&) {
-        help(argv[0]);
+    catch (...) {
+        help(argv[0], "ERROR: Invalid arguments format!\n\n");
         return false;
     }
     return true;
