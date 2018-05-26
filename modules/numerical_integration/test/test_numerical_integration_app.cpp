@@ -8,7 +8,7 @@
 #include <functional>
 #include <iterator>
 
-#include "include/numerical-integration-app.h"
+#include "include/numerical_integration_app.h"
 
 using ::testing::internal::RE;
 using std::vector;
