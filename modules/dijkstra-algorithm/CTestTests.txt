@@ -1,0 +1,84 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a dijkstra algorithm application"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 1 2
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 3 +.*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Matrix_Format
+    COMMAND ${APPLICATION} 4 pi 8 4 0 8 0 9 6 4 9 0 1 0 6 1 0 1 4
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Matrix_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!.*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Start_Vertex_Format
+    COMMAND ${APPLICATION} 4 0 8 4 0 8 0 9 6 4 9 0 1 0 6 1 0 ghg 4
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Start_Vertex_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong format integer number or out of range"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Longer_Start_Vertex_Format
+    COMMAND ${APPLICATION} 4 0 8 4 0 8 0 9 6 4 9 0 1 0 6 1 0 78768766797678 4
+)
+set_tests_properties (${prefix}_can_Detect_Longer_Start_Vertex_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong format integer number or out of range"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Find_Distantion
+    COMMAND ${APPLICATION} 4 0 8 4 0 8 0 9 6 4 9 0 1 0 6 1 0 1 4
+)
+set_tests_properties (${prefix}_can_Find_Distantion PROPERTIES
+    PASS_REGULAR_EXPRESSION "The shortest path from vertex 1 to vertex 4 is 5.*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_detect_zero_start_vertex
+    COMMAND ${APPLICATION} 4 0 8 4 0 8 0 9 6 4 9 0 1 0 6 1 0 0 4
+)
+set_tests_properties (${prefix}_can_detect_zero_start_vertex PROPERTIES
+    PASS_REGULAR_EXPRESSION "Non_exist_vertex.*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Longer_Finish_Vertex
+    COMMAND ${APPLICATION} 4 0 8 4 0 8 0 9 6 4 9 0 1 0 6 1 0 1 9
+)
+set_tests_properties (${prefix}_can_Detect_Longer_Finish_Vertex PROPERTIES
+    PASS_REGULAR_EXPRESSION "Non_exist_vertex.*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Negative_Wieght_Of_Vertex
+    COMMAND ${APPLICATION} 4 0 -8 4 0 8 0 9 6 4 9 0 1 0 6 1 0 1 4
+)
+set_tests_properties (${prefix}_can_Detect_Negative_Wieght_Of_Vertex PROPERTIES
+    PASS_REGULAR_EXPRESSION "Negative_weight.*"
+    LABELS "${MODULE}")
