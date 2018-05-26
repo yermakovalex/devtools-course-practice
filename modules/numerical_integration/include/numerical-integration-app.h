@@ -18,7 +18,7 @@ class IntegralApp {
         double low;
         double up;
         int N;
-        char Method;
+        char* Method;
     } Arguments;
 };
 
