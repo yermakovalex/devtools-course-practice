@@ -60,7 +60,7 @@ TEST_F(NumericalIntegrationTest, Can_Detect_Wrong_Number_Format_Double) {
 
     Act(args);
 
-    Assert("Wrong number format!.*");
+    Assert("Wrong number format!");
 }
 
 
