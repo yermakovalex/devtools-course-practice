@@ -35,33 +35,7 @@ bool GameOfLife::validateNumberOfArguments(int argc, const char** argv) {
   }
   return true;
 }
-/*
-double parseDouble(const char* arg) {
-    char* end;
-    double value = strtod(arg, &end);
 
-    if (end[0]) {
-        throw std::string("Wrong number format!");
-    }
-
-    return value;
-}
-/*
-char parseOperation(const char* arg) {
-    char op;
-    if (strcmp(arg, "+") == 0) {
-        op = '+';
-    } else if (strcmp(arg, "-") == 0) {
-        op = '-';
-    } else if (strcmp(arg, "*") == 0) {
-        op = '*';
-    } else if (strcmp(arg, "/") == 0) {
-        op = '/';
-    } else {
-        throw std::string("Wrong operation format!");
-    }
-    return op;
-}*/
 int parseInt(const char* arg) {
   int value = atoi(arg);
   if (value < 1) {
@@ -72,7 +46,6 @@ int parseInt(const char* arg) {
 
 char** parseMas(const int argc, const char** arg, int* s1, int* s2) {
   int len = 0;
-  int i = 0;
   char a = '*';
   char b = '.';
 
