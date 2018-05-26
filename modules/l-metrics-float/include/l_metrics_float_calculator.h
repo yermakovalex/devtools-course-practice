@@ -10,11 +10,7 @@
 
 class LMetricsFloatCalculator {
     enum Mode {
-        Linf,
-        L1,
-        L2,
-        L3,
-        L4
+        Linf, L1, L2, L3, L4
     };
     typedef struct {
         std::vector<float> vec1;
@@ -31,4 +27,4 @@ class LMetricsFloatCalculator {
     std::string message_;
 };
 
-#endif  // MODULES_L_METRICS_FLOAT_INCLUDE_L_METRICS_FLOAT_H_
+#endif  // MODULES_L_METRICS_FLOAT_INCLUDE_L_METRICS_FLOAT_CALCULATOR_H_

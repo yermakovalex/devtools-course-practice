@@ -56,3 +56,35 @@ TEST_F(LMetricsFloatCalculatorTest, Test_Bad_Mode_Type) {
 
     Assert("ERROR: Bad distance type!*");
 }
+
+TEST_F(LMetricsFloatCalculatorTest, Test_Bad_First_Vector_Length) {
+    vector<string> args = { "L1", "10", "1.0", "1", "1.0" };
+
+    Act(args);
+
+    Assert("ERROR: Wrong arguments count \\(first vector length\\)*");
+}
+
+TEST_F(LMetricsFloatCalculatorTest, Test_Bad_Second_Vector_Length) {
+    vector<string> args = { "L1", "1", "1.0", "1"};
+
+    Act(args);
+
+    Assert("ERROR: Wrong arguments count \\(second vector length\\)*");
+}
+
+TEST_F(LMetricsFloatCalculatorTest, Test_Invalid_Format) {
+    vector<string> args = { "L1", "das", "1,0", "1", "1.0" };
+
+    Act(args);
+
+    Assert("ERROR: Invalid arguments format!*");
+}
+
+TEST_F(LMetricsFloatCalculatorTest, Test_Simple_Input) {
+    vector<string> args = { "Linf", "1", "1,0", "1", "2.0" };
+
+    Act(args);
+
+    Assert("Distance: 1*");
+}
