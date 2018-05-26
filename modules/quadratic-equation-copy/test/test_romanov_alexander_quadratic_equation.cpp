@@ -6,12 +6,6 @@
 
 #include "include/quadratic_equation.h"
 
-TEST(Romanov_Alexander_QuadraticEquationTest,
-     Able_Create_Equation_Defauld_Constructor) {
-    // AAA
-    ASSERT_NO_THROW(quadraticEquation q());
-}
-
 TEST(Chvanov_Leonid_QuadraticEquationTest,
      Able_Create_Quadratic_Equation) {
     // AAA
