@@ -85,7 +85,7 @@ TEST_F(NumericalIntegrationTest, Can_RiemannSumLeft) {
 
     Act(args);
 
-    Assert("result = \\..*");
+    Assert("result = 402.783");
 }
 
 
@@ -94,7 +94,7 @@ TEST_F(NumericalIntegrationTest, Can_TrapezoidalRule) {
 
     Act(args);
 
-    Assert("result = \\..*");
+    Assert("result = 403.333");
 }
 
 
@@ -103,7 +103,7 @@ TEST_F(NumericalIntegrationTest, Can_SimpsonRule) {
 
     Act(args);
 
-    Assert("result = \\..*");
+    Assert("result = 403.333");
 }
 
 TEST_F(NumericalIntegrationTest, Can_Simpson3_8Rule) {
@@ -111,7 +111,7 @@ TEST_F(NumericalIntegrationTest, Can_Simpson3_8Rule) {
 
     Act(args);
 
-    Assert("result = \\..*");
+    Assert("result = 403.333");
 }
 
 TEST_F(NumericalIntegrationTest, Can_BooleRule) {
@@ -119,7 +119,7 @@ TEST_F(NumericalIntegrationTest, Can_BooleRule) {
 
     Act(args);
 
-    Assert("result = \\..*");
+    Assert("result = 403.333");
 }
 
 TEST_F(NumericalIntegrationTest, Can_NewtonCotes5) {
@@ -127,7 +127,7 @@ TEST_F(NumericalIntegrationTest, Can_NewtonCotes5) {
 
     Act(args);
 
-    Assert("result = \\..*");
+    Assert("result = 403.333");
 }
 
 TEST_F(NumericalIntegrationTest, Can_GaussianQuadrature) {
@@ -135,5 +135,5 @@ TEST_F(NumericalIntegrationTest, Can_GaussianQuadrature) {
 
     Act(args);
 
-    Assert("result = \\..*");
+    Assert("result = 403.333");
 }
