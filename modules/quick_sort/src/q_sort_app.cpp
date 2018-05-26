@@ -67,15 +67,9 @@ std::string QuickSortApp::operator()(int argc, const char** argv) {
     catch(std::string& str) {
         return str;
     }
-    try {
-            sort::quickSort(&args.mas, args.left, args.right);
-            for (int i = 0; i <  static_cast<int>(args.mas.size()); i++)
-                stream << args.mas[i] << " ";
-        }
-        catch(std::string& str) {
-            return str;
-        }
+    sort::quickSort(&args.mas, args.left, args.right);
+    for (int i = 0; i <  static_cast<int>(args.mas.size()); i++)
+          stream << args.mas[i] << " ";
     message_ = stream.str();
-
     return message_;
 }
