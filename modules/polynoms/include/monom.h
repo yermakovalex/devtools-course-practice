@@ -5,8 +5,11 @@
 
 #include <string>
 #include <map>
+#include <set>
+
 using std::string;
 using std::map;
+using std::set;
 
 class Monom {
     using POW_TYPE = double;
@@ -41,7 +44,7 @@ class Monom {
  private:
     var_map m_variabels;
     double m_coff;
-
+    static set<char> ok_symbols;
     friend class Polynom;
 };
 #endif  // MODULES_POLYNOMS_INCLUDE_MONOM_H_
