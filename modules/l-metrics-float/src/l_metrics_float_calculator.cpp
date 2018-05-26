@@ -13,8 +13,7 @@ std::string LMetricsFloatCalculator::operator()(int argc, const char ** argv) {
     if (!parseArguments(argc, argv, &args))
         return message_;
     std::stringstream ss;
-    switch (args.mode)
-    {
+    switch (args.mode) {
     case Mode::Linf:
         ss << LMetricsFloat::LinfVecDistance(args.vec1, args.vec2);
         break;
@@ -49,7 +48,8 @@ void LMetricsFloatCalculator::help(const char * appname, const char * message) {
         "and <distance type> is one of 'Linf', 'L1', 'L2', 'L3', 'L4'\n";
 }
 
-bool LMetricsFloatCalculator::parseArguments(int argc, const char ** argv, Arguments* out_args) {
+bool LMetricsFloatCalculator::parseArguments(int argc, const char ** argv, 
+                                             Arguments* out_args) {
     if (argc < 5) {
         help(argv[0]);
         return false;
@@ -72,12 +72,14 @@ bool LMetricsFloatCalculator::parseArguments(int argc, const char ** argv, Argum
     try {
         int v1_len = std::stoi(argv[2]);
         if (argc < v1_len + 4) {
-            help(argv[0], "ERROR: Wrong arguments count (first vector length)!\n\n");
+            help(argv[0], "ERROR: Wrong arguments count "
+                          "(first vector length)!\n\n");
             return false;
         }
         int v2_len = std::stoi(argv[3 + v1_len]);
         if (argc < v1_len + 4 + v2_len) {
-            help(argv[0], "ERROR: Wrong arguments count (second vector length)!\n\n");
+            help(argv[0], "ERROR: Wrong arguments count "
+                          "(second vector length)!\n\n");
             return false;
         }
         for (size_t i = 3; i < v1_len + static_cast<size_t>(3); i++)
