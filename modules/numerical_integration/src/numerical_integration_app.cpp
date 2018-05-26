@@ -1,7 +1,7 @@
 // Copyright 2018 Kulikova Svetlana
 
 #include "include/numerical_integration.h"
-#include "include/numerical-integration-app.h"
+#include "include/numerical_integration_app.h"
 
 #include <stdio.h>
 #include <stdlib.h>
