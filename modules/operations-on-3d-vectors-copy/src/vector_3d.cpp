@@ -1,4 +1,4 @@
-// Copyright 2018 Gracheva Elena
+// Copyright 2018 Krasikova Ekaterina
 
 #include "include/vector_3d.h"
 #include <stdexcept>

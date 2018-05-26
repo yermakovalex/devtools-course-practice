@@ -1,7 +1,7 @@
-// Copyright 2018 Gracheva Elena
+// Copyright 2018 Krasikova Ekaterina
 
-#ifndef MODULES_OPERATIONS_ON_3D_VECTORS_INCLUDE_VECTOR_3D_H_
-#define MODULES_OPERATIONS_ON_3D_VECTORS_INCLUDE_VECTOR_3D_H_
+#ifndef MODULES_OPERATIONS_ON_3D_VECTORS_COPY_INCLUDE_VECTOR_3D_H_
+#define MODULES_OPERATIONS_ON_3D_VECTORS_COPY_INCLUDE_VECTOR_3D_H_
 
 struct Vector3d {
     double x;
@@ -15,4 +15,4 @@ struct Vector3d {
     friend bool operator!=(const Vector3d& vector1, const Vector3d& vector2);
 };
 
-#endif  // MODULES_OPERATIONS_ON_3D_VECTORS_INCLUDE_VECTOR_3D_H_
+#endif  // MODULES_OPERATIONS_ON_3D_VECTORS_COPY_INCLUDE_VECTOR_3D_H_
