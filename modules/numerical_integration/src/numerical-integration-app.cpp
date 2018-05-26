@@ -22,8 +22,9 @@ void IntegralApp::Help(const char* appname, const char* message) {
 
           "Where <low> and <up> arguments are double-precision numbers, " +
           "and <N> should be in non-negative integer numbers, " +
-          "and <Methods> is one of 'RiemannSumLeft', 'TrapezoidalRule', 'SimpsonRule', " +
-          "'Simpson3_8Rule', 'BooleRule', 'NewtonCotes5', 'GaussianQuadrature'.\n";
+          "and <Methods> is one of 'RiemannSumLeft', " +
+          "'TrapezoidalRule', 'SimpsonRule', 'Simpson3_8Rule', " +
+          "'BooleRule', 'NewtonCotes5', 'GaussianQuadrature'.\n";
 }
 
 bool IntegralApp::ValidateNumberOfArguments(int argc, const char** argv) {
@@ -50,7 +51,7 @@ double parseDouble(const char* arg) {
 
 double parseInt(const char* arg) {
     char* end;
-    int value = (int)strtol(arg, &end);
+    int value = static_cast<int>(strtol(arg, &end));
 
     if (end[0]) {
         throw std::string("Wrong number format!");
@@ -94,13 +95,13 @@ std::string IntegralApp::operator()(int argc, const char** argv) {
     catch(std::string& str) {
         return str;
     }
-    
+
     Integral I;
-    
+
     I.setLower(args.low);
     I.setUpper(args.up);
     I.setDevisions(args.N);
-    
+
     double result;
     std::ostringstream stream;
     switch (args.Method) {
