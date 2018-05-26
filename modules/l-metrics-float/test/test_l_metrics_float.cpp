@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 
 #include <vector>
-#include "include/l-metrics-float.h"
+#include "include/l_metrics_float.h"
 
 namespace MyEpsilon {
     float eps = 0.001f;

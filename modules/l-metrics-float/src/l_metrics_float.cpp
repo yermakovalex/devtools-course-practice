@@ -5,7 +5,7 @@
 #include <numeric>
 #include <vector>
 
-#include "include/l-metrics-float.h"
+#include "include/l_metrics_float.h"
 
 std::vector<float> LMetricsFloat::VecSubstractMod(std::vector<float> vec1,
                                                   std::vector<float> vec2) {
