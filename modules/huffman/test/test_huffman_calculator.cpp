@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include <string.h>
+#include <string>
 #include <map>
 #include <utility>
 #include <vector>
@@ -17,7 +17,6 @@ using std::string;
 
 class HuffmanCalculatorTest : public ::testing::Test {
  protected:
-
     void Act(vector<string> args_) {
         vector<const char*> options;
 
