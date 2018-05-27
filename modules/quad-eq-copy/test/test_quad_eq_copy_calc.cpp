@@ -2,14 +2,14 @@
 
 #include <gtest/gtest.h>
 
-#include "include/quad_eq_copy.h"
-#include "include/quad_eq_copy_calc.h"
-
 #include <algorithm>
 #include <functional>
 #include <iterator>
 #include <string>
 #include <vector>
+
+#include "include/quad_eq_copy.h"
+#include "include/quad_eq_copy_calc.h"
 
 using ::testing::internal::RE;
 using std::vector;
