@@ -81,7 +81,7 @@ TEST_F(HypothecCalculatorAppTest, Can_Detect_Zero_Appartment_Cost) {
 }
 
 TEST_F(HypothecCalculatorAppTest, Can_Print_Result) {
-    vector<string> args = { "1000", "0", "6", "10" };
+    vector<string> args = { "1000", "10", "6", "10" };
 
     Act(args);
 
