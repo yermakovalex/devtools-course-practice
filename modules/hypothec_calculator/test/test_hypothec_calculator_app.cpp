@@ -77,5 +77,5 @@ TEST_F(HypothecCalculatorAppTest, Can_Print_Result) {
 
     Act(args);
 
-    Assert("1029.37");
+    Assert("1029");
 }
