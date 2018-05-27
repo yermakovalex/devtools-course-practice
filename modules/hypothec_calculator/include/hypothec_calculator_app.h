@@ -18,7 +18,6 @@ class HypothecCalculatorApp {
         float an_initial_fee;
         int credit_term_in_month;
         float interest_rate_in_month;
-        const char* output_file_name;
     } Arguments;
 };
 
