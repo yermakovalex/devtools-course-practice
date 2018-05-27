@@ -1,0 +1,47 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 3 3 
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Rows_Format
+    COMMAND ${APPLICATION} -1 2 +
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Rows_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong rows format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Cols_Format
+    COMMAND ${APPLICATION} 1 -2 +
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Cols_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong cols format!"
+    LABELS "${MODULE}")
+
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Operation_Format
+    COMMAND ${APPLICATION} 5 5 ?
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong operation format!"
+LABELS "${MODULE}")
+
+
