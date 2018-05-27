@@ -6,21 +6,15 @@
 
 #include <vector>
 
-void compexch(int a, int b)
-{
-   if (b < a)
-      std::swap(a, b);
-}
-
 void shuffle(std::vector<int> *a, int l, int r)
 {
-   std::vector<int> tmp(a->size());
+   std::vector<int> tmp;
    int i, j, m = (l + r) / 2;
 
    for (i = l, j = 0; i <= r; i += 2, j++)
    {
-      tmp[i] = a[l + j];
-      tmp[i + 1] = a[m + j + 1];
+      tmp.push(a[l + j]);
+      tmp.push(a[m + j + 1]);
    }
     
    for (int i = l; i <= r; i++)
@@ -34,8 +28,8 @@ void unshuffle(std::vector<int> *a, int l, int r)
     
    for (i = l, j = 0; i <= r; i += 2, j++)
    {
-      tmp[l + j] = a[i];
-      tmp[m + j + 1] = a[i + 1];
+      tmp.push(a[i]);
+      tmp.push(a[i + 1]);
    }
     
    for (int i = 0; i <= r; i++)
@@ -49,7 +43,8 @@ void merge::BatcherMerge(std::vector<int> *a, int l, int r)
    if ((r < 0) || (l < 0))
       throw std::logic_error("Index can't be < 0");
    if (r == l + 1)
-      compexch(a[l], a[r]);
+      if ((*array)[l] > (*array)[r])
+         std::swap((*array)[l], (*array)[r]);
    if (r < l + 2)
       return;
     
@@ -61,7 +56,8 @@ void merge::BatcherMerge(std::vector<int> *a, int l, int r)
     
    shuffle(a, l, r);
    for (int i = l + 1; i < r; i += 2)
-      compexch(a[i], a[i + 1]);
+      if ((*array)[i] > (*array)[i+1])
+         std::swap((*array)[i], (*array)[i+1]);
 
    //int halfSize = (r - l + 1) / 2 - 1;
 	
