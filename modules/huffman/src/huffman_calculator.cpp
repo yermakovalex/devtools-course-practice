@@ -2,6 +2,7 @@
 
 #include "include/huffman.h"
 #include "include/huffman_calculator.h"
+#include <map>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,14 +29,13 @@ bool HuffmanCalculator::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc != 2) {
+    } else if (argc != 2) {
         help(argv[0], "ERROR: Should be 1 argument.\n\n");
         return false;
     }
     return true;
 }
- 
+
 std::string HuffmanCalculator::operator()(int argc, const char** argv) {
     Arguments args;
 
@@ -49,7 +49,8 @@ std::string HuffmanCalculator::operator()(int argc, const char** argv) {
 
     std::ostringstream stream;
     for (auto it = ans.begin(); it != ans.end(); it++)
-        stream << "\"" << it->first << "\" is encoded as \"" << it->second << "\"\n";
+        stream << "\"" << it->first << "\" is encoded as \""
+            << it->second << "\"\n";
 
     message_ = stream.str();
 
