@@ -17,8 +17,7 @@ void HypothecCalculatorApp::help(const char* appname, const char* message) {
         "Please provide arguments in the following format:\n\n" +
 
         "  $ " + appname + " <apartments_cost> <an_initial_fee> " +
-        "<credit_term_in_month> <interest_rate_in_month>" +
-        "<output_file_name>\n\n" +
+        "<credit_term_in_month> <interest_rate_in_month>\n\n" +
 
         "Where the first, second and forth arguments are non-negative " +
         "floating point numbers, " + " and the third one is " +
