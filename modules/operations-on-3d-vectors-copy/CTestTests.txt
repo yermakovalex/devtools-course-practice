@@ -16,7 +16,7 @@ add_test(
     COMMAND ${APPLICATION}
 )
 set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "This is a complex number calculator"
+    PASS_REGULAR_EXPRESSION "\nThis is a complex number calculator"
     LABELS "${MODULE}")
 
 add_test(
