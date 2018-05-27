@@ -2,12 +2,12 @@
 
 #include "include/huffman.h"
 #include "include/huffman_calculator.h"
-#include <map>
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <map>
 #include <string>
 #include <sstream>
 
