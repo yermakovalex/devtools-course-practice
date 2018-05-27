@@ -6,13 +6,13 @@
 
 #include <vector>
 
-void compexch(int& a, int& b)
+void compexch(int a, int b)
 {
    if (b < a)
       std::swap(a, b);
 }
 
-void shuffle(std::vector<int>& a, int l, int r)
+void shuffle(std::vector<int> *a, int l, int r)
 {
    int half = (int)(l + r) / 2;
    std::vector<int> tmp(a.size());
@@ -28,7 +28,7 @@ void shuffle(std::vector<int>& a, int l, int r)
       a[i] = tmp[i];
 }
 
-void unshuffle(std::vector<int>& a, int l, int r)
+void unshuffle(std::vector<int> *a, int l, int r)
 {
    int half = (int)(l + r) / 2;
    std::vector<int> tmp(a.size());
@@ -44,7 +44,7 @@ void unshuffle(std::vector<int>& a, int l, int r)
       a[i] = tmp[i];
 }
 
-void merge::BatcherMerge(std::vector<int>& a, int l, int r)
+void merge::BatcherMerge(std::vector<int> *a, int l, int r)
 {
    if (l > r)
       throw std::logic_error("Left index can't be > right index");
