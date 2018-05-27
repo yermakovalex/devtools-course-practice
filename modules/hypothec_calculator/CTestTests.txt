@@ -44,14 +44,6 @@ set_tests_properties (${prefix}_can_Detect_Float_Overflow PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Zero_Appartment_Cost
-    COMMAND ${APPLICATION} 0 10 6 10
-)
-set_tests_properties (${prefix}_can_Detect_Zero_Appartment_Cost PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error! Appartment cost cant be zero!"
-    LABELS "${MODULE}")
-
-add_test(
     NAME ${prefix}_can_Print_Result
     COMMAND ${APPLICATION} 1000 10 6 10
 )
