@@ -45,8 +45,8 @@ set_tests_properties (${prefix}_can_Detect_Float_Overflow PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Print_Result
-    COMMAND ${APPLICATION} 1000 10 6 10
+    COMMAND ${APPLICATION} 1000 1 6 10
 )
 set_tests_properties (${prefix}_can_Print_Result PROPERTIES
-    PASS_REGULAR_EXPRESSION "Successfully printed"
+    PASS_REGULAR_EXPRESSION "1029.37"
     LABELS "${MODULE}")
