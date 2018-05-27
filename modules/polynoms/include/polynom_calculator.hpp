@@ -29,6 +29,7 @@ class PolynomCalculator {
   std::string operator()(int argc, const char** argv);
 
  private:
+  std::string help(const char* appname, const char* message = "");
   std::string calculate(const InputArguments&);
 };
 

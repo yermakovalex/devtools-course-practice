@@ -22,9 +22,9 @@ bool InputArguments::validateInputArgs(int argc, const char** argv) {
 }
 
 std::string PolynomCalculator::operator()(int argc, const char** argv) {
+    if (argc == 1) return help(argv[0]);
     InputArguments ins(argc, argv);
-    if (!ins) throw std::logic_error("Arguments aren't valid!!!");
-    return calculate(ins);
+    return ins ? calculate(ins) : help(argv[0], "arguments aren't valid\n");
 }
 
 std::string PolynomCalculator::calculate(const InputArguments& ins) {
@@ -37,4 +37,15 @@ std::string PolynomCalculator::calculate(const InputArguments& ins) {
         case '-' : return (f_p - s_p).ToString();
     }
     return "invalid operations";
+}
+
+std::string PolynomCalculator::help(const char* appname, const char* message) {
+    return
+        std::string(message) +
+          "This is a polynom calculator application.\n\n" +
+          "Please provide arguments in the following format:\n\n"+
+
+          "  $ " + appname + " <first polynom>, <second polynom>, <" + "+,->" +
+          "Examples: " +
+          " $" + appname + " 3x 4y +";
 }
