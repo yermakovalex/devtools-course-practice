@@ -8,5 +8,5 @@ sln/
 *.user
 
 .DS_Store
-
+*.log
 *.*~
