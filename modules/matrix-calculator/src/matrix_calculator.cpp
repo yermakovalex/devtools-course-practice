@@ -8,7 +8,7 @@
 
 
 MatrixCalculator::MatrixCalculator() {
-		matrix = std::vector<std::vector<double>> (1, std::vector<double>(1, 0.0));
+    matrix = std::vector<std::vector<double>> (1, std::vector<double>(1, 0.0));
 }
 
 MatrixCalculator::MatrixCalculator(int rows, int columns) {
@@ -192,12 +192,12 @@ MatrixCalculator MatrixCalculator::Transpon(int n) const {
 }
 
 std::ostream& operator<<(std::ostream& stream,
-	                       const MatrixCalculator & result) {
-	for (size_t i = 0; i < result.matrix.size(); i++) {
-			for (size_t j = 0; j < result.matrix[i].size(); j++) {
-				std::cout << result.matrix[i][j] << " ";
-			}
-			std::cout << '\n';
-		}
+                         const MatrixCalculator & result) {
+  for (size_t i = 0; i < result.matrix.size(); i++) {
+      for (size_t j = 0; j < result.matrix[i].size(); j++) {
+        std::cout << result.matrix[i][j] << " ";
+      }
+      std::cout << '\n';
+    }
     return stream;
- }
+  }

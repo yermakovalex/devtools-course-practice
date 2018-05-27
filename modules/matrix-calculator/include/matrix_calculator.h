@@ -28,8 +28,9 @@ class MatrixCalculator {
     MatrixCalculator Transpon(int a) const;
 
     friend std::ostream& operator<<(std::ostream& stream,
-    	                       const MatrixCalculator& result);
-private:
+                             const MatrixCalculator& result);
+
+ private:
     matrix_type matrix;
 };
 

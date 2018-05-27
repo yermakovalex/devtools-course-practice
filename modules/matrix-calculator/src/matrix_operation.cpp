@@ -1,5 +1,11 @@
+//
+// Copyright 2018 Batanina Liubov
+//
+
 #include <stdexcept>
 #include <random>
+#include <string>
+#include <vector>
 #include <algorithm>
 #include "include/matrix_operation.hpp"
 
@@ -12,11 +18,11 @@ int MatrixOperation::find_operation(std::string operation) {
 
 bool MatrixOperation::validate_data(int argc, const char** argv) {
   return (argc == 4 && atoi(argv[1]) > 0 && atoi(argv[2]) > 0
-                                         && find_operation(argv[3]) != 5 );
+                                         && find_operation(argv[3]) != 5);
 }
 
 std::vector<matrix_type> MatrixOperation::getInputMatrix() {
-   return inputs;
+  return inputs;
 }
 
 matrix_type MatrixOperation::create_random_matrix(int rows, int cols) {
@@ -39,16 +45,16 @@ MatrixCalculator MatrixOperation::operator()(int argc, const char** argv) {
   int rows = atoi(argv[1]);
   int cols = atoi(argv[2]);
   MatrixCalculator mat1;
-  inputs.push_back(create_random_matrix( rows, cols ));
+  inputs.push_back(create_random_matrix(rows, cols));
   mat1.SetMatrix(inputs[0]);
 
   MatrixCalculator mat2;
-  inputs.push_back(create_random_matrix(rows, cols ));
+  inputs.push_back(create_random_matrix(rows, cols));
   mat2.SetMatrix(inputs[1]);
   MatrixCalculator result(rows, cols);
   int pos = find_operation(argv[3]);
 
-  switch(pos){
+  switch (pos) {
     case 0: {
       result = mat1 + mat2;
       break;

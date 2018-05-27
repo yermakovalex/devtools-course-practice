@@ -1,6 +1,7 @@
 // Copyright 2018 Batanina Liubov
 
 #include <gtest/gtest.h>
+#include <vector>
 #include "include/matrix_operation.hpp"
 
 TEST(MatrixOperationTest, create_mat_operation) {
@@ -31,7 +32,7 @@ TEST(MatrixOperationTest, can_sum_matrixes) {
 TEST(MatrixOperationTest, can_subtract_matrixes) {
     // Arrange
     int argc = 4;
-    std::vector<const char*> v = {"Tests","3", "3", "-" };
+    std::vector<const char*> v = {"Tests", "3", "3", "-"};
     const char** argv = v.data();
     MatrixOperation sub;
 
