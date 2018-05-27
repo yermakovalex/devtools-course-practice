@@ -36,7 +36,7 @@ TEST(BatcherMergeTest, Can_Work_With_Unit_Vector) {
    int right = 0;
     
    // Act & Assert
-   EXPECT_ANY_THROW(merge::BatcherMerge(array, left, right));
+   EXPECT_NO_THROW(merge::BatcherMerge(array, left, right));
 }
 
 TEST(BatcherMergeTest, Can_Work_With_Two_Elements) {
@@ -49,7 +49,7 @@ TEST(BatcherMergeTest, Can_Work_With_Two_Elements) {
    merge::BatcherMerge(array, left, right);
     
    // Assert
-   EXPECT_EQ(array[1], 3);
+   EXPECT_TRUE(array[0] < array[1]);
 }
 
 TEST(BatcherMergeTest, Can_Work_With_Big_Size) {

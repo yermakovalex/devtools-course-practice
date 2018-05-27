@@ -59,8 +59,8 @@ void merge::BatcherMerge(std::vector<int> &a, int l, int r)
       if (a[i] > a[i+1])
          std::swap(a[i], a[i+1]);
 
-   //int halfSize = (r - l + 1) / 2 - 1;
-	
-   //for (int i = l + 1; i + halfSize < r; i++)
-     // compexch(a[i], a[i + halfSize]);
+   int halfSize = (r - l + 1) / 2 - 1;
+   for (int i = l + 1; i + halfSize < r; i++)
+      if (a[i] > a[i+halfSize])
+         std::swap(a[i], a[i+halfSize]);
 }
