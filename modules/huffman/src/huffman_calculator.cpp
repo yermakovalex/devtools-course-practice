@@ -35,7 +35,7 @@ bool HuffmanCalculator::validateNumberOfArguments(int argc, const char** argv) {
     }
     return true;
 }
-
+ 
 std::string HuffmanCalculator::operator()(int argc, const char** argv) {
     Arguments args;
 
