@@ -56,8 +56,8 @@ TEST(Lebedev_Vyacheslav_ComplexNumberTest, CanCalculateFlow) {
     ComplexNumber z4(1.0, 2.0);
     ComplexNumber res(61.0, 17.0);
 
-   // Act
-   ComplexNumber z = (z1 + z2)*(z3 - z4);
+    // Act
+    ComplexNumber z = (z1 + z2)*(z3 - z4);
 
     //Assert
     EXPECT_EQ(z, res);
