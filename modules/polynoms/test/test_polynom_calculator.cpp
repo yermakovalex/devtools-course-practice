@@ -2,6 +2,8 @@
 
 #include <gtest/gtest.h>
 #include <stdexcept>
+#include <string>
+#include <vector>
 #include "include/monom.h"
 #include "include/polynom_calculator.hpp"
 
@@ -39,7 +41,6 @@ TEST(PolynomCalculator, Substration_Polinom) {
     // Assert
     EXPECT_EQ(res, out);
 }
-
 
 TEST(PolynomCalculator, InvaliArgumentsSize) {
     // Arrange

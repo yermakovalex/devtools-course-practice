@@ -1,6 +1,8 @@
 // Copyright 2018 TolyaTalamanov
 
 #include <algorithm>
+#include <string>
+#include <vector>
 #include "include/monom.h"
 #include "include/polynom_calculator.hpp"
 
@@ -33,7 +35,6 @@ std::string PolynomCalculator::calculate(const InputArguments& ins) {
     switch (op) {
         case '+' : return (f_p + s_p).ToString();
         case '-' : return (f_p - s_p).ToString();
-        case '*' : return (f_p * s_p).ToString();
     }
     return "invalid operations";
 }
