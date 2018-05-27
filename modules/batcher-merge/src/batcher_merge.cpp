@@ -3,7 +3,7 @@
 #include "include/batcher_merge.h"
 #include <stdexcept>
 #include <vector>
-#include <algoritm>
+#include <algorithm>
 
 void shuffle(std::vector<int> *a, int l, int r) {
   std::vector<int> tmp(a.size());
