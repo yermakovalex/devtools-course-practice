@@ -60,11 +60,21 @@ std::string QuadEquatCalc::operator()(int argc, const char** argv) {
     }
 
     quadraticEquation QE(args.a, args.b, args.c);
-
     QE.solve();
 
     std::ostringstream stream;
     // output handler
+    stream << "Result : ";
+    if (QE.discriminant < 0.0) {
+        stream <<  "There are no real roots " << QE.roots[1];
+    }
+    if (QE.discriminant == 0.0) {
+        stream << "There is one real root " << QE.roots[0];
+    }
+    if (QE.discriminant > 0.0) {
+        stream << "There are two real roots " << QE.roots[0] << QE.roots[1];
+    }
+
     message_ = stream.str();
     return message_;
 }
