@@ -152,3 +152,15 @@ TEST(Kamelina_Julia_Huffman_Tests, Fano_Conditional) {
   //  Assert
   EXPECT_TRUE(flag);
 }
+
+TEST(Gracheva_Elena_Huffman_Tests, Can_Encode_if_text_has_special_symbols) {
+    //  Arrange
+    char* text = const_cast<char*>("\\\n\"\b");
+    Huffman huff(text);
+
+    //  Act
+    map<char, char*> enc = huff.Encode();
+
+    //  Assert
+    EXPECT_EQ(enc.size(), 4);
+}
