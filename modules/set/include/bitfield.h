@@ -9,7 +9,7 @@ class bitfield{
     int n;
     int sizeU = 10;
     int k;
-    int Mem_Index(int k);
+    int MemIndex(int k);
     int Mask(int k);
 
  public:
