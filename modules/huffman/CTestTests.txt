@@ -45,8 +45,8 @@ set_tests_properties (${prefix}_can_Encode_Symbol_From_Str PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Encode_Special_Symbol_From_Str
-    COMMAND ${APPLICATION} AAAA333\bCCC\b@
+    COMMAND ${APPLICATION} AAAA333\"CCC\"@
 )
 set_tests_properties (${prefix}_can_Encode_Special_Symbol_From_Str PROPERTIES
-    PASS_REGULAR_EXPRESSION "\"\b\" is encoded as \"001\"\n"
+    PASS_REGULAR_EXPRESSION "\"\"\" is encoded as \"001\"\n"
     LABELS "${MODULE}")
