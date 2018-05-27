@@ -31,7 +31,7 @@ add_test(
     NAME ${prefix}_can_Encode_Letter_From_Str
     COMMAND ${APPLICATION} AAAA333!CCC!@
 )
-set_tests_properties (${prefix}_can_Encode_Letter_From_Str
+set_tests_properties (${prefix}_can_Encode_Letter_From_Str PROPERTIES
     PASS_REGULAR_EXPRESSION "\"C\" is encoded as \"10\"\n"
     LABELS "${MODULE}")
 
@@ -39,7 +39,7 @@ add_test(
     NAME ${prefix}_can_Encode_Symbol_From_Str
     COMMAND ${APPLICATION} AAAA333!CCC!@
 )
-set_tests_properties (${prefix}_can_Encode_Symbol_From_Str
+set_tests_properties (${prefix}_can_Encode_Symbol_From_Str PROPERTIES
     PASS_REGULAR_EXPRESSION "\"@\" is encoded as \"000\"\n"
     LABELS "${MODULE}")
 
@@ -47,6 +47,6 @@ add_test(
     NAME ${prefix}_can_Encode_Special_Symbol_From_Str
     COMMAND ${APPLICATION} AAAA333\bCCC\b@
 )
-set_tests_properties (${prefix}_can_Encode_Special_Symbol_From_Str
+set_tests_properties (${prefix}_can_Encode_Special_Symbol_From_Str PROPERTIES
     PASS_REGULAR_EXPRESSION "\"\b\" is encoded as \"001\"\n"
     LABELS "${MODULE}")
