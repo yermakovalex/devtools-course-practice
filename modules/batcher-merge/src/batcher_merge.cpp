@@ -59,7 +59,7 @@ void merge::BatcherMerge(std::vector<int>& a, int l, int r)
    int half = (int)(l + r) / 2;
     
    BatcherMerge(a, l, half);
-   batcherMerge(a, half + 1, r);
+   BatcherMerge(a, half + 1, r);
     
    shuffle(a, l, r);
    for (int i = l + 1; i < r; i += 2)
