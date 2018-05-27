@@ -6,7 +6,7 @@
 #include <algorithm>
 
 void shuffle(std::vector<int> *a, int l, int r) {
-  std::vector<int> *tmp(a.size());
+  std::vector<int*> tmp(a.size());
   int i, j, m = (l + r) / 2;
 
   for (i = l, j = 0; i <= r; i += 2, j++) {
@@ -19,7 +19,7 @@ void shuffle(std::vector<int> *a, int l, int r) {
 }
 
 void unshuffle(std::vector<int> *a, int l, int r) {
-  std::vector<int> *tmp(a.size());
+  std::vector<int*> tmp(a.size());
   int i, j, m = (l + r) / 2;
 
   for (i = l, j = 0; i <= r; i += 2, j++) {
