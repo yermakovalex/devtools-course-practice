@@ -24,7 +24,7 @@ add_test(
     COMMAND ${APPLICATION} text1 text2
 )
 set_tests_properties (${prefix}_can_Detect_Too_Many_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "ERROR: invalid arguments"
+    PASS_REGULAR_EXPRESSION "ERROR:"
     LABELS "${MODULE}")
 
 add_test(
