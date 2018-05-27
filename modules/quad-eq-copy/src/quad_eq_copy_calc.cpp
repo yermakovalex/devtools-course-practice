@@ -4,10 +4,13 @@
 #include "include/quad_eq_copy.h"
 
 #include <math.h>
-#include <stdexcept>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <sstream>
+#include <stdexcept>
+
+#include <string>
 #include <sstream>
 
 QuadEquatCalc::QuadEquatCalc() : message_("") {}
@@ -18,7 +21,7 @@ void QuadEquatCalc::help(const char* appname, const char* message) {
           "This is a quadratic equation calculator application.\n\n" +
           "Please provide arguments in the following format:\n\n"+
 
-          "  $ " + appname + " <a> " + " <b> " + " <c> \n\n" + 
+          "  $ " + appname + " <a> " + " <b> " + " <c> \n\n" +
           "Where all arguments are double-precision numbers, \n";
 }
 
@@ -72,7 +75,7 @@ std::string QuadEquatCalc::operator()(int argc, const char** argv) {
         stream << "There is one real root: " << QE.roots[0];
     }
     if (QE.discriminant > 0.0) {
-        stream << "There are two real roots: " << QE.roots[0] << " " << QE.roots[1];
+       stream << "There are two real roots: " << QE.roots[0] << " " << QE.roots[1];
     }
 
     message_ = stream.str();
