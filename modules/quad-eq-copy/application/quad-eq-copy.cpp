@@ -1,14 +1,14 @@
 // Copyright 2018 Romanov Alexander
 
-#include <cstdlib>
-#include <cstdio>
+#include <stdlib.h>
+#include <stdio.h>
 #include <string>
 
-#include "include/quadratic_equation.h"
+#include "include/quad_eq_copy_calc.h"
 
 int main(int argc, const char** argv) {
-
-    printf("%s\n", "Hello World!");
-
+    QuadEquatCalc app;
+    std::string output = app(argc, argv);
+    printf("%s\n", output.c_str());    
     return 0;
 }

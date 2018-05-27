@@ -16,6 +16,7 @@ class quadraticEquation {
      void setCoefficients(const double& _a,
                           const double& _b,
                           const double& _c);
+     void solve();
 
  private:
      double a, b, c;  // coefficients of equation
@@ -25,7 +26,6 @@ class quadraticEquation {
      bool isSolved;
 
      bool hasRealRoots() const;
-     void solve();
 };
 
 #endif  // MODULES_QUAD_EQ_COPY_INCLUDE_QUAD_EQ_COPY_H_

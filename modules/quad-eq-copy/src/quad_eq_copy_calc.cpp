@@ -59,9 +59,8 @@ std::string QuadEquatCalc::operator()(int argc, const char** argv) {
         return str;
     }
 
-    quadraticEquation QE;
+    quadraticEquation QE(args.a, args.b, args.c);
 
-    QE.setCoefficients(a, b, c);
     QE.solve();
 
     std::ostringstream stream;
