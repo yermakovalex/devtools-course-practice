@@ -93,9 +93,9 @@ TEST(LMetricsFloatTest, Test_Empty_Data) {
     // Arrange
     std::vector<float> vec1 = {};
     std::vector<float> vec2 = {};
+    float sum = 0.0f;
 
     // Act
-    float sum = 0.0f;
     sum += LMetricsFloat::LinfVecDistance(vec1, vec2);
     sum += LMetricsFloat::L1VecDistance(vec1, vec2);
     sum += LMetricsFloat::L2VecDistance(vec1, vec2);
@@ -108,11 +108,11 @@ TEST(LMetricsFloatTest, Test_Empty_Data) {
 
 TEST(LMetricsFloatTest, Same_Vectors_Distance_Check) {
     // Arrange
-    std::vector<float> vec1 = { 1.0, 2.0, 3.0 };
-    std::vector<float> vec2 = { 1.0, 2.0, 3.0 };
+    std::vector<float> vec1 = { 1.0f, 2.0f, 3.0f };
+    std::vector<float> vec2 = { 1.0f, 2.0f, 3.0f };
+    float sum = 0.0f;
 
     // Act
-    float sum = 0.0f;
     sum += LMetricsFloat::LinfVecDistance(vec1, vec2);
     sum += LMetricsFloat::L1VecDistance(vec1, vec2);
     sum += LMetricsFloat::L2VecDistance(vec1, vec2);
