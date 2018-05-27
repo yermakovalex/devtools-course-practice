@@ -13,11 +13,11 @@ class Student {
     int id;
     int amountMarks;
     int marks[MAX];
+    static int amountStudents;
     std::string sName;
     std::string group;
  public:
     static int code;
-    static int amountStudents;
 
     float GetId() { return id; }
     int GetAmountMarks() { return amountMarks; }
