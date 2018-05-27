@@ -63,7 +63,7 @@ TEST(BatcherMergeTest, Can_Work_With_Big_Size) {
    merge::BatcherMerge(array, left, right);
     
    // Assert
-   EXPECT_EQ(array == sequence);
+   EXPECT_TRUE(array == sequence);
 }
 
 
