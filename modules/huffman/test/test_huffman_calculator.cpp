@@ -104,5 +104,5 @@ TEST_F(HuffmanCalculatorTest, Can_Encode_If_Text_Has_Special_Symbols) {
     Act(args);
 
     //  Assert
-    Assert("\"\\\" is encoded as \.*");
+    Assert("\"\\\" is encoded as");
 }
