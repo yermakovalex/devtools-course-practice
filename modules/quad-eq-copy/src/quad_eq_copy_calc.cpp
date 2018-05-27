@@ -17,7 +17,7 @@ QuadEquatCalc::QuadEquatCalc() : message_("") {}
 void QuadEquatCalc::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
-          "This is a quadratic equation calculator application.\n\n" +
+          "This is a quadratic equation calculator.\n\n" +
           "Please provide arguments in the following format:\n\n"+
 
           "  $ " + appname + " <a> " + " <b> " + " <c> \n\n" +
