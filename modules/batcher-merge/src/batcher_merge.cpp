@@ -12,9 +12,9 @@ void compexch(int& a, int& b)
       std::swap(a, b);
 }
 
-void shuffle(std::vector<int>& a, unsigned int l, unsigned int r)
+void shuffle(std::vector<int>& a, int l, int r)
 {
-   int half = (unsigned int)(l + r) / 2;
+   int half = (int)(l + r) / 2;
    std::vector<int> tmp(a.size());
    int i, j;
 
@@ -28,9 +28,9 @@ void shuffle(std::vector<int>& a, unsigned int l, unsigned int r)
       a[i] = tmp[i];
 }
 
-void unshuffle(std::vector<int>& a, unsigned int l, unsigned int r)
+void unshuffle(std::vector<int>& a, int l, int r)
 {
-   int half = (unsigned int)(l + r) / 2;
+   int half = (int)(l + r) / 2;
    std::vector<int> tmp(a.size());
    int i, j;
     
@@ -44,7 +44,7 @@ void unshuffle(std::vector<int>& a, unsigned int l, unsigned int r)
       a[i] = tmp[i];
 }
 
-void merge::BatcherMerge(std::vector<int>& a, unsigned int l, unsigned int r)
+void merge::BatcherMerge(std::vector<int>& a, int l, int r)
 {
    if (l > r)
       throw std::logic_error("Left index can't be > right index");

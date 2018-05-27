@@ -8,7 +8,7 @@
 
 struct merge {
 
-   static void BatcherMerge(std::vector<int> *array, unsigned int first, unsigned int last);
+   static void BatcherMerge(std::vector<int> &array, int first, int last);
 
 };
 
