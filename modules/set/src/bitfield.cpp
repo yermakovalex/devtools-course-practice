@@ -28,7 +28,7 @@ bitfield::~bitfield() {
     delete[] arr;
 }
 
-int bitfield::Mem_index(int k) {
+int bitfield::Mem_Index(int k) {
     return k / sizeof(int) << 3;;
 }
 
@@ -36,12 +36,12 @@ int bitfield::Mask(int k) {
     return 1 << (k % sizeof(int) << 3);
 }
 
-void bitfield::setbit(int T) {
-    arr[Mem_index(T)] |= Mask(T);
+void bitfield::SetBit(int T) {
+    arr[Mem_Index(T)] |= Mask(T);
 }
 
-int bitfield::getbit(int T) {
-    return arr[Mem_index(T)] & Mask(T);
+int bitfield::GetBit(int T) {
+    return arr[Mem_Index(T)] & Mask(T);
 }
 
 bitfield bitfield :: operator&(const bitfield& X) {

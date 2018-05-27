@@ -157,5 +157,5 @@ TEST(Levitsky_Ilya_setTest, Test_BF) {
     Y = X;
 
     // Assert
-    EXPECT_EQ(0, X.getbit(3));
+    EXPECT_EQ(0, X.GetBit(3));
 }
