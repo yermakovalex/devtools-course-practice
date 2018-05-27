@@ -5,7 +5,7 @@
 #include <vector>
 #include <algorithm>
 
-void shuffle(std::vector<int> &a, int l, int r) {
+void shuffle(std::vector<int> a, int l, int r) {
   std::vector<int> tmp(a.size());
   int i, j, m = (l + r) / 2;
 
@@ -18,7 +18,7 @@ void shuffle(std::vector<int> &a, int l, int r) {
     a[i] = tmp[i];
 }
 
-void unshuffle(std::vector<int> &a, int l, int r) {
+void unshuffle(std::vector<int> a, int l, int r) {
   std::vector<int> tmp(a.size());
   int i, j, m = (l + r) / 2;
 
@@ -31,7 +31,7 @@ void unshuffle(std::vector<int> &a, int l, int r) {
     a[i] = tmp[i];
 }
 
-void merge::BatcherMerge(std::vector<int> &a, int l, int r) {
+void merge::BatcherMerge(std::vector<int> a, int l, int r) {
   if (l > r)
     throw std::logic_error("Left index can't be > right index");
   if ((r < 0) || (l < 0))
