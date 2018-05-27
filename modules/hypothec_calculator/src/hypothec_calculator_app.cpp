@@ -58,12 +58,7 @@ std::string HypothecCalculatorApp::operator()(int argc, const char** argv) {
         args.an_initial_fee         = parseFloat(argv[2]);
         args.credit_term_in_month   = parseInt(argv[3]);
         args.interest_rate_in_month = parseFloat(argv[4]);
-    }
-    catch (std::exception& exc) {
-        return std::string("Wrong format or value is out of range");
-    }
 
-    try {
         HypothecCalculator hc(args.apartments_cost, args.an_initial_fee,
             args.credit_term_in_month, args.interest_rate_in_month);
 
@@ -72,8 +67,8 @@ std::string HypothecCalculatorApp::operator()(int argc, const char** argv) {
 
         message_ = stream.str();
         return message_;
-        }
-        catch (const char* exc) {
-            return std::string(exc);
-        }
     }
+    catch (std::exception& exc) {
+        return std::string("Wrong format or value is out of range");
+    }
+}
