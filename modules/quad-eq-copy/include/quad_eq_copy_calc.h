@@ -1,7 +1,7 @@
 // Copyright 2018 Romanov Alexander
 
-#ifndef MODULES_QUAD_EQ_COPY_INCLUDE_QUAD_EQ_CALC_COPY_H_
-#define MODULES_QUAD_EQ_COPY_INCLUDE_QUAD_EQ_CALC_COPY_H_
+#ifndef MODULES_QUAD_EQ_COPY_INCLUDE_QUAD_EQ_COPY_CALC_H_
+#define MODULES_QUAD_EQ_COPY_INCLUDE_QUAD_EQ_COPY_CALC_H_
 
 #include <string>
 
@@ -18,9 +18,7 @@ class QuadEquatCalc {
         double a;
         double b;
         double c;
-        double root1;
-        double root2;
     } Arguments;
 };
 
-#endif  // MODULES_QUAD_EQ_COPY_INCLUDE_QUAD_EQ_CALC_COPY_H_
+#endif  // MODULES_QUAD_EQ_COPY_INCLUDE_QUAD_EQ_COPY_CALC_H_

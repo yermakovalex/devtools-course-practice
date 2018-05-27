@@ -16,16 +16,16 @@ class quadraticEquation {
      void setCoefficients(const double& _a,
                           const double& _b,
                           const double& _c);
+     void solve();
+     std::vector<double> roots;
+     double discriminant;
 
  private:
      double a, b, c;  // coefficients of equation
-     double discriminant;
-     std::vector<double> roots;
 
      bool isSolved;
 
      bool hasRealRoots() const;
-     void solve();
 };
 
 #endif  // MODULES_QUAD_EQ_COPY_INCLUDE_QUAD_EQ_COPY_H_

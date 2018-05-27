@@ -1,6 +1,6 @@
 // Copyright 2018 Chvanov Leonid
 
-#include "include/quad_eq.h"
+#include "include/quad_eq_copy.h"
 
 #include <math.h>
 #include <stdexcept>
