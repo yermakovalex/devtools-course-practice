@@ -1,10 +1,6 @@
 // Copyright 2018 Nifadyev Vadim
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
-#include <string>
+#include <cstring>
 #include <sstream>
 
 #include "include/temperature_converter.h"

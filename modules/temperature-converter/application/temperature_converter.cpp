@@ -1,7 +1,7 @@
 // Copyright 2018 Nifadyev Vadim
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <string>
 
 #include "include/temperature_calculator.h"
