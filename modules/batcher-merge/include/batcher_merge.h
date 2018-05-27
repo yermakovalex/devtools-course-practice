@@ -6,9 +6,8 @@
 
 #include <vector>
 
-struct merge
-{
-   static void BatcherMerge(std::vector<int> &array, int first, int last);
+struct merge {
+  static void BatcherMerge(std::vector<int> array, int first, int last);
 };
 
 #endif  // MODULES_BATCHER_MERGE_INCLUDE_BATCHER_MERGE_H_
