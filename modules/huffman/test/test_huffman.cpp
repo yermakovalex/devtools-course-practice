@@ -153,7 +153,7 @@ TEST(Kamelina_Julia_Huffman_Tests, Fano_Conditional) {
   EXPECT_TRUE(flag);
 }
 
-TEST(Gracheva_Elena_Huffman_Tests, Can_Encode_if_text_has_special_symbols) {
+TEST(Gracheva_Elena_Huffman_Tests, Can_Encode_If_Text_Has_Special_Symbols) {
     //  Arrange
     char* text = const_cast<char*>("\\\n\"\b");
     Huffman huff(text);
