@@ -17,8 +17,8 @@ class quadraticEquation {
                           const double& _b,
                           const double& _c);
      void solve();
-	 std::vector<double> roots;
-	 double discriminant;
+     std::vector<double> roots;
+     double discriminant;
 
  private:
      double a, b, c;  // coefficients of equation
