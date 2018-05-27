@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include <sstream>
 #include <stdexcept>
 
 #include <string>
@@ -75,7 +74,8 @@ std::string QuadEquatCalc::operator()(int argc, const char** argv) {
         stream << "There is one real root: " << QE.roots[0];
     }
     if (QE.discriminant > 0.0) {
-       stream << "There are two real roots: " << QE.roots[0] << " " << QE.roots[1];
+        stream << "There are two real roots: " 
+        stream << QE.roots[0] << " " << QE.roots[1];
     }
 
     message_ = stream.str();
