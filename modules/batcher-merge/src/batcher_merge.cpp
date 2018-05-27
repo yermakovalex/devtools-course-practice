@@ -14,33 +14,31 @@ void compexch(int a, int b)
 
 void shuffle(std::vector<int> *a, int l, int r)
 {
-   int half = (int)(l + r) / 2;
    std::vector<int> tmp(a.size());
-   int i, j;
+   int i, j, m = (l + r) / 2;
 
    for (i = l, j = 0; i <= r; i += 2, j++)
    {
       tmp[i] = a[l + j];
-      tmp[i + 1] = a[half + j + 1];
+      tmp[i + 1] = a[m + j + 1];
    }
     
-   for (int i = 0; i < tmp.size(); i++)
+   for (int i = l; i <= r; i++)
       a[i] = tmp[i];
 }
 
 void unshuffle(std::vector<int> *a, int l, int r)
 {
-   int half = (int)(l + r) / 2;
    std::vector<int> tmp(a.size());
-   int i, j;
+   int i, j, m = (l + r) / 2;
     
    for (i = l, j = 0; i <= r; i += 2, j++)
    {
       tmp[l + j] = a[i];
-      tmp[half + j + 1] = a[i + 1];
+      tmp[m + j + 1] = a[i + 1];
    }
     
-   for (int i = 0; i < tmp.size(); i++)
+   for (int i = 0; i <= r; i++)
       a[i] = tmp[i];
 }
 
@@ -56,17 +54,17 @@ void merge::BatcherMerge(std::vector<int> *a, int l, int r)
       return;
     
    unshuffle(a, l, r);
-   int half = (int)(l + r) / 2;
+   int m = (l + r) / 2;
     
-   BatcherMerge(a, l, half);
-   BatcherMerge(a, half + 1, r);
+   BatcherMerge(a, l, m);
+   BatcherMerge(a, m + 1, r);
     
    shuffle(a, l, r);
    for (int i = l + 1; i < r; i += 2)
       compexch(a[i], a[i + 1]);
 
-   int halfSize = (r - l + 1) / 2 - 1;
+   //int halfSize = (r - l + 1) / 2 - 1;
 	
-   for (int i = l + 1; i + halfSize < r; i++)
-      compexch(a[i], a[i + halfSize]);
+   //for (int i = l + 1; i + halfSize < r; i++)
+     // compexch(a[i], a[i + halfSize]);
 }
