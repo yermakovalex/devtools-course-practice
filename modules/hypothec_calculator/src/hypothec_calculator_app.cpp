@@ -68,7 +68,7 @@ std::string HypothecCalculatorApp::operator()(int argc, const char** argv) {
             args.credit_term_in_month, args.interest_rate_in_month);
 
         std::ostringstream stream;
-        stream << (int)hc.return_final_amount_of_payment();
+        stream << static_cast<int>(hc.return_final_amount_of_payment());
 
         message_ = stream.str();
         return message_;
