@@ -12,18 +12,18 @@ set_tests_properties (${prefix}_can_Run PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Print_Help_Without_Arguments
+    NAME ${prefix}_can_Print_Help_No_Arguments
     COMMAND ${APPLICATION}
 )
-set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+set_tests_properties (${prefix}_can_Print_Help_No_Arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "Usage:"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Print_Help_With_Corresponding_Option
+    NAME ${prefix}_can_Print_Help_Corresponding_Option
     COMMAND ${APPLICATION}
 )
-set_tests_properties (${prefix}_can_Print_Help_With_Corresponding_Option PROPERTIES
+set_tests_properties (${prefix}_can_Print_Help_Corresponding_Option PROPERTIES
     PASS_REGULAR_EXPRESSION "Usage:"
     LABELS "${MODULE}")
 
@@ -60,10 +60,10 @@ set_tests_properties (${prefix}_can_Calculate_Sphere_Volume PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_cant_Calculate_Sphere_Volume_With_Negative_Radius
+    NAME ${prefix}_cant_Calculate_Sphere_Volume_Negative_Radius
     COMMAND ${APPLICATION} -s -3
 )
-set_tests_properties (${prefix}_cant_Calculate_Sphere_Volume_With_Negative_Radius PROPERTIES
+set_tests_properties (${prefix}_cant_Calculate_Sphere_Volume_Negative_Radius PROPERTIES
     PASS_REGULAR_EXPRESSION "Number can't be less then zero"
     LABELS "${MODULE}")
 
@@ -76,10 +76,10 @@ set_tests_properties (${prefix}_can_Calculate_Cube_Volume PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_cant_Calculate_Cube_Volume_With_Negative_Width
+    NAME ${prefix}_cant_Calculate_Cube_Volume_Negative_Width
     COMMAND ${APPLICATION} -b -5
 )
-set_tests_properties (${prefix}_cant_Calculate_Cube_Volume_With_Negative_Width PROPERTIES
+set_tests_properties (${prefix}_cant_Calculate_Cube_Volume_Negative_Width PROPERTIES
     PASS_REGULAR_EXPRESSION "Number can't be less then zero"
     LABELS "${MODULE}")
 

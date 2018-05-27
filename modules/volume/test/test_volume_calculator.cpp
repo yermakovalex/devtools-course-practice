@@ -39,7 +39,7 @@ class VolumeCalculatorTest : public ::testing::Test {
   string output_;
 };
 
-TEST_F(VolumeCalculatorTest, Do_Print_Help_Without_Arguments) {
+TEST_F(VolumeCalculatorTest, Do_Print_Help_No_Arguments) {
   vector<string> args = {};
 
   Act(args);
@@ -47,7 +47,7 @@ TEST_F(VolumeCalculatorTest, Do_Print_Help_Without_Arguments) {
   Assert("Usage:.*");
 }
 
-TEST_F(VolumeCalculatorTest, Do_Print_Help_With_Corresponding_Flag) {
+TEST_F(VolumeCalculatorTest, Do_Print_Help_Corresponding_Flag) {
   vector<string> args = {"-h"};
 
   Act(args);
@@ -80,7 +80,7 @@ TEST_F(VolumeCalculatorTest, Can_Detect_Wrong_Primitive_Type) {
 }
 
 TEST_F(VolumeCalculatorTest,
-Wont_Calculate_Cylinder_Volume_With_Odd_Parameters) {
+Wont_Calculate_Cylinder_Volume_Odd_Parameters) {
   vector<string> args = {"-c", "1", "2", "12"};
 
   Act(args);
@@ -89,7 +89,7 @@ Wont_Calculate_Cylinder_Volume_With_Odd_Parameters) {
 }
 
 TEST_F(VolumeCalculatorTest,
-Wont_Calculate_Sphere_Volume_With_Odd_Parameters) {
+Wont_Calculate_Sphere_Volume_Odd_Parameters) {
   vector<string> args = {"-s", "1", "2"};
 
   Act(args);
@@ -105,7 +105,7 @@ TEST_F(VolumeCalculatorTest, Can_Calculate_Sphere_Volume) {
   Assert("Volume = 3.14159");
 }
 TEST_F(VolumeCalculatorTest,
-       Cant_Calculate_Sphere_Volume_With_Negative_Radius) {
+       Cant_Calculate_Sphere_Volume_Negative_Radius) {
   vector<string> args = {"-s", "-1"};
 
   Act(args);
@@ -121,7 +121,7 @@ TEST_F(VolumeCalculatorTest, Can_Calculate_Cube_Volume) {
   Assert("Volume = 125");
 }
 
-TEST_F(VolumeCalculatorTest, Cant_Calculate_Cube_Volume_With_Negative_Width) {
+TEST_F(VolumeCalculatorTest, Cant_Calculate_Cube_Volume_Negative_Width) {
   vector<string> args = {"-b", "-4"};
 
   Act(args);
@@ -138,7 +138,7 @@ TEST_F(VolumeCalculatorTest, Can_Calculate_Cylinder_Volume) {
 }
 
 TEST_F(VolumeCalculatorTest,
-       Cant_Calculate_Cylinder_Volume_With_Negative_Height) {
+       Cant_Calculate_Cylinder_Volume_Negative_Height) {
   vector<string> args = {"-c", "1", "-2"};
 
   Act(args);
@@ -147,7 +147,7 @@ TEST_F(VolumeCalculatorTest,
 }
 
 TEST_F(VolumeCalculatorTest,
-       Cant_Calculate_Cylinder_Volume_With_Negative_Radius) {
+       Cant_Calculate_Cylinder_Volume_Negative_Radius) {
   vector<string> args = {"-c", "-1", "2"};
 
   Act(args);
