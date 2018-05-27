@@ -5,9 +5,27 @@
 #include <stdexcept>
 #include <random>
 #include <string>
+#include <sstream>
 #include <vector>
 #include <algorithm>
 #include "include/matrix_operation.hpp"
+
+
+MatrixOperation::MatrixOperation() : message_("") {}
+
+void MatrixOperation::help(const char* appname, const char* message) {
+    message_ = std::string(message);
+        //+
+        //   "This is a matrix calculator application.\n\n" +
+        //   "Please provide arguments in the following format:\n\n"+
+        //
+        //   "  $ " + appname + " <rows> " + "<columns> " +
+        //   "<operation>\n\n" +
+        //
+        //   "Where 1 and 2 arguments are int numbers, " +
+        //   "and <operation> is one of" +
+        //       " '+', '-', '*', 'Transpon', 'InverseMatrix'.\n";
+}
 
 int MatrixOperation::find_operation(std::string operation) {
   std::vector<std::string> operat = {"+", "-", "*",
@@ -17,8 +35,27 @@ int MatrixOperation::find_operation(std::string operation) {
 }
 
 bool MatrixOperation::validate_data(int argc, const char** argv) {
-  return (argc == 4 && atoi(argv[1]) > 0 && atoi(argv[2]) > 0
-                                         && find_operation(argv[3]) != 5);
+  if (argc != 4) {
+    help(argv[0], "ERROR: Should be 4 arguments.");
+    return false;
+  }
+  if (atoi(argv[1]) <= 0) {
+    help(argv[0], "Wrong rows format!");
+    return false;
+  }
+  if (atoi(argv[2]) <= 0) {
+    help(argv[0], "Wrong cols format!");
+    return false;
+  }
+  if (find_operation(argv[3]) == 5) {
+    help(argv[0], "Wrong operation format!");
+    return false;
+  }
+  if (find_operation(argv[3]) == 3 && atoi(argv[1]) != atoi(argv[2])) {
+    help(argv[0], "Number of rows must be equal number of cols!");
+    return false;
+  }
+  return true;
 }
 
 std::vector<matrix_type> MatrixOperation::getInputMatrix() {
@@ -38,9 +75,9 @@ matrix_type MatrixOperation::create_random_matrix(int rows, int cols) {
   return matrix;
 }
 
-MatrixCalculator MatrixOperation::operator()(int argc, const char** argv) {
+std::string MatrixOperation::operator()(int argc, const char** argv) {
   if ( !validate_data(argc, argv) ) {
-    throw std::logic_error("uncorrect data");
+    return message_;
   }
   int rows = atoi(argv[1]);
   int cols = atoi(argv[2]);
@@ -54,30 +91,35 @@ MatrixCalculator MatrixOperation::operator()(int argc, const char** argv) {
   MatrixCalculator result(rows, cols);
   int pos = find_operation(argv[3]);
 
+  std::string s;
+
   switch (pos) {
     case 0: {
       result = mat1 + mat2;
+      s = result.matrix_to_string();
       break;
     }
     case 1: {
       result = mat1 - mat2;
+      s = result.matrix_to_string();
       break;
     }
     case 2: {
       result = mat1 * mat2;
+      s = result.matrix_to_string();
       break;
     }
     case 3: {
-      if (rows != cols) {
-        throw std::logic_error("number of rows must be equal number of cols");
-      }
       result = mat1.Transpon(rows);
+      s = result.matrix_to_string();
       break;
     }
     case 4: {
       result = mat1.InverseMatrix();
+      s = result.matrix_to_string();
       break;
     }
   }
-  return result;
+  message_ = s;
+  return message_;
 }

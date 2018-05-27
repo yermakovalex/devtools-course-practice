@@ -12,11 +12,13 @@
 
 class MatrixOperation {
  public:
-  MatrixOperation() = default;
-  MatrixCalculator operator()(int argc, const char** argv);
+  MatrixOperation();
+  std::string operator()(int argc, const char** argv);
   std::vector<matrix_type> getInputMatrix();
  private:
   std::vector<matrix_type> inputs;
+  std::string message_;
+  void help(const char* appname, const char* message = "");
   matrix_type create_random_matrix(int rows, int cols);
   bool validate_data(int argc, const char** argv);
   int find_operation(std::string operation);

@@ -2,6 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <vector>
+#include <string>
 #include "include/matrix_operation.hpp"
 
 TEST(MatrixOperationTest, create_mat_operation) {
@@ -17,16 +18,17 @@ TEST(MatrixOperationTest, can_sum_matrixes) {
     MatrixOperation sum;
 
     // Act
-    MatrixCalculator res = sum(argc, argv);
+    std::string res = sum(argc, argv);
     auto ins = sum.getInputMatrix();
     MatrixCalculator mc1;
     mc1.SetMatrix(ins[0]);
     MatrixCalculator mc2;
     mc2.SetMatrix(ins[1]);
     auto sumMat = mc1 + mc2;
+    std::string resSum = sumMat.matrix_to_string();
 
     // Assert
-    EXPECT_EQ(res, sumMat);
+    EXPECT_EQ(res, resSum);
 }
 
 TEST(MatrixOperationTest, can_subtract_matrixes) {
@@ -37,16 +39,17 @@ TEST(MatrixOperationTest, can_subtract_matrixes) {
     MatrixOperation sub;
 
     // Act
-    MatrixCalculator res = sub(argc, argv);
+    std::string res = sub(argc, argv);
     auto ins = sub.getInputMatrix();
     MatrixCalculator mc1;
     mc1.SetMatrix(ins[0]);
     MatrixCalculator mc2;
     mc2.SetMatrix(ins[1]);
     auto subMat = mc1 - mc2;
+    std::string resSub = subMat.matrix_to_string();
 
     // Assert
-    EXPECT_EQ(res, subMat);
+    EXPECT_EQ(res, resSub);
 }
 
 TEST(MatrixOperationTest, can_multiply_matrixes) {
@@ -57,16 +60,17 @@ TEST(MatrixOperationTest, can_multiply_matrixes) {
     MatrixOperation mult;
 
     // Act
-    MatrixCalculator res = mult(argc, argv);
+    std::string res = mult(argc, argv);
     auto ins = mult.getInputMatrix();
     MatrixCalculator mc1;
     mc1.SetMatrix(ins[0]);
     MatrixCalculator mc2;
     mc2.SetMatrix(ins[1]);
     auto multMat = mc1 * mc2;
+    std::string resMult = multMat.matrix_to_string();
 
     // Assert
-    EXPECT_EQ(res, multMat);
+    EXPECT_EQ(res, resMult);
 }
 
 TEST(MatrixOperationTest, can_transpon_matrix) {
@@ -77,14 +81,14 @@ TEST(MatrixOperationTest, can_transpon_matrix) {
     MatrixOperation transpon;
 
     // Act
-    MatrixCalculator res = transpon(argc, argv);
+    std::string res = transpon(argc, argv);
     auto ins = transpon.getInputMatrix();
     MatrixCalculator mc1;
     mc1.SetMatrix(ins[0]);
     auto transponMat = mc1.Transpon(3);
-
+    std::string resMult = transponMat.matrix_to_string();
     // Assert
-    EXPECT_EQ(res, transponMat);
+    EXPECT_EQ(res, resMult);
 }
 
 TEST(MatrixOperationTest, invalide_size_of_arguments) {
@@ -93,8 +97,10 @@ TEST(MatrixOperationTest, invalide_size_of_arguments) {
   std::vector<const char*> v = {"Tests", "3", "+"};
   const char** argv = v.data();
   MatrixOperation mc;
-  // Act & Assert
-  EXPECT_THROW(mc(argc, argv), std::logic_error);
+  // Act
+  std::string output = mc(argc, argv);
+  // Assert
+  EXPECT_EQ(output, "ERROR: Should be 4 arguments.");
 }
 
 TEST(MatrixOperationTest, invalide_operation) {
@@ -103,6 +109,9 @@ TEST(MatrixOperationTest, invalide_operation) {
   std::vector<const char*> v = {"Tests", "3", "3", "/"};
   const char** argv = v.data();
   MatrixOperation mc;
-  // Act & Assert
-  EXPECT_THROW(mc(argc, argv), std::logic_error);
+  // Act
+  std::string output = mc(argc, argv);
+  // Assert
+  EXPECT_EQ(output, "Wrong operation format!");
+  //  EXPECT_THROW(mc(argc, argv), std::logic_error);
 }

@@ -3,6 +3,7 @@
 #include "include/matrix_calculator.h"
 #include <iostream>
 #include <cmath>
+#include <string>
 #include <cstddef>
 #include <vector>
 
@@ -201,3 +202,15 @@ std::ostream& operator<<(std::ostream& stream,
     }
     return stream;
   }
+
+std::string MatrixCalculator::matrix_to_string() {
+  std::string s;
+  for (size_t i = 0; i < matrix.size(); i++) {
+      for (size_t j = 0; j < matrix.size(); j++) {
+        s += matrix[i][j];
+        s += " ";
+      }
+      s += '\n';
+    }
+    return s;
+}
