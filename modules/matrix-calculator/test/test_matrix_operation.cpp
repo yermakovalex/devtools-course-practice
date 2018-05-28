@@ -91,6 +91,24 @@ TEST(MatrixOperationTest, can_transpon_matrix) {
     EXPECT_EQ(res, resMult);
 }
 
+TEST(MatrixOperationTest, can_inverse_matrix) {
+    // Arrange
+    int argc = 4;
+    std::vector<const char*> v = {"Tests", "3", "3", "InverseMatrix" };
+    const char** argv = v.data();
+    MatrixOperation inverse;
+
+    // Act
+    std::string res = inverse(argc, argv);
+    auto ins = inverse.getInputMatrix();
+    MatrixCalculator mc1;
+    mc1.SetMatrix(ins[0]);
+    auto inverseMat = mc1.InverseMatrix();
+    std::string resInv = inverseMat.matrix_to_string();
+    // Assert
+    EXPECT_EQ(res, resInv);
+}
+
 TEST(MatrixOperationTest, invalide_size_of_arguments) {
   // Arrange
   int argc = 3;
@@ -113,5 +131,4 @@ TEST(MatrixOperationTest, invalide_operation) {
   std::string output = mc(argc, argv);
   // Assert
   EXPECT_EQ(output, "Wrong operation format!");
-  //  EXPECT_THROW(mc(argc, argv), std::logic_error);
 }

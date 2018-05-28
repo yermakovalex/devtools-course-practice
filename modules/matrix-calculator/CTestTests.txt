@@ -35,7 +35,6 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Cols_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong cols format!"
     LABELS "${MODULE}")
 
-
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Operation_Format
     COMMAND ${APPLICATION} 5 5 ?
@@ -44,4 +43,10 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong operation format!"
 LABELS "${MODULE}")
 
-
+add_test(
+    NAME ${prefix}_can_Detect_Cols_Not_Equal_Rows_In_Transpon
+    COMMAND ${APPLICATION} 5 2 Transpon
+)
+set_tests_properties (${prefix}_can_Detect_Cols_Not_Equal_Rows_In_Transpon PROPERTIES
+    PASS_REGULAR_EXPRESSION "Number of rows must be equal number of cols!"
+LABELS "${MODULE}")
