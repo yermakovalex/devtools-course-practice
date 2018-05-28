@@ -42,13 +42,13 @@ void merge::BatcherMerge(std::vector<int> *a, int l, int r) {
   if (r < l + 2)
     return;
 
-  unshuffle(a, l, r);
+  unshuffle(&a, l, r);
   int m = (l + r) / 2;
 
-  BatcherMerge(a, l, m);
-  BatcherMerge(a, m + 1, r);
+  BatcherMerge(&a, l, m);
+  BatcherMerge(&a, m + 1, r);
 
-  shuffle(a, l, r);
+  shuffle(&a, l, r);
   for (int i = l + 1; i < r; i += 2)
     if (a[i] > a[i+1])
       std::swap(a[i], a[i+1]);
