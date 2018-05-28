@@ -46,7 +46,7 @@ TEST(BatcherMergeTest, Can_Work_With_Two_Elements) {
   merge::BatcherMerge(array, left, right);
 
   // Assert
-  EXPECT_TRUE(array[0] < array[1]);
+  EXPECT_TRUE(array[1] < array[0]);
 }
 
 TEST(BatcherMergeTest, Can_Work_With_Big_Size) {

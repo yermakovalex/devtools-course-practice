@@ -5,8 +5,8 @@
 #include <vector>
 #include <algorithm>
 
-void shuffle(std::vector<int> *a, int l, int r) {
-  int* tmp = new int[a->size()];
+void shuffle(std::vector<int> a, int l, int r) {
+  std::vector<int> tmp(a.size());
   int i, j, m = (l + r) / 2;
 
   for (i = l, j = 0; i <= r; i += 2, j++) {
@@ -18,8 +18,8 @@ void shuffle(std::vector<int> *a, int l, int r) {
     a[i] = tmp[i];
 }
 
-void unshuffle(std::vector<int> *a, int l, int r) {
-  int* tmp = new int [a->size()];
+void unshuffle(std::vector<int> a, int l, int r) {
+  std::vector<int> tmp(a.size());
   int i, j, m = (l + r) / 2;
 
   for (i = l, j = 0; i <= r; i += 2, j++) {
@@ -31,7 +31,7 @@ void unshuffle(std::vector<int> *a, int l, int r) {
     a[i] = tmp[i];
 }
 
-void merge::BatcherMerge(std::vector<int> *a, int l, int r) {
+void merge::BatcherMerge(std::vector<int> a, int l, int r) {
   if (l > r)
     throw std::logic_error("Left index can't be > right index");
   if ((r < 0) || (l < 0))
@@ -42,13 +42,13 @@ void merge::BatcherMerge(std::vector<int> *a, int l, int r) {
   if (r < l + 2)
     return;
 
-  unshuffle(&a, l, r);
+  unshuffle(a, l, r);
   int m = (l + r) / 2;
 
-  BatcherMerge(&a, l, m);
-  BatcherMerge(&a, m + 1, r);
+  BatcherMerge(a, l, m);
+  BatcherMerge(a, m + 1, r);
 
-  shuffle(&a, l, r);
+  shuffle(a, l, r);
   for (int i = l + 1; i < r; i += 2)
     if (a[i] > a[i+1])
       std::swap(a[i], a[i+1]);
