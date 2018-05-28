@@ -11,9 +11,10 @@ TEST(BatcherMergeTest, Cant_Use_Right_Index_Smaller_Left) {
   std::vector<int> array = { 1, 8, 3 };
   int left = 2;
   int right = 0;
+  BatcherMerge bat = BatcherMerge(array);
 
   // Act & Assert
-  EXPECT_ANY_THROW(merge::BatcherMerge(array, left, right));
+  EXPECT_ANY_THROW(bat.merge(left, right););
 }
 
 TEST(BatcherMergeTest, Cant_Use_Negative_Index) {
@@ -21,9 +22,10 @@ TEST(BatcherMergeTest, Cant_Use_Negative_Index) {
   std::vector<int> array = { 1, 8, 3 };
   int left = -1;
   int right = 1;
+  BatcherMerge bat = BatcherMerge(array);
 
   // Act & Assert
-  EXPECT_ANY_THROW(merge::BatcherMerge(array, left, right));
+  EXPECT_ANY_THROW(bat.merge(left, right););
 }
 
 TEST(BatcherMergeTest, Can_Work_With_Unit_Vector) {
@@ -31,9 +33,10 @@ TEST(BatcherMergeTest, Can_Work_With_Unit_Vector) {
   std::vector<int> array = { 1 };
   int left = 0;
   int right = 0;
+  BatcherMerge bat = BatcherMerge(array);
 
   // Act & Assert
-  EXPECT_NO_THROW(merge::BatcherMerge(array, left, right));
+  EXPECT_NO_THROW(bat.merge(left, right););
 }
 
 TEST(BatcherMergeTest, Can_Work_With_Two_Elements) {
@@ -41,12 +44,13 @@ TEST(BatcherMergeTest, Can_Work_With_Two_Elements) {
   std::vector<int> array = { 8, 3 };
   int left = 0;
   int right = 1;
+  BatcherMerge bat = BatcherMerge(array);
 
   // Act
-  merge::BatcherMerge(array, left, right);
+  bat.merge(left, right);
 
   // Assert
-  EXPECT_TRUE(array[1] < array[0]);
+  EXPECT_TRUE(array[1] > array[0]);
 }
 
 TEST(BatcherMergeTest, Can_Work_With_Big_Size) {
@@ -55,7 +59,7 @@ TEST(BatcherMergeTest, Can_Work_With_Big_Size) {
   std::vector<int> sequence = { 1, 2, 3, 4, 5, 6, 7, 8};
   int left = 0;
   int right = 7;
-  BatcherMerge bat(array);
+  BatcherMerge bat = BatcherMerge(array);
 
   // Act
   bat.merge(left, right);

@@ -4,9 +4,6 @@
 #include <stdexcept>
 #include <vector>
 #include <algorithm>
-BatcherMerge::BatcherMerge(std::vector<int> a) {
-    array = a;
-}
 
 void BatcherMerge::compexch(int a, int b) {
   if (array[b] < array[a])
@@ -26,7 +23,7 @@ void BatcherMerge::shuffle(int l, int r) {
     array[i] = tmp[i];
 }
 
-void BatcherSort::unshuffle(int l, int r) {
+void BatcherMerge::unshuffle(int l, int r) {
   std::vector<int> tmp(array.size());
   int i, j, m = (l + r) / 2;
 
