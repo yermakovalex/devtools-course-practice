@@ -1,15 +1,15 @@
 // Copyright 2018 Aglikov Ilya
 
-#include <string>
-#include <sstream>
+#include "include/queue-app.h"
+#include "include/queue.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <ctime>
-
-#include "include/queue.h"
-#include "include/queue-app.h"
+#include <string>
+#include <sstream>
 
 QueueApp::QueueApp() : message_("") {}
 
@@ -87,22 +87,24 @@ std::string QueueApp::operator()(int argc, const char** argv) {
             jobNumber++;
             if (!queue.full())
                 queue.enqueue(jobNumber);
-            else denial++;
+            else
+                denial++;
         }
-        if ((rand() % 100) < (procRate * 100))
+        if ((rand() % 100) < (procRate * 100)) {
             if (!queue.empty()) {
                 queue.dequeue();
             } else {
                 downtime++;
             }
+        }
     }
 
-    denial = (int)(denial / jobNumber * 100);
-    double avrCycles = ((double)clocks - downtime) / jobNumber;
-    downtime = (int)(downtime / clocks * 100);
+    denial = static_cast<int>(denial / jobNumber * 100);
+    double avrCycles = (static_cast<double>clocks - downtime) / jobNumber;
+    downtime = static_cast<int>(downtime / clocks * 100);
 
     std::ostringstream stream;
-    stream << "Result of imitation:" 
+    stream << "Result of imitation:"
         << "\nThe number of submitted jobs: " << jobNumber
         << "\nDenial of service (the queue is full): ~" <<  denial << '%'
         << "\nThe average number of quanta of the job: " << avrCycles
