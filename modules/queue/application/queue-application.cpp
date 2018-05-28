@@ -1,8 +1,14 @@
 // Copyright 2018 Aglikov Ilya
 
-#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string>
+
+#include "include/queue-app.h"
 
 int main(int argc, const char** argv) {
-    std::cout << "Hello world!" << std::endl;
+    QueueApp app;
+    std::string output = app(argc, argv);
+    printf("%s\n", output.c_str());
     return 0;
 }

@@ -6,6 +6,7 @@
 #include <cstddef>
 #include <algorithm>
 #include <stdexcept>
+#include <iostream>
 
 template <typename Ty>
 class Queue {
@@ -19,7 +20,10 @@ class Queue {
     Ty& back();
     const Ty& back() const;
     bool empty() const;
+    bool full() const;
     std::size_t size() const;
+    void enqueue(const Ty& data);
+    void dequeue();
     void push(const Ty& data);
     void pop();
     void swap(Queue<Ty>& other);
@@ -93,11 +97,32 @@ template <typename Ty>
 bool Queue<Ty>::empty() const { return dataCount == 0; }
 
 template <typename Ty>
+bool Queue<Ty>::full() const { return dataCount == capacity; }
+
+template <typename Ty>
 std::size_t Queue<Ty>::size() const { return dataCount; }
 
 template <typename Ty>
+void Queue<Ty>::enqueue(const Ty& data) {
+    if (dataCount < capacity) {
+        tail = nextIndex(tail);
+        mem[tail] = data;
+        dataCount++;
+    }
+}
+
+template <typename Ty>
+void Queue<Ty>::dequeue() {
+    if (!empty()) {
+        mem[head].~Ty();
+        dataCount--;
+        head = nextIndex(head);
+    }
+}
+
+template <typename Ty>
 void Queue<Ty>::push(const Ty& data) {
-    if (dataCount == capacity)
+    if (full())
         resize();
     tail = nextIndex(tail);
     mem[tail] = data;
