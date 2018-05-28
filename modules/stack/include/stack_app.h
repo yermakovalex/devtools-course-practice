@@ -1,7 +1,7 @@
 // Copyright 2018 Volkov Daniel
 
-#ifndef MODULES_HYPOTHEC_CALCULATOR_INCLUDE_HYPOTHEC_CALCULATOR_APP_H_
-#define MODULES_STACK_INCLUDE_HYPOTHEC_CALCULATOR_APP_H_
+#ifndef MODULES_STACK_INCLUDE_STACK_APP_H_
+#define MODULES_STACK_INCLUDE_STACK_APP_H_
 #include <string>
 
 class StackApp {
@@ -15,4 +15,4 @@ class StackApp {
     std::string message_;
 };
 
-#endif  // MODULES_STACK_INCLUDE_HYPOTHEC_CALCULATOR_APP_H_
+#endif  // MODULES_STACK_INCLUDE_STACK_APP_H_
