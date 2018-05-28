@@ -11,7 +11,7 @@
 StackApp::StackApp() : message_("") {}
 
 void StackApp::help(const char* appname, const char* message) {
-	message_ =
+    message_ =
         std::string(message) +
         "This is a stack application.\n\n" +
         "Please provide arguments in the following format:\n\n" +
@@ -36,14 +36,14 @@ int parseInt(const char* arg) {
 }
 
 std::string StackApp::operator()(int argc, const char** argv) {
-	int * data, size;
+    int * data, size;
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
     try {
         size = parseInt(argv[1]);
         data = new int[size];
-        for (int i = 0; i < size;i++)
+        for (int i = 0; i < size; i++)
             data[i] = parseInt(argv[i + 2]);
         TStack<int> hc(size, data);
         std::ostringstream stream;
