@@ -1,7 +1,7 @@
 // Copyright 2018 Aglikov Ilya
 
-#ifndef MODULES_QUEUE_INCLUDE_QUEUE_H_
-#define MODULES_QUEUE_INCLUDE_QUEUE_H_
+#ifndef MODULES_QUEUE_INCLUDE_QUEUE_APP_H_
+#define MODULES_QUEUE_INCLUDE_QUEUE_APP_H_
 
 #include <string>
 
@@ -15,11 +15,11 @@ class QueueApp {
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
     typedef struct {
-        unsigned int clocks;
-        unsigned int capacity;  // queue capacity
-        double jobIntens;  // intensity of arrivals of tasks
-        double procRate;  // processor performance
+        int clocks;
+        int capacity;
+        double jobIntens;
+        double procRate;
     } Arguments;
 };
 
-#endif  // MODULES_QUEUE_INCLUDE_QUEUE_H_
+#endif  // MODULES_QUEUE_INCLUDE_QUEUE_APP_H_

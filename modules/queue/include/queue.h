@@ -104,7 +104,7 @@ std::size_t Queue<Ty>::size() const { return dataCount; }
 
 template <typename Ty>
 void Queue<Ty>::enqueue(const Ty& data) {
-    if (dataCount < capacity) {
+    if (!full()) {
         tail = nextIndex(tail);
         mem[tail] = data;
         dataCount++;
@@ -201,4 +201,3 @@ void Queue<Ty>::resize() {
 }
 
 #endif  // MODULES_QUEUE_INCLUDE_QUEUE_H_
-

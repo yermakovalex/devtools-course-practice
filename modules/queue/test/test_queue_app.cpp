@@ -46,7 +46,7 @@ TEST_F(QueueAppTest, Do_Print_Help_Without_Arguments) {
 
     Act(args);
 
-    Assert("This is a complex number calculator application\\..*");
+    Assert("This is a single-threaded processor simulation\\..*");
 }
 
 TEST_F(QueueAppTest, Is_Checking_Number_Of_Arguments) {
@@ -54,61 +54,29 @@ TEST_F(QueueAppTest, Is_Checking_Number_Of_Arguments) {
 
     Act(args);
 
-    Assert("ERROR: Should be 5 arguments\\..*");
+    Assert("ERROR: Should be 4 arguments\\..*");
 }
 
 TEST_F(QueueAppTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = {"1", "pi", "2", "4", "+"};
+    vector<string> args = {"1", "2", "3", "4i"};
 
     Act(args);
 
-    Assert("Wrong number format!.*");
+    Assert("Wrong format or value is out of range");
 }
 
-TEST_F(QueueAppTest, Can_Detect_Wrong_Operation_Format) {
-    vector<string> args = {"1", "1", "1", "1", "garbage"};
+TEST_F(QueueAppTest, Can_Detect_Integer_Overflow) {
++    vector<string> args = {"99999999999999", "999999999999999", "0.5", "0.5"};
++
++    Act(args);
++
++    Assert("Wrong format or value is out of range");
++}
+
+TEST_F(QueueAppTest, Can_Work) {
+    vector<string> args = {"1000000", "25", "0.5", "0.5"};
 
     Act(args);
 
-    Assert("Wrong operation format!");
-}
-
-TEST_F(QueueAppTest, Can_Add_Complexs) {
-    vector<string> args = {"2.0", "3.5", "1.5", "4.0", "+"};
-
-    Act(args);
-
-    Assert("Real = 3.5 Imaginary = 7.5");
-}
-
-TEST_F(QueueAppTest, Can_Diff_Complexs) {
-    vector<string> args = {"13", "7.6", "26", "-14", "-"};
-
-    Act(args);
-
-    Assert("Real = -13 Imaginary = 21.6");
-}
-
-TEST_F(QueueAppTest, Can_Mult_Complexs) {
-    vector<string> args = {"0", "-3.6", "17.4", "21", "*"};
-
-    Act(args);
-
-    Assert("Real = 75.6 Imaginary = -62.64");
-}
-
-TEST_F(QueueAppTest, Can_Divide_Complexs) {
-    vector<string> args = {"27", "30", "15", "20", "/"};
-
-    Act(args);
-
-    Assert("Real = 1.608 Imaginary = -0.144");
-}
-
-TEST_F(QueueAppTest, Can_Detect_Divide_By_Zero) {
-    vector<string> args = {"27", "30", "0", "0", "/"};
-
-    Act(args);
-
-    Assert("Can't divide by zero");
+    Assert("Result of imitation:\\..*");
 }
