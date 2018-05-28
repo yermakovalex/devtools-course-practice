@@ -146,7 +146,7 @@ TEST(Gladyshev_Alexey_StackTest, Cant_pop_from_empty_5e2shAra) {
 TEST(Volkov_Daniel_StackTest, Cant_create_whis_array) {
     // Arrange
     TStack<int>* stack;
-	int arr[10] = { 1,2,3,4,5,6,7,8,9,0 };
+    int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
     // Act & Assert
     EXPECT_ANY_THROW(stack = new TStack<int>(-1,arr));
 }
@@ -154,17 +154,17 @@ TEST(Volkov_Daniel_StackTest, Cant_create_whis_array) {
 TEST(Volkov_Daniel_StackTest, Can_create_whis_array) {
     // Arrange
     TStack<int>* stack;
-	int arr[10] = { 1,2,3,4,5,6,7,8,9,0 };
+    int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
     // Act & Assert
     EXPECT_NO_THROW(stack = new TStack<int>(10,arr));
 }
 
 TEST(Volkov_Daniel_StackTest, correct_values_constructor_with_array) {
     // Arrange
-	TStack<int>* stack;
-	int arr[10] = { 1,2,3,4,5,6,7,8,9,0 };
+    TStack<int>* stack;
+    int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
     // Act
-	stack=new TStack<int>(10,arr);
-    //Assert
-    EXPECT_TRUE(stack->Pop() == 0);
+    stack = new TStack<int>(10, arr);
+    // Assert
+    EXPECT_EQ(stack->Pop(), 0);
 }
