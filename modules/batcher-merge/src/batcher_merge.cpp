@@ -18,12 +18,12 @@ void BatcherMerge::shuffle(int l, int r) {
   int i, j, m = (l + r) / 2;
 
   for (i = l, j = 0; i <= r; i += 2, j++) {
-    tmp[i] = a[l + j];
-    tmp[i + 1] = a[m + j + 1];
+    tmp[i] = array[l + j];
+    tmp[i + 1] = array[m + j + 1];
   }
 
   for (int i = l; i <= r; i++)
-    a[i] = tmp[i];
+    array[i] = tmp[i];
 }
 
 void BatcherSort::unshuffle(int l, int r) {
@@ -31,12 +31,12 @@ void BatcherSort::unshuffle(int l, int r) {
   int i, j, m = (l + r) / 2;
 
   for (i = l, j = 0; i <= r; i += 2, j++) {
-    tmp[l + j] = a[i];
-    tmp[m + j + 1] = a[i + 1];
+    tmp[l + j] = array[i];
+    tmp[m + j + 1] = array[i + 1];
   }
 
   for (int i = l; i <= r; i++)
-    a[i] = tmp[i];
+    array[i] = tmp[i];
 }
 
 void BatcherMerge::merge(int l, int r) {

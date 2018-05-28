@@ -7,13 +7,14 @@
 #include <vector>
 
 class BatcherMerge{
-private:
+ private:
   std::vector<int> array;
 
   void compexch(int a, int b);
   void shuffle(int l, int r);
   void unshuffle(int l, int r);
-public:
+ public:
+  BatcherMerge() {}
   BatcherMerge(std::vector<int> a);
   void merge(int l, int r);
 };
