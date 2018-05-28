@@ -31,7 +31,7 @@ void unshuffle(std::vector<int> &a, int l, int r) {
     a[i] = tmp[i];
 }
 
-void merge::BatcherMerge(std::vector<int> *a, int l, int r) {
+void merge::BatcherMerge(std::vector<int> &a, int l, int r) {
   if (l > r)
     throw std::logic_error("Left index can't be > right index");
   if ((r < 0) || (l < 0))

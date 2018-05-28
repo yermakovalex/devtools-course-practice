@@ -13,7 +13,7 @@ TEST(BatcherMergeTest, Cant_Use_Right_Index_Smaller_Left) {
   int right = 0;
 
   // Act & Assert
-  EXPECT_ANY_THROW(merge::BatcherMerge(&array, left, right));
+  EXPECT_ANY_THROW(merge::BatcherMerge(array, left, right));
 }
 
 TEST(BatcherMergeTest, Cant_Use_Negative_Index) {
@@ -23,7 +23,7 @@ TEST(BatcherMergeTest, Cant_Use_Negative_Index) {
   int right = 1;
 
   // Act & Assert
-  EXPECT_ANY_THROW(merge::BatcherMerge(&array, left, right));
+  EXPECT_ANY_THROW(merge::BatcherMerge(array, left, right));
 }
 
 TEST(BatcherMergeTest, Can_Work_With_Unit_Vector) {
@@ -33,7 +33,7 @@ TEST(BatcherMergeTest, Can_Work_With_Unit_Vector) {
   int right = 0;
 
   // Act & Assert
-  EXPECT_NO_THROW(merge::BatcherMerge(&array, left, right));
+  EXPECT_NO_THROW(merge::BatcherMerge(array, left, right));
 }
 
 TEST(BatcherMergeTest, Can_Work_With_Two_Elements) {
@@ -43,7 +43,7 @@ TEST(BatcherMergeTest, Can_Work_With_Two_Elements) {
   int right = 1;
 
   // Act
-  merge::BatcherMerge(&array, left, right);
+  merge::BatcherMerge(array, left, right);
 
   // Assert
   EXPECT_TRUE(array[0] < array[1]);
@@ -57,7 +57,7 @@ TEST(BatcherMergeTest, Can_Work_With_Big_Size) {
   int right = 14;
 
   // Act
-  merge::BatcherMerge(&array, left, right);
+  merge::BatcherMerge(array, left, right);
 
   // Assert
   EXPECT_TRUE(sequence == sequence);
