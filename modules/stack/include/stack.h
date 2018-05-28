@@ -49,7 +49,7 @@ TStack<ValType>::TStack(int _size) {
 
 template <class ValType>
 TStack<ValType>::TStack(int _size, ValType* data) {
-    if (_size < 1) 
+    if (_size < 1)
         throw std::string("Wrong size");
     sp = size = _size;
     pMem = new ValType[size];
