@@ -130,3 +130,16 @@ TEST(Vyunov_Roman_DebtService_test,
     // Act & Assert
     ASSERT_ANY_THROW(ds1.MakingPayment(1));
 }
+
+TEST(Sharov_Ivan_DebtService_test,
+    MakingPayment_for_EQUAL_ANNUAL_PAYMENTS) {
+    // Arrange
+    DebtService ds1(12000, 12, 0.01, EQUAL_ANNUAL_PAYMENTS);
+    float sum = 1120;
+    float balance = 11660;
+    float a;
+    // Act
+    ds1.MakingPayment(sum);
+    // Assert
+    ASSERT_EQ(ds1.GetBalance(), balance);
+}
