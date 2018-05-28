@@ -148,7 +148,7 @@ TEST(Volkov_Daniel_StackTest, Cant_create_whis_array) {
     TStack<int>* stack;
     int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
     // Act & Assert
-    EXPECT_ANY_THROW(stack = new TStack<int>(-1,arr));
+    EXPECT_ANY_THROW(stack = new TStack<int>(-1, arr));
 }
 
 TEST(Volkov_Daniel_StackTest, Can_create_whis_array) {
@@ -156,7 +156,7 @@ TEST(Volkov_Daniel_StackTest, Can_create_whis_array) {
     TStack<int>* stack;
     int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
     // Act & Assert
-    EXPECT_NO_THROW(stack = new TStack<int>(10,arr));
+    EXPECT_NO_THROW(stack = new TStack<int>(10, arr));
 }
 
 TEST(Volkov_Daniel_StackTest, correct_values_constructor_with_array) {
