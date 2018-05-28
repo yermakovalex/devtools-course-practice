@@ -52,7 +52,7 @@ void BatcherMerge::merge(int l, int r) {
   merge(l, m);
   merge(m + 1, r);
 
-  unshaffle(l, r);
+  unshuffle(l, r);
   shuffle(l, r);
   for (int i = l + 1; i < r; i += 1)
     compexch(i, i + 1);
