@@ -65,11 +65,17 @@ std::string QueueApp::operator()(int argc, const char** argv) {
     try {
         args.clocks    = parseInt(argv[1]);
         args.capacity  = parseInt(argv[2]);
+    }
+    catch(std::exception& exc) {
+        return std::string("Is out of range");
+    }
+
+    try {
         args.jobIntens = parseDouble(argv[3]);
         args.procRate  = parseDouble(argv[4]);
     }
     catch(std::string& str) {
-        return std::string("Wrong format or value is out of range");
+        return str;
     }
 
     Queue<int> queue(args.capacity);
@@ -100,7 +106,7 @@ std::string QueueApp::operator()(int argc, const char** argv) {
     }
 
     denial = static_cast<int>(denial / jobNumber * 100);
-    double avrCycles = (static_cast<double>clocks - downtime) / jobNumber;
+    double avrCycles = (static_cast<double>(clocks) - downtime) / jobNumber;
     downtime = static_cast<int>(downtime / clocks * 100);
 
     std::ostringstream stream;

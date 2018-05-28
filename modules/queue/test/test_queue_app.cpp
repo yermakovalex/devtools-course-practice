@@ -62,7 +62,7 @@ TEST_F(QueueAppTest, Can_Detect_Wrong_Number_Format) {
 
     Act(args);
 
-    Assert("Wrong format or value is out of range");
+    Assert("Wrong number format!");
 }
 
 TEST_F(QueueAppTest, Can_Detect_Integer_Overflow) {
@@ -70,7 +70,7 @@ TEST_F(QueueAppTest, Can_Detect_Integer_Overflow) {
 
     Act(args);
 
-    Assert("Wrong format or value is out of range");
+    Assert("Is out of range");
 }
 
 TEST_F(QueueAppTest, Can_Work) {
@@ -78,5 +78,5 @@ TEST_F(QueueAppTest, Can_Work) {
 
     Act(args);
 
-    Assert("Result of imitation:\\..*");
+    Assert("Result of imitation:");
 }
