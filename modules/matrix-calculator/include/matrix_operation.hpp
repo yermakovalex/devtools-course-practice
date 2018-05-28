@@ -14,7 +14,7 @@ class MatrixOperation {
  public:
   MatrixOperation();
   std::string operator()(int argc, const char** argv);
-  std::vector<matrix_type> getInputMatrix();
+  std::vector<matrix_type> getInputMatrixes();
  private:
   std::vector<matrix_type> inputs;
   std::string message_;

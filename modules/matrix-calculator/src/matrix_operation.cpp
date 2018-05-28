@@ -15,23 +15,13 @@ MatrixOperation::MatrixOperation() : message_("") {}
 
 void MatrixOperation::help(const char* appname, const char* message) {
     message_ = std::string(message);
-        //+
-        //   "This is a matrix calculator application.\n\n" +
-        //   "Please provide arguments in the following format:\n\n"+
-        //
-        //   "  $ " + appname + " <rows> " + "<columns> " +
-        //   "<operation>\n\n" +
-        //
-        //   "Where 1 and 2 arguments are int numbers, " +
-        //   "and <operation> is one of" +
-        //       " '+', '-', '*', 'Transpon', 'InverseMatrix'.\n";
 }
 
 int MatrixOperation::find_operation(std::string operation) {
-  std::vector<std::string> operat = {"+", "-", "*",
+  std::vector<std::string> ops = {"+", "-", "*",
                                           "Transpon", "InverseMatrix"};
-  auto it_pos = find(operat.begin(), operat.end(), operation);
-  return it_pos - operat.begin();
+  auto it_pos = find(ops.begin(), ops.end(), operation);
+  return it_pos - ops.begin();
 }
 
 bool MatrixOperation::validate_data(int argc, const char** argv) {
@@ -58,7 +48,7 @@ bool MatrixOperation::validate_data(int argc, const char** argv) {
   return true;
 }
 
-std::vector<matrix_type> MatrixOperation::getInputMatrix() {
+std::vector<matrix_type> MatrixOperation::getInputMatrixes() {
   return inputs;
 }
 
