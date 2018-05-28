@@ -49,8 +49,8 @@ void BatcherMerge::merge(int l, int r) {
   unshuffle(l, r);
   int m = (l + r) / 2;
 
-  BatcherMerge(l, m);
-  BatcherMerge(m + 1, r);
+  merge(l, m);
+  merge(m + 1, r);
 
   unshaffle(l, r);
   shuffle(l, r);

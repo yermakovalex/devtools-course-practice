@@ -14,8 +14,7 @@ class BatcherMerge{
   void shuffle(int l, int r);
   void unshuffle(int l, int r);
  public:
-  BatcherMerge() = default;
-  explicit BatcherMerge(std::vector<int> a) {
+  BatcherMerge(std::vector<int> a) {
     array = a;
   }
   void merge(int l, int r);
