@@ -66,12 +66,12 @@ TEST_F(QueueAppTest, Can_Detect_Wrong_Number_Format) {
 }
 
 TEST_F(QueueAppTest, Can_Detect_Integer_Overflow) {
-+    vector<string> args = {"99999999999999", "999999999999999", "0.5", "0.5"};
-+
-+    Act(args);
-+
-+    Assert("Wrong format or value is out of range");
-+}
+    vector<string> args = {"99999999999999", "999999999999999", "0.5", "0.5"};
+
+    Act(args);
+
+    Assert("Wrong format or value is out of range");
+}
 
 TEST_F(QueueAppTest, Can_Work) {
     vector<string> args = {"1000000", "25", "0.5", "0.5"};

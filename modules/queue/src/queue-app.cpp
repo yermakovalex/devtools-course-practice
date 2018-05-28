@@ -90,9 +90,11 @@ std::string QueueApp::operator()(int argc, const char** argv) {
             else denial++;
         }
         if ((rand() % 100) < (procRate * 100))
-            if (!queue.empty())
+            if (!queue.empty()) {
                 queue.dequeue();
-            else downtime++;
+            } else {
+                downtime++;
+            }
     }
 
     denial = (int)(denial / jobNumber * 100);
