@@ -6,8 +6,16 @@
 
 #include <vector>
 
-struct merge {
-  static void BatcherMerge(std::vector<int> array, int first, int last);
+class BatcherMerge{
+private:
+  std::vector<int> array;
+
+  void compexch(int a, int b);
+  void shuffle(int l, int r);
+  void unshuffle(int l, int r);
+public:
+  BatcherMerge(std::vector<int> a);
+  void merge(int l, int r);
 };
 
 #endif  // MODULES_BATCHER_MERGE_INCLUDE_BATCHER_MERGE_H_

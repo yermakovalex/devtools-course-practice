@@ -51,16 +51,17 @@ TEST(BatcherMergeTest, Can_Work_With_Two_Elements) {
 
 TEST(BatcherMergeTest, Can_Work_With_Big_Size) {
   // Arrange
-  std::vector<int> array = { 1, 8, 3 , 5, 2, 7, 4, 6, 9, 10};
-  std::vector<int> sequence = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  std::vector<int> array = { 1, 8, 3 , 5, 2, 7, 4, 6};
+  std::vector<int> sequence = { 1, 2, 3, 4, 5, 6, 7, 8};
   int left = 0;
-  int right = 14;
+  int right = 7;
+  BatcherMerge bat(array);
 
   // Act
-  merge::BatcherMerge(array, left, right);
+  bat.merge(left, right);
 
   // Assert
-  EXPECT_TRUE(sequence == sequence);
+  EXPECT_TRUE(sequence == array);
 }
 
 
