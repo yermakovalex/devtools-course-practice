@@ -48,10 +48,18 @@ TEST_F(LeftistHeapAppTest, Can_print_help) {
 	Assert("This is leftist heap application\\..*");
 }
 
-TEST_F(LeftistHeapAppTest, Can_check_too_much_args) {
+TEST_F(LeftistHeapAppTest, Can_Check_Too_Much_Args) {
 	vector<string> args = { "merge", "(2,3)", "(3,4)", "1" };
 
 	Act(args);
 
 	Assert("ERROR: Too mush arguments\\..*");
+}
+
+TEST_F(LeftistHeapAppTest, Can_Detect_Wrong_Operator) {
+	vector<string> args = { "mee", "(2,3)", "(3,4)"};
+
+	Act(args);
+
+	Assert("Wrong operation format!.*");
 }

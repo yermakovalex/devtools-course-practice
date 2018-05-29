@@ -18,18 +18,17 @@ void LeftistHeapApp::help(const char* appname, const char* message) {
         "This is leftist heap application.\n\n" +
         "Please provide arguments in the following format:\n\n" +
 
-        "  $ " + appname + " <operation> <heap_one> <heap_two>\n\n" + 
+        "  $ " + appname + " <operation> <heap_one> <heap_two>\n\n" +
 
         "Where heaps is array of keys in the round brackets," +
         "comma is delimited character; \n" +
         "and <operation> is one of 'merge', 'insert', 'minKey', " +
         " 'deleteMin'. \n" +
-        "If you use one of the last two operations," + 
+        "If you use one of the last two operations," +
         " the last argument is ignored and may be missing. \n";
 }
 
-bool LeftistHeapApp::validateArguments(int argc, const char** argv)
-{
+bool LeftistHeapApp::validateArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
@@ -42,8 +41,7 @@ bool LeftistHeapApp::validateArguments(int argc, const char** argv)
 }
 
 
-void LeftistHeapApp::parseArguments(int argc, const char** argv)
-{
+void LeftistHeapApp::parseArguments(int argc, const char** argv) {
     try {
         parseOperation(argv[1]);
         parseHeap(argv[2]);
@@ -55,8 +53,7 @@ void LeftistHeapApp::parseArguments(int argc, const char** argv)
     }
 }
 
-void LeftistHeapApp::parseOperation(const char* op)
-{
+void LeftistHeapApp::parseOperation(const char* op) {
     string str = op;
     if (op == (string)"merge")
         args_.operation = MERGE;
@@ -70,8 +67,7 @@ void LeftistHeapApp::parseOperation(const char* op)
         throw string("Wrong operation format!");
 }
 
-leftist_heap LeftistHeapApp::parseHeap(const char* op)
-{
+leftist_heap LeftistHeapApp::parseHeap(const char* op) {
     string str = op;
     std::stringstream ss(str);
     char c;
@@ -80,42 +76,41 @@ leftist_heap LeftistHeapApp::parseHeap(const char* op)
 
     ss >> c;
     if (c != '(')
-        throw string("Wrong heap format");
+        throw string("Wrong heap format!");
 
-    if (str.size() == 2)
-    {
+    if (str.size() == 2) {
         if (str[1] == ')')
             return h;
-        else 
-            throw string("Wrong heap format");
+        else
+            throw string("Wrong heap format!");
     }
-    
+
     ss >> key;
     h.insert(key);
     ss >> c;
 
-    while (c == ',')
-    {
+    while (c == ',') {
         ss >> key;
         h.insert(key);
         ss >> c;
     }
 
     if (c != ')')
-        throw string("Wrong heap format");
+        throw string("Wrong heap format!");
 
     return h;
 }
 
-string LeftistHeapApp::operator()(int argc, const char** argv)
-{
+string LeftistHeapApp::operator()(int argc, const char** argv) {
     if (!validateArguments(argc, argv)) {
         return message_;
     }
     parseArguments(argc, argv);
 
-    switch (args_.operation)
-    {
+    if (!message_.size())
+        return message_;
+
+    switch (args_.operation) {
     case MERGE:
     {
         leftist_heap h = args_.heapOne;
