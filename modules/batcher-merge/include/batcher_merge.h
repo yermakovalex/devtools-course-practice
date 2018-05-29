@@ -18,6 +18,7 @@ class BatcherMerge{
     array = a;
   }
   void merge(int l, int r);
+  std::vector<int> getArray();
 };
 
 #endif  // MODULES_BATCHER_MERGE_INCLUDE_BATCHER_MERGE_H_
