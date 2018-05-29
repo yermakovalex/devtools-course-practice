@@ -1,5 +1,6 @@
 // Copyright 2018 Gribov Pavel
 
+#include <stdexcept>
 #include <string>
 
 #include "include/integer_numerical_interval.h"
@@ -67,7 +68,7 @@ std::string NumericalIntervalCalculator::operator()(int argc,
     if (!validateNumberOfArguments(argc, argv))
         return message_;
 
-    if (!parseArguments(argc, argv, args))
+    if (!parseArguments(argc, argv, &args))
         return message_;
 
     try {
