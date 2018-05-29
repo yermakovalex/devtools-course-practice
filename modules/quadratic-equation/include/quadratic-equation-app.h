@@ -9,7 +9,6 @@ class QuadraticEquationApp {
  public:
     QuadraticEquationApp();
     std::string operator()(int argc, const char** argv);
-    
  private:
     void Help(const char* appname, const char* message = "");
     bool ValidateNumerOfArguments(int argc, const char** argv);
@@ -23,4 +22,3 @@ class QuadraticEquationApp {
 };
 
 #endif  // MODULES_QUADRATIC_EQUATION_INCLUDE_QUADRATIC_EQUATION_APP_H_
-    

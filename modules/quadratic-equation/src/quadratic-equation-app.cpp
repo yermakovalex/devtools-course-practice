@@ -15,10 +15,8 @@ void QuadraticEquationApp::Help(const char* appname, const char* message) {
     message_ = std::string(message) +
     "This is a quadratic equation application.\n\n" +
     "Please provide arguments in the following format:\n\n" +
-    
     "  $ " + appname + " <aK> <bK> <cK> " +
     "<output_file_name>\n\n" +
-    
     "Where the first three arguments are double " +
     "numbers and <output_file_name> is the filename where you " +
     "want to save found roots.\n";
@@ -49,7 +47,6 @@ double parseDouble(const char* arg) {
 
 std::string QuadraticEquationApp::operator()(int argc, const char** argv) {
     Arguments args;
-    
     if (!ValidateNumerOfArguments(argc, argv)) {
         return message_;
     }
@@ -62,19 +59,15 @@ std::string QuadraticEquationApp::operator()(int argc, const char** argv) {
     catch (std::exception& exc) {
         return std::string("Wrong format or value is out of range");
     }
-    
     try {
         QuadraticEquation qe(args.aK, args.bK, args.cK);
-        std::vector<double> eqRoots = qe.solve();
-        
+        std::vector<double> eqRoots = qe.getRoots();
         std::ostringstream stream;
-        
         std::ofstream output_file_stream(args.output_file_name);
         if (output_file_stream.is_open()) {
             for (auto& i : eqRoots)
                 output_file_stream << i << " ";
             output_file_stream.close();
-            
             stream << "Successfully written to " <<
                 args.output_file_name;
         } else {

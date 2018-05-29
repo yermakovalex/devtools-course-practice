@@ -22,17 +22,14 @@ class QuadraticEquationAppTest : public ::testing::Test {
         for (size_t i = 0; i < args_.size(); ++i) {
             options.push_back(args_[i].c_str());
         }
-        
         const char** argv = &options.front();
         int argc = static_cast<int>(args_.size()) + 1;
 
         output_ = app_(argc, argv);
     }
-    
     void Assert(std::string expected) {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
-    
  private:
         QuadraticEquationApp app_;
         string output_;
@@ -88,8 +85,8 @@ TEST_F(QuadraticEquationAppTest, Can_Detect_Zero_Quadratic_Coefficient) {
 
 TEST_F(QuadraticEquationAppTest, Can_Detect_If_No_Real_Roots) {
     vector<string> args = {"1", "-2", "2", "out.txt"};
-    
+
     Act(args);
-    
+
     Assert("Quadratic equation has no real roots");
 }
