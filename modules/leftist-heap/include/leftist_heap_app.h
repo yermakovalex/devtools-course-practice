@@ -6,8 +6,9 @@
 #include <string>
 #include <vector>
 
+#include "leftist_heap.h"
+
 using std::string;
-using std::vector;
 
 class LeftistHeapApp {
 public:
@@ -18,10 +19,12 @@ private:
     void help(const char* appname, const char* message = "");
     bool validateArguments(int argc, const char** argv);
     void parseArguments(int argc, const char** argv);
+    void parseOperation(char* op);
+    void parseHeap(char* heap);
     string message_;
     typedef struct {
-        vector<int> heapOne;
-        vector<int> heapTwo;
+        leftist_heap heapOne;
+        leftist_heap heapTwo;
         string operation;
     } Arguments;
 };
