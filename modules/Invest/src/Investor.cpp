@@ -65,7 +65,7 @@ std::string Investor::operator()(int argc, const char** argv) {
             args.Expenses.push_back(parseDouble(argv[2 +args.YearCount + i]));
         args.RatePercent = parseDouble(argv[2 + args.YearCount*2]);
         args.Function = new char[30];
-        strcpy(args.Function, argv[2 + args.YearCount * 2 + 1]);
+        sprintf(args.Function, argv[2 + args.YearCount * 2 + 1]);
         if (strcmp(args.Function, "FindNPV") != 0 &&
             strcmp(args.Function, "FindIRR") != 0 &&
             strcmp(args.Function, "FindRecoupmentTime") != 0 &&
