@@ -35,7 +35,7 @@ bool NumericalIntervalCalculator::validateNumberOfArguments
 }
 
 bool NumericalIntervalCalculator::parseArguments(int argc, const char** argv,
-                                                 Arguments& parsed_args) {
+                                                 Arguments* parsed_args) {
     try {
         if (!((argv[1][0] == '[' || argv[1][0] == '(')
             && (argv[5][0] == ']' || argv[5][0] == ')')
@@ -44,12 +44,12 @@ bool NumericalIntervalCalculator::parseArguments(int argc, const char** argv,
             return false;
         }
 
-        parsed_args.left_border = argv[1][0];
-        parsed_args.right_border = argv[5][0];
-        parsed_args.comma = argv[3][0];
+        parsed_args->left_border = argv[1][0];
+        parsed_args->right_border = argv[5][0];
+        parsed_args->comma = argv[3][0];
 
-        parsed_args.first_num = std::stoi(argv[2]);
-        parsed_args.second_num = std::stoi(argv[4]);
+        parsed_args->first_num = std::stoi(argv[2]);
+        parsed_args->second_num = std::stoi(argv[4]);
 
         return true;
     }
