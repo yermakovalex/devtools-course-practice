@@ -78,7 +78,7 @@ leftist_heap LeftistHeapApp::parseHeap(const char* op)
     int key;
     leftist_heap h;
 
-    ss << c;
+    ss >> c;
     if (c != '(')
         throw string("Wrong heap format");
 
@@ -90,15 +90,15 @@ leftist_heap LeftistHeapApp::parseHeap(const char* op)
             throw string("Wrong heap format");
     }
     
-    ss << key;
+    ss >> key;
     h.insert(key);
-    ss << c;
+    ss >> c;
 
     while (c == ',')
     {
-        ss << key;
+        ss >> key;
         h.insert(key);
-        ss << c;
+        ss >> c;
     }
 
     if (c != ')')

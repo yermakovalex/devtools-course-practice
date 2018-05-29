@@ -6,18 +6,18 @@
 #include <string>
 #include <vector>
 
-#include "leftist_heap.h"
+#include "include/leftist_heap.h"
 
 enum OP {MERGE = 1, INSERT, MINKEY, DELETEMIN };
 
 using std::string;
 
 class LeftistHeapApp {
-public:
+ public:
     LeftistHeapApp();
     string operator()(int argc, const char** argv);
 
-private:
+ private:
     void help(const char* appname, const char* message = "");
     bool validateArguments(int argc, const char** argv);
     void parseArguments(int argc, const char** argv);
