@@ -12,4 +12,3 @@ int main(int argc, const char** argv) {
     printf("%s\n", output.c_str());
     return 0;
 }
-
