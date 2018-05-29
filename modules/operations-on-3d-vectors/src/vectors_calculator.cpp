@@ -80,6 +80,35 @@ double parseDouble(const char* arg) {
     return value;
 }
 
+std::string VectorsCalculator::getResult(const char arg,
+                                         Vector3d v1, Vector3d v2) {
+    std::ostringstream stream;
+    Vector3d result;
+
+    switch (arg) {
+     case 'n':
+        stream << "Norm = " << OperationsOn3dVectors::GetNorm(v1);
+        break;
+     case 'v':
+        result = OperationsOn3dVectors::GetNormalizedVector(v1);
+        stream << "Normalized vector = (" << result.x << ", "
+                                          << result.y << ", "
+                                          << result.z << ")";
+        break;
+     case 'c':
+         result = OperationsOn3dVectors::CrossProduct(v1, v2);
+         stream << "Cross product = (" << result.x << ", "
+                                       << result.y << ", "
+                                       << result.z << ")";
+        break;
+     case 'd':
+        stream << "Dot product = " << OperationsOn3dVectors::DotProduct(v1, v2);
+        break;
+    }
+
+    return stream.str();
+}
+
 std::string VectorsCalculator::operator()(int argc, const char** argv) {
     Arguments args;
 
@@ -112,7 +141,6 @@ std::string VectorsCalculator::operator()(int argc, const char** argv) {
         }
     }
 
-    std::ostringstream stream;
     Vector3d v1(args.v1_x, args.v1_y, args.v1_z);
     Vector3d v2;
     if (argc == 8) {
@@ -120,30 +148,8 @@ std::string VectorsCalculator::operator()(int argc, const char** argv) {
         v2.y = args.v2_y;
         v2.z = args.v2_z;
     }
-    Vector3d result;
 
-    switch (argv[1][1]) {
-     case 'n':
-        stream << "Norm = " << OperationsOn3dVectors::GetNorm(v1);
-        break;
-     case 'v':
-        result = OperationsOn3dVectors::GetNormalizedVector(v1);
-        stream << "Normalized vector = (" << result.x << ", "
-                                      << result.y << ", "
-                                      << result.z << ")";
-        break;
-     case 'c':
-         result = OperationsOn3dVectors::CrossProduct(v1, v2);
-         stream << "Cross product = (" << result.x << ", "
-                                       << result.y << ", "
-                                       << result.z << ")";
-        break;
-     case 'd':
-        stream << "Dot product = " << OperationsOn3dVectors::DotProduct(v1, v2);
-        break;
-    }
-
-    message_ = stream.str();
+    message_ = getResult(argv[1][1], v1, v2);
 
     return message_;
 }
