@@ -4,6 +4,8 @@
 #define MODULES_LEFTIST_HEAP_INCLUDE_LEFTIST_HEAP_H_
 #include "Node.h"
 
+#include <string>
+
 class leftist_heap {
  public:
     node *root;
@@ -16,6 +18,8 @@ class leftist_heap {
     void insert(int k);
     int minKey();
     void deleteMin();
+
+    operator std::string();
 };
 #endif  // MODULES_LEFTIST_HEAP_INCLUDE_LEFTIST_HEAP_H_
 
