@@ -1,0 +1,85 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a Investor application."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 1 2
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong Parametrs!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format
+    COMMAND ${APPLICATION} 1 p 2.0 2 FindNPV
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Function_Format
+    COMMAND ${APPLICATION} 1 2 2 2 pi
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Function_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong Operation!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_FindNPV
+    COMMAND ${APPLICATION} 2 5 4 3 2 1 FindNPV
+)
+set_tests_properties (${prefix}_can_FindNPV PROPERTIES
+    PASS_REGULAR_EXPRESSION "NPV = 3.9802"
+    LABELS "${MODULE}")
+	
+add_test(
+    NAME ${prefix}_can_FindNPV_with_parameter
+    COMMAND ${APPLICATION} 2 5 4 3 2 1 FindNPV 2
+)
+set_tests_properties (${prefix}_can_with_parameter PROPERTIES
+    PASS_REGULAR_EXPRESSION "NPV = 3.96078"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_FindIRR
+    COMMAND ${APPLICATION} 2 5 4 3 2 1 FindIRR
+)
+set_tests_properties (${prefix}_can_FindIRR PROPERTIES
+    PASS_REGULAR_EXPRESSION "IRR = -2"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_FindRecoupmentTime
+    COMMAND ${APPLICATION} 2 5 4 3 2 1 FindRecoupmentTime
+)
+set_tests_properties (${prefix}_can_FindRecoupmentTime PROPERTIES
+    PASS_REGULAR_EXPRESSION "RecoupmentTime = 0"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_FindPBIndex
+    COMMAND ${APPLICATION} 2 5 4 3 0 1 FindPBIndex
+)
+set_tests_properties (${prefix}_can_FindPBIndex PROPERTIES
+    PASS_REGULAR_EXPRESSION "PBIndex = 2.00667"
+    LABELS "${MODULE}")
+
