@@ -110,23 +110,6 @@ std::string QueueApp::operator()(int argc, const char** argv) {
         }
     }
 
-    /*for (int i = 0; i < clocks; i++) {
-        if ((rand() % 100) < (jobIntens * 100)) {
-            jobNumber++;
-            if (!queue.full())
-                queue.enqueue(jobNumber);
-            else
-                denial++;
-        }
-        if ((rand() % 100) < (procRate * 100)) {
-            if (!queue.empty()) {
-                queue.dequeue();
-            } else {
-                downtime++;
-            }
-        }
-    }*/
-
     denial = static_cast<int>(denial / jobNumber * 100);
     double avrCycles = (static_cast<double>(clocks) - downtime) / jobNumber;
     downtime = static_cast<int>(downtime / clocks * 100);

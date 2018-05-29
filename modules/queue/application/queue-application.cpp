@@ -1,6 +1,5 @@
 // Copyright 2018 Aglikov Ilya
 
-// #include <stdlib.h>
 #include <stdio.h>
 #include <string>
 
