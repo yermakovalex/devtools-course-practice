@@ -37,7 +37,7 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Operator PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Detect_Wrong_First_Heap
-    COMMAND ${APPLICATION} merge /2,3) (3,4)
+    COMMAND ${APPLICATION} merge [3,4] (4,4)
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_First_Heap PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong heap format!"
@@ -45,7 +45,7 @@ set_tests_properties (${prefix}_can_Detect_Wrong_First_Heap PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Second_Heap
-    COMMAND ${APPLICATION} merge (2,3) /5,4)
+    COMMAND ${APPLICATION} merge (2,3) *5,4*
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Second_Heap PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong heap format!"
@@ -55,7 +55,7 @@ add_test(
     NAME ${prefix}_can_Merge_Two_Heap
     COMMAND ${APPLICATION} merge (7,2,4) (3,4,8)
 )
-set_tests_properties (${prefix}_can_Merge_Two_Heap
+set_tests_properties (${prefix}_can_Merge_Two_Heap PROPERTIES
     PASS_REGULAR_EXPRESSION "2 3 4 4 7 8"
     LABELS "${MODULE}")
 
