@@ -31,13 +31,11 @@ void ElasticityCalculator::help(const char* appname, const char* message) {
 
 
 bool ElasticityCalculator::validArgs(int argc,
-    const char ** argv)
-{
+    const char ** argv) {
     if (argc != 6 || strlen(argv[1]) != 2 || argv[1][0] != '-'
-        || (strspn(&argv[1][1], "cpi") == 0))
-    {
+        || (strspn(&argv[1][1], "cpi") == 0)) {
         help(argv[0],
-            "ERROR: Should be 5 write arguments ant the first is -c, -p or -i.\n\n");
+            "ERROR: Should be 5 write argument, 1st is -c, -p or -i.\n\n");
         return false;
     }
     return true;
@@ -74,8 +72,7 @@ std::string ElasticityCalculator::operator()(int argc,
     Elasticity E;
 
     std::ostringstream stream;
-    switch (argv[1][1])
-    {
+    switch (argv[1][1]) {
     case 'p':
         try {
             E.PriceElasticity(args.first_param, args.second_param,

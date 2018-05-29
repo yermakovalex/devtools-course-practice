@@ -24,7 +24,7 @@ add_test(
     COMMAND ${APPLICATION} 17 71
 )
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "ERROR: Should be 5 write arguments ant the first is -c, -p or -i."
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 5 write argument, 1st is -c, -p or -i."
     LABELS "${MODULE}")
 
 add_test(
@@ -40,7 +40,7 @@ add_test(
     COMMAND ${APPLICATION} 1 1 2 3 <3
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "ERROR: Should be 5 write arguments ant the first is -c, -p or -i."
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 5 write argument, 1st is -c, -p or -i."
     LABELS "${MODULE}")
 
 add_test(
