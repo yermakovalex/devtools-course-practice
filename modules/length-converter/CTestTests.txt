@@ -40,7 +40,7 @@ add_test(
     COMMAND ${APPLICATION} -1 Meter Centimeter
 )
 set_tests_properties (${prefix}_can_Detect_Negative_Length PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error! Invalid argument!"
+    PASS_REGULAR_EXPRESSION "Error! Invalid argument"
     LABELS "${MODULE}")
 
 add_test(
