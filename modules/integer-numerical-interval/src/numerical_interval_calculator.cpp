@@ -37,9 +37,9 @@ bool NumericalIntervalCalculator::validateNumberOfArguments
 bool NumericalIntervalCalculator::parseArguments(int argc, const char** argv,
                                                  Arguments& parsed_args) {
     try {
-        if ((argv[1] != "[" && argv[1] != "(")
-            || (argv[5] != "]" && argv[5] != ")")
-            || (argv[3] != ",")) {
+        if (!((argv[1][0] == '[' || argv[1][0] == '(')
+            && (argv[5][0] == ']' || argv[5][0] == ')')
+            && argv[3][0] == ',')) {
             help(argv[0], "ERROR: Wrong arguments format!\n\n");
             return false;
         }
@@ -80,7 +80,7 @@ std::string NumericalIntervalCalculator::operator()(int argc,
 
         return message_;
     }
-    catch (std::string& str) {
+    catch (const std::string& str) {
         return str;
     }
 }
