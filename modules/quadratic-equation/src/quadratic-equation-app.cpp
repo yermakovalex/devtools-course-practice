@@ -36,12 +36,7 @@ bool QuadraticEquationApp::ValidateNumerOfArguments
 
 double parseDouble(const char* arg) {
     char* end;
-    double value = strtod(arg, &end);
-
-    if (end[0]) {
-        throw std::string("Wrong number format!");
-    }
-
+    double value = std::strtod(std::string(arg), &end);
     return value;
 }
 
