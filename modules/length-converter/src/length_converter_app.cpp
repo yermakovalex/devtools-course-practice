@@ -31,8 +31,7 @@ bool LengthConverterApp::validateNumberOfArguments(int argc,
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc != 4) {
+    } else if (argc != 4) {
         help(argv[0], "ERROR: Should be 3 arguments.\n\n");
         return false;
     }
@@ -97,8 +96,7 @@ std::string LengthConverterApp::operator()(int argc, const char** argv) {
 
     LengthConverter lenConv;
     std::ostringstream stream;
-	double res;
-
+    double res;
     try {
         switch (args.originalLengthUnit) {
         case Centimeter:
