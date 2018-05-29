@@ -17,5 +17,6 @@ add_subdirectory(application)
 ##### Testing
 #############################################
 
+include("CTestTests.txt")
 
 
