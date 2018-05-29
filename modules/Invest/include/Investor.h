@@ -6,11 +6,11 @@
 #include "include/Invest.h"
 
 class Investor {
-  public:
+ public:
     Investor();
     std::string operator()(int argc, const  char** argv);
 
-  private:
+ private:
     void help(const char* appname, const char* massage = "");
     bool validateNumberOfArguments(int argc, const  char** argv);
     std::string message_;
@@ -24,4 +24,4 @@ class Investor {
     } Arguments;
 };
 
-#endif  //MODULES_INVEST_INCLUDE_INVESTOR_H_
+#endif  // MODULES_INVEST_INCLUDE_INVESTOR_H_
