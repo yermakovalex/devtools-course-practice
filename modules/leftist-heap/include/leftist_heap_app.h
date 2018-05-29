@@ -8,6 +8,8 @@
 
 #include "leftist_heap.h"
 
+enum OP {MERGE = 1, INSERT, MINKEY, DELETEMIN };
+
 using std::string;
 
 class LeftistHeapApp {
@@ -19,14 +21,15 @@ private:
     void help(const char* appname, const char* message = "");
     bool validateArguments(int argc, const char** argv);
     void parseArguments(int argc, const char** argv);
-    void parseOperation(char* op);
-    void parseHeap(char* heap);
+    void parseOperation(const char* op);
+    leftist_heap parseHeap(const char* heap);
     string message_;
     typedef struct {
         leftist_heap heapOne;
         leftist_heap heapTwo;
-        string operation;
+        OP operation;
     } Arguments;
+    Arguments args_;
 };
 
 #endif  // MODULES_LEFTIST_HEAP_INCLUDE_LEFTIST_HEAP_APP_H_
