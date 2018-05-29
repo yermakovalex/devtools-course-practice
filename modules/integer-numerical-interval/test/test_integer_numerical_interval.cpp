@@ -320,7 +320,7 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
     EXPECT_TRUE(ni.isHaveOverlapsRange(ni1));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+TEST(Gribov_Pavel_IntegerNumericalIntervalTest,
     Can_Not_Create_Wrong_Interval_Position_From_String) {
     // Arrange
     std::string interval = "[7,5]";
@@ -329,7 +329,7 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
     EXPECT_ANY_THROW(IntegerNumericalInterval ni(interval));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+TEST(Gribov_Pavel_IntegerNumericalIntervalTest,
     Can_Not_Create_Wrong_Negative_Interval_Empty_From_String) {
     // Arrange
     std::string interval = "(-5,-4)";
@@ -338,7 +338,7 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
     EXPECT_ANY_THROW(IntegerNumericalInterval ni(interval));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+TEST(Gribov_Pavel_IntegerNumericalIntervalTest,
     Can_Create_Negative_Interval_From_String) {
     // Arrange
     std::string interval = "[-5,-4]";
@@ -347,7 +347,7 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
     EXPECT_NO_THROW(IntegerNumericalInterval ni(interval));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+TEST(Gribov_Pavel_IntegerNumericalIntervalTest,
     Can_Convert_Interval_With_Different_Border_To_String) {
     // Arrange
     std::string interval = "(-5,4)";
