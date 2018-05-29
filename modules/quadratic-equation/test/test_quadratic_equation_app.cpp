@@ -56,7 +56,7 @@ TEST_F(QuadraticEquationAppTest, Can_Detect_Wrong_Number_Format) {
 
     Act(args);
 
-    Assert("Wrong format or value is out of range");
+    Assert("Wrong number format!");
 }
 
 TEST_F(QuadraticEquationAppTest, Can_Save_Found_Numbers_To_File) {

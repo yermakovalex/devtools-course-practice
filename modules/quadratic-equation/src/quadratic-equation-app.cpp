@@ -37,6 +37,10 @@ bool QuadraticEquationApp::ValidateNumerOfArguments
 double parseDouble(const char* arg) {
     char* end;
     double value = std::strtod(arg, &end);
+    if (end[0]) {
+        throw std::string("Wrong number format!");
+    }
+
     return value;
 }
 
@@ -51,8 +55,8 @@ std::string QuadraticEquationApp::operator()(int argc, const char** argv) {
         args.cK = parseDouble(argv[3]);
         args.output_file_name = argv[4];
     }
-    catch (std::exception& exc) {
-        return std::string("Wrong format or value is out of range");
+    catch (std::string& str) {
+        return str;
     }
     try {
         QuadraticEquation qe(args.aK, args.bK, args.cK);
