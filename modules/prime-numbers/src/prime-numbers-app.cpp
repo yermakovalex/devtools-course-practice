@@ -36,7 +36,7 @@ bool PrimeNumbersApp::ValidateNumerOfArguments(int argc, const char** argv) {
     return true;
 }
 
-int parseInt(const char* arg) {
+int ParseInt(const char* arg) {
     int value = std::stoi(std::string(arg));
     return value;
 }
@@ -48,8 +48,8 @@ std::string PrimeNumbersApp::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.left_border      = parseInt(argv[1]);
-        args.right_border     = parseInt(argv[2]);
+        args.left_border      = ParseInt(argv[1]);
+        args.right_border     = ParseInt(argv[2]);
         args.output_file_name = argv[3];
     }
     catch (std::exception& exc) {
