@@ -95,10 +95,9 @@ std::string LengthConverterApp::operator()(int argc, const char** argv) {
     }
 
     LengthConverter lenConv;
-    double res;
     std::ostringstream stream;
-
     try {
+        double res;
         switch (args.originalLengthUnit) {
         case Centimeter:
             switch (args.targetLengthUnit) {
