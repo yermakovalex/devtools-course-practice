@@ -11,7 +11,7 @@ class CAESAR_CIPHER{
     int ABCSize;
     CAESAR_CIPHER();
     ~CAESAR_CIPHER();
- private:	
+ private:
     char *low_ch;
     char *high_ch;
     void Init_symbols();
