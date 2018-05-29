@@ -3,6 +3,7 @@
 #define MODULES_INVEST_INCLUDE_INVESTOR_H_
 
 #include <string>
+#include <vector>
 #include "include/Invest.h"
 
 class Investor {
