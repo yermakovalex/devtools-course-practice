@@ -64,15 +64,13 @@ std::string Investor::operator()(int argc, const char** argv) {
         for (int i = 0; i < args.YearCount; i++)
             args.Expenses.push_back(parseDouble(argv[2 +args.YearCount + i]));
         args.RatePercent = parseDouble(argv[2 + args.YearCount*2]);
-        args.Function = new char[30];
-        snprintf(args.Function, strlen(argv[2 + args.YearCount * 2 + 1]),
-                 argv[2 + args.YearCount * 2 + 1]);
-        if (strcmp(args.Function, "FindNPV") != 0 &&
-            strcmp(args.Function, "FindIRR") != 0 &&
-            strcmp(args.Function, "FindRecoupmentTime") != 0 &&
-            strcmp(args.Function, "FindPBIndex") != 0)
+        args.Function = argv[2 + args.YearCount * 2 + 1];
+        if (strcmp(args.Function.c_str(), "FindNPV") != 0 &&
+            strcmp(args.Function.c_str(), "FindIRR") != 0 &&
+            strcmp(args.Function.c_str(), "FindRecoupmentTime") != 0 &&
+            strcmp(args.Function.c_str(), "FindPBIndex") != 0)
             throw std::string("Wrong Operation!\n");
-        if (strcmp(args.Function, "FindNPV") ==  0 &&
+        if (strcmp(args.Function.c_str(), "FindNPV") ==  0 &&
             argc == 5 + args.YearCount * 2)
             args.RateParameter = parseDouble(argv[argc-1]);
         else
@@ -85,14 +83,14 @@ std::string Investor::operator()(int argc, const char** argv) {
     Investition invest(args.YearCount, args.Incomes,
                        args.Expenses, args.RatePercent);
     std::ostringstream stream;
-    if (!strcmp(args.Function, "FindNPV") &&
+    if (!strcmp(args.Function.c_str(), "FindNPV") &&
                 argc == 5 + args.YearCount * 2) {
         stream << "NPV = " << invest.FindNPV(args.RateParameter);
-    } else if (!strcmp(args.Function, "FindNPV")) {
+    } else if (!strcmp(args.Function.c_str(), "FindNPV")) {
         stream << "NPV = " << invest.FindNPV();
-    } else if (!strcmp(args.Function, "FindIRR")) {
+    } else if (!strcmp(args.Function.c_str(), "FindIRR")) {
         stream << "IRR = " << invest.FindIRR();
-    } else if (!strcmp(args.Function, "FindRecoupmentTime")) {
+    } else if (!strcmp(args.Function.c_str(), "FindRecoupmentTime")) {
         stream << "RecoupmentTime = " << invest.FindRecoupmentTime();
     } else {
         stream << "PBIndex = " << invest.FindPBIndex();

@@ -20,7 +20,7 @@ class Investor {
         std::vector<money> Expenses;
         double RatePercent;
         int YearCount;
-        char* Function;
+        std::string Function;
         double RateParameter;
     } Arguments;
 };
