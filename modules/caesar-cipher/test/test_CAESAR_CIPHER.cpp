@@ -76,11 +76,11 @@ TEST(CAESAR_CIPHER_Test, Can_Convert6) {
 }
 TEST(CAESAR_CIPHER_Test, Can_Convert7) {
     // Arrage
-    std::string input_s = "aaððbb";
+    std::string input_s = "aaððb";
     int shift = 1;
     CAESAR_CIPHER tmp;
     // Act
     std::string result = tmp.cipher(input_s, shift);
     // Assert
-    EXPECT_EQ("bbððcc", result);
+	EXPECT_EQ("bbððc", result);
 }
