@@ -93,7 +93,7 @@ TEST_F(TestVectorsCalculator, Can_Print_Help_When_Not_Enough_Arguments) {
 
 TEST_F(TestVectorsCalculator, Can_Detect_Wrong_Number_Format_1) {
     // Arrange
-    vector<string> args = {"-n", "1", "1", "bug"};
+    vector<string> args = {"-n", "1", "1", "pi"};
 
     // Act
     Act(args);
@@ -104,7 +104,7 @@ TEST_F(TestVectorsCalculator, Can_Detect_Wrong_Number_Format_1) {
 
 TEST_F(TestVectorsCalculator, Can_Detect_Wrong_Number_Format_2) {
     // Arrange
-    vector<string> args = {"-d", "1", "1", "1", "2.5", "2.5", "bug"};
+    vector<string> args = {"-d", "1", "1", "1", "2.5", "2.5", "pi"};
 
     // Act
     Act(args);
