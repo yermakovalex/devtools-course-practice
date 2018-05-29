@@ -91,3 +91,11 @@ set_tests_properties (${prefix}_can_Calculate_Cylinder_Volume PROPERTIES
     PASS_REGULAR_EXPRESSION "Volume = 6.28319"
     LABELS "${MODULE}")
 
+add_test(
+    NAME ${prefix}_cant_Calculate_Cylinder_Volume_Negative_Radius
+    COMMAND ${APPLICATION} -c -1 2
+)
+set_tests_properties (${prefix}_cant_Calculate_Cylinder_Volume_Negative_Radius PROPERTIES
+    PASS_REGULAR_EXPRESSION "Number can't be less then zero"
+    LABELS "${MODULE}")
+
