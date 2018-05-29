@@ -141,6 +141,7 @@ std::string VectorsCalculator::operator()(int argc, const char** argv) {
         }
     }
 
+    // all arguments are correct
     Vector3d v1(args.v1_x, args.v1_y, args.v1_z);
     Vector3d v2;
     if (argc == 8) {
