@@ -18,7 +18,7 @@ void Investor::help(const char* appname, const char* message) {
         "Please provide arguments in the following format:\n\n" +
         "  $ " + appname + " <int YearCount> <money* Incomes>" +
         " <money* Expenses> <double RatePercent>" +
-        "<char* Function> [double RateParameter]\n\n";
+        " <char* Function> [double RateParameter]\n\n";
 }
 
 bool Investor::validateNumberOfArguments(int argc, const char** argv) {
@@ -28,7 +28,7 @@ bool Investor::validateNumberOfArguments(int argc, const char** argv) {
     } else {
         int year = atoi(argv[1]);
         if (argc == 4 + year * 2 ||
-           (argc == 5 + year * 2 && 
+           (argc == 5 + year * 2 &&
             !strcmp(argv[2 + year * 2 + 1], "FindNPV"))) {
             return true;
         } else {
@@ -59,7 +59,7 @@ std::string Investor::operator()(int argc, const char** argv) {
         args.YearCount = atoi(argv[1]);
         args.Incomes.reserve(args.YearCount);
         for (int i = 0; i < args.YearCount; i++)
-            args.Incomes.push_back(argv[2+i]);
+            args.Incomes.push_back(parseDouble(argv[2+i]));
         args.Expenses.reserve(args.YearCount);
         for (int i = 0; i < args.YearCount; i++)
             args.Expenses.push_back(parseDouble(argv[2 +args.YearCount + i]));

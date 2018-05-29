@@ -98,7 +98,7 @@ TEST_F(InvestorTest, can_Find_Irr) {
 }
 
 TEST_F(InvestorTest, can_Find_Recoupment_Time) {
-    vector<string> args = 
+    vector<string> args =
             {"2", "5", "4", "3", "2.0" , "1" , "FindRecoupmentTime"};
 
     Act(args);
