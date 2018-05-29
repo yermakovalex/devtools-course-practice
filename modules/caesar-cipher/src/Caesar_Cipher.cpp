@@ -17,15 +17,17 @@ std::string CAESAR_CIPHER::cipher(const std::string & input_s,
                 Ok = true;
                 break;
              }
-             else if  (input_s[i] == high_ch[j]) {
-                j += shift;
-                while (j >= ABCSize) j -= ABCSize; {
-                    while (j < 0) j += ABCSize; {
-                      output_s += high_ch[j];
+			 else {
+                    if (input_s[i] == high_ch[j]) {
+                       j += shift;
+                       while (j >= ABCSize) j -= ABCSize; {
+                         while (j < 0) j += ABCSize; {
+                             output_s += high_ch[j];
+                         }
+                       }
+                     Ok = true;
+                     break;
                     }
-                }
-                Ok = true;
-                break;
              }
         }
         if (!Ok) {

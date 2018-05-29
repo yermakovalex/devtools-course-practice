@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <string>
-#include "Caesar_Cipher.h"
+#include "include/Caesar_Cipher.h"
 
 TEST(CAESAR_CIPHER_Test, Can_set_cipher) {
     // Assert
