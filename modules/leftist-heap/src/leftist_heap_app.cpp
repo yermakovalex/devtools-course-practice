@@ -21,9 +21,9 @@ void LeftistHeapApp::help(const char* appname, const char* message) {
         "  $ " + appname + " <operation> <heap_one> <heap_two>\n\n" +
 
         "Where heaps is array of keys in the round brackets," +
-        "comma is delimited character; \n" +
+        "comma is delimited character;\n" +
         "and <operation> is one of 'merge', 'insert', 'minKey', " +
-        " 'deleteMin'. Output is nodes of heap divided by space\n" +
+        " 'deleteMin'. Output is nodes of heap divided by space.\n" +
         "If you use one of the last two operations," +
         " the last argument is ignored and may be missing. \n";
 }
