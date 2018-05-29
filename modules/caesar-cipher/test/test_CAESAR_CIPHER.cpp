@@ -4,10 +4,6 @@
 #include <string>
 #include "include/Caesar_Cipher.h"
 
-TEST(CAESAR_CIPHER_Test, Can_set_cipher) {
-    // Assert
-    ASSERT_NO_THROW(CAESAR_CIPHER);
-}
 TEST(CAESAR_CIPHER_Test, Can_Convert1) {
     // Arrage
     std::string input_s = "a";
