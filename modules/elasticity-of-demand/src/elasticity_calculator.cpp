@@ -35,7 +35,7 @@ bool ElasticityCalculator::validArgs(int argc,
     if (argc != 6 || strlen(argv[1]) != 2 || argv[1][0] != '-'
         || (strspn(&argv[1][1], "cpi") == 0)) {
         help(argv[0],
-            "ERROR: Should be 5 write argument, 1st is -c, -p or -i.\n\n");
+            "ERROR: Should be 5 write argument, first is -c, -p or -i.\n\n");
         return false;
     }
     return true;

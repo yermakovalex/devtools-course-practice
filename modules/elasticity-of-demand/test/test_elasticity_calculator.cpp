@@ -52,7 +52,7 @@ TEST_F(ElasticityCalculatorTest, Can_Check_Number_Of_Arguments) {
 
     Act(args);
 
-    Assert("ERROR: Should be 5 write argument, 1st is -c, -p or -i\\..*");
+    Assert("ERROR: Should be 5 write argument, first is -c, -p or -i\\..*");
 }
 
 TEST_F(ElasticityCalculatorTest, Can_Detect_Wrong_Number_Format) {
@@ -68,7 +68,7 @@ TEST_F(ElasticityCalculatorTest, Can_Detect_Wrong_Operation_Format) {
 
     Act(args);
 
-    Assert("ERROR: Should be 5 write argument, 1st is -c, -p or -i\\..*");
+    Assert("ERROR: Should be 5 write argument, first is -c, -p or -i\\..*");
 }
 
 TEST_F(ElasticityCalculatorTest, Can_Detect_Divide_By_Zero_1) {
