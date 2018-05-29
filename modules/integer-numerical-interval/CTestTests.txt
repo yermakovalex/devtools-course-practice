@@ -32,7 +32,7 @@ add_test(
     COMMAND ${APPLICATION} [ 2 . 5 ]
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Arguments_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    PASS_REGULAR_EXPRESSION "Wrong arguments format!"
     LABELS "${MODULE}")
 
 add_test(
