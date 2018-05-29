@@ -12,14 +12,14 @@ class ElasticityCalculator {
 
  private:
     void help(const char* appname, const char* message = "");
-    bool validateNumberOfArguments(int argc, const char** argv);
+//    bool validateNumberOfArguments(int argc, const char** argv);
+    bool validArgs(int argc, const char** argv);
     std::string message_;
     typedef struct {
         double first_param;
         double second_param;
         double third_param;
         double forth_param;
-        char operation;
     } Arguments;
 };
 

@@ -52,11 +52,11 @@ TEST_F(ElasticityCalculatorTest, Can_Check_Number_Of_Arguments) {
 
     Act(args);
 
-    Assert("ERROR: Should be 5 arguments\\..*");
+    Assert("ERROR: Should be 5 write arguments ant the first is -c, -p or -i\\..*");
 }
 
 TEST_F(ElasticityCalculatorTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = { "3", "Liverpool", "will", "win", "3" };
+    vector<string> args = { "-c", "Liverpool", "will", "never", "win" };
 
     Act(args);
 
@@ -68,11 +68,11 @@ TEST_F(ElasticityCalculatorTest, Can_Detect_Wrong_Operation_Format) {
 
     Act(args);
 
-    Assert("Wrong operation format!");
+    Assert("ERROR: Should be 5 write arguments ant the first is -c, -p or -i\\..*");
 }
 
 TEST_F(ElasticityCalculatorTest, Can_Detect_Divide_By_Zero_1) {
-    vector<string> args = { "27", "30", "10", "10", "1" };
+    vector<string> args = { "-c", "27", "30", "10", "10" };
 
     Act(args);
 
@@ -80,7 +80,7 @@ TEST_F(ElasticityCalculatorTest, Can_Detect_Divide_By_Zero_1) {
 }
 
 TEST_F(ElasticityCalculatorTest, Can_Detect_Divide_By_Zero_2) {
-    vector<string> args = { "5", "18", "44", "44", "2" };
+    vector<string> args = { "-i", "5", "18", "44", "44" };
 
     Act(args);
 
@@ -88,7 +88,7 @@ TEST_F(ElasticityCalculatorTest, Can_Detect_Divide_By_Zero_2) {
 }
 
 TEST_F(ElasticityCalculatorTest, Can_Detect_Divide_By_Zero_3) {
-    vector<string> args = { "28", "33", "16", "16", "3" };
+    vector<string> args = { "-p", "28", "33", "16", "16" };
 
     Act(args);
 
@@ -96,7 +96,7 @@ TEST_F(ElasticityCalculatorTest, Can_Detect_Divide_By_Zero_3) {
 }
 
 TEST_F(ElasticityCalculatorTest, Can_Make_First_Operation) {
-    vector<string> args = { "45", "55", "45", "55", "1" };
+    vector<string> args = { "-p", "45", "55", "45", "55" };
 
     Act(args);
 
@@ -104,7 +104,7 @@ TEST_F(ElasticityCalculatorTest, Can_Make_First_Operation) {
 }
 
 TEST_F(ElasticityCalculatorTest, Can_Make_Second_Operation) {
-    vector<string> args = { "15", "35", "5", "45", "2" };
+    vector<string> args = { "-i", "15", "35", "5", "45" };
 
     Act(args);
 
@@ -112,7 +112,7 @@ TEST_F(ElasticityCalculatorTest, Can_Make_Second_Operation) {
 }
 
 TEST_F(ElasticityCalculatorTest, Can_Make_Third_Operation) {
-    vector<string> args = { "45", "55", "45", "55", "3" };
+    vector<string> args = { "-c", "45", "55", "45", "55" };
 
     Act(args);
 

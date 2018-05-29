@@ -20,22 +20,24 @@ void ElasticityCalculator::help(const char* appname, const char* message) {
         "Please provide arguments in the following format:\n\n" +
 
         "  $ " + appname +
-        " <Q1>\n " + " <Q2>\n " + " <T1>\n " + " <T2>\n "
         "<operation> \n\n" +
+        " <q1>\n " + " <q2>\n " + " <t1>\n " + " <t2>\n " +
 
         "Where all arguments are double-precision numbers, " +
-        "and <operation> is one of '1', '2', '3',\n" +
-        "where is '1' - PriceElasticity" +
-        "'2' - IncomeElasticity, '3' - CrossElasticity.\n";
+        "and <operation> is one of '-p', '-i', '-c',\n" +
+        "where is '-p' - priceElasticity" +
+        "'-i' - incomeElasticity, '-c' - crossElasticity.\n";
 }
 
-bool ElasticityCalculator::validateNumberOfArguments(int argc,
-    const char** argv) {
-    if (argc == 1) {
-        help(argv[0]);
-        return false;
-    }    else if (argc != 6) {
-        help(argv[0], "ERROR: Should be 5 arguments.\n\n");
+
+bool ElasticityCalculator::validArgs(int argc,
+    const char ** argv)
+{
+    if (argc != 6 || strlen(argv[1]) != 2 || argv[1][0] != '-'
+        || (strspn(&argv[1][1], "cpi") == 0))
+    {
+        help(argv[0],
+            "ERROR: Should be 5 write arguments ant the first is -c, -p or -i.\n\n");
         return false;
     }
     return true;
@@ -52,32 +54,18 @@ double parseDouble(const char* arg) {
     return value;
 }
 
-char parseOperation(const char* arg) {
-    char op;
-    if (strcmp(arg, "1") == 0) {
-        op = '1';
-    }    else if (strcmp(arg, "2") == 0) {
-        op = '2';
-    }    else if (strcmp(arg, "3") == 0) {
-        op = '3';
-    }    else {
-        throw std::string("Wrong operation format!");
-    }
-    return op;
-}
-
-std::string ElasticityCalculator::operator()(int argc, const char** argv) {
+std::string ElasticityCalculator::operator()(int argc,
+    const char** argv) {
     Arguments args;
 
-    if (!validateNumberOfArguments(argc, argv)) {
+    if (!validArgs(argc, argv)) {
         return message_;
     }
     try {
-        args.first_param = parseDouble(argv[1]);
-        args.second_param = parseDouble(argv[2]);
-        args.third_param = parseDouble(argv[3]);
-        args.forth_param = parseDouble(argv[4]);
-        args.operation = parseOperation(argv[5]);
+        args.first_param = parseDouble(argv[2]);
+        args.second_param = parseDouble(argv[3]);
+        args.third_param = parseDouble(argv[4]);
+        args.forth_param = parseDouble(argv[5]);
     }
     catch (std::string& str) {
         return str;
@@ -86,8 +74,9 @@ std::string ElasticityCalculator::operator()(int argc, const char** argv) {
     Elasticity E;
 
     std::ostringstream stream;
-    switch (args.operation) {
-    case '1':
+    switch (argv[1][1])
+    {
+    case 'p':
         try {
             E.PriceElasticity(args.first_param, args.second_param,
                 args.third_param, args.forth_param);
@@ -99,7 +88,7 @@ std::string ElasticityCalculator::operator()(int argc, const char** argv) {
         catch (std::string& str) {
             return str;
         }
-    case '2':
+    case 'i':
         try {
             E.IncomeElasticity(args.first_param, args.second_param,
                 args.third_param, args.forth_param);
@@ -111,7 +100,7 @@ std::string ElasticityCalculator::operator()(int argc, const char** argv) {
         catch (std::string& str) {
             return str;
         }
-    case '3':
+    case 'c':
         try {
             E.CrossElasticity(args.first_param, args.second_param,
                 args.third_param, args.forth_param);
