@@ -34,7 +34,7 @@ bool QuadraticEquationApp::ValidateNumerOfArguments
     return true;
 }
 
-double parseDouble(const char* arg) {
+double ParseDouble(const char* arg) {
     char* end;
     double value = std::strtod(arg, &end);
     if (end[0]) {
@@ -50,9 +50,9 @@ std::string QuadraticEquationApp::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.aK = parseDouble(argv[1]);
-        args.bK = parseDouble(argv[2]);
-        args.cK = parseDouble(argv[3]);
+        args.aK = ParseDouble(argv[1]);
+        args.bK = ParseDouble(argv[2]);
+        args.cK = ParseDouble(argv[3]);
         args.output_file_name = argv[4];
     }
     catch (std::string& str) {

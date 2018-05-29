@@ -20,8 +20,6 @@ std::vector<double> QuadraticEquation::getRoots() {
             return roots;
         else
             throw "Quadratic equation has no real roots";
-            /*throw std::runtime_error(
-                  "Quadratic equation has no real roots");*/
     } else {
         this->solve();
         return this->getRoots();
@@ -33,8 +31,6 @@ void QuadraticEquation::setCoefficients(const double& _a,
                                         const double& _c) {
     if (_a == 0.f)
         throw "Quadratic coefficient can not be equal zero";
-        /*throw std::invalid_argument(
-            "Quadratic coefficient can not be equal zero");*/
     a = _a; b = _b; c = _c;
     discriminant = b*b - 4 * a*c;
     isSolved = false;
