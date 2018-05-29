@@ -1,6 +1,6 @@
 // Copyright 2018 Kudalin Roman
 
-#include <stdio.h>
+#include <cstdio>
 #include <string>
 
 #include "include/prime-numbers-app.h"
