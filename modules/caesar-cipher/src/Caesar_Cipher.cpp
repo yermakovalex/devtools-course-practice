@@ -2,7 +2,8 @@
 #include "include/Caesar_Cipher.h"
 #include <string>
 
-std::string CAESAR_CIPHER::cipher(const std::string & input_s, const int shift) {
+std::string CAESAR_CIPHER::cipher(const std::string & input_s,
+                                  const int shift) {
     bool Ok;
     std::string output_s("");
     for (unsigned i = 0; i < input_s.length(); i++) {
@@ -16,19 +17,19 @@ std::string CAESAR_CIPHER::cipher(const std::string & input_s, const int shift) 
                 Ok = true;
                 break;
              }
-             else if (input_s[i] == high_ch[j]) {
+             else if  (input_s[i] == high_ch[j]) {
                 j += shift;
                 while (j >= ABCSize) j -= ABCSize; {
                     while (j < 0) j += ABCSize; {
                       output_s += high_ch[j];
                     }
-				}
+                }
                 Ok = true;
                 break;
              }
         }
         if (!Ok) {
-			output_s += input_s[i];
+           output_s += input_s[i];
         }
     }
       return output_s;

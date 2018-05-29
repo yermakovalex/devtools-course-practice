@@ -10,13 +10,13 @@ TEST(CAESAR_CIPHER_Test, Can_set_cipher) {
 }
 TEST(CAESAR_CIPHER_Test, Can_Convert1) {
     // Arrage
-	std::string input_s = "a";
+    std::string input_s = "a";
     int shift = 1;
     CAESAR_CIPHER tmp;
     // Act
     std::string result = tmp.cipher(input_s,  shift);
     // Assert
-    EXPECT_EQ("b",result );
+    EXPECT_EQ("b", result);
 }
 TEST(CAESAR_CIPHER_Test, Can_Convert2) {
     // Arrage
