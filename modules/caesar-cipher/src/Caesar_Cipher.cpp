@@ -2,14 +2,13 @@
 #include "include/Caesar_Cipher.h"
 #include <string>
 
-std::string CAESAR_CIPHER::cipher(const std::string & input_s, const int shift){
+std::string CAESAR_CIPHER::cipher(const std::string & input_s, const int shift) {
     bool Ok;
     std::string output_s("");
-    for (unsigned i = 0; i < input_s.length(); i++){
+    for (unsigned i = 0; i < input_s.length(); i++) {
         Ok = false;
-        for (int j = 0; j < ABCSize; j++){
-             if (input_s[i] == low_ch[j])
-             {
+        for (int j = 0; j < ABCSize; j++) {
+             if (input_s[i] == low_ch[j]) {
                 j += shift;
                 while (j >= ABCSize) j -= ABCSize;
                 while (j < 0) j += ABCSize;
@@ -17,7 +16,7 @@ std::string CAESAR_CIPHER::cipher(const std::string & input_s, const int shift){
                 Ok = true;
                 break;
              }
-             else if (input_s[i] == high_ch[j]){
+             else if (input_s[i] == high_ch[j]) {
                 j += shift;
                 while (j >= ABCSize) j -= ABCSize; {
                     while (j < 0) j += ABCSize; {
@@ -28,24 +27,24 @@ std::string CAESAR_CIPHER::cipher(const std::string & input_s, const int shift){
                 break;
              }
         }
-        if (!Ok){
+        if (!Ok) {
 			output_s += input_s[i];
         }
     }
       return output_s;
 }
 
-CAESAR_CIPHER::CAESAR_CIPHER(){
+CAESAR_CIPHER::CAESAR_CIPHER() {
      Init_symbols();
 }
 
-CAESAR_CIPHER::~CAESAR_CIPHER(){
+CAESAR_CIPHER::~CAESAR_CIPHER() {
      ABCSize = 0;
      delete high_ch;
      delete low_ch;
 }
 
-void CAESAR_CIPHER::Init_symbols(){
+void CAESAR_CIPHER::Init_symbols() {
     this->ABCSize = 26;
     this->high_ch = new char[ABCSize];
     this->low_ch = new char[ABCSize];
@@ -57,7 +56,7 @@ void CAESAR_CIPHER::Init_symbols(){
         'G', 'H', 'I', 'J', 'K', 'L',
         'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
         'W', 'X', 'Y', 'Z' };
-    for (int i = 0; i < ABCSize; i++){
+    for (int i = 0; i < ABCSize; i++) {
         this->high_ch[i] = high_ch[i];
         this->low_ch[i] = low_ch[i];
      }

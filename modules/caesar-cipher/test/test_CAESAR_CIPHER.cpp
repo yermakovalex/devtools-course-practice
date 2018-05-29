@@ -1,4 +1,4 @@
-//Copyright 2018 Lenkin Slava
+// Copyright 2018 Lenkin Slava
 
 #include <gtest/gtest.h>
 #include <string>
@@ -9,78 +9,78 @@ TEST(CAESAR_CIPHER_Test, Can_set_cipher) {
     ASSERT_NO_THROW(CAESAR_CIPHER);
 }
 TEST(CAESAR_CIPHER_Test, Can_Convert1) {
-    //Arrage
+    // Arrage
 	std::string input_s = "a";
     int shift = 1;
     CAESAR_CIPHER tmp;
-    //Act
+    // Act
     std::string result = tmp.cipher(input_s,  shift);
-    //Assert
+    // Assert
     EXPECT_EQ("b",result );
 }
 TEST(CAESAR_CIPHER_Test, Can_Convert2) {
-    //Arrage
+    // Arrage
     std::string input_s = "abc";
     int shift = 1;
     CAESAR_CIPHER tmp;
-    //Act
+    // Act
     std::string result = tmp.cipher(input_s, shift);
-    //Assert
+    // Assert
     EXPECT_EQ("bcd", result);
 }
 TEST(CAESAR_CIPHER_Test, Can_Convert3) {
-    //Arrage
+    // Arrage
     std::string input_s = "aa bb";
     int shift = 1;
     CAESAR_CIPHER tmp;
-    //Act
+    // Act
     std::string result = tmp.cipher(input_s, shift);
-    //Assert
+    // Assert
     EXPECT_EQ("bb cc", result);
 }
 TEST(CAESAR_CIPHER_Test, zero_string) {
-    //Arrage
+    // Arrage
     std::string input_s = "";
-    //Assert
+    // Assert
     ASSERT_NO_THROW();
 }
 TEST(CAESAR_CIPHER_Test, Can_Convert4) {
-    //Arrage
+    // Arrage
     std::string input_s = "bbb";
     int shift = -1;
     CAESAR_CIPHER tmp;
-    //Act
+    // Act
     std::string result = tmp.cipher(input_s, shift);
-    //Assert
+    // Assert
     EXPECT_EQ("aaa", result);
 }
 TEST(CAESAR_CIPHER_Test, Can_Convert5) {
-    //Arrage
+    // Arrage
     std::string input_s = "aaa";
     int shift = -1;
-    CAESAR_CIPHER tmp; 
-    //Act
+    CAESAR_CIPHER tmp;
+    // Act
     std::string result = tmp.cipher(input_s, shift);
-    //Assert
+    // Assert
     EXPECT_EQ("zzz", result);
 }
 TEST(CAESAR_CIPHER_Test, Can_Convert6) {
-    //Arrage
+    // Arrage
     std::string input_s = "zzz";
     int shift = 1;
     CAESAR_CIPHER tmp;
-    //Act
+    // Act
     std::string result = tmp.cipher(input_s, shift);
-    //Assert
+    // Assert
     EXPECT_EQ("aaa", result);
 }
 TEST(CAESAR_CIPHER_Test, Can_Convert7) {
-    //Arrage
+    // Arrage
     std::string input_s = "aaððbb";
     int shift = 1;
     CAESAR_CIPHER tmp;
-    //Act
+    // Act
     std::string result = tmp.cipher(input_s, shift);
-    //Assert
+    // Assert
     EXPECT_EQ("bbððcc", result);
 }
