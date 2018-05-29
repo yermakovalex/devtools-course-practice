@@ -31,7 +31,7 @@ bool Investor::validateNumberOfArguments(int argc,const char** argv) {
             return true;
         }
         else {
-            help(argv[0], "Wrong Parametrs!\n");
+            help(argv[0], "Wrong Parameters!\n");
             return false;
         }
     }
@@ -48,7 +48,7 @@ double parseDouble(const char* arg) {
     return value;
 }
 
-std::string Investor::operator()(int argc,const  char** argv) {
+std::string Investor::operator()(int argc, const char** argv) {
     Arguments args;
 
     if (!validateNumberOfArguments(argc, argv)) {

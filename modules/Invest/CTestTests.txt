@@ -24,7 +24,7 @@ add_test(
     COMMAND ${APPLICATION} 1 2
 )
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong Parametrs!"
+    PASS_REGULAR_EXPRESSION "Wrong Parameters!"
     LABELS "${MODULE}")
 
 add_test(
@@ -44,42 +44,41 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Function_Format PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_FindNPV
+    NAME ${prefix}_can_Find_Npv
     COMMAND ${APPLICATION} 2 5 4 3 2 1 FindNPV
 )
-set_tests_properties (${prefix}_can_FindNPV PROPERTIES
+set_tests_properties (${prefix}_can_Find_Npv PROPERTIES
     PASS_REGULAR_EXPRESSION "NPV = 3.9802"
     LABELS "${MODULE}")
-	
+
 add_test(
-    NAME ${prefix}_can_FindNPV_with_parameter
+    NAME ${prefix}_can_Find_Npv_with_parameter
     COMMAND ${APPLICATION} 2 5 4 3 2 1 FindNPV 2
 )
-set_tests_properties (${prefix}_can_with_parameter PROPERTIES
+set_tests_properties (${prefix}_can_Find_Npv_with_parameter PROPERTIES
     PASS_REGULAR_EXPRESSION "NPV = 3.96078"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_FindIRR
+    NAME ${prefix}_can_Find_Irr
     COMMAND ${APPLICATION} 2 5 4 3 2 1 FindIRR
 )
-set_tests_properties (${prefix}_can_FindIRR PROPERTIES
+set_tests_properties (${prefix}_can_Find_Irr PROPERTIES
     PASS_REGULAR_EXPRESSION "IRR = -2"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_FindRecoupmentTime
+    NAME ${prefix}_can_Find_Recoupment_Time
     COMMAND ${APPLICATION} 2 5 4 3 2 1 FindRecoupmentTime
 )
-set_tests_properties (${prefix}_can_FindRecoupmentTime PROPERTIES
+set_tests_properties (${prefix}_can_Find_Recoupment_Time PROPERTIES
     PASS_REGULAR_EXPRESSION "RecoupmentTime = 0"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_FindPBIndex
+    NAME ${prefix}_can_Find_Pbindex
     COMMAND ${APPLICATION} 2 5 4 3 0 1 FindPBIndex
 )
-set_tests_properties (${prefix}_can_FindPBIndex PROPERTIES
+set_tests_properties (${prefix}_can_Find_Pbindex PROPERTIES
     PASS_REGULAR_EXPRESSION "PBIndex = 2.00667"
     LABELS "${MODULE}")
-

@@ -1,4 +1,5 @@
 // Copyright 2018 Chernenko Valery
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>

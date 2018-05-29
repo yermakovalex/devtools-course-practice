@@ -1,8 +1,12 @@
 // Copyright 2018 Chernenko_Valery
-include <gtest/gtest.h>
+
+#include <gtest/gtest.h>
 
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <functional>
+#include <iterator>
 
 #include "include/Investor.h"
 
@@ -10,8 +14,10 @@ using ::testing::internal::RE;
 using std::vector;
 using std::string;
 
-class InvestorAppTest : public ::testing::Test {
+class InvestorTest : public ::testing::Test {
  protected:
+    // virtual void SetUp() {}
+
     void Act(vector<string> args_) {
         vector<const char*> options;
 
@@ -35,7 +41,7 @@ class InvestorAppTest : public ::testing::Test {
     string output_;
 };
 
-TEST_F(QuickSortAppTest, can_Print_Help_Without_Arguments) {
+TEST_F(InvestorTest, Do_Print_Help_Without_Arguments) {
     vector<string> args = {};
 
     Act(args);
@@ -43,15 +49,15 @@ TEST_F(QuickSortAppTest, can_Print_Help_Without_Arguments) {
     Assert("This is a Investor application\\..*");
 }
 
-TEST_F(QuickSortAppTest, can_Check_Number_Of_Arguments) {
+TEST_F(InvestorTest, Is_Checking_Number_Of_Arguments) {
     vector<string> args = {"1", "2"};
 
     Act(args);
 
-    Assert("Wrong Parametrs!\\..*");
+    Assert("Wrong Parameters!*");
 }
 
-TEST_F(QuickSortAppTest, can_Detect_Wrong_Number_Format) {
+TEST_F(InvestorTest, can_Detect_Wrong_Number_Format) {
     vector<string> args = {"1", "p", "2.0", "2", "FindNPV"};
 
     Act(args);
@@ -59,15 +65,15 @@ TEST_F(QuickSortAppTest, can_Detect_Wrong_Number_Format) {
     Assert("Wrong number format!.*");
 }
 
-TEST_F(QuickSortAppTest, can_Detect_Wrong_Function_Format) {
+TEST_F(InvestorTest, can_Detect_Wrong_Function_Format) {
     vector<string> args = {"1", "2", "2", "2", "pi"};
 
     Act(args);
 
-    Assert(""Wrong Operation!.*");
+    Assert("Wrong Operation!.*");
 }
 
-TEST_F(QuickSortAppTest, can_FindNPV) {
+TEST_F(InvestorTest, can_Find_Npv) {
     vector<string> args = {"2", "5", "4", "3", "2.0" , "1" , "FindNPV"};
 
     Act(args);
@@ -75,15 +81,15 @@ TEST_F(QuickSortAppTest, can_FindNPV) {
     Assert("NPV = 3.9802");
 }
 
-TEST_F(QuickSortAppTest, can_FindNPV_with_parameter) {
-    vector<string> args = {"2", "5", "4", "3", "2.0" , "1" , "FindNPV", "2"};
+TEST_F(InvestorTest, can_Find_Npv_with_parameter) {
+    vector<string> args = {"2", "5", "4", "3", "2.0", "1", "FindNPV", "2"};
 
     Act(args);
 
     Assert("NPV = 3.96078");
 }
 
-TEST_F(QuickSortAppTest, can_FindIRR) {
+TEST_F(InvestorTest, can_Find_Irr) {
     vector<string> args = {"2", "5", "4", "3", "2.0" , "1" , "FindIRR"};
 
     Act(args);
@@ -91,7 +97,7 @@ TEST_F(QuickSortAppTest, can_FindIRR) {
     Assert("IRR = -2");
 }
 
-TEST_F(QuickSortAppTest, can_FindRecoupmentTime) {
+TEST_F(InvestorTest, can_Find_Recoupment_Time) {
     vector<string> args = {"2", "5", "4", "3", "2.0" , "1" , "FindRecoupmentTime"};
 
     Act(args);
@@ -99,8 +105,8 @@ TEST_F(QuickSortAppTest, can_FindRecoupmentTime) {
     Assert("RecoupmentTime = 0");
 }
 
-TEST_F(QuickSortAppTest, can_FindPBIndex) {
-    vector<string> args = {"2", "5", "4", "3", "2.0" , "1" , "FindPBIndex"};
+TEST_F(InvestorTest, can_Find_Pbindex) {
+    vector<string> args = {"2", "5", "4", "3", "0" , "1" , "FindPBIndex"};
 
     Act(args);
 
