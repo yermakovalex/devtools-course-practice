@@ -1,13 +1,14 @@
 // Copyright 2018 Gribov Pavel
 
+#include <string>
+
 #include "include/integer_numerical_interval.h"
 #include "include/numerical_interval_calculator.h"
 
-#include <string>
-
 NumericalIntervalCalculator::NumericalIntervalCalculator() : message_("") {}
 
-void NumericalIntervalCalculator::help(const char* appname, const char* message) {
+void NumericalIntervalCalculator::help(const char* appname,
+                                       const char* message) {
     message_ =
         std::string(message) +
           "This is a integer numerical interval calculator application.\n\n" +
@@ -17,8 +18,8 @@ void NumericalIntervalCalculator::help(const char* appname, const char* message)
           "<comma> <second_num> <right_border>\n\n" +
 
           "Where <first_num>, <second_num> are integer numbers,\n" +
-          "<left_border> is one of '[', '('\n" + 
-          "<right_border> is one of ']', ')'\n" + 
+          "<left_border> is one of '[', '('\n" +
+          "<right_border> is one of ']', ')'\n" +
           "<comma> is ',' .";
 }
 
@@ -59,14 +60,14 @@ bool NumericalIntervalCalculator::parseArguments(int argc, const char** argv,
     }
 }
 
-std::string NumericalIntervalCalculator::operator()(int argc, 
+std::string NumericalIntervalCalculator::operator()(int argc,
                                                     const char** argv) {
     Arguments args;
 
     if (!validateNumberOfArguments(argc, argv))
         return message_;
 
-    if(!parseArguments(argc, argv, args))
+    if (!parseArguments(argc, argv, args))
         return message_;
 
     try {
