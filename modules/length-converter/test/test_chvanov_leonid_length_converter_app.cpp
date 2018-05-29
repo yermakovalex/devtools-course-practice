@@ -91,7 +91,7 @@ TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion) {
 
 
 TEST_F(LengthConverterAppTest, Can_Convert_Lengths) {
-    vector<string> args = { "25", "Meter", "Centimeter" };
+    vector<string> args = { "25", "Meter", "Centimeter"};
 
     Act(args);
 

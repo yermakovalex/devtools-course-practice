@@ -5,10 +5,8 @@
 
 #include <string>
 
-enum LengthUnit {
-    Centimeter, Meter, Kilometer, Mile, Foot,
-    Yard, Inch, NauticalMile, AstronomicalUnit, Span, Verst
-};
+enum LengthUnit { Centimeter, Meter, Kilometer, Mile, Foot,
+                Yard, Inch, NauticalMile, AstronomicalUnit, Span, Verst};
 
 class LengthConverterApp {
  public:

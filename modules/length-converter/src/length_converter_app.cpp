@@ -27,7 +27,7 @@ void LengthConverterApp::help(const char* appname, const char* message) {
 }
 
 bool LengthConverterApp::validateNumberOfArguments(int argc,
-    const char** argv) {
+                                                   const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
@@ -95,8 +95,9 @@ std::string LengthConverterApp::operator()(int argc, const char** argv) {
     }
 
     LengthConverter lenConv;
-    std::ostringstream stream;
     double res;
+    std::ostringstream stream;
+
     try {
         switch (args.originalLengthUnit) {
         case Centimeter:
