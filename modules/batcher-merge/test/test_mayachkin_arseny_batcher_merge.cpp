@@ -1,10 +1,10 @@
 // Copyright 2018 Mayachkin Arseny
 
 #include <gtest/gtest.h>
-#include "include/batcher_merge.h"
 #include <algorithm>
-#include <cstdlib>
 #include <vector>
+
+#include "include/batcher_merge.h"
 
 TEST(BatcherMergeTest, Cant_Use_Right_Index_Smaller_Left) {
   // Arrange
