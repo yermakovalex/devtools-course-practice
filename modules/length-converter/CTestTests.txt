@@ -31,7 +31,7 @@ add_test(
     NAME ${prefix}_can_Detect_Wrong_Number_Format
     COMMAND ${APPLICATION} odin Meter Centimeter
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Number_FormatPROPERTIES
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong number format!"
     LABELS "${MODULE}")
 
@@ -47,7 +47,7 @@ add_test(
     NAME ${prefix}_can_Detect_Wrong_Length_Unit_Format
     COMMAND ${APPLICATION} 2 Meters Centimeter
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Length_Unit_FormatPROPERTIES
+set_tests_properties (${prefix}_can_Detect_Wrong_Length_Unit_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong length unit format!"
     LABELS "${MODULE}")
 
