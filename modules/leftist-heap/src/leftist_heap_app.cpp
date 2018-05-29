@@ -58,13 +58,13 @@ void LeftistHeapApp::parseArguments(int argc, const char** argv)
 void LeftistHeapApp::parseOperation(const char* op)
 {
     string str = op;
-    if (op == "merge")
+    if (op == (string)"merge")
         args_.operation = MERGE;
-    else if (op = "insert")
+    else if (op == (string)"insert")
         args_.operation = INSERT;
-    else if (op = "minKey")
+    else if (op == (string)"minKey")
         args_.operation = MINKEY;
-    else if (op = "deleteMin")
+    else if (op == (string)"deleteMin")
         args_.operation = DELETEMIN;
     else
         throw string("Wrong operation format!");

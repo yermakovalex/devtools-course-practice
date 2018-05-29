@@ -135,12 +135,10 @@ void leftist_heap::deleteMin() {
     root = left.root;
     left.root = nullptr;
 }
-leftist_heap::operator std::string()
-{
+leftist_heap::operator std::string() {
     leftist_heap h = *this;
     std::string str;
-    while (h.root != nullptr)
-    {
+    while (h.root != nullptr) {
         str += std::to_string(h.minKey());
         str += ' ';
         h.deleteMin();

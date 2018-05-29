@@ -1,0 +1,57 @@
+// Copyright 2018 Okunev Boris
+
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <functional>
+#include <iterator>
+
+#include <gtest/gtest.h>
+
+#include "include/leftist_heap_app.h"
+
+using ::testing::internal::RE;
+using std::vector;
+
+class LeftistHeapAppTest : public ::testing::Test {
+protected:
+	// virtual void SetUp() {}
+
+	void Act(vector<string> args_) {
+		vector<const char*> options;
+
+		options.push_back("appname");
+		for (size_t i = 0; i < args_.size(); ++i) {
+			options.push_back(args_[i].c_str());
+		}
+
+		const char** argv = &options.front();
+		int argc = static_cast<int>(args_.size()) + 1;
+
+		output_ = app_(argc, argv);
+	}
+
+	void Assert(std::string expected) {
+		EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
+	}
+
+private:
+	LeftistHeapApp app_;
+	string output_;
+};
+
+TEST_F(LeftistHeapAppTest, Can_print_help) {
+	vector<string> args = {};
+
+	Act(args);
+	// Act and Assert
+	Assert("This is leftist heap application\\..*");
+}
+
+TEST_F(LeftistHeapAppTest, Can_check_too_much_args) {
+	vector<string> args = { "merge", "(2,3)", "(3,4)", "1" };
+
+	Act(args);
+
+	Assert("ERROR: Too mush arguments\\..*");
+}
