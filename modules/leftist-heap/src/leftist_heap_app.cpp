@@ -67,7 +67,7 @@ void LeftistHeapApp::parseOperation(const char* op) {
         throw string("Wrong operation format!");
 }
 
-leftist_heap LeftistHeapApp::parseHeap(const char* op) {
+leftist_heap LeftistHeapApp::parseHeap(const char* op) const {
     string str = op;
     std::stringstream ss(str);
     char c;

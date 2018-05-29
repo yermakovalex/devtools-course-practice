@@ -22,7 +22,7 @@ class LeftistHeapApp {
     bool validateArguments(int argc, const char** argv);
     void parseArguments(int argc, const char** argv);
     void parseOperation(const char* op);
-    leftist_heap parseHeap(const char* heap);
+    leftist_heap parseHeap(const char* heap) const;
     string message_;
     typedef struct {
         leftist_heap heapOne;
