@@ -23,7 +23,7 @@ void LeftistHeapApp::help(const char* appname, const char* message) {
         "Where heaps is array of keys in the round brackets," +
         "comma is delimited character; \n" +
         "and <operation> is one of 'merge', 'insert', 'minKey', " +
-        " 'deleteMin'. \n" +
+        " 'deleteMin'. Output is nodes of heap divided by space\n" +
         "If you use one of the last two operations," +
         " the last argument is ignored and may be missing. \n";
 }
@@ -44,9 +44,9 @@ bool LeftistHeapApp::validateArguments(int argc, const char** argv) {
 void LeftistHeapApp::parseArguments(int argc, const char** argv) {
     try {
         parseOperation(argv[1]);
-        parseHeap(argv[2]);
-        if (args_.operation <= MINKEY)
-            parseHeap(argv[3]);
+        args_.heapOne = parseHeap(argv[2]);
+        if (args_.operation < MINKEY)
+            args_.heapTwo = parseHeap(argv[3]);
     }
     catch (std::string& str) {
         message_ = str;
@@ -107,7 +107,7 @@ string LeftistHeapApp::operator()(int argc, const char** argv) {
     }
     parseArguments(argc, argv);
 
-    if (!message_.size())
+    if (message_.size())
         return message_;
 
     switch (args_.operation) {
