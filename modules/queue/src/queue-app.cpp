@@ -10,6 +10,7 @@
 #include <ctime>
 #include <string>
 #include <sstream>
+#include <random>
 
 QueueApp::QueueApp() : message_("") {}
 
@@ -86,9 +87,30 @@ std::string QueueApp::operator()(int argc, const char** argv) {
     int jobNumber   = 0;
     double denial   = 0;
     double downtime = 0;
-    srand(time(0));
+    srand((unsigned)time(NULL));
+
+
+    std::default_random_engine dre(time(nullptr));
+    std::uniform_real_distribution<double> urd(0.0, 1.0);
 
     for (int i = 0; i < clocks; i++) {
+        if (urd(dre) < jobIntens) {
+            jobNumber++;
+            if (!queue.full())
+                queue.enqueue(jobNumber);
+            else
+                denial++;
+        }
+        if (urd(dre) < procRate) {
+            if (!queue.empty()) {
+                queue.dequeue();
+            } else {
+                downtime++;
+            }
+        }
+    }
+
+    /*for (int i = 0; i < clocks; i++) {
         if ((rand() % 100) < (jobIntens * 100)) {
             jobNumber++;
             if (!queue.full())
@@ -103,7 +125,7 @@ std::string QueueApp::operator()(int argc, const char** argv) {
                 downtime++;
             }
         }
-    }
+    }*/
 
     denial = static_cast<int>(denial / jobNumber * 100);
     double avrCycles = (static_cast<double>(clocks) - downtime) / jobNumber;
