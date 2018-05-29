@@ -1,5 +1,7 @@
 // Copyright 2018 Krasikova Ekaterina
 
+#include <string>
+
 #include <gtest/gtest.h>
 
 #include "include/leftist_heap.h"
@@ -206,5 +208,20 @@ TEST(LeftistHeapTest, Can_assign_to_the_leftist_heap_with_many_nodes) {
     h2 = h1;
     // Assert
     EXPECT_EQ(h2.root->key, h1.root->key);
+}
+
+TEST(LeftistHeapTest, Can_print_heap)
+{
+    // Arrange
+    leftist_heap h1;
+    std::string strA = "2 3 5 10";
+    h1.insert(5);
+    h1.insert(2);
+    h1.insert(3);
+    h1.insert(10);
+    // Act
+    std::string str = std::string(h1);
+    // Assert
+    EXPECT_EQ(strA, str);
 }
 
