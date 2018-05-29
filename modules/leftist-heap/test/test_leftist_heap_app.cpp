@@ -1,12 +1,12 @@
 // Copyright 2018 Okunev Boris
 
+#include <gtest/gtest.h>
+
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <functional>
 #include <iterator>
-
-#include <gtest/gtest.h>
 
 #include "include/leftist_heap_app.h"
 
@@ -14,7 +14,7 @@ using ::testing::internal::RE;
 using std::vector;
 
 class LeftistHeapAppTest : public ::testing::Test {
-protected:
+ protected:
     // virtual void SetUp() {}
 
     void Act(vector<string> args_) {
@@ -35,7 +35,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     LeftistHeapApp app_;
     string output_;
 };
