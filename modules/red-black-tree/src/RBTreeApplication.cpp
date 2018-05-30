@@ -36,7 +36,7 @@ bool RBTree_application::validateNumberOfArguments(int argc, const char** argv) 
     return true;
 }
 
-int parseint(const char* arg) {
+int parseInt(const char* arg) {
     int value = std::stoi(std::string(arg));
     return value;
 }
@@ -99,11 +99,8 @@ std::string RBTree_application::operator()(int argc, const char** argv) {
         }
         break;
      case 'f':
-        stream << "Node found " + tree.findNode(args.key)->count + " times";
+        stream << "Node found " << (tree.findNode(args.key))->count << " times";
         break;
-        }
-        catch(std::string& str) {
-            return str;
         }
     }
 
