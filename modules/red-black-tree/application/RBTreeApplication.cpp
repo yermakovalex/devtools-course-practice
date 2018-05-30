@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string>
 
-#include "include/RBTreeapplication.h"
+#include "include/RBTreeApplication.h"
 
 int main(int argc, const char** argv) {
     RBTree_application app;
