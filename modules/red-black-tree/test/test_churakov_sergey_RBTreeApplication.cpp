@@ -37,7 +37,7 @@ class ComplexCalculatorTest : public ::testing::Test {
     }
 
  private:
-    RBTreeApplication app_;
+    RBTree_application app_;
     string output_;
 };
 
