@@ -51,13 +51,12 @@ char rpn::_Priority(char a)
 {
     switch (a)
     {
-    case '(': return 0;
-    case ')': return 0;
     case '+': return 1;
     case '-': return 1;
     case '*': return 2;
     case '/': return 2;
     case '^': return 3;
+    default: return 0;
     }
 }
 
@@ -73,10 +72,9 @@ int rpn::_Calculate(int num1, int num2, char operation)
     case '/':
         if (num2 == 0)
             throw DIVISION_BY_ZERO;
-
         return num1 / num2;
 
-    case '^': return _Pow(num1, num2);
+    default: return _Pow(num1, num2);
     }
 }
 
