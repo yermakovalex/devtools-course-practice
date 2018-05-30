@@ -53,6 +53,7 @@ std::string StackApp::operator()(int argc, const char** argv) {
         }
         stream << data[size - 1] << " }\n";
         message_ = stream.str();
+        delete[] data;
         return message_;
     }
     catch (std::exception& exc) {
