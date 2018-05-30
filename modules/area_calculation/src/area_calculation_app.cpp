@@ -27,8 +27,7 @@ bool AreaCalculationApp::validateNumberOfArguments(int argc,
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc != atoi(argv[1]) * 2 + 2) {
+    } else if (argc != atoi(argv[1]) * 2 + 2) {
         help(argv[0], "ERROR: Should be 1 + 2 * size arguments.\n\n");
         return false;
     }
@@ -53,8 +52,7 @@ std::string AreaCalculationApp::operator()(int argc, const char** argv) {
         args.size = atoi(argv[1]);
         args.d1 = new double[args.size];
         args.d2 = new double[args.size];
-        for (int i = 0; i < args.size; i++)
-        {
+        for (int i = 0; i < args.size; i++) {
             args.d1[i] = parseDouble(argv[2*i]);
             args.d2[i] = parseDouble(argv[2 * i + 1]);
         }
