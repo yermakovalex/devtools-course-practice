@@ -319,12 +319,12 @@ std::string LengthConverterApp::operator()(int argc, const char** argv) {
             case Meter:
                 res = lenConv.verstsToMeters(args.originalValue);
                 stream << args.originalValue << " versts is "
-                    << res << "meters";
+                    << res << " meters";
                 break;
             case Span:
                 res = lenConv.verstsToSpans(args.originalValue);
                 stream << args.originalValue << " versts is "
-                    << res << "spans";
+                    << res << " spans";
                 break;
             default:
                 throw std::string("Error! Unknown conversion");
