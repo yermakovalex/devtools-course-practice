@@ -114,3 +114,43 @@ TEST_F(NumericalIntervalCalculatorTest, Can_Detect_Wrong_Interval_Case3) {
 
     Assert("Wrong interval!");
 }
+
+TEST_F(NumericalIntervalCalculatorTest, Can_Get_End_Points) {
+    vector<string> args = { "[-3,5)", "ep" };
+
+    Act(args);
+
+    Assert("-3 4.*");
+}
+
+TEST_F(NumericalIntervalCalculatorTest, Can_Get_All_Points) {
+    vector<string> args = { "[-1,3)", "ap" };
+
+    Act(args);
+
+    Assert("-1 0 1 2.*");
+}
+
+TEST_F(NumericalIntervalCalculatorTest, Can_Checks_Entry_Points) {
+    vector<string> args = { "[-1,8]", "pc", "-1", "0", "3", "8" };
+
+    Act(args);
+
+    Assert("Contained points.*");
+}
+
+TEST_F(NumericalIntervalCalculatorTest, Can_Checks_Ranges_For_Overlapse) {
+    vector<string> args = { "[-1,8]", "(7,9]", "ro" };
+
+    Act(args);
+
+    Assert("Ranges overlapsed.*");
+}
+
+TEST_F(NumericalIntervalCalculatorTest, Can_Checks_Ranges_For_Entry) {
+    vector<string> args = { "[-1,8]", "(7,8]", "rc" };
+
+    Act(args);
+
+    Assert("Contained range.*");
+}

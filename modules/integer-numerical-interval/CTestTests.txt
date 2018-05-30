@@ -82,3 +82,27 @@ add_test(
 set_tests_properties (${prefix}_can_Detect_Wrong_Interval3 PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong interval!"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Get_All_Points
+    COMMAND ${APPLICATION} [-5,-1]
+)
+set_tests_properties (${prefix}_can_Get_All_Points PROPERTIES
+    PASS_REGULAR_EXPRESSION "-5 -4 -3 -2 -1"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Checks_Entry_Points
+    COMMAND ${APPLICATION} [-1,3] pc 0 3
+)
+set_tests_properties (${prefix}_can_Checks_Entry_Points PROPERTIES
+    PASS_REGULAR_EXPRESSION "Contained points"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Checks_Ranges_For_Entry
+    COMMAND ${APPLICATION} [-5,11] \(-6,12\) rc
+)
+set_tests_properties (${prefix}_can_Checks_Ranges_For_Entry PROPERTIES
+    PASS_REGULAR_EXPRESSION "Contained range"
+    LABELS "${MODULE}")
