@@ -4,10 +4,9 @@
 
 std::string CAESAR_CIPHER::cipher(const std::string & input_s,
                                   const int shift) {
-    bool Ok;
     std::string output_s("");
     for (unsigned i = 0; i < input_s.length(); i++) {
-        Ok = false;
+        bool Ok = false;
         for (int j = 0; j < ABCSize; j++) {
              if (input_s[i] == low_ch[j]) {
                 j += shift;
