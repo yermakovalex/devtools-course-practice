@@ -89,6 +89,85 @@ TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion) {
     Assert("Error! Unknown conversion");
 }
 
+TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion2) {
+    vector<string> args = { "2", "Centimeter", "Centimeter" };
+
+    Act(args);
+
+    Assert("Error! Unknown conversion");
+}
+
+TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion3) {
+    vector<string> args = { "2", "Kilometer", "Kilometer" };
+
+    Act(args);
+
+    Assert("Error! Unknown conversion");
+}
+
+TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion4) {
+    vector<string> args = { "2", "Mile", "Mile" };
+
+    Act(args);
+
+    Assert("Error! Unknown conversion");
+}
+
+TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion5) {
+    vector<string> args = { "2", "Foot", "Foot" };
+
+    Act(args);
+
+    Assert("Error! Unknown conversion");
+}
+
+TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion6) {
+    vector<string> args = { "2", "Yard", "Yard" };
+
+    Act(args);
+
+    Assert("Error! Unknown conversion");
+}
+
+TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion7) {
+    vector<string> args = { "2", "Inch", "Inch" };
+
+    Act(args);
+
+    Assert("Error! Unknown conversion");
+}
+
+TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion8) {
+    vector<string> args = { "2", "NauticalMile", "NauticalMile" };
+
+    Act(args);
+
+    Assert("Error! Unknown conversion");
+}
+
+TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion9) {
+    vector<string> args = { "2", "AstronomicalUnit", "AstronomicalUnit" };
+
+    Act(args);
+
+    Assert("Error! Unknown conversion");
+}
+
+TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion10) {
+    vector<string> args = { "2", "Span", "Span" };
+
+    Act(args);
+
+    Assert("Error! Unknown conversion");
+}
+
+TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion11) {
+    vector<string> args = { "2", "Verst", "Verst" };
+
+    Act(args);
+
+    Assert("Error! Unknown conversion");
+}
 
 TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Centimeters) {
     vector<string> args = { "1", "Meter", "Centimeter"};
@@ -208,7 +287,6 @@ TEST_F(LengthConverterAppTest, Can_Convert_Kilometers_To_AstronimicalUnits) {
     Act(args);
 
     Assert("149599 kilometers is 0.00100001 astronomical units");
-
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_AstronimicalUnits_To_Kilometers) {
@@ -329,7 +407,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Versts) {
     Act(args);
 
     Assert("1066.8 meters is 1 versts");
-} 
+}
 
 TEST_F(LengthConverterAppTest, Can_Convert_Versts_To_Meters) {
     vector<string> args = { "1", "Verst", "Meter"};
