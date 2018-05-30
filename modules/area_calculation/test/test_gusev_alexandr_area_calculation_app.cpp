@@ -9,7 +9,6 @@
 #include <iterator>
 
 #include "include/area_calculation_app.h"
-//#include "include/area_calculation.h"
 using ::testing::internal::RE;
 using std::vector;
 using std::string;
