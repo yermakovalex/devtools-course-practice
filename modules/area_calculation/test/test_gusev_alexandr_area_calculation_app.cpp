@@ -49,3 +49,11 @@ TEST_F(AreaCalculationAppTest, No_Arguments_Test) {
     // Assert
     Assert("This is a area calculation application\\..*");
 }
+TEST_F(AreaCalculationAppTest, Correctly_Arguments_Test) {
+	// Arrange
+	vector<string> args = { "3", "1", "1", "1", "1", "2", "1"};
+	// Act
+	Act(args);
+	// Assert
+	Assert("This is a area calculation application\\..*");
+}
