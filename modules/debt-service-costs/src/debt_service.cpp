@@ -1,6 +1,6 @@
 // Copyright 2018 Sharov Ivan
 
-#include "../modules/DebtServiceCosts/include/DebtService.h"
+#include "include/debt_service.h"
 
 DebtService::DebtService(float loan_amount, int loan_term,
                          float loan_rate, DebtServiceType dt) {

@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "../modules/DebtServiceCosts/include/DebtService.h"
+#include "include/debt_service.h"
 
 TEST(Vyunov_Roman_DebtService_test, Can_Throw_Exception_Incorrect_Amount) {
     // Act & Assert
@@ -132,7 +132,7 @@ TEST(Vyunov_Roman_DebtService_test,
 }
 
 TEST(Sharov_Ivan_DebtService_test,
-    MakingPayment_for_EQUAL_ANNUAL_PAYMENTS) {
+    MakingPayment_for_EQUAL_ANNUAL_PAYMENTS_2) {
     // Arrange
     DebtService ds1(12000, 12, 0.01, EQUAL_ANNUAL_PAYMENTS);
     float sum = 1120;
