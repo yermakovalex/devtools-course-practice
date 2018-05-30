@@ -2,6 +2,8 @@
 
 #include <stdexcept>
 #include <string>
+#include <utility>
+#include <vector>
 
 #include "include/integer_numerical_interval.h"
 #include "include/numerical_interval_calculator.h"
@@ -69,7 +71,7 @@ bool NumericalIntervalCalculator::parseArguments(int argc, const char** argv,
                 }
                 return true;
             }
-            
+
             if (parsed_args->type_of_operation == Operation::pc) {
                 for (int i = 3; i < argc; ++i)
                     parsed_args->numbers.push_back(std::stoi(argv[i]));
@@ -89,12 +91,12 @@ bool NumericalIntervalCalculator::parseArguments(int argc, const char** argv,
                 parsed_args->type_of_operation = Operation::or;
             else if (arg == "rc")
                 parsed_args->type_of_operation = Operation::rc;
-            else {
+            else
+            {
                 parsed_args->type_of_operation = Operation::no_op;
                 help(argv[0], "ERROR: Wrong arguments format!\n\n");
                 return false;
             }
-
         }
         return true;
     }
@@ -141,7 +143,8 @@ std::string NumericalIntervalCalculator::operator()(int argc,
                     = args.interval1.isContainPoints(args.numbers);
                 if (isContained)
                     message_ = "Contained points\n";
-                else message_ = "Not contained points\n";
+                else
+                    message_ = "Not contained points\n";
                 break;
             }
             case Operation::or:
@@ -150,7 +153,8 @@ std::string NumericalIntervalCalculator::operator()(int argc,
                     = args.interval1.isHaveOverlapsRange(args.interval2);
                 if (isOverlapse)
                     message_ = "Ranges overlapsed\n";
-                else message_ = "Ranges not overlapsed\n";
+                else
+                    message_ = "Ranges not overlapsed\n";
                 break;
             }
             case Operation::rc:
@@ -159,7 +163,8 @@ std::string NumericalIntervalCalculator::operator()(int argc,
                     = args.interval1.isContainsRange(args.interval2);
                 if (isContained)
                     message_ = "Contained range\n";
-                else message_ = "Not contained range\n";
+                else
+                    message_ = "Not contained range\n";
                 break;
             }
             default:
