@@ -1,4 +1,4 @@
-// Copyright 2018 Krasikova Ekaterina
+// Copyright 2018 Gracheva Elena
 
 #include <gtest/gtest.h>
 #include "include/operations_on_3d_vectors.h"
