@@ -87,11 +87,11 @@ bool NumericalIntervalCalculator::parseArguments(int argc, const char** argv,
             }
 
             arg = std::string(argv[3]);
-            if (arg == "ro")
+            if (arg == "ro") {
                 parsed_args->type_of_operation = Operation::ro;
-            else if (arg == "rc")
+            } else if (arg == "rc") {
                 parsed_args->type_of_operation = Operation::rc;
-            else {
+            } else {
                 parsed_args->type_of_operation = Operation::no_op;
                 help(argv[0], "ERROR: Wrong arguments format!\n\n");
                 return false;

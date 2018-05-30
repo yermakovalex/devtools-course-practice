@@ -48,7 +48,7 @@ add_test(
     COMMAND ${APPLICATION} [1,5] [4,8] or trash
 )
 set_tests_properties (${prefix}_can_Detect_Too_Much_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "ERROR: You dont enter numbers!.*"
+    PASS_REGULAR_EXPRESSION "ERROR: Too much arguments!.*"
     LABELS "${MODULE}")
 
 add_test(
