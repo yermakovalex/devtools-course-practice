@@ -70,7 +70,7 @@ TEST(BatcherMergeTest, Can_Work_With_Big_Size) {
   EXPECT_TRUE(std::is_sorted(array.begin(), array.end()));
 }
 
-TEST(BatcherMergeTest, Cant_Use_Negative_Index) {
+TEST(BatcherMergeTest, Right_Index_Out_Of_Range) {
   // Arrange
   std::vector<int> array = { 1, 8, 3 };
   int left = 0;
