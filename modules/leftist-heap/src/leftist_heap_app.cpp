@@ -143,7 +143,7 @@ string LeftistHeapApp::operator()(int argc, const char** argv) {
     }
     catch (std::string& str) {
         message_ = str;
-   }
+    }
 
     return message_;
 }
