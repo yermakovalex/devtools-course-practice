@@ -9,6 +9,7 @@
 #include <string.h>
 #include <string>
 #include <sstream>
+#include <iomanip>
 
 LengthConverterApp::LengthConverterApp() : message_("") {}
 
@@ -27,7 +28,7 @@ void LengthConverterApp::help(const char* appname, const char* message) {
 }
 
 bool LengthConverterApp::validateNumberOfArguments(int argc,
-                                                   const char** argv) {
+    const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
@@ -151,18 +152,23 @@ std::string LengthConverterApp::operator()(int argc, const char** argv) {
                 res = lenConv.metersToYards(args.originalValue);
                 stream << args.originalValue << " meters is "
                     << res << " yards";
+                break;
             case Inch:
                 res = lenConv.metersToInches(args.originalValue);
                 stream << args.originalValue << " meters is "
                     << res << " inches";
+                break;
             case AstronomicalUnit:
                 res = lenConv.metersToAstronomicalUnits(args.originalValue);
+                stream << std::fixed;
                 stream << args.originalValue << " meters is "
                     << res << " astronomical units";
+                break;
             case Span:
                 res = lenConv.metersToSpans(args.originalValue);
                 stream << args.originalValue << " meters is "
                     << res << " spans";
+                break;
             case Verst:
                 res = lenConv.metersToVersts(args.originalValue);
                 stream << args.originalValue << " meters is "
@@ -279,11 +285,13 @@ std::string LengthConverterApp::operator()(int argc, const char** argv) {
             switch (args.targetLengthUnit) {
             case Kilometer:
                 res = lenConv.astronomicalUnitsToKilometers(args.originalValue);
+                stream << std::fixed;
                 stream << args.originalValue << " astronomical units is "
                     << res << " kilometres";
                 break;
             case Meter:
                 res = lenConv.astronomicalUnitsToMeters(args.originalValue);
+                stream << std::fixed;
                 stream << args.originalValue << " astronomical units is "
                     << res << " meters";
                 break;
@@ -339,6 +347,5 @@ std::string LengthConverterApp::operator()(int argc, const char** argv) {
         return std::string(str);
     }
     message_ = stream.str();
-
     return message_;
 }
