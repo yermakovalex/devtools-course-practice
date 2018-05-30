@@ -55,7 +55,7 @@ add_test(
     NAME ${prefix}_cant_Find_Unexisting_Node
     COMMAND ${APPLICATION} 4 f
 )
-set_tests_properties (${prefix}_can_Find_Unexisting_Node PROPERTIES
+set_tests_properties (${prefix}_cant_Find_Unexisting_Node PROPERTIES
     PASS_REGULAR_EXPRESSION "Node found 0 times"
     LABELS "${MODULE}")
 
@@ -71,6 +71,6 @@ add_test(
     NAME ${prefix}_cant_Delete_Unexisting_Node
     COMMAND ${APPLICATION} 4 d
 )
-set_tests_properties (${prefix}_can_Delete_Unexisting_Node PROPERTIES
+set_tests_properties (${prefix}_cant_Delete_Unexisting_Node PROPERTIES
     PASS_REGULAR_EXPRESSION "Cant delete unexisting node"
     LABELS "${MODULE}")
