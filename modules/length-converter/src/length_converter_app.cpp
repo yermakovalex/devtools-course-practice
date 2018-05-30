@@ -266,8 +266,8 @@ std::string LengthConverterApp::operator()(int argc, const char** argv) {
         case NauticalMile:
             switch (args.targetLengthUnit) {
             case Meter:
-                res = lenConv.nauiticalMilesToMeters(args.originalValue);
-                stream << args.originalValue << " nautial miles is "
+                res = lenConv.nauticalMilesToMeters(args.originalValue);
+                stream << args.originalValue << " nautical miles is "
                     << res << " meters";
                 break;
             default:
