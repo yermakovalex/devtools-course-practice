@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string>
 
-#include "include/stack_app.h"
+#include "../include/stack_app.h"
 
 int main(int argc, const char** argv) {
     StackApp app;
