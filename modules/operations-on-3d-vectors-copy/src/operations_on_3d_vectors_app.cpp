@@ -66,7 +66,8 @@ std::string parseOperation(const char* arg) {
     }
     return op;
 }
-std::string OperationsOn3dVectorsApp::appForUnaryOperations(int argc, const char** argv) {
+std::string OperationsOn3dVectorsApp::appForUnaryOperations(int argc,
+    const char** argv) {
     Arguments args;
     std::ostringstream stream;
     try {
@@ -91,7 +92,8 @@ std::string OperationsOn3dVectorsApp::appForUnaryOperations(int argc, const char
     message_ = stream.str();
     return message_;
 }
-std::string OperationsOn3dVectorsApp::appForBinaryOperations(int argc, const char** argv) {
+std::string OperationsOn3dVectorsApp::appForBinaryOperations(int argc,
+    const char** argv) {
     Arguments args;
     std::ostringstream stream;
     try {
