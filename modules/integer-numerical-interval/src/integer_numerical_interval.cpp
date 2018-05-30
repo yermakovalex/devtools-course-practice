@@ -20,7 +20,7 @@ IntegerNumericalInterval::IntegerNumericalInterval(const int leftBorder, const
 
     if (!this->isInitializationCorrect(leftBorder, rightBorder, isIncludeLeft,
         isIncludeRight))
-        throw(std::string("Wrong interval!"));
+        throw(std::string("Wrong interval!\n"));
     leftBorder_ = leftBorder;
     rightBorder_ = rightBorder;
     isIncludeLeft_ = isIncludeLeft;
@@ -41,11 +41,11 @@ IntegerNumericalInterval::IntegerNumericalInterval(const std::string &
         if (chF == '(')
             isIncludeLeft_ = false;
         else
-            throw(std::string("Wrong interval!"));
+            throw(std::string("Wrong interval!\n"));
     }
 
     if (comma != ',')
-        throw(std::string("Wrong interval!"));
+        throw(std::string("Wrong interval!\n"));
 
     if (chS == ']') {
         isIncludeRight_ = true;
@@ -53,12 +53,12 @@ IntegerNumericalInterval::IntegerNumericalInterval(const std::string &
         if (chS == ')')
             isIncludeRight_ = false;
         else
-            throw(std::string("Wrong interval!"));
+            throw(std::string("Wrong interval!\n"));
     }
 
     if (!isInitializationCorrect(leftBorder_, rightBorder_,
         isIncludeLeft_, isIncludeRight_))
-        throw(std::string("Wrong interval!"));
+        throw(std::string("Wrong interval!\n"));
 }
 
 IntegerNumericalInterval::IntegerNumericalInterval(const

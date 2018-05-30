@@ -20,25 +20,65 @@ set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments
-    COMMAND ${APPLICATION} 1 2
+    NAME ${prefix}_can_Detect_Wrong_Arguments_Format1
+    COMMAND ${APPLICATION} [1,5] trash
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "ERROR: Should be 5 arguments."
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_Detect_Wrong_Arguments_Format
-    COMMAND ${APPLICATION} [ 2 . 5 ]
-)
-set_tests_properties (${prefix}_can_Detect_Wrong_Arguments_Format PROPERTIES
+set_tests_properties (${prefix}_can_Detect_Wrong_Arguments_Format1 PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong arguments format!"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Wrong_Interval
-    COMMAND ${APPLICATION} [ 2 , -5 ]
+    NAME ${prefix}_can_Detect_Wrong_Arguments_Format2
+    COMMAND ${APPLICATION} [1,5] [-5,-3] trash
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Interval PROPERTIES
+set_tests_properties (${prefix}_can_Detect_Wrong_Arguments_Format2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong arguments format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Contain_Points_Without_Points
+    COMMAND ${APPLICATION} [1,5] pc
+)
+set_tests_properties (${prefix}_can_Detect_Contain_Points_Without_Points PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: You dont enter numbers!.*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Too_Much_Arguments
+    COMMAND ${APPLICATION} [1,5] [4,8] or trash
+)
+set_tests_properties (${prefix}_can_Detect_Too_Much_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: You dont enter numbers!.*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Interval_From_Trash
+    COMMAND ${APPLICATION} trash
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Interval_From_Trash PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong interval!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Interval1
+    COMMAND ${APPLICATION} [0,-3)
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Interval1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong interval!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Interval2
+    COMMAND ${APPLICATION} [2,2)
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Interval2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong interval!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Interval3
+    COMMAND ${APPLICATION} (2,3)
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Interval3 PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong interval!"
     LABELS "${MODULE}")

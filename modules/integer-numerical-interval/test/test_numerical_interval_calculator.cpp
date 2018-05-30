@@ -47,24 +47,68 @@ TEST_F(NumericalIntervalCalculatorTest, Do_Print_Help_Without_Arguments) {
     Assert("This is a integer numerical interval calculator application\\..*");
 }
 
-TEST_F(NumericalIntervalCalculatorTest, Is_Checking_Number_Of_Arguments) {
-    vector<string> args = { "1", "2" };
-
-    Act(args);
-
-    Assert("ERROR: Should be 5 arguments\\..*");
-}
-
-TEST_F(NumericalIntervalCalculatorTest, Can_Detect_Wrong_Arguments_Format) {
-    vector<string> args = { "1", "pi", "2", "4", "+" };
+TEST_F(NumericalIntervalCalculatorTest,
+       Can_Detect_Wrong_Arguments_Format_Case1) {
+    vector<string> args = { "[1,2]", "1" };
 
     Act(args);
 
     Assert("ERROR: Wrong arguments format!.*");
 }
 
-TEST_F(NumericalIntervalCalculatorTest, Can_Detect_Wrong_Interval) {
-    vector<string> args = { "[", "3", ",", "3", ")" };
+TEST_F(NumericalIntervalCalculatorTest,
+       Can_Detect_Wrong_Arguments_Format_Case2) {
+    vector<string> args = { "[1,2]", "[3,4]", "trash" };
+
+    Act(args);
+
+    Assert("ERROR: Wrong arguments format!.*");
+}
+
+TEST_F(NumericalIntervalCalculatorTest,
+       Can_Detect_Contain_Points_Without_Points) {
+    vector<string> args = { "[-1,5)", "pc" };
+
+    Act(args);
+
+    Assert("ERROR: You dont enter numbers!.*");
+}
+
+TEST_F(NumericalIntervalCalculatorTest,
+    Can_Detect_Too_Much_Arguments) {
+    vector<string> args = { "[-1,5]", "[2,3]", "or", "trash" };
+
+    Act(args);
+
+    Assert("ERROR: Too much arguments!.*");
+}
+
+TEST_F(NumericalIntervalCalculatorTest, Can_Detect_Wrong_Interval_From_Trash) {
+    vector<string> args = { "trash" };
+
+    Act(args);
+
+    Assert("Wrong interval!");
+}
+
+TEST_F(NumericalIntervalCalculatorTest, Can_Detect_Wrong_Interval_Case1) {
+    vector<string> args = { "[1,-1158]" };
+
+    Act(args);
+
+    Assert("Wrong interval!");
+}
+
+TEST_F(NumericalIntervalCalculatorTest, Can_Detect_Wrong_Interval_Case2) {
+    vector<string> args = { "[1,1)" };
+
+    Act(args);
+
+    Assert("Wrong interval!");
+}
+
+TEST_F(NumericalIntervalCalculatorTest, Can_Detect_Wrong_Interval_Case3) {
+    vector<string> args = { "(1,2)" };
 
     Act(args);
 

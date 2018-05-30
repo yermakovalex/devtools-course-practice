@@ -362,3 +362,12 @@ TEST(Gribov_Pavel_IntegerNumericalIntervalTest,
     // Assert
     EXPECT_EQ(interval, str);
 }
+
+TEST(Gribov_Pavel_IntegerNumericalIntervalTest,
+    Can_Not_Create_Interval_From_String_Trash) {
+    // Arrange
+    std::string interval = "privet";
+
+    // Assert
+    EXPECT_ANY_THROW(IntegerNumericalInterval ni(interval));
+}
