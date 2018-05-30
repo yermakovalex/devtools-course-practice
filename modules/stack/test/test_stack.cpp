@@ -4,7 +4,7 @@
 
 #include <string>
 
-#include "../include/stack.h"
+#include "include/stack.h"
 
 TEST(Gladyshev_Alexey_StackTest, Always_Correct_Test) {
     // Arrange
