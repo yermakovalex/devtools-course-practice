@@ -4,7 +4,7 @@
 #define MODULES_LINE_PLANE_INTERSECTION_INCLUDE_LINE_PLANE_INTERSECTION_APP_H_
 
 #include <string>
-#include "C:\Users\Лена\Downloads\devtools-course-practice-master\devtools-course-practice-master\modules\line-plane-intersection\include\line_plane_intersection.h"
+#include "include/line_plane_intersection.h"
 
 class LinePlaneIntersectionApp {
 private:
