@@ -31,7 +31,7 @@ void NumericalIntervalCalculator::help(const char* appname,
         "ap - get all points\n" +
         "pc - checks the entry points from <numbers ..>\n" +
         "And in second case is:\n" +
-        "or - checks ranges for overlapse\n" +
+        "ro - checks ranges for overlapse\n" +
         "rc - checks intervals for entry\n";
 }
 
@@ -87,12 +87,11 @@ bool NumericalIntervalCalculator::parseArguments(int argc, const char** argv,
             }
 
             arg = std::string(argv[3]);
-            if (arg == "or")
-                parsed_args->type_of_operation = Operation::or;
+            if (arg == "ro")
+                parsed_args->type_of_operation = Operation::ro;
             else if (arg == "rc")
                 parsed_args->type_of_operation = Operation::rc;
-            else
-            {
+            else {
                 parsed_args->type_of_operation = Operation::no_op;
                 help(argv[0], "ERROR: Wrong arguments format!\n\n");
                 return false;
@@ -147,7 +146,7 @@ std::string NumericalIntervalCalculator::operator()(int argc,
                     message_ = "Not contained points\n";
                 break;
             }
-            case Operation::or:
+            case Operation::ro:
             {
                 bool isOverlapse
                     = args.interval1.isHaveOverlapsRange(args.interval2);

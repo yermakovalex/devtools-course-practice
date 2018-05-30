@@ -15,7 +15,7 @@ class NumericalIntervalCalculator {
 
  private:
     enum Operation {
-        ep, ap, pc, or, rc, no_op
+        ep, ap, pc, ro, rc, no_op
     };
     typedef struct {
         IntegerNumericalInterval interval1;
