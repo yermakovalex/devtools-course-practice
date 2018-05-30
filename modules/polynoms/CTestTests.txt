@@ -20,25 +20,49 @@ set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments
-    COMMAND ${APPLICATION} 3x 3y, 3z +
+    NAME ${prefix}_can_Check_Invalid_Size_Arguments
+    COMMAND ${APPLICATION} 3x 3y
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "arguments aren't valid"
+set_tests_properties (${prefix}_can_Check_Invalid_Size_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Invalid size arguments."
     LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Detect_Invalid_Operation
-    COMMAND ${APPLICATION} 3x 5y !
+    COMMAND ${APPLICATION} 3x 5y m 1 2
 )
 set_tests_properties (${prefix}_can_Detect_Invalid_Operation PROPERTIES
-    PASS_REGULAR_EXPRESSION "arguments aren't valid"
+    PASS_REGULAR_EXPRESSION "ERROR: Invalid opetation."
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Print_Result
-    COMMAND ${APPLICATION} 3x 4y +
+    NAME ${prefix}_can_Detect_Invalid_Computation_Var_Size
+    COMMAND ${APPLICATION} 3x 5y m 1 2
 )
-set_tests_properties (${prefix}_can_Print_Result PROPERTIES
-    PASS_REGULAR_EXPRESSION "(3x^1) + (4y^1)"
+set_tests_properties (${prefix}_can_Detect_Invalid_Computation_Var_Size PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Invalid size variables for computations."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Add_Polynoms
+    COMMAND ${APPLICATION} 2x 3y + 1 2
+)
+set_tests_properties (${prefix}_can_Add_Polynoms PROPERTIES
+    PASS_REGULAR_EXPRESSION "8.00000"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Diff_Polynoms
+    COMMAND ${APPLICATION} 2x 3y - 1 2
+)
+set_tests_properties (${prefix}_can_Diff_Polynoms PROPERTIES
+    PASS_REGULAR_EXPRESSION "-4.00000"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Mult_Polynoms
+    COMMAND ${APPLICATION} 2x 3y "*" 1 2
+)
+set_tests_properties (${prefix}_can_Mult_Polynoms PROPERTIES
+    PASS_REGULAR_EXPRESSION "12.00000"
     LABELS "${MODULE}")
