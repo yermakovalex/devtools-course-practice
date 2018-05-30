@@ -35,12 +35,12 @@ bool QuickSortApp::validateNumberOfArguments(int argc, const char** argv) {
 
 int parseInt(const char* arg) {
     int value = atoi(arg);
-    if (value ==0 && arg[0] != '0') 
+    if (value ==0 && arg[0] != '0')
         throw std::string("Wrong number format!");
     return value;
 }
 void CheckParam(int first, int last, std::vector<int> *array) {
-    if ((first < 0) || (last < 0)) 
+    if ((first < 0) || (last < 0))
         throw std::string("Array index can't be < 0");
     if (static_cast<int>(array->size()) < last)
         throw std::string("Right bound of array > array size");
