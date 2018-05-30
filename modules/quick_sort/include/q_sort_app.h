@@ -17,8 +17,8 @@ class QuickSortApp {
     std::string message_;
     typedef struct {
         int num;
-        int left;
-        int right;
+        int first;
+        int last;
         std::vector<int> mas;
     } Arguments;
 };
