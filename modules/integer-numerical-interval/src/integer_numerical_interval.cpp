@@ -84,7 +84,7 @@ bool IntegerNumericalInterval::isContainPoints(const vector<int>& points)
     return true;
 }
 
-bool IntegerNumericalInterval::isHaveOverlapsRange (
+bool IntegerNumericalInterval::isHaveOverlapsRange(
     const IntegerNumericalInterval & ni) const {
 
     pair<int, int> endPoints = getEndPoints();
@@ -103,7 +103,7 @@ bool IntegerNumericalInterval::isContainsRange(
     const IntegerNumericalInterval & ni) const {
     pair<int, int> endPoints = getEndPoints();
     pair<int, int> endPointsNI = ni.getEndPoints();
-    if (endPointsNI.first >= endPoints.first 
+    if (endPointsNI.first >= endPoints.first
         && endPointsNI.second <= endPoints.second)
         return true;
     else
