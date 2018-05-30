@@ -81,22 +81,22 @@ TEST(CAESAR_CIPHER_Test, Can_Convert7) {
     EXPECT_EQ("cccddd", result);
 }
 TEST(CAESAR_CIPHER_Test, Can_Convert8) {
-	// Arrage
-	std::string input_s = "AA";
-	int shift = 1;
-	CAESAR_CIPHER tmp;
-	// Act
-	std::string result = tmp.cipher(input_s, shift);
-	// Assert
-	EXPECT_EQ("BB", result);
+    // Arrage
+    std::string input_s = "AA";
+    int shift = 1;
+    CAESAR_CIPHER tmp;
+    // Act
+    std::string result = tmp.cipher(input_s, shift);
+    // Assert
+    EXPECT_EQ("BB", result);
 }
 TEST(CAESAR_CIPHER_Test, Can_Convert9) {
-	// Arrage
-	std::string input_s = "AA BB";
-	int shift = 1;
-	CAESAR_CIPHER tmp;
-	// Act
-	std::string result = tmp.cipher(input_s, shift);
-	// Assert
-	EXPECT_EQ("BB CC", result);
+    // Arrage
+    std::string input_s = "AA BB";
+    int shift = 1;
+    CAESAR_CIPHER tmp;
+    // Act
+    std::string result = tmp.cipher(input_s, shift);
+    // Assert
+    EXPECT_EQ("BB CC", result);
 }
