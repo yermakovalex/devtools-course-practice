@@ -13,13 +13,13 @@
 AreaCalculationApp::AreaCalculationApp() : message_("") {}
 
 void AreaCalculationApp::help(const char* appname, const char* message) {
-	message_ =
-		std::string(message) +
-		"This is a area calculation application.\n\n" +
-		"Please provide arguments in the following format:\n\n" +
-		"  $ " + appname + " <int>size \n\n" +
-		" + x[i] + y[i] \n\n" +
-		"Where all arguments are double numbers and 0 < i < size .\n";
+    message_ =
+        std::string(message) +
+        "This is a area calculation application.\n\n" +
+        "Please provide arguments in the following format:\n\n" +
+        "  $ " + appname + " <int>size \n\n" +
+        " + x[i] + y[i] \n\n" +
+        "Where all arguments are double numbers and 0 < i < size .\n";
 }
 
 bool AreaCalculationApp::validateNumberOfArguments(int argc,

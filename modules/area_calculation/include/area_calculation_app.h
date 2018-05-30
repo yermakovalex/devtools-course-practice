@@ -9,7 +9,7 @@ class AreaCalculationApp {
  public:
     AreaCalculationApp();
     std::string operator()(int argc, const char** argv);
-private:
+ private:
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
@@ -17,7 +17,7 @@ private:
         int size;
         double* d1;
         double* d2;
-	} Arguments;
+    } Arguments;
 };
 
 #endif  // MODULES_AREA_CALCULATION_INCLUDE_AREA_CALCULATION_APP_H_
