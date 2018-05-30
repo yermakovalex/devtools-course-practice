@@ -7,59 +7,87 @@
 #include "include/monom.h"
 #include "include/polynom_calculator.hpp"
 
-TEST(PolynomCalculator, Create_Calculator) {
-    // AAA
-    ASSERT_NO_THROW(PolynomCalculator pc);
+using ::testing::internal::RE;
+using std::vector;
+using std::string;
+
+class PolynomCalculatorTest : public ::testing::Test {
+ protected:
+    void Act(vector<string> args_) {
+        vector<const char*> options;
+
+        options.push_back("appname");
+        for (size_t i = 0; i < args_.size(); ++i) {
+            options.push_back(args_[i].c_str());
+        }
+
+        const char** argv = &options.front();
+        int argc = static_cast<int>(args_.size()) + 1;
+
+        output_ = app_(argc, argv);
+    }
+
+    void Assert(std::string expected) {
+        EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
+    }
+
+ private:
+    PolynomCalculator app_;
+    string output_;
+};
+
+TEST_F(PolynomCalculatorTest, Do_Print_Help_Without_Arguments) {
+    vector<string> args = {};
+
+    Act(args);
+
+    Assert("This is a polynom calculator application\\..*");
 }
 
-TEST(PolynomCalculator, Calculate_With_Correct_Arguments) {
-    // Arrange
-    PolynomCalculator pc;
-    std::vector<const char*> args = {"app_name", "3x", "5y", "+"};
-    const char** argv = args.data();
-    int argc = args.size() + 1;
-    std::string res = Polynom("3x + 5y").ToString();
+TEST_F(PolynomCalculatorTest, Check_Invalid_Size_Arguments) {
+    vector<string> args = {"3x", "2y"};
 
-    // Act
-    std::string out = pc(argc, argv);
+    Act(args);
 
-    // Assert
-    EXPECT_EQ(res, out);
+    Assert("ERROR: Invalid size arguments\\..*");
 }
 
-TEST(PolynomCalculator, Substration_Polinom) {
-    // Arrange
-    PolynomCalculator pc;
-    std::vector<const char*> args = {"app_name", "37xy", "5y", "-"};
-    const char** argv = args.data();
-    int argc = args.size() + 1;
-    std::string res = Polynom("37xy - 5y").ToString();
+TEST_F(PolynomCalculatorTest, Check_Invalid_Operation) {
+    vector<string> args = {"3x", "2y", "i", "4", "2"};
 
-    // Act
-    std::string out = pc(argc, argv);
+    Act(args);
 
-    // Assert
-    EXPECT_EQ(res, out);
+    Assert("ERROR: Invalid operation\\..*");
 }
 
-TEST(PolynomCalculator, InvaliArgumentsSize) {
-    // Arrange
-    PolynomCalculator pc;
-    std::vector<const char*> args = {"app_name", "37xy", "5y", "6x", "*"};
-    const char** argv = args.data();
-    int argc = args.size() + 1;
+TEST_F(PolynomCalculatorTest, Check_Invalid_Computation_Variables) {
+    vector<string> args = {"2x", "3y", "+", "2"};
 
-    // Act & Assert
-    EXPECT_THROW(pc(argc, argv), std::logic_error);
+    Act(args);
+
+    Assert("ERROR: Invalid size variables for computations\\..*");
 }
 
-TEST(PolynomCalculator, InvalidOperation) {
-    // Arrange
-    PolynomCalculator pc;
-    std::vector<const char*> args = {"app_name", "37xy", "5y", "!"};
-    const char** argv = args.data();
-    int argc = args.size() + 1;
+TEST_F(PolynomCalculatorTest, Can_Add_Polynoms) {
+    vector<string> args = {"2x", "3y", "+", "1", "2"};
 
-    // Act & Assert
-    EXPECT_THROW(pc(argc, argv), std::logic_error);
+    Act(args);
+
+    Assert("8.00000");
+}
+
+TEST_F(PolynomCalculatorTest, Can_Diff_Polynoms) {
+    vector<string> args = {"2x", "3y", "-", "1", "2"};
+
+    Act(args);
+
+    Assert("-4.00000");
+}
+
+TEST_F(PolynomCalculatorTest, Can_Mult_Polynoms) {
+    vector<string> args = {"2x", "3y", "*", "1", "2"};
+
+    Act(args);
+
+    Assert("12.00000");
 }

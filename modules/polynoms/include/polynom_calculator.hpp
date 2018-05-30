@@ -5,32 +5,29 @@
 
 #include <string>
 #include <tuple>
+#include <unordered_map>
+#include <functional>
+#include "include/monom.h"
 #include "include/polynom.h"
 
-class InputArguments {
- public:
-  using Op = char;
-  using Arguments = std::tuple<Polynom, Polynom, Op>;
-
-  InputArguments(int argc, const char** argv);
-
-  operator bool()     const { return m_is_valid; }
-  Arguments getArgs() const { return m_input_args; }
-
- private:
-  bool validateInputArgs(int argc, const char** argv);
-  Arguments m_input_args;
-  bool m_is_valid;
-};
+using Op            = char;
+using CalculateArgs = std::vector<double>;
+using Arguments     = std::tuple<Polynom, Polynom, Op, CalculateArgs>;
+using p_ref         = Polynom&;
+using Callback      = std::function<Polynom(p_ref, p_ref)>;
 
 class PolynomCalculator {
  public:
-  PolynomCalculator() = default;
+  PolynomCalculator();
   std::string operator()(int argc, const char** argv);
+  static std::unordered_map<Op, Callback> m_ops;
 
  private:
-  std::string help(const char* appname, const char* message = "");
-  std::string calculate(const InputArguments&);
+  void help(const char* appname, const char* message = "");
+  bool validateInputArguments(int argc, const char** argv);
+  std::string calculate(const Arguments& args);
+
+  std::string m_message;
 };
 
 #endif  // MODULES_POLYNOMS_INCLUDE_POLYNOM_CALCULATOR_HPP_
