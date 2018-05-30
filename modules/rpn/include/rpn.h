@@ -7,8 +7,7 @@
 
 #include "include/messages.h"
 
-class rpn
-{
+class rpn {
  private:
     static int _Pow(int a, int b);
     static bool _Contains(const std::string &s, char c);
