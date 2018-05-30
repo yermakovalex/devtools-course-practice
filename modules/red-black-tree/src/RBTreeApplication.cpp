@@ -91,8 +91,7 @@ std::string RBTree_application::operator()(int argc, const char** argv) {
      case 'd':
         if (tree.findNode(args.key)->count == 0) {
             stream << "Cant delete unexisting node";
-        }
-        else {
+        } else {
             tree.deleteNode(args.key);
             stream << "Node deleted";
         }
@@ -100,7 +99,6 @@ std::string RBTree_application::operator()(int argc, const char** argv) {
      case 'f':
         stream << "Node found " << (tree.findNode(args.key))->count << " times";
     }
-    
 
     message_ = stream.str();
 
