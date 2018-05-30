@@ -110,35 +110,43 @@ string LeftistHeapApp::operator()(int argc, const char** argv) {
     if (message_.size())
         return message_;
 
-    switch (args_.operation) {
-    case MERGE:
-    {
-        leftist_heap h = args_.heapOne;
-        h.merge(&args_.heapTwo);
-        message_ = h;
-    }
+    try {
+        switch (args_.operation) {
+        case MERGE:
+        {
+            leftist_heap h = args_.heapOne;
+            h.merge(&args_.heapTwo);
+            message_ = h;
+        }
         break;
-    case INSERT:
-    {
-        leftist_heap h = args_.heapOne;
-        int min = args_.heapTwo.minKey();
-        h.insert(min);
-        message_ = h;
-    }
+        case INSERT:
+        {
+            leftist_heap h = args_.heapOne;
+            int min = args_.heapTwo.minKey();
+            h.insert(min);
+            message_ = h;
+        }
         break;
-    case MINKEY:
-    {
-        int min = args_.heapOne.minKey();
-        message_ = std::to_string(min);
-    }
+        case MINKEY:
+        {
+            int min = args_.heapOne.minKey();
+            message_ = std::to_string(min);
+        }
         break;
-    case DELETEMIN:
-    {
-        args_.heapOne.deleteMin();
-        message_ = args_.heapOne;
-    }
+        case DELETEMIN:
+        {
+            args_.heapOne.deleteMin();
+            message_ = args_.heapOne;
+        }
         break;
+        }
     }
+    catch (std::string& str) {
+        message_ = str;
+    }
+    catch (std::logic_error& le) {
+        message_ = le.what();
+   }
 
     return message_;
 }
