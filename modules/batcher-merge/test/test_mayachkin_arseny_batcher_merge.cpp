@@ -67,7 +67,18 @@ TEST(BatcherMergeTest, Can_Work_With_Big_Size) {
   array  = bat.getArray();
 
   // Assert
-  EXPECT_TRUE(sequence == array);
+  EXPECT_TRUE(std::is_sorted(array.begin(), array.end()));
+}
+
+TEST(BatcherMergeTest, Cant_Use_Negative_Index) {
+  // Arrange
+  std::vector<int> array = { 1, 8, 3 };
+  int left = 0;
+  int right = 5;
+  BatcherMerge bat = BatcherMerge(array);
+
+  // Act & Assert
+  EXPECT_ANY_THROW(bat.merge(left, right););
 }
 
 
