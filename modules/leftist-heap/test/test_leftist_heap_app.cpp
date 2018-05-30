@@ -128,8 +128,7 @@ TEST_F(LeftistHeapAppTest, Can_Delete_Min) {
     Assert("2 5");
 }
 
-TEST_F(LeftistHeapAppTest, Can_Detect_Empty_Heap_For_minKey)
-{
+TEST_F(LeftistHeapAppTest, Can_Detect_Empty_Heap_For_minKey) {
     vector<string> args = { "minKey", "()" };
 
     Act(args);
