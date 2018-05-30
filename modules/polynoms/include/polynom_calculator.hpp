@@ -3,6 +3,7 @@
 #ifndef MODULES_POLYNOMS_INCLUDE_POLYNOM_CALCULATOR_HPP_
 #define MODULES_POLYNOMS_INCLUDE_POLYNOM_CALCULATOR_HPP_
 
+#include <vector>
 #include <string>
 #include <tuple>
 #include <unordered_map>
