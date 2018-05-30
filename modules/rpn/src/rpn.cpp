@@ -58,7 +58,6 @@ char rpn::_Priority(char a)
     case '*': return 2;
     case '/': return 2;
     case '^': return 3;
-    default: throw INVALID_OPERATOR;
     }
 }
 
@@ -78,7 +77,6 @@ int rpn::_Calculate(int num1, int num2, char operation)
         return num1 / num2;
 
     case '^': return _Pow(num1, num2);
-    default: throw "Invalid operation in calculate.";
     }
 }
 
@@ -161,8 +159,6 @@ std::string rpn::convertToRpn(const std::string &s)
                 res += op;
             }
         }
-        else if (s[i] != ' ')
-            throw INVALID_SYMBOL;
     }
 
     while (!operationStack.isEmpty())

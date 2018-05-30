@@ -70,7 +70,7 @@ TEST(Calculate_RPN, Exception_on_Division_by_Zero)
     std::string s("12 0 /");
 
     // Act & Assert
-    EXPECT_THROW(rpn::calculateRpn(s), int); // throws DIVISION_BY_ZERO
+    EXPECT_THROW(rpn::calculateRpn(s), int);  // throws DIVISION_BY_ZERO
 }
 
 TEST(Calculate_RPN, Can_Exponent)
@@ -91,22 +91,22 @@ TEST(Calculate_RPN, Exponent_Undefined)
     std::string s("0 0 ^");
 
     // Act & Assert
-    EXPECT_THROW(rpn::calculateRpn(s), int); // throws UNDEFINED_OPERATION
+    EXPECT_THROW(rpn::calculateRpn(s), int);  // throws UNDEFINED_OPERATION
 }
 
 TEST(Calculate_RPN, Exponent_Base_Zero_Negative)
 {
     // Arrange
-    std::string s("0 0 1 - ^"); // 0 ^ (0 - 1)
+    std::string s("0 0 1 - ^");  // 0 ^ (0 - 1)
 
     // Act & Assert
-    EXPECT_THROW(rpn::calculateRpn(s), int); // throws DIVISION_BY_ZERO
+    EXPECT_THROW(rpn::calculateRpn(s), int);  // throws DIVISION_BY_ZERO
 }
 
 TEST(Calculate_RPN, Exponent_Base_One_Negative)
 {
     // Arrange
-    std::string s("1 0 1 - ^"); // 1 ^ (0 - 1)
+    std::string s("1 0 1 - ^");  // 1 ^ (0 - 1)
 
     // Act
     int res = rpn::calculateRpn(s);
@@ -118,10 +118,10 @@ TEST(Calculate_RPN, Exponent_Base_One_Negative)
 TEST(Calculate_RPN, Exponent_Negative)
 {
     // Arrange
-    std::string s("2 0 1 - ^"); // 2 ^ (0 - 1)
+    std::string s("2 0 1 - ^");  // 2 ^ (0 - 1)
 
     // Act
-    int res = rpn::calculateRpn(s); // 1/2 = 0
+    int res = rpn::calculateRpn(s);  // 1/2 = 0
 
     // Assert
     EXPECT_EQ(res, 0);
@@ -130,7 +130,7 @@ TEST(Calculate_RPN, Exponent_Negative)
 TEST(Calculate_RPN, Skip_Invalid_Symbols)
 {
     // Arrange
-    std::string s("@2sf3%+()"); // "2 3 +"
+    std::string s("@2sf3%+()");  // "2 3 +"
 
     // Act
     int res = rpn::calculateRpn(s);
@@ -142,7 +142,7 @@ TEST(Calculate_RPN, Skip_Invalid_Symbols)
 TEST(Calculate_RPN, Serial_Calculations)
 {
     // Arrange
-    std::string s("1 2 + 4 * 3 +"); // (1 + 2) * 4 + 3
+    std::string s("1 2 + 4 * 3 +");  // (1 + 2) * 4 + 3
 
     // Act
     int res = rpn::calculateRpn(s);
@@ -154,7 +154,7 @@ TEST(Calculate_RPN, Serial_Calculations)
 TEST(Calculate_RPN, Serial_Calculations_2)
 {
     // Arrange
-    std::string s("4 6 2 * 1 3 - 2 ^ / +"); // 4 + 6 * 2 / (1 - 3)^2
+    std::string s("4 6 2 * 1 3 - 2 ^ / +");  // 4 + 6 * 2 / (1 - 3)^2
 
     // Act
     int res = rpn::calculateRpn(s);

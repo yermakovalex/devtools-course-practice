@@ -8,13 +8,11 @@
 template <typename T>
 class TStack {
  protected:
-
     int top;
     int size;
     T *a;
 
  public:
-
     explicit TStack(int s = 1) {
         top = -1;
         size = s;

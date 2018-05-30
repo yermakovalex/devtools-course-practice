@@ -120,3 +120,26 @@ TEST(Convert_to_RPN, Parentheses_3)
     // Assert
     EXPECT_EQ(res, answer);
 }
+
+TEST(Convert_to_RPN, Parentheses_Nested)
+{
+    // Arrange
+    std::string s("4 * (2 + (5 - 3))");
+    std::string answer("4 2 5 3 - + *");
+
+    // Act
+    std::string res = rpn::convertToRpn(s);
+
+    // Assert
+    EXPECT_EQ(res, answer);
+}
+
+TEST(Convert_to_RPN, Parentheses_Error)
+{
+    // Arrange
+    std::string s("2 * (3 + 4))");
+    std::string answer("2 1 3 - ^ 2 *");
+
+    // Act & Assert
+    EXPECT_THROW(rpn::convertToRpn(s), int);  // throws POP_EMPTY_STACK
+}
