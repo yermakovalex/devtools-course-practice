@@ -114,9 +114,10 @@ int TStack<ValType>::IsFull(void) {
 
 template <class ValType>
 int TStack<ValType>::operator == (const TStack& S) {
-    int res = 0, counter = 0;
+    int res = 0;
 
     if ((size == S.size) && (sp == S.sp)) {
+        int counter = 0;
         for (; (counter < sp) && (pMem[counter] == S.pMem[counter]);
                 counter++) {}
 

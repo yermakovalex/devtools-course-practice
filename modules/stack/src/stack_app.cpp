@@ -36,11 +36,11 @@ int parseInt(const char* arg) {
 }
 
 std::string StackApp::operator()(int argc, const char** argv) {
-    int * data, size;
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
     try {
+        int * data, size;
         size = parseInt(argv[1]);
         data = new int[size];
         for (int i = 0; i < size; i++)
