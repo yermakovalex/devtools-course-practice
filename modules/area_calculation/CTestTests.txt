@@ -29,7 +29,7 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Arguments_Format
-    COMMAND ${APPLICATION}  3 . 1.0 1.0 1.0 1.0 2.0 3.0 
+    COMMAND ${APPLICATION}  3 1.0à 1.0 1.0 1.0 2.0 3.0 
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Arguments_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong arguments format!"

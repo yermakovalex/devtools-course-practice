@@ -63,5 +63,5 @@ TEST_F(AreaCalculationAppTest, Correctly_Area_Calculation_Test) {
 	// Act
 	Act(args);
 	// Assert
-	Assert("area = 1.0");
+	Assert("area = 1");
 }
