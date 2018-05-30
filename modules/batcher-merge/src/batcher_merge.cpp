@@ -41,7 +41,7 @@ void BatcherMerge::merge(int l, int r) {
     throw std::logic_error("Left index can't be > right index");
   if ((r < 0) || (l < 0))
     throw std::logic_error("Index can't be < 0");
-  if (r >= array.size())
+  if ((unsigned)r >= array.size())
     throw std::logic_error("Right index is out of range");
   if (r == l + 1)
     compexch(l, r);
