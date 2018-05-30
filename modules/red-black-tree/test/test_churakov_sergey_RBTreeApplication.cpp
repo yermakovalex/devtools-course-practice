@@ -14,7 +14,7 @@ using ::testing::internal::RE;
 using std::vector;
 using std::string;
 
-class ComplexCalculatorTest : public ::testing::Test {
+class RBTreeApplicationTest : public ::testing::Test {
  protected:
     // virtual void SetUp() {}
 
