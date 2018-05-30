@@ -16,7 +16,7 @@ add_test(
     COMMAND ${APPLICATION} 3 3 
 )
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "ERROR: Should be 4 arguments."
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 4 arguments: <application name> <rows> <columns> <operation>"
     LABELS "${MODULE}")
 
 add_test(

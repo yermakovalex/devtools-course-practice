@@ -5,6 +5,8 @@
 #include <string>
 #include "include/matrix_operation.hpp"
 
+using ::testing::internal::RE;
+
 TEST(MatrixOperationTest, create_mat_operation) {
   // Arrange & Act & Assert
   ASSERT_NO_THROW(MatrixOperation mc);
@@ -105,6 +107,7 @@ TEST(MatrixOperationTest, can_inverse_matrix) {
     mc1.SetMatrix(ins[0]);
     auto inverseMat = mc1.InverseMatrix();
     std::string resInv = inverseMat.matrix_to_string();
+
     // Assert
     EXPECT_EQ(res, resInv);
 }
@@ -115,10 +118,12 @@ TEST(MatrixOperationTest, invalide_size_of_arguments) {
   std::vector<const char*> v = {"Tests", "3", "+"};
   const char** argv = v.data();
   MatrixOperation mc;
+
   // Act
   std::string output = mc(argc, argv);
+
   // Assert
-  EXPECT_EQ(output, "ERROR: Should be 4 arguments.");
+  EXPECT_TRUE(RE::PartialMatch(output, RE("ERROR: Should be 4 arguments:*")));
 }
 
 TEST(MatrixOperationTest, invalide_operation) {
@@ -127,8 +132,10 @@ TEST(MatrixOperationTest, invalide_operation) {
   std::vector<const char*> v = {"Tests", "3", "3", "/"};
   const char** argv = v.data();
   MatrixOperation mc;
+
   // Act
   std::string output = mc(argc, argv);
+
   // Assert
-  EXPECT_EQ(output, "Wrong operation format!");
+  EXPECT_TRUE(RE::PartialMatch(output, RE("Wrong operation format")));
 }

@@ -14,7 +14,17 @@
 MatrixOperation::MatrixOperation() : message_("") {}
 
 void MatrixOperation::help(const char* appname, const char* message) {
-    message_ = std::string(message);
+    message_ = std::string(message) +
+          "\n This is a matrix calculator application.\n\n" +
+          "Please provide arguments in the following format:\n\n" +
+
+          "  $ " + appname + " <rows> " + "<columns> " +
+          "<operation>\n\n" +
+
+          "Where 1 and 2 arguments are int numbers, " +
+          "and <operation> is one of" +
+              " '+', '-', '*', 'Transpon', 'InverseMatrix'.\n" +
+          "Matrix will be filled randomly.\n";
 }
 
 int MatrixOperation::find_operation(std::string operation) {
@@ -26,7 +36,9 @@ int MatrixOperation::find_operation(std::string operation) {
 
 bool MatrixOperation::validate_data(int argc, const char** argv) {
   if (argc != 4) {
-    help(argv[0], "ERROR: Should be 4 arguments.");
+    std::string msg = std::string("ERROR: Should be 4 arguments: ") +
+    std::string("<application name> <rows> <columns> <operation>");
+    help(argv[0], msg.c_str());
     return false;
   }
   if (atoi(argv[1]) <= 0) {
