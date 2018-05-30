@@ -55,7 +55,7 @@ TEST_F(AreaCalculationAppTest, No_Arguments_Test) {
 	Act(args);
 	// Assert
 	Assert("Wrong number format!");
-}
+}*/
 TEST_F(AreaCalculationAppTest, Correctly_Area_Calculation_Test) {
 	// Arrange
 	vector<string> args = { "3", "1.0", "2.0", "3.0", "1.0", "2.0", "1.0" };
@@ -63,4 +63,4 @@ TEST_F(AreaCalculationAppTest, Correctly_Area_Calculation_Test) {
 	Act(args);
 	// Assert
 	Assert("area = 1");
-}*/
+}
