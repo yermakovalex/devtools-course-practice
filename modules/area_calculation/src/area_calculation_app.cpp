@@ -53,8 +53,8 @@ std::string AreaCalculationApp::operator()(int argc, const char** argv) {
         args.d1 = new double[args.size];
         args.d2 = new double[args.size];
         for (int i = 0; i < args.size; i++) {
-            args.d1[i] = parseDouble(argv[2*i]);
-            args.d2[i] = parseDouble(argv[2 * i + 1]);
+            args.d1[i] = parseDouble(argv[i+2]);
+            args.d2[i] = parseDouble(argv[args.size + 2 + i]);
         }
     }
     catch (std::string& str) {
