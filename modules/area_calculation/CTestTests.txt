@@ -24,7 +24,7 @@ add_test(
     COMMAND ${APPLICATION} 1 2.0
 )
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "ERROR: Should be 1 + size * 2 arguments."
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 1 + 2 * size arguments."
     LABELS "${MODULE}")
 
 add_test(
@@ -33,11 +33,4 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Arguments_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong arguments format!"
-    LABELS "${MODULE}")
-add_test(
-    NAME ${prefix}_can_Detect_Wrong_area
-    COMMAND ${APPLICATION} 3 1.0 1.0 1.0 1.0 2.0 3.0 
-)
-set_tests_properties (${prefix}_can_Detect_Wrong_area PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong area!"
     LABELS "${MODULE}")
