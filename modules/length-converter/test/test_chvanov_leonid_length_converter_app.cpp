@@ -90,10 +90,251 @@ TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion) {
 }
 
 
-TEST_F(LengthConverterAppTest, Can_Convert_Lengths) {
-    vector<string> args = { "25", "Meter", "Centimeter"};
+TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Centimeters) {
+    vector<string> args = { "1", "Meter", "Centimeter"};
 
     Act(args);
 
-    Assert("25 meters is 2500 centimeters");
+    Assert("1 meters is 100 centimeters");
 }
+
+TEST_F(LengthConverterAppTest, Can_Convert_Centimeters_To_Meters) {
+    vector<string> args = { "100", "Centimeter", "Meter"};
+
+    Act(args);
+
+    Assert("100 centimeters is 1 meters");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Kilometers) {
+    vector<string> args = { "1000", "Meter", "Kilometer"};
+
+    Act(args);
+
+    Assert("1000 meters is 1 kilometers");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Kilometers_To_Meters) {
+    vector<string> args = { "1", "Kilometer", "Meter"};
+
+    Act(args);
+
+    Assert("1 kilometers is 1000 meters");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Kilometers_To_Miles) {
+    vector<string> args = { "1.609344", "Kilometer", "Mile"};
+
+    Act(args);
+
+    Assert("1.609344 kilometers is 1 miles");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Miles_To_Kilometers) {
+    vector<string> args = { "1", "Mile", "Kilometer"};
+
+    Act(args);
+
+    Assert("1 miles is 1.609344 kilometers");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Feet_To_Yards) {
+    vector<string> args = { "3", "Foot", "Yard"};
+
+    Act(args);
+
+    Assert("3 feet is 1 yards");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Yards_To_Feet) {
+    vector<string> args = { "1", "Yard", "Foot"};
+
+    Act(args);
+
+    Assert("1 yards is 3 feet");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Feet_To_Meters) {
+    vector<string> args = { "0.3048", "Foot", "Meter"};
+
+    Act(args);
+
+    Assert("0.3048 feet is 1 meters");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Feet) {
+    vector<string> args = { "1", "Meter", "Foot"};
+
+    Act(args);
+
+    Assert("1 meters is 0.3048 feet");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Centimeters_To_Inches) {
+    vector<string> args = { "2.54", "Centimeter", "Inch"};
+
+    Act(args);
+
+    Assert("2.54 centimeters is 1 inches");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Inch_To_Centimeters) {
+    vector<string> args = { "1", "Inch", "Centimeter"};
+
+    Act(args);
+
+    Assert("1 inches is 2.54 centimeters");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_NauticalMiles) {
+    vector<string> args = { "1852", "Meter", "NauticalMile"};
+
+    Act(args);
+
+    Assert("1852 meters is 1 nautical miles");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_NauticalMiles_To_Meters) {
+    vector<string> args = { "1", "NauticalMile", "Meter"};
+
+    Act(args);
+
+    Assert("1 nautical miles is 1852 meters");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Kilometers_To_AstronimicalUnits) {
+    vector<string> args = { "149597870.7", "Kilometer", "AstronomicalUnit"};
+
+    Act(args);
+
+    Assert("149597870.7 kilometers is 1 astronomical units");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_AstronimicalUnits_To_Kilometers) {
+    vector<string> args = { "1", "AstronomicalUnit", "Kilometer"};
+
+    Act(args);
+
+    Assert("1 astronomical units is 149597870.7 kilometers");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Centimeters_To_Spans) {
+    vector<string> args = { "17.78", "Centimeter", "Span"};
+
+    Act(args);
+
+    Assert("17.78 centimeters is 1 spans");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Spans_To_Centimeters) {
+    vector<string> args = { "1", "Span", "Centimeter"};
+
+    Act(args);
+
+    Assert("1 spans is 17.78 centimeters");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Spans_To_Versts) {
+    vector<string> args = { "6000", "Span", "Verst"};
+
+    Act(args);
+
+    Assert("6000 spans is 1 versts");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Versts_To_Spans) {
+    vector<string> args = { "1", "Verst", "Span"};
+
+    Act(args);
+
+    Assert("1 versts is 6000 spans");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Miles_To_Meters) {
+    vector<string> args = { "1", "Mile", "Meter"};
+
+    Act(args);
+
+    Assert("1 miles is 1609.344 meters");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Miles) {
+    vector<string> args = { "1609.344", "Meter", "Mile"};
+
+    Act(args);
+
+    Assert("1609.344 meters is 1 miles");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Yards_To_Meters) {
+    vector<string> args = { "1", "Yard", "Meter"};
+
+    Act(args);
+
+    Assert("1 yards is 9.842519685 meters");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Yards) {
+    vector<string> args = { "9.842519685", "Meter", "Yard"};
+
+    Act(args);
+
+    Assert("9.842519685 meters is 1 yards");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Inches_To_Meters) {
+    vector<string> args = { "1", "Inch", "Meter"};
+
+    Act(args);
+
+    Assert("1 inches is 0.0254 meters");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_AstronomicalUnits_To_Meters) {
+    vector<string> args = { "1", "AstronomicalUnit", "Meter"};
+
+    Act(args);
+
+    Assert("1 astronomical units is 149597870700 meters");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_AstronomicalUnits) {
+    vector<string> args = { "149597870700", "Meter", "AstronomicalUnit"};
+
+    Act(args);
+
+    Assert("149597870700 meters is 1 astronomical units");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Spans_To_Meters) {
+    vector<string> args = { "1", "Span", "Meter"};
+
+    Act(args);
+
+    Assert("1 spans is 0.1778 meters");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Spans) {
+    vector<string> args = { "0.1778", "Meter", "Span"};
+
+    Act(args);
+
+    Assert("0.1778 meters is 1 spans");
+}
+
+TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Versts) {
+    vector<string> args = { "1066.8", "Meter", "Verst"};
+
+    Act(args);
+
+    Assert("1066.8 meters is 1 versts");
+} 
+
+TEST_F(LengthConverterAppTest, Can_Convert_Versts_To_Meters) {
+    vector<string> args = { "1", "Verst", "Meter"};
+
+    Act(args);
+
+    Assert("1 versts is 1066.8 meters");
+}
+
