@@ -127,7 +127,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Kilometers_To_Miles) {
 
     Act(args);
 
-    Assert("1.609344 kilometers is 1 miles");
+    Assert("1.60934 kilometers is 1 miles");
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Miles_To_Kilometers) {
@@ -135,7 +135,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Miles_To_Kilometers) {
 
     Act(args);
 
-    Assert("1 miles is 1.609344 kilometers");
+    Assert("1 miles is 1.60934 kilometers");
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Feet_To_Yards) {
@@ -207,7 +207,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Kilometers_To_AstronimicalUnits) {
 
     Act(args);
 
-    Assert("149597870.7 kilometers is 1 astronomical units");
+    Assert("1.49598e+08  kilometers is 1 astronomical units");
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_AstronimicalUnits_To_Kilometers) {
@@ -215,7 +215,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_AstronimicalUnits_To_Kilometers) {
 
     Act(args);
 
-    Assert("1 astronomical units is 149597870.7 kilometers");
+    Assert("1 astronomical units is 1.49598e+08  kilometers");
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Centimeters_To_Spans) {
@@ -328,7 +328,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Versts) {
     Act(args);
 
     Assert("1066.8 meters is 1 versts");
-} 
+}
 
 TEST_F(LengthConverterAppTest, Can_Convert_Versts_To_Meters) {
     vector<string> args = { "1", "Verst", "Meter"};
@@ -337,4 +337,3 @@ TEST_F(LengthConverterAppTest, Can_Convert_Versts_To_Meters) {
 
     Assert("1 versts is 1066.8 meters");
 }
-
