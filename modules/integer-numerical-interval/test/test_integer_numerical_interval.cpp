@@ -138,10 +138,10 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
 TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_End_Points) {
     // Arrange
     IntegerNumericalInterval ni("[1,2]");
-    vector<int> endPointsR = { 1, 2 };
+    pair<int, int> endPointsR = { 1, 2 };
 
     // Act
-    vector<int> endPoints = ni.getEndPoints();
+    pair<int, int> endPoints = ni.getEndPoints();
 
     // Assert
     EXPECT_EQ(endPoints, endPointsR);
@@ -150,10 +150,10 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_End_Points) {
 TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_End_Points_Point) {
     // Arrange
     IntegerNumericalInterval ni("[1,1]");
-    vector<int> endPointsR = { 1, 1 };
+    pair<int, int> endPointsR = { 1, 1 };
 
     // Act
-    vector<int> endPoints = ni.getEndPoints();
+    pair<int, int> endPoints = ni.getEndPoints();
 
     // Assert
     EXPECT_EQ(endPoints, endPointsR);
@@ -163,10 +163,10 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
     Can_Get_End_Points_Open_Interval) {
     // Arrange
     IntegerNumericalInterval ni("(1,6)");
-    vector<int> endPointsR = { 2, 5 };
+    pair<int, int> endPointsR = { 2, 5 };
 
     // Act
-    vector<int> endPoints = ni.getEndPoints();
+    pair<int, int> endPoints = ni.getEndPoints();
 
     // Assert
     EXPECT_EQ(endPoints, endPointsR);
@@ -176,10 +176,10 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
     Can_Get_End_Points_Open_Interval_With_One_Point) {
     // Arrange
     IntegerNumericalInterval ni("(1,3)");
-    vector<int> endPointsR = { 2, 2 };
+    pair<int, int> endPointsR = { 2, 2 };
 
     // Act
-    vector<int> endPoints = ni.getEndPoints();
+    pair<int, int> endPoints = ni.getEndPoints();
 
     // Assert
     EXPECT_EQ(endPoints, endPointsR);
