@@ -64,5 +64,7 @@ std::string AreaCalculationApp::operator()(int argc, const char** argv) {
     std::ostringstream stream;
     stream << "area = " << ac.GetArea();
     message_ = stream.str();
+    delete args.d1;
+    delete args.d2;
     return message_;
 }
