@@ -10,9 +10,9 @@
 #include <string>
 #include <sstream>
 
-ComplexCalculator::ComplexCalculator() : message_("") {}
+RBTree_application::RBTree_application() : message_("") {}
 
-void ComplexCalculator::help(const char* appname, const char* message) {
+void RBTree_application::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
           "This is a red black tree application.\n\n" +
@@ -25,7 +25,7 @@ void ComplexCalculator::help(const char* appname, const char* message) {
           "and <operation> is one of 'f', 'i', 'd'.\n";
 }
 
-bool ComplexCalculator::validateNumberOfArguments(int argc, const char** argv) {
+bool RBTree_application::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
@@ -55,7 +55,7 @@ char parseOperation(const char* arg) {
     return op;
 }
 
-std::string ComplexCalculator::operator()(int argc, const char** argv) {
+std::string RBTree_application::operator()(int argc, const char** argv) {
     Arguments args;
 
     if (!validateNumberOfArguments(argc, argv)) {
