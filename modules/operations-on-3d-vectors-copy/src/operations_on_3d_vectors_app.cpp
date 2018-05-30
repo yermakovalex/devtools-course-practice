@@ -27,7 +27,7 @@ void OperationsOn3dVectorsApp::help(const char* appname, const char* message) {
 
         "Where x1, x2, x3 are the components of the first vector, " +
         "double-precision numbers, y1, y2, y3 are the components of the " +
-        "second vector, double - precision numbers, and <binary operation> " +
+        "second vector, double-precision numbers, and <binary operation> " +
         "is one of the following operations: dotproduct, crossproduct.\n";
 }
 
@@ -66,58 +66,68 @@ std::string parseOperation(const char* arg) {
     }
     return op;
 }
-std::string OperationsOn3dVectorsApp::operator()(int argc, const char** argv) {
+std::string OperationsOn3dVectorsApp::appForUnaryOperations(int argc, const char** argv) {
     Arguments args;
-    if (!validateNumberOfArguments(argc, argv)) {
-        return message_;
-    }
     std::ostringstream stream;
-    if (argc == 5) {
-        try {
-            args.operation = parseOperation(argv[1]);
-            args.v1.x = parseDouble(argv[2]);
-            args.v1.y = parseDouble(argv[3]);
-            args.v1.z = parseDouble(argv[4]);
-        }
-        catch (std::string& str) {
-            return str;
-        }
-        if (args.operation == "norm") {
-            double norm = OperationsOn3dVectors::GetNorm(args.v1);
-            stream << "Norm of the vector = " << norm;
-        }
-        if (args.operation == "normalize") {
-            Vector3d normalized =
-                OperationsOn3dVectors::GetNormalizedVector(args.v1);
-            stream << "Normalized vector = " << normalized.x << ',';
-            stream << normalized.y << ',' << normalized.z;
-        }
+    try {
+        args.operation = parseOperation(argv[1]);
+        args.v1.x = parseDouble(argv[2]);
+        args.v1.y = parseDouble(argv[3]);
+        args.v1.z = parseDouble(argv[4]);
     }
-    if (argc == 8) {
-        try {
-            args.operation = parseOperation(argv[1]);
-            args.v1.x = parseDouble(argv[2]);
-            args.v1.y = parseDouble(argv[3]);
-            args.v1.z = parseDouble(argv[4]);
-            args.v2.x = parseDouble(argv[5]);
-            args.v2.y = parseDouble(argv[6]);
-            args.v2.z = parseDouble(argv[7]);
-        }
-        catch (std::string& str) {
-            return str;
-        }
-        if (args.operation == "dotproduct") {
-            double dotproduct =
-                OperationsOn3dVectors::DotProduct(args.v1, args.v2);
-            stream << "Dot product of the vectors = " << dotproduct;
-        }
-        if (args.operation == "crossproduct") {
-            Vector3d crossproduct =
-                OperationsOn3dVectors::CrossProduct(args.v1, args.v2);
-            stream << "Cross product of the vectors = " << crossproduct.x;
-            stream << ',' << crossproduct.y << ',' << crossproduct.z;
-        }
+    catch (std::string& str) {
+        return str;
+    }
+    if (args.operation == "norm") {
+        double norm = OperationsOn3dVectors::GetNorm(args.v1);
+        stream << "Norm of the vector = " << norm;
+    }
+    if (args.operation == "normalize") {
+        Vector3d normalized =
+            OperationsOn3dVectors::GetNormalizedVector(args.v1);
+        stream << "Normalized vector = " << normalized.x << ',';
+        stream << normalized.y << ',' << normalized.z;
     }
     message_ = stream.str();
     return message_;
+}
+std::string OperationsOn3dVectorsApp::appForBinaryOperations(int argc, const char** argv) {
+    Arguments args;
+    std::ostringstream stream;
+    try {
+        args.operation = parseOperation(argv[1]);
+        args.v1.x = parseDouble(argv[2]);
+        args.v1.y = parseDouble(argv[3]);
+        args.v1.z = parseDouble(argv[4]);
+        args.v2.x = parseDouble(argv[5]);
+        args.v2.y = parseDouble(argv[6]);
+        args.v2.z = parseDouble(argv[7]);
+    }
+    catch (std::string& str) {
+        return str;
+    }
+    if (args.operation == "dotproduct") {
+        double dotproduct =
+            OperationsOn3dVectors::DotProduct(args.v1, args.v2);
+        stream << "Dot product of the vectors = " << dotproduct;
+    }
+    if (args.operation == "crossproduct") {
+        Vector3d crossproduct =
+            OperationsOn3dVectors::CrossProduct(args.v1, args.v2);
+        stream << "Cross product of the vectors = " << crossproduct.x;
+        stream << ',' << crossproduct.y << ',' << crossproduct.z;
+    }
+    message_ = stream.str();
+    return message_;
+}
+std::string OperationsOn3dVectorsApp::operator()(int argc, const char** argv) {
+    if (!validateNumberOfArguments(argc, argv)) {
+        return message_;
+    }
+    if (argc == 5) {
+        return appForUnaryOperations(argc, argv);
+    }
+    if (argc == 8) {
+        return appForBinaryOperations(argc, argv);
+    }
 }

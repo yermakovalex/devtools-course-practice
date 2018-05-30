@@ -11,6 +11,8 @@ class OperationsOn3dVectorsApp {
      std::string message_;
      void help(const char* appname, const char* message = "");
      bool validateNumberOfArguments(int argc, const char** argv);
+     std::string appForUnaryOperations(int argc, const char** argv);
+     std::string appForBinaryOperations(int argc, const char** argv);
      typedef struct {
          std::string operation;
          Vector3d v1;
