@@ -29,7 +29,7 @@ bool AreaCalculationApp::validateNumberOfArguments(int argc,
         return false;
     }
     else if (argc != atoi(argv[1]) * 2 + 2) {
-        help(argv[0], "ERROR: Should be 2 * size + 1 arguments.\n\n");
+        help(argv[0], "ERROR: Should be 1 + 2 * size arguments.\n\n");
         return false;
     }
     return true;
