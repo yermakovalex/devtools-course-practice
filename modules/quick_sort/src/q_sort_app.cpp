@@ -35,14 +35,12 @@ bool QuickSortApp::validateNumberOfArguments(int argc, const char** argv) {
 
 int parseInt(const char* arg) {
     int value = atoi(arg);
-    if (value ==0 && arg[0] != '0') {
+    if (value ==0 && arg[0] != '0') 
         throw std::string("Wrong number format!");
-    }
-
     return value;
 }
 void CheckParam(int first, int last, std::vector<int> *array) {
-    if ((first < 0) || (last < 0))
+    if ((first < 0) || (last < 0)) 
         throw std::string("Array index can't be < 0");
     if (static_cast<int>(array->size()) < last)
         throw std::string("Right bound of array > array size");
@@ -58,16 +56,16 @@ std::string QuickSortApp::operator()(int argc, const char** argv) {
     }
     try {
         args.num = parseInt(argv[1]);
-        args.left = parseInt(argv[2]);
-        args.right = parseInt(argv[3]);
+        args.first = parseInt(argv[2]);
+        args.last = parseInt(argv[3]);
         for (int i = 4; i < argc; i++)
             args.mas.push_back(parseInt(argv[i]));
-        CheckParam(args.left, args.right, &args.mas);
+        CheckParam(args.first, args.last, &args.mas);
     }
     catch(std::string& str) {
         return str;
     }
-    sort::quickSort(&args.mas, args.left, args.right);
+    sort::quickSort(&args.mas, args.first, args.last);
     for (int i = 0; i <  static_cast<int>(args.mas.size()); i++)
           stream << args.mas[i] << " ";
     message_ = stream.str();
