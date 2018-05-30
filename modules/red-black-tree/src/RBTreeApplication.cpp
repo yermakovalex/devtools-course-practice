@@ -1,14 +1,14 @@
 // Copyright 2018 Churakov Sergey
 
-#include "include/RBTree.h"
-#include "include/RBTreeApplication.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
+#include "include/RBTree.h"
+#include "include/RBTreeApplication.h"
+
 
 RBTree_application::RBTree_application() : message_("") {}
 
@@ -25,7 +25,8 @@ void RBTree_application::help(const char* appname, const char* message) {
           "and <operation> is one of 'f', 'i', 'd'.\n";
 }
 
-bool RBTree_application::validateNumberOfArguments(int argc, const char** argv) {
+bool RBTree_application::validateNumberOfArguments(int argc,
+                                       const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
@@ -88,21 +89,18 @@ std::string RBTree_application::operator()(int argc, const char** argv) {
         stream << "New node inserted";
         break;
      case 'd':
-        if (tree.findNode(args.key)->count == 0)
-        {
+        if (tree.findNode(args.key)->count == 0) {
             stream << "Cant delete unexisting node";
         }
-        else
-        {
+        else {
             tree.deleteNode(args.key);
             stream << "Node deleted";
         }
         break;
      case 'f':
         stream << "Node found " << (tree.findNode(args.key))->count << " times";
-        break;
-        }
     }
+    
 
     message_ = stream.str();
 
