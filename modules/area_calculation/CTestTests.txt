@@ -38,6 +38,6 @@ add_test(
     NAME ${prefix}_can_Detect_Wrong_area
     COMMAND ${APPLICATION} 3 1.0 1.0 1.0 1.0 2.0 3.0 
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Area PROPERTIES
+set_tests_properties (${prefix}_can_Detect_Wrong_area PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong area!"
     LABELS "${MODULE}")
