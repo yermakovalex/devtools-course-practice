@@ -16,12 +16,12 @@ add_test(
     COMMAND ${APPLICATION}
 )
 set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "This is a integer numerical interval calculator"
+    PASS_REGULAR_EXPRESSION "This is a area calculation application\\..*"
     LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Check_Number_Of_Arguments
-    COMMAND ${APPLICATION} 1 2
+    COMMAND ${APPLICATION} 1 2.0
 )
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Should be 1 + size * 2 arguments."
@@ -29,14 +29,14 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Arguments_Format
-    COMMAND ${APPLICATION}  3 . 1 1 1 1 2 3 
+    COMMAND ${APPLICATION}  3 . 1.0 1.0 1.0 1.0 2.0 3.0 
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Arguments_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong arguments format!"
     LABELS "${MODULE}")
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Interval
-    COMMAND ${APPLICATION} 3 1 1 1 1 2 3 
+    COMMAND ${APPLICATION} 3 1.0 1.0 1.0 1.0 2.0 3.0 
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Interval PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong interval!"

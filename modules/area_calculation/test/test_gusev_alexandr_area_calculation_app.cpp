@@ -51,7 +51,7 @@ TEST_F(AreaCalculationAppTest, No_Arguments_Test) {
 }
 TEST_F(AreaCalculationAppTest, Correctly_Arguments_Test) {
 	// Arrange
-	vector<string> args = { "3", "1", "1", "1", "1", "2", "1"};
+	vector<string> args = { "3", "1.0", "1.0", "1.0", "1.0", "2.0", "1.0"};
 	// Act
 	Act(args);
 	// Assert
