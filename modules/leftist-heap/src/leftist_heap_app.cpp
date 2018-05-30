@@ -141,8 +141,8 @@ string LeftistHeapApp::operator()(int argc, const char** argv) {
         break;
         }
     }
-    catch (std::logic_error& le) {
-        message_ = le.what();
+    catch (std::string& str) {
+        message_ = str;
    }
 
     return message_;
