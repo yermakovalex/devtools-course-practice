@@ -60,8 +60,6 @@ bool NumericalIntervalCalculator::parseArguments(int argc, const char** argv,
                 parsed_args->type_of_operation = Operation::pc;
             } else {
                 parsed_args->type_of_operation = Operation::no_op;
-                if (argc > 3)
-                    return true;
             }
 
             if (argc == 3) {
@@ -97,8 +95,6 @@ bool NumericalIntervalCalculator::parseArguments(int argc, const char** argv,
                 parsed_args->type_of_operation = Operation::rc;
             } else {
                 parsed_args->type_of_operation = Operation::no_op;
-                help(argv[0], "ERROR: Wrong arguments format!\n\n");
-                return false;
             }
         }
         return true;

@@ -179,8 +179,8 @@ TEST_F(NumericalIntervalCalculatorTest, Can_Checks_Ranges_For_No_Entry) {
     Assert("Not contained range.*");
 }
 
-TEST_F(NumericalIntervalCalculatorTest, Can_Detect_No_Operation_With_3_Args) {
-    vector<string> args = { "[-1,8]", "trash", "srash" };
+TEST_F(NumericalIntervalCalculatorTest, Can_Detect_No_Operation_With_4_Args) {
+    vector<string> args = { "[-1,8]", "[3,11]", "trash" };
 
     Act(args);
 
