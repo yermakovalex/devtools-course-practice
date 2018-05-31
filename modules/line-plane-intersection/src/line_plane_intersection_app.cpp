@@ -1,6 +1,6 @@
 // Copyright 2018 Lvova Alina
 
-#include "line_plane_intersection_app.h"
+#include "include/line_plane_intersection_app.h"
 #include "include/line_plane_intersection.h"
 #include <sstream>
 
