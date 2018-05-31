@@ -106,3 +106,11 @@ add_test(
 set_tests_properties (${prefix}_can_Checks_Ranges_For_Entry PROPERTIES
     PASS_REGULAR_EXPRESSION "Contained range"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Checks_Ranges_For_Overlapse
+    COMMAND ${APPLICATION} [1,2] [2,3\) ro
+)
+set_tests_properties (${prefix}_can_Checks_Ranges_For_Overlapse PROPERTIES
+    PASS_REGULAR_EXPRESSION "Ranges overlapsed"
+    LABELS "${MODULE}")

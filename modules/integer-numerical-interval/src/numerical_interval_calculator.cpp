@@ -99,10 +99,6 @@ bool NumericalIntervalCalculator::parseArguments(int argc, const char** argv,
         }
         return true;
     }
-    catch (const std::invalid_argument& ia) {
-        help(argv[0], "ERROR: Wrong arguments format!\n\n");
-        return false;
-    }
     catch (const std::string& str) {
         help(argv[0], str.c_str());
         return false;

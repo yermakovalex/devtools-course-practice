@@ -139,6 +139,14 @@ TEST_F(NumericalIntervalCalculatorTest, Can_Checks_Entry_Points) {
     Assert("Contained points.*");
 }
 
+TEST_F(NumericalIntervalCalculatorTest, Can_Checks_No_Entry_Points) {
+    vector<string> args = { "[-3,4)", "pc", "-3", "0", "4" };
+
+    Act(args);
+
+    Assert("Not contained points.*");
+}
+
 TEST_F(NumericalIntervalCalculatorTest, Can_Checks_Ranges_For_Overlapse) {
     vector<string> args = { "[-1,8]", "(7,9]", "ro" };
 
@@ -147,10 +155,26 @@ TEST_F(NumericalIntervalCalculatorTest, Can_Checks_Ranges_For_Overlapse) {
     Assert("Ranges overlapsed.*");
 }
 
+TEST_F(NumericalIntervalCalculatorTest, Can_Checks_Ranges_For_No_Overlapse) {
+    vector<string> args = { "[-1,8)", "(7,9]", "ro" };
+
+    Act(args);
+
+    Assert("Ranges not overlapsed.*");
+}
+
 TEST_F(NumericalIntervalCalculatorTest, Can_Checks_Ranges_For_Entry) {
     vector<string> args = { "[-1,8]", "(7,8]", "rc" };
 
     Act(args);
 
     Assert("Contained range.*");
+}
+
+TEST_F(NumericalIntervalCalculatorTest, Can_Checks_Ranges_For_No_Entry) {
+    vector<string> args = { "[-1,8]", "(7,9]", "rc" };
+
+    Act(args);
+
+    Assert("Not contained range.*");
 }
