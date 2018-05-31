@@ -20,14 +20,6 @@ set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_Test_Less_Args_Cmd
-    COMMAND ${APPLICATION} 2 5 Disj
-)
-set_tests_properties (${prefix}_Test_Less_Args_Cmd PROPERTIES
-    PASS_REGULAR_EXPRESSION "ERROR: Less args in cmd*"
-    LABELS "${MODULE}")
-
-add_test(
     NAME ${prefix}_Test_Bad_Operation
     COMMAND ${APPLICATION} 2 3 4 1 5 op
 )

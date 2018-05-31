@@ -47,14 +47,6 @@ TEST_F(SetCalculatorTest, Do_Print_Help_Without_Arguments) {
     Assert("Please provide arguments in the following format:*");
 }
 
-TEST_F(SetCalculatorTest, Test_Less_Args_Cmd) {
-    vector<string> args = { "0", "Disj" };
-
-    Act(args);
-
-    Assert("ERROR: Less args in cmd*");
-}
-
 TEST_F(SetCalculatorTest, Test_Bad_Operation) {
     vector<string> args = { "2", "3", "4", "1", "5", "op" };
 

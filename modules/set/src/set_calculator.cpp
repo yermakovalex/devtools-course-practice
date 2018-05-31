@@ -59,7 +59,7 @@ std::string SetCalculator::operator()(int argc, const char ** argv) {
 bool SetCalculator::parseArguments(int argc, const char** argv,
                                    Arguments* out_args) {
     if (argc < 4) {
-        help(argv[0], "ERROR: Less args in cmd\n\n");
+        help(argv[0]);
         return false;
     }
 
