@@ -114,6 +114,10 @@ Month Application::IntToMonth(int val) {
     }
 }
 
+double Application::GetCalculatedValues() {
+	return calculatedValues;
+}
+
 std::string Application::CalculateWages(double salary,
 double administrativeLeaveHours, double overtime, Month month) {
     Wages w(salary, administrativeLeaveHours, overtime, month);
