@@ -40,11 +40,14 @@ bool DebtServiceCalculator::validateNumberOfArguments(int argc, const char** arg
     if (argc == 1) {
         help(argv[0]);
         return false;
-    } else if ((argc != 6) || (argc != 7)) {
-        help(argv[0], "ERROR: Should be 5 or 6 arguments.\n\n");
-        return false;
+    } else {
+        if ((argc != 6) && (argc != 7)) {
+            help(argv[0], "ERROR: Should be 5 or 6 arguments.\n\n");
+            return false;
+        }
+        else return true;
+
     }
-    return true;
 }
 
 float parseFloat(const char* arg) {
@@ -89,7 +92,7 @@ DebtServiceType parseType(const char* arg) {
         break;
     }
     default:
-        throw std::string("type of service not defined!");
+        throw std::string("Type of service not defined!");
     }
     return Type;
 }
@@ -98,8 +101,8 @@ int parseOperation(const char* arg) {
     char* end;
     int value = strtol(arg, &end, 10);
 
-    if ((value!=1) || (value != 2) || (value != 3) || (value != 4)) {
-        throw std::string("operation not defined!");
+    if ((value!=1) && (value != 2) && (value != 3) && (value != 4)) {
+        throw std::string("Operation not defined!");
     }
 
     return value;
@@ -139,15 +142,15 @@ std::string DebtServiceCalculator::operator()(int argc, const char** argv) {
      case 3: {
          float oldBalance = Ivanov.GetBalance();
          Ivanov.MakingPayment(args.summa);
-         stream << "The amount of the debt was " << oldBalance
-             << ";   amount of payment for a debt = " << args.summa
+         stream << "It was = " << oldBalance
+             << "; amount of payment = " << args.summa
              << "; current balance = " << Ivanov.GetBalance();
          break;
      }
      case 4: {
          DebtService Borodin = Ivanov;
-         stream << "The amount of the debt of Ivanov = " << Ivanov.GetBalance()
-             << ";  the amount of the debt of Borodin = " << Borodin.GetBalance();
+         stream << "The amount of Ivanov = " << Ivanov.GetBalance()
+             << "; the amount of Borodin = " << Borodin.GetBalance();
      }
     }
 

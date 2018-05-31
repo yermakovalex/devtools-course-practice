@@ -3,6 +3,7 @@
 #ifndef MODULES_DEBT_SERVICE_COSTS_INCLUDE_DEBT_SERVICE_APP_H_
 #define MODULES_DEBT_SERVICE_COSTS_INCLUDE_DEBT_SERVICE_APP_H_
 
+#include "include/debt_service.h"
 #include <string>
 
 class DebtServiceCalculator {
