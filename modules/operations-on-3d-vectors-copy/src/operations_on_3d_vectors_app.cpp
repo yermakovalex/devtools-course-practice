@@ -123,14 +123,13 @@ std::string OperationsOn3dVectorsApp::appForBinaryOperations(int argc,
     return message_;
 }
 std::string OperationsOn3dVectorsApp::operator()(int argc, const char** argv) {
-    if (!validateNumberOfArguments(argc, argv)) {
-        return message_;
-    }
-    if (argc == 5) {
-        return appForUnaryOperations(argc, argv);
-    }
-    if (argc == 8) {
-        return appForBinaryOperations(argc, argv);
+    if (validateNumberOfArguments(argc, argv)) {
+        if (argc == 5) {
+            return appForUnaryOperations(argc, argv);
+        }
+        if (argc == 8) {
+            return appForBinaryOperations(argc, argv);
+        }
     }
     return message_;
 }
