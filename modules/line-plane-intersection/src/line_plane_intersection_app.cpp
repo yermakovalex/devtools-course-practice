@@ -4,12 +4,10 @@
 #include "include/line_plane_intersection.h"
 #include <sstream>
 
-void LinePlaneIntersectionApp::Help(const char * appname, const char * message)
-{
+void LinePlaneIntersectionApp::Help(const char * appname, const char * message) {
     message_ =
         std::string(message) +
         "This is an application to check the intersection.\n\n" +
-       // "which performs a check on the intersection of the line and the plane.\n\n" +
         "Please provide arguments in the following format:\n\n" +
 
         "  $ " + appname + " <operation> " +
@@ -21,20 +19,20 @@ void LinePlaneIntersectionApp::Help(const char * appname, const char * message)
 
         "* <plane> should be write like this " +
         "<x1> <y1> <z1> <x2> <y2> <z2> <x3> <y3> <z3>,\n" +
-        "where (x1, y1, z1), (x2, y2, z2), (x3, y3, z3) are dots of the plane\n\n" +
+        "where (x1, y1, z1), (x2, y2, z2)," +
+        " (x3, y3, z3) are dots of the plane\n\n" +
 
         "* <line> should be write like this " +
         "<x1> <y1> <z1> <x2> <y2> <z2>,\n" +
         "where (x1, y1, z1), (x2, y2, z2) are dots of the line\n\n";
 }
 
-bool LinePlaneIntersectionApp::ValidateNumberOfArguments(int argc, const char ** argv)
-{
+bool LinePlaneIntersectionApp::ValidateNumberOfArguments
+(int argc, const char ** argv) {
     if (argc == 1) {
         Help(argv[0]);
         return false;
-    }
-    else if (argc != 17) {
+    } else if (argc != 17) {
         Help(argv[0], "ERROR: Should be 16 arguments.\n\n");
         return false;
     }
@@ -61,15 +59,13 @@ std::string parseOperation(const char* arg) {
     }
     else if (strcmp(arg, "Isnt_it_intersected") == 0) {
         op = "GetNotIntersectPlaneLine";
-    }
-    else {
+    } else {
         throw std::string("Invalid operation");
     }
     return op;
 }
 
-std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv)
-{
+std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv) {
     int count1 = 2;
     int count2 = 3;
     int count3 = 4;
