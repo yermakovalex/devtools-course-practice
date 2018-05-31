@@ -1,6 +1,7 @@
+// Copyright 2018 Lvova Alina
+
 #include "line_plane_intersection_app.h"
-//#include "include/line_plane_intersection.h"
-#include "C:\Users\Лена\Downloads\devtools-course-practice-master\devtools-course-practice-master\modules\line-plane-intersection\include\line_plane_intersection.h"
+#include "include/line_plane_intersection.h"
 #include <sstream>
 
 void LinePlaneIntersectionApp::Help(const char * appname, const char * message)
