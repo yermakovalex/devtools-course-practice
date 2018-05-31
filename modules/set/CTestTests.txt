@@ -72,7 +72,7 @@ add_test(
     COMMAND ${APPLICATION} 0 1 7 Disj
 )
 set_tests_properties (${prefix}_Test_Disjunction_Operation PROPERTIES
-    PASS_REGULAR_EXPRESSION "Result: 7"
+    PASS_REGULAR_EXPRESSION "Result: 1 7"
     LABELS "${MODULE}")
 
 add_test(

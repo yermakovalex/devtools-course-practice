@@ -100,7 +100,7 @@ TEST_F(SetCalculatorTest, Test_Disjunction_Operation) {
 
     Act(args);
 
-    Assert("Result: 7*");
+    Assert("Result: 1 7*");
 }
 
 TEST_F(SetCalculatorTest, Test_Conjunction_Operation) {
