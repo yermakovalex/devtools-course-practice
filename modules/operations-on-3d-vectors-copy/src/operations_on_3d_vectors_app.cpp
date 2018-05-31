@@ -132,4 +132,5 @@ std::string OperationsOn3dVectorsApp::operator()(int argc, const char** argv) {
     if (argc == 8) {
         return appForBinaryOperations(argc, argv);
     }
+    return message_;
 }
