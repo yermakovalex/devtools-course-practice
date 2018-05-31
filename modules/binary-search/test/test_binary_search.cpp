@@ -1,7 +1,6 @@
 // Copyright 2018 Pozdeeva Varvara
 
 #include <gtest/gtest.h>
-
 #include "include/binary_search.h"
 
 TEST(Pozdeeva_Varvaral_BinarySearchTest, can_create) {
