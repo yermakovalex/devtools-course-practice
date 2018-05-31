@@ -409,6 +409,14 @@ TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Versts) {
     Assert("1066.8 meters is 1 versts");
 }
 
+TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Inches) {
+	vector<string> args = { "0.0254", "Meter", "Inch" };
+
+	Act(args);
+
+	Assert("0.0254 meters is 1 inches");
+}
+
 TEST_F(LengthConverterAppTest, Can_Convert_Versts_To_Meters) {
     vector<string> args = { "1", "Verst", "Meter"};
 
