@@ -7,7 +7,7 @@
 #include "include/line_plane_intersection.h"
 
 class LinePlaneIntersectionApp {
-private:
+ private:
     std::string message_;
     void Help(const char* appname, const char* message = "");
     bool ValidateNumberOfArguments(int argc, const char** argv);
@@ -16,7 +16,7 @@ private:
         Dot* plane;
         Dot* line;
     } Arguments;
-public:
+ public:
     LinePlaneIntersectionApp();
     std::string operator()(int argc, const char** argv);
 };
