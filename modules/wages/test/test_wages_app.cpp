@@ -118,8 +118,7 @@ TEST(Application, can_int_to_Month) {
     EXPECT_EQ(app.IntToMonth(12), December);
 }
 
-TEST(Application, can_app)
-{
+TEST(Application, can_app) {
     Application app;
     unsigned int argc = 6;
     char** argv = new char*[argc];
