@@ -7,24 +7,21 @@
 
 #include "include/TStack.h"
 
-#define OPERATORS "+-*/^" // Строка, задающая символы операций
+#define OPERATORS "+-*/^"
 
-// Возвращает a в степени b
-int rpn::_Pow(int a, int b)
-{
-    if (b < 0)
-    {
-        if (a == 0) // 1/0
+int rpn::_Pow(int a, int b) {
+    if (b < 0) {
+        if (a == 0)  // 1/0
             throw DIVISION_BY_ZERO;
 
-        if (a == 1) // 1/1
+        if (a == 1)  // 1/1
             return 1;
 
-        return 0; // 1/a < 1
+        return 0;  // 1/a < 1
     }
 
-    if (a == 0 && b == 0) // 0^0
-            throw UNDEFINED_OPERATION;
+    if (a == 0 && b == 0)  // 0^0
+        throw UNDEFINED_OPERATION;
 
     int res = 1;
 
@@ -34,11 +31,8 @@ int rpn::_Pow(int a, int b)
     return res;
 }
 
-// Определяет, содержится ли символ в строке
-bool rpn::_Contains(const std::string &s, char c)
-{
-    for (size_t i = 0; i < s.length(); i++)
-    {
+bool rpn::_Contains(const std::string &s, char c) {
+    for (size_t i = 0; i < s.length(); i++) {
         if (s[i] == c)
             return true;
     }
@@ -46,11 +40,8 @@ bool rpn::_Contains(const std::string &s, char c)
     return false;
 }
 
-// Возвращает приоритет оператора
-char rpn::_Priority(char a)
-{
-    switch (a)
-    {
+char rpn::_Priority(char a) {
+    switch (a) {
     case '+': return 1;
     case '-': return 1;
     case '*': return 2;
@@ -60,11 +51,8 @@ char rpn::_Priority(char a)
     }
 }
 
-// Возвращает результат операции по двум операндам и оператору
-int rpn::_Calculate(int num1, int num2, char operation)
-{
-    switch (operation)
-    {
+int rpn::_Calculate(int num1, int num2, char operation) {
+    switch (operation) {
     case '+': return num1 + num2;
     case '-': return num1 - num2;
     case '*': return num1 * num2;
@@ -78,30 +66,24 @@ int rpn::_Calculate(int num1, int num2, char operation)
     }
 }
 
-int rpn::calculateRpn(const std::string &s)
-{
-    TStack<int> operandStack(s.length()); // Временный стек для операндов
-    std::string strNum(""); // Строка для хранения текущего числа
+int rpn::calculateRpn(const std::string &s) {
+    TStack<int> operandStack(s.length());
+    std::string strNum("");
     bool numIsPrepared = false;
 
-    for (size_t i = 0; i < s.length(); i++)
-    {
-        if ('0' <= s[i] && s[i] <= '9') // цифра
-        {
+    for (size_t i = 0; i < s.length(); i++) {
+        if ('0' <= s[i] && s[i] <= '9') {
             strNum += s[i];
             numIsPrepared = true;
         }
-        else
-        {
-            if (numIsPrepared) // готовится число для стека
-            {
+        else {
+            if (numIsPrepared) {
                 operandStack.Push(std::atoi(strNum.c_str()));
                 strNum = "";
                 numIsPrepared = false;
             }
 
-            if (_Contains(OPERATORS, s[i])) // символ оператора
-            {
+            if (_Contains(OPERATORS, s[i])) {
                 int op2 = operandStack.Pop();
                 int op1 = operandStack.Pop();
                 int res = _Calculate(op1, op2, s[i]);
@@ -110,35 +92,30 @@ int rpn::calculateRpn(const std::string &s)
         }
     }
 
-    if (numIsPrepared) // готовится число для стека
+    if (numIsPrepared)
         operandStack.Push(std::atoi(strNum.c_str()));
 
     return operandStack.Pop();
 
 }
 
-std::string rpn::convertToRpn(const std::string &s)
-{
-    std::string res(""); // Выходная строка с польской записью
+std::string rpn::convertToRpn(const std::string &s) {
+    std::string res("");
 
-    TStack<char> operationStack(s.length() / 2); // Временный стек для операторов
+    TStack<char> operationStack(s.length() / 2);
 
-    for (size_t i = 0; i < s.length(); i++)
-    {
-        if ('0' <= s[i] && s[i] <= '9') // цифра
+    for (size_t i = 0; i < s.length(); i++) {
+        if ('0' <= s[i] && s[i] <= '9')
             res += s[i];
-        else if (_Contains(OPERATORS, s[i])) // символ оператора
-        {
-            res += " "; // Отделить предыдущее число
+        else if (_Contains(OPERATORS, s[i])) {
+            res += " ";
 
             if (operationStack.isEmpty())
                 operationStack.Push(s[i]);
             else if (_Priority(s[i]) > _Priority(operationStack.Peek()))
                 operationStack.Push(s[i]);
-            else
-            {
-                while (!operationStack.isEmpty() && operationStack.Peek() != '(' && _Priority(operationStack.Peek()) >= _Priority(s[i]))
-                {
+            else {
+                while (!operationStack.isEmpty() && operationStack.Peek() != '(' && _Priority(operationStack.Peek()) >= _Priority(s[i])) {
                     res += operationStack.Pop();
                     res += " ";
                 }
@@ -148,19 +125,16 @@ std::string rpn::convertToRpn(const std::string &s)
         }
         else if (s[i] == '(')
             operationStack.Push(s[i]);
-        else if (s[i] == ')')
-        {
-            char op; // Оператор на вершине стека
-            while ((op = operationStack.Pop()) != '(')
-            {
+        else if (s[i] == ')') {
+            char op;
+            while ((op = operationStack.Pop()) != '(') {
                 res += " ";
                 res += op;
             }
         }
     }
 
-    while (!operationStack.isEmpty())
-    {
+    while (!operationStack.isEmpty()) {
         res += " ";
         res += operationStack.Pop();
     }

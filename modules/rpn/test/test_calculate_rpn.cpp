@@ -4,8 +4,7 @@
 
 #include "include/rpn.h"
 
-TEST(Calculate_RPN, Can_Parse_Number)
-{
+TEST(Calculate_RPN, Can_Parse_Number) {
     // Arrange
     std::string s("12");
 
@@ -16,8 +15,7 @@ TEST(Calculate_RPN, Can_Parse_Number)
     EXPECT_EQ(res, 12);
 }
 
-TEST(Calculate_RPN, Can_Add)
-{
+TEST(Calculate_RPN, Can_Add) {
     // Arrange
     std::string s("5 8 +");
 
@@ -28,8 +26,7 @@ TEST(Calculate_RPN, Can_Add)
     EXPECT_EQ(res, 13);
 }
 
-TEST(Calculate_RPN, Can_Substract)
-{
+TEST(Calculate_RPN, Can_Substract) {
     // Arrange
     std::string s("5 8 -");
 
@@ -40,8 +37,7 @@ TEST(Calculate_RPN, Can_Substract)
     EXPECT_EQ(res, -3);
 }
 
-TEST(Calculate_RPN, Can_Multiply)
-{
+TEST(Calculate_RPN, Can_Multiply) {
     // Arrange
     std::string s("3 4 *");
 
@@ -52,8 +48,7 @@ TEST(Calculate_RPN, Can_Multiply)
     EXPECT_EQ(res, 12);
 }
 
-TEST(Calculate_RPN, Can_Divide)
-{
+TEST(Calculate_RPN, Can_Divide) {
     // Arrange
     std::string s("12 5 /");
 
@@ -64,8 +59,7 @@ TEST(Calculate_RPN, Can_Divide)
     EXPECT_EQ(res, 2);
 }
 
-TEST(Calculate_RPN, Exception_on_Division_by_Zero)
-{
+TEST(Calculate_RPN, Exception_on_Division_by_Zero) {
     // Arrange
     std::string s("12 0 /");
 
@@ -73,8 +67,7 @@ TEST(Calculate_RPN, Exception_on_Division_by_Zero)
     EXPECT_THROW(rpn::calculateRpn(s), int);  // throws DIVISION_BY_ZERO
 }
 
-TEST(Calculate_RPN, Can_Exponent)
-{
+TEST(Calculate_RPN, Can_Exponent) {
     // Arrange
     std::string s("2 3 ^");
 
@@ -85,8 +78,7 @@ TEST(Calculate_RPN, Can_Exponent)
     EXPECT_EQ(res, 8);
 }
 
-TEST(Calculate_RPN, Exponent_Undefined)
-{
+TEST(Calculate_RPN, Exponent_Undefined) {
     // Arrange
     std::string s("0 0 ^");
 
@@ -94,8 +86,7 @@ TEST(Calculate_RPN, Exponent_Undefined)
     EXPECT_THROW(rpn::calculateRpn(s), int);  // throws UNDEFINED_OPERATION
 }
 
-TEST(Calculate_RPN, Exponent_Base_Zero_Negative)
-{
+TEST(Calculate_RPN, Exponent_Base_Zero_Negative) {
     // Arrange
     std::string s("0 0 1 - ^");  // 0 ^ (0 - 1)
 
@@ -103,8 +94,7 @@ TEST(Calculate_RPN, Exponent_Base_Zero_Negative)
     EXPECT_THROW(rpn::calculateRpn(s), int);  // throws DIVISION_BY_ZERO
 }
 
-TEST(Calculate_RPN, Exponent_Base_One_Negative)
-{
+TEST(Calculate_RPN, Exponent_Base_One_Negative) {
     // Arrange
     std::string s("1 0 1 - ^");  // 1 ^ (0 - 1)
 
@@ -115,8 +105,7 @@ TEST(Calculate_RPN, Exponent_Base_One_Negative)
     EXPECT_EQ(res, 1);
 }
 
-TEST(Calculate_RPN, Exponent_Negative)
-{
+TEST(Calculate_RPN, Exponent_Negative) {
     // Arrange
     std::string s("2 0 1 - ^");  // 2 ^ (0 - 1)
 
@@ -127,8 +116,7 @@ TEST(Calculate_RPN, Exponent_Negative)
     EXPECT_EQ(res, 0);
 }
 
-TEST(Calculate_RPN, Skip_Invalid_Symbols)
-{
+TEST(Calculate_RPN, Skip_Invalid_Symbols) {
     // Arrange
     std::string s("@2sf3%+()");  // "2 3 +"
 
@@ -139,8 +127,7 @@ TEST(Calculate_RPN, Skip_Invalid_Symbols)
     EXPECT_EQ(res, 5);
 }
 
-TEST(Calculate_RPN, Serial_Calculations)
-{
+TEST(Calculate_RPN, Serial_Calculations) {
     // Arrange
     std::string s("1 2 + 4 * 3 +");  // (1 + 2) * 4 + 3
 
@@ -151,8 +138,7 @@ TEST(Calculate_RPN, Serial_Calculations)
     EXPECT_EQ(res, 15);
 }
 
-TEST(Calculate_RPN, Serial_Calculations_2)
-{
+TEST(Calculate_RPN, Serial_Calculations_2) {
     // Arrange
     std::string s("4 6 2 * 1 3 - 2 ^ / +");  // 4 + 6 * 2 / (1 - 3)^2
 

@@ -4,8 +4,7 @@
 
 #include "include/rpn.h"
 
-TEST(Convert_to_RPN, Can_Parse_Number)
-{
+TEST(Convert_to_RPN, Can_Parse_Number) {
     // Arrange
     std::string s("12");
     std::string answer("12");
@@ -17,8 +16,7 @@ TEST(Convert_to_RPN, Can_Parse_Number)
     EXPECT_EQ(res, answer);
 }
 
-TEST(Convert_to_RPN, One_Operator)
-{
+TEST(Convert_to_RPN, One_Operator) {
     // Arrange
     std::string s("1 + 2");
     std::string answer("1 2 +");
@@ -30,8 +28,7 @@ TEST(Convert_to_RPN, One_Operator)
     EXPECT_EQ(res, "1 2 +");
 }
 
-TEST(Convert_to_RPN, String_Without_Spaces)
-{
+TEST(Convert_to_RPN, String_Without_Spaces) {
     // Arrange
     std::string s("1+2");
     std::string answer("1 2 +");
@@ -43,8 +40,7 @@ TEST(Convert_to_RPN, String_Without_Spaces)
     EXPECT_EQ(res, answer);
 }
 
-TEST(Convert_to_RPN, Serial_Calculations)
-{
+TEST(Convert_to_RPN, Serial_Calculations) {
     // Arrange
     std::string s("1 + 2 + 3");
     std::string answer("1 2 + 3 +");
@@ -56,8 +52,7 @@ TEST(Convert_to_RPN, Serial_Calculations)
     EXPECT_EQ(res, answer);
 }
 
-TEST(Convert_to_RPN, Different_Priorities)
-{
+TEST(Convert_to_RPN, Different_Priorities) {
     // Arrange
     std::string s("4 + 5 * 3 ^ 2");
     std::string answer("4 5 3 2 ^ * +");
@@ -69,8 +64,7 @@ TEST(Convert_to_RPN, Different_Priorities)
     EXPECT_EQ(res, answer);
 }
 
-TEST(Convert_to_RPN, Different_Priorities_2)
-{
+TEST(Convert_to_RPN, Different_Priorities_2) {
     // Arrange
     std::string s("4 - 5 ^ 3 / 10");
     std::string answer("4 5 3 ^ 10 / -");
@@ -82,8 +76,7 @@ TEST(Convert_to_RPN, Different_Priorities_2)
     EXPECT_EQ(res, answer);
 }
 
-TEST(Convert_to_RPN, Parentheses)
-{
+TEST(Convert_to_RPN, Parentheses) {
     // Arrange
     std::string s("4 * (1 + 2)");
     std::string answer("4 1 2 + *");
@@ -95,8 +88,7 @@ TEST(Convert_to_RPN, Parentheses)
     EXPECT_EQ(res, answer);
 }
 
-TEST(Convert_to_RPN, Parentheses_2)
-{
+TEST(Convert_to_RPN, Parentheses_2) {
     // Arrange
     std::string s("2 / (1 - 3)^2");
     std::string answer("2 1 3 - 2 ^ /");
@@ -108,8 +100,7 @@ TEST(Convert_to_RPN, Parentheses_2)
     EXPECT_EQ(res, answer);
 }
 
-TEST(Convert_to_RPN, Parentheses_3)
-{
+TEST(Convert_to_RPN, Parentheses_3) {
     // Arrange
     std::string s("2 ^ (1 - 3)*2");
     std::string answer("2 1 3 - ^ 2 *");
@@ -121,8 +112,7 @@ TEST(Convert_to_RPN, Parentheses_3)
     EXPECT_EQ(res, answer);
 }
 
-TEST(Convert_to_RPN, Parentheses_Nested)
-{
+TEST(Convert_to_RPN, Parentheses_Nested) {
     // Arrange
     std::string s("4 * (2 + (5 - 3))");
     std::string answer("4 2 5 3 - + *");
@@ -134,8 +124,7 @@ TEST(Convert_to_RPN, Parentheses_Nested)
     EXPECT_EQ(res, answer);
 }
 
-TEST(Convert_to_RPN, Parentheses_Error)
-{
+TEST(Convert_to_RPN, Parentheses_Error) {
     // Arrange
     std::string s("2 * (3 + 4))");
     std::string answer("2 1 3 - ^ 2 *");
