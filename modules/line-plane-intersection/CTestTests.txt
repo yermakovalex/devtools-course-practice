@@ -53,7 +53,7 @@ set_tests_properties (${prefix}_Can_Plane_Intersection_Line PROPERTIES
 
 add_test(
     NAME ${prefix}_Can_Not_Plane_Intersection_Line
-    COMMAND ${APPLICATION} Intersect 0 1 0 -0.5 0 0 1 0 1 0 -2 1 1 0 1
+    COMMAND ${APPLICATION} Intersect 0 1 0 -0,5 0 0 1 0 1 0 -2 1 1 0 1
 )
 set_tests_properties (${prefix}_Can_Not_Plane_Intersection_Line
     PASS_REGULAR_EXPRESSION "The plane is not intersecting the line"
@@ -61,7 +61,7 @@ set_tests_properties (${prefix}_Can_Not_Plane_Intersection_Line
 
 add_test(
     NAME ${prefix}_Can_To_Get_Not_Intersect_PlaneLine
-    COMMAND ${APPLICATION} Isnt_it_intersected 0 1 0 -0.5 0 0 1 0 1 0 -2 1 1 0 1
+    COMMAND ${APPLICATION} Isnt_it_intersected 0 1 0 -0,5 0 0 1 0 1 0 -2 1 1 0 1
 )
 set_tests_properties (${prefix}_Can_To_Get_Not_Intersect_PlaneLine
     PASS_REGULAR_EXPRESSION "The plane is not intersecting the line"
