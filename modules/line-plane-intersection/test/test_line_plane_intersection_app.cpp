@@ -7,8 +7,7 @@
 #include <functional>
 #include <iterator>
 
-//#include "include/numerical_integration_app.h"
-#include "line_plane_intersection_app.h"
+#include "include/numerical_integration_app.h"
 
 using ::testing::internal::RE;
 using std::vector;
@@ -58,8 +57,8 @@ TEST_F(LinePlaneIntersectionAppTest,
 
 TEST_F(LinePlaneIntersectionAppTest,
     Can_Detect_Invalid_Numeric_Format_Double) {
-    vector<string> args = { "Intersect", "it_isn't_number", "0", "3", "0", "1", "1",
-        "-3", "0", "0", "0", "9", "-11", "1", "12", "-14"};
+    vector<string> args = { "Intersect", "it_isn't_number", "0", "3", "0",
+                           "1", "1", "-3", "0", "0", "0", "9", "-11", "1", "12", "-14"};
 
     Act(args);
 
@@ -68,8 +67,8 @@ TEST_F(LinePlaneIntersectionAppTest,
 
 TEST_F(LinePlaneIntersectionAppTest,
     Can_Detect_Invalid_Operation_Format) {
-    vector<string> args = { "it_isn't_operation", "0", "0", "3", "0", "1", "1",
-        "-3", "0", "0", "0", "9", "-11", "1", "12", "-14"};
+    vector<string> args = { "it_isn't_operation", "0", "0", "3", "0",
+                           "1", "1", "-3", "0", "0", "0", "9", "-11", "1", "12", "-14"};
 
     Act(args);
 
@@ -77,8 +76,8 @@ TEST_F(LinePlaneIntersectionAppTest,
 }
 
 TEST_F(LinePlaneIntersectionAppTest, Can_Plane_Intersection_Line) {
-    vector<string> args = { "Intersect", "0", "0", "3", "0", "1", "1",
-        "-3", "0", "0", " 0", "9", "-11", "1", "12", "-14"};
+    vector<string> args = { "Intersect", "0", "0", "3", "0", "1",
+                           "1", "-3", "0", "0", " 0", "9", "-11", "1", "12", "-14"};
 
     Act(args);
 
