@@ -71,9 +71,6 @@ std::string parseOperation(const char* arg) {
 }
 
 std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv) {
-    int count1 = 2;
-    int count2 = 3;
-    int count3 = 4;
     Arguments args;
     args.plane = new Dot[3];
     args.line = new Dot[2];
@@ -86,6 +83,9 @@ std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv) {
         return message_;
 
     try {
+        int count1 = 2;
+        int count2 = 3;
+        int count3 = 4;
         for (int i = 0; i < 3; i++) {
             args.plane[i] = {
                 parseDouble(argv[count1]),
