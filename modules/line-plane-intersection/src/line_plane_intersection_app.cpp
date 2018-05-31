@@ -8,7 +8,8 @@
 #include <string>
 #include <sstream>
 
-void LinePlaneIntersectionApp::Help(const char * appname, const char * message) {
+void LinePlaneIntersectionApp::Help
+(const char * appname, const char * message) {
     message_ =
         std::string(message) +
         "This is an application to check the intersection.\n\n" +
@@ -60,8 +61,7 @@ std::string parseOperation(const char* arg) {
     std::string op;
     if (strcmp(arg, "Intersect") == 0) {
         op = "PlaneIntersectLine";
-    }
-    else if (strcmp(arg, "Isnt_it_intersected") == 0) {
+    } else if (strcmp(arg, "Isnt_it_intersected") == 0) {
         op = "GetNotIntersectPlaneLine";
     } else {
         throw std::string("Invalid operation");
@@ -74,19 +74,18 @@ std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv) {
     int count2 = 3;
     int count3 = 4;
     Arguments args;
-    args.plane = new Dot [3];
-    args.line = new Dot [2];
+    args.plane = new Dot[3];
+    args.line = new Dot[2];
     LinePlaneIntersection line_plane_intesect;
     Dot dot_of_intesection;
     bool isnt_intersect;
     std::ostringstream stream;
-    
+
     if (!ValidateNumberOfArguments(argc, argv))
         return message_;
 
     try {
-        for (int i = 0; i < 3; i++)
-        {
+        for (int i = 0; i < 3; i++){
             args.plane[i] = {
                 parseDouble(argv[count1]),
                 parseDouble(argv[count2]),
@@ -95,8 +94,7 @@ std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv) {
             count2 += 3;
             count3 += 3;
         }
-        for (int i = 0; i < 2; i++)
-        {
+        for (int i = 0; i < 2; i++){
             args.line[i] = {
                 parseDouble(argv[count1]),
                 parseDouble(argv[count2]),
@@ -116,17 +114,15 @@ std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv) {
         args.line[0], args.line[1]);
     isnt_intersect = line_plane_intesect.GetNotIntersectPlaneLine();
 
-    if (args.operation == "PlaneIntersectLine")
-    {
+    if (args.operation == "PlaneIntersectLine"){
         if (isnt_intersect == false)
             stream << "dot of intersection is = " << dot_of_intesection.x
             << ", " << dot_of_intesection.y << ", " << dot_of_intesection.z;
         else
             stream << "The plane is not intersecting the line";
     }
-    if (args.operation == "GetNotIntersectPlaneLine")
-    {
-        if(isnt_intersect == true)
+    if (args.operation == "GetNotIntersectPlaneLine"){
+        if (isnt_intersect == true)
             stream << "The plane is not intersecting the line";
         else
             stream << "The plane is intersecting the line";
