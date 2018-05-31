@@ -115,7 +115,7 @@ Month Application::IntToMonth(int val) {
 }
 
 double Application::GetCalculatedValues() {
-	return calculatedValues;
+    return calculatedValues;
 }
 
 std::string Application::CalculateWages(double salary,

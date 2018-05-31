@@ -14,7 +14,7 @@ class Application {
     std::string DoubleToString(double val);
     double StringToDouble(const char* str);
     Month IntToMonth(int val);
-	double GetCalculatedValues();
+    double GetCalculatedValues();
     std::string CalculateWages(double salary, double administrativeLeaveHours,
     double overtime, Month month);
     std::string CalculateHourlyPay(double salary,
