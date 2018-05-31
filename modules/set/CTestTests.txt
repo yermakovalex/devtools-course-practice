@@ -69,10 +69,10 @@ set_tests_properties (${prefix}_Test_Wrong_Elements_Vector1 PROPERTIES
 
 add_test(
     NAME ${prefix}_Test_Disjunction_Operation
-    COMMAND ${APPLICATION} 2 3 5 1 7 Disj
+    COMMAND ${APPLICATION} 0 1 7 Disj
 )
 set_tests_properties (${prefix}_Test_Disjunction_Operation PROPERTIES
-    PASS_REGULAR_EXPRESSION "Result: 3 5 7"
+    PASS_REGULAR_EXPRESSION "Result: 7"
     LABELS "${MODULE}")
 
 add_test(
