@@ -108,9 +108,9 @@ std::string rpn::convertToRpn(const std::string &s) {
         } else if (_Contains(OPERATORS, s[i])) {
             res += " ";
 
-            if (operationStack.isEmpty())
+            if (operationStack.isEmpty()) {
                 operationStack.Push(s[i]);
-            else if (_Priority(s[i]) > _Priority(operationStack.Peek())) {
+            } else if (_Priority(s[i]) > _Priority(operationStack.Peek())) {
                 operationStack.Push(s[i]);
             } else {
                 while (!operationStack.isEmpty()
