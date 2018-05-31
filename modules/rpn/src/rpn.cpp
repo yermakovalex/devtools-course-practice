@@ -75,8 +75,7 @@ int rpn::calculateRpn(const std::string &s) {
         if ('0' <= s[i] && s[i] <= '9') {
             strNum += s[i];
             numIsPrepared = true;
-        }
-        else {
+        } else {
             if (numIsPrepared) {
                 operandStack.Push(std::atoi(strNum.c_str()));
                 strNum = "";
@@ -96,7 +95,6 @@ int rpn::calculateRpn(const std::string &s) {
         operandStack.Push(std::atoi(strNum.c_str()));
 
     return operandStack.Pop();
-
 }
 
 std::string rpn::convertToRpn(const std::string &s) {
@@ -115,7 +113,8 @@ std::string rpn::convertToRpn(const std::string &s) {
             else if (_Priority(s[i]) > _Priority(operationStack.Peek()))
                 operationStack.Push(s[i]);
             else {
-                while (!operationStack.isEmpty() && operationStack.Peek() != '(' && _Priority(operationStack.Peek()) >= _Priority(s[i])) {
+                while (!operationStack.isEmpty() && operationStack.Peek() != '('
+                        && _Priority(operationStack.Peek()) >= _Priority(s[i])) {
                     res += operationStack.Pop();
                     res += " ";
                 }

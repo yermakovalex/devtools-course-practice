@@ -2,6 +2,8 @@
 
 #include <gtest/gtest.h>
 
+#include <string>
+
 #include "include/rpn.h"
 
 TEST(Calculate_RPN, Can_Parse_Number) {
