@@ -14,15 +14,15 @@ void SetCalculator::help(const char* appname, const char* message = "") {
     message_ = std::string(message) +
         "Please provide arguments in the following format:\n\n"
 
-        "$ " + appname
-        "<first vector length = n> <v1[0]> <v1[1]> ... <v1[n]>\n"
-        "<second vector length = n> <v2[0]> <v2[1]> ... <v2[n]>\n"
-        "<operation>\n\n"
+        "$ " + appname +
+        "<first vector length = n> <v1[0]> <v1[1]> ... <v1[n]>\n" +
+        "<second vector length = n> <v2[0]> <v2[1]> ... <v2[n]>\n" +
+        "<operation>\n\n" +
 
-        "Where sizes and lengths are int and more then 0"
-        "vectors values are int numbers\n"
-        "<length> - number of set elements in the range [0, 9]\n"
-        "<operation> - one of 'Conj', 'Disj'\n"
+        "Where sizes and lengths are int and more then 0" +
+        "vectors values are int numbers\n" +
+        "<length> - number of set elements in the range [0, 9]\n" +
+        "<operation> - one of 'Conj', 'Disj'\n";
 }
 
 std::string SetCalculator::operator()(int argc, const char ** argv) {
@@ -56,7 +56,7 @@ std::string SetCalculator::operator()(int argc, const char ** argv) {
     return message_;
 }
 
-bool SetCalculator::parseArguments(int argc, const char** argv, Arguments& out_args) {
+bool SetCalculator::parseArguments(int argc, const char** argv, Arguments* out_args) {
     if(argc < 4) {
         help(argv[0], "ERROR: Less args in cmd\n\n");
         return false;
