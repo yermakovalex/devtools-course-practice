@@ -52,14 +52,18 @@ bool NumericalIntervalCalculator::parseArguments(int argc, const char** argv,
 
         if (argc > 2) {
             std::string arg(argv[2]);
-            if (arg == "ep")
+            if (arg == "ep") {
                 parsed_args->type_of_operation = Operation::ep;
-            else if (arg == "ap")
+            } else if (arg == "ap") {
                 parsed_args->type_of_operation = Operation::ap;
-            else if (arg == "pc")
+            } else if (arg == "pc") {
                 parsed_args->type_of_operation = Operation::pc;
-            else
+            } else {
                 parsed_args->type_of_operation = Operation::no_op;
+                if (argc > 3)
+                    return true;
+            }
+            
             if (argc == 3) {
                 if (parsed_args->type_of_operation == Operation::no_op) {
                     help(argv[0], "ERROR: Wrong arguments format!\n\n");
@@ -159,6 +163,11 @@ std::string NumericalIntervalCalculator::operator()(int argc,
                 message_ = "Contained range\n";
             else
                 message_ = "Not contained range\n";
+            break;
+        }
+        case Operation::no_op:
+        {
+            message_ = "ERROR: Wrong arguments format!\n\n";
             break;
         }
     }
