@@ -7,7 +7,7 @@
 #include "include/line_plane_intersection_app.h"
 
 int main(int argc, const char** argv) {
-    IntegralApp app;
+    LinePlaneIntersectionApp app;
     std::string output = app(argc, argv);
     printf("%s\n", output.c_str());
     return 0;
