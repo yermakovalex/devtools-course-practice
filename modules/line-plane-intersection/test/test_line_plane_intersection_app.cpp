@@ -7,7 +7,7 @@
 #include <functional>
 #include <iterator>
 
-#include "include/numerical_integration_app.h"
+#include "include/line_plane_intersection_app.h"
 
 using ::testing::internal::RE;
 using std::vector;
