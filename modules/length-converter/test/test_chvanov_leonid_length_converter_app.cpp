@@ -15,7 +15,7 @@ using std::vector;
 using std::string;
 
 class LengthConverterAppTest : public ::testing::Test {
- protected:
+protected:
     // virtual void SetUp() {}
 
     void Act(vector<string> args_) {
@@ -36,7 +36,7 @@ class LengthConverterAppTest : public ::testing::Test {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
- private:
+private:
     LengthConverterApp app_;
     string output_;
 };
@@ -170,7 +170,7 @@ TEST_F(LengthConverterAppTest, Can_Detect_Unknown_Conversion11) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Centimeters) {
-    vector<string> args = { "1", "Meter", "Centimeter"};
+    vector<string> args = { "1", "Meter", "Centimeter" };
 
     Act(args);
 
@@ -178,7 +178,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Centimeters) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Centimeters_To_Meters) {
-    vector<string> args = { "100", "Centimeter", "Meter"};
+    vector<string> args = { "100", "Centimeter", "Meter" };
 
     Act(args);
 
@@ -186,7 +186,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Centimeters_To_Meters) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Kilometers) {
-    vector<string> args = { "1000", "Meter", "Kilometer"};
+    vector<string> args = { "1000", "Meter", "Kilometer" };
 
     Act(args);
 
@@ -194,7 +194,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Kilometers) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Kilometers_To_Meters) {
-    vector<string> args = { "1", "Kilometer", "Meter"};
+    vector<string> args = { "1", "Kilometer", "Meter" };
 
     Act(args);
 
@@ -202,7 +202,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Kilometers_To_Meters) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Kilometers_To_Miles) {
-    vector<string> args = { "1.609344", "Kilometer", "Mile"};
+    vector<string> args = { "1.609344", "Kilometer", "Mile" };
 
     Act(args);
 
@@ -210,7 +210,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Kilometers_To_Miles) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Miles_To_Kilometers) {
-    vector<string> args = { "1", "Mile", "Kilometer"};
+    vector<string> args = { "1", "Mile", "Kilometer" };
 
     Act(args);
 
@@ -218,7 +218,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Miles_To_Kilometers) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Feet_To_Yards) {
-    vector<string> args = { "3", "Foot", "Yard"};
+    vector<string> args = { "3", "Foot", "Yard" };
 
     Act(args);
 
@@ -226,7 +226,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Feet_To_Yards) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Yards_To_Feet) {
-    vector<string> args = { "1", "Yard", "Foot"};
+    vector<string> args = { "1", "Yard", "Foot" };
 
     Act(args);
 
@@ -234,7 +234,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Yards_To_Feet) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Feet_To_Meters) {
-    vector<string> args = { "0.3048", "Foot", "Meter"};
+    vector<string> args = { "0.3048", "Foot", "Meter" };
 
     Act(args);
 
@@ -242,7 +242,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Feet_To_Meters) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Feet) {
-    vector<string> args = { "1", "Meter", "Foot"};
+    vector<string> args = { "1", "Meter", "Foot" };
 
     Act(args);
 
@@ -250,7 +250,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Feet) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Centimeters_To_Inches) {
-    vector<string> args = { "2.54", "Centimeter", "Inch"};
+    vector<string> args = { "2.54", "Centimeter", "Inch" };
 
     Act(args);
 
@@ -258,7 +258,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Centimeters_To_Inches) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Inch_To_Centimeters) {
-    vector<string> args = { "1", "Inch", "Centimeter"};
+    vector<string> args = { "1", "Inch", "Centimeter" };
 
     Act(args);
 
@@ -266,7 +266,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Inch_To_Centimeters) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_NauticalMiles) {
-    vector<string> args = { "1852", "Meter", "NauticalMile"};
+    vector<string> args = { "1852", "Meter", "NauticalMile" };
 
     Act(args);
 
@@ -274,7 +274,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_NauticalMiles) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_NauticalMiles_To_Meters) {
-    vector<string> args = { "1", "NauticalMile", "Meter"};
+    vector<string> args = { "1", "NauticalMile", "Meter" };
 
     Act(args);
 
@@ -282,7 +282,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_NauticalMiles_To_Meters) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Kilometers_To_AstronimicalUnits) {
-    vector<string> args = { "149599", "Kilometer", "AstronomicalUnit"};
+    vector<string> args = { "149599", "Kilometer", "AstronomicalUnit" };
 
     Act(args);
 
@@ -290,7 +290,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Kilometers_To_AstronimicalUnits) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_AstronimicalUnits_To_Kilometers) {
-    vector<string> args = { "0.02", "AstronomicalUnit", "Kilometer"};
+    vector<string> args = { "0.02", "AstronomicalUnit", "Kilometer" };
 
     Act(args);
 
@@ -298,7 +298,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_AstronimicalUnits_To_Kilometers) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Centimeters_To_Spans) {
-    vector<string> args = { "17.78", "Centimeter", "Span"};
+    vector<string> args = { "17.78", "Centimeter", "Span" };
 
     Act(args);
 
@@ -306,7 +306,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Centimeters_To_Spans) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Spans_To_Centimeters) {
-    vector<string> args = { "1", "Span", "Centimeter"};
+    vector<string> args = { "1", "Span", "Centimeter" };
 
     Act(args);
 
@@ -314,7 +314,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Spans_To_Centimeters) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Spans_To_Versts) {
-    vector<string> args = { "6000", "Span", "Verst"};
+    vector<string> args = { "6000", "Span", "Verst" };
 
     Act(args);
 
@@ -322,7 +322,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Spans_To_Versts) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Versts_To_Spans) {
-    vector<string> args = { "1", "Verst", "Span"};
+    vector<string> args = { "1", "Verst", "Span" };
 
     Act(args);
 
@@ -330,7 +330,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Versts_To_Spans) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Miles_To_Meters) {
-    vector<string> args = { "1", "Mile", "Meter"};
+    vector<string> args = { "1", "Mile", "Meter" };
 
     Act(args);
 
@@ -338,7 +338,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Miles_To_Meters) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Miles) {
-    vector<string> args = { "1609.344", "Meter", "Mile"};
+    vector<string> args = { "1609.344", "Meter", "Mile" };
 
     Act(args);
 
@@ -346,7 +346,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Miles) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Yards_To_Meters) {
-    vector<string> args = { "1", "Yard", "Meter"};
+    vector<string> args = { "1", "Yard", "Meter" };
 
     Act(args);
 
@@ -354,7 +354,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Yards_To_Meters) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Yards) {
-    vector<string> args = { "9.842519685", "Meter", "Yard"};
+    vector<string> args = { "9.842519685", "Meter", "Yard" };
 
     Act(args);
 
@@ -362,7 +362,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Yards) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Inches_To_Meters) {
-    vector<string> args = { "1", "Inch", "Meter"};
+    vector<string> args = { "1", "Inch", "Meter" };
 
     Act(args);
 
@@ -370,7 +370,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Inches_To_Meters) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_AstronomicalUnits_To_Meters) {
-    vector<string> args = { "1", "AstronomicalUnit", "Meter"};
+    vector<string> args = { "1", "AstronomicalUnit", "Meter" };
 
     Act(args);
 
@@ -378,7 +378,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_AstronomicalUnits_To_Meters) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_AstronomicalUnits) {
-    vector<string> args = { "149597870700", "Meter", "AstronomicalUnit"};
+    vector<string> args = { "149597870700", "Meter", "AstronomicalUnit" };
 
     Act(args);
 
@@ -386,7 +386,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_AstronomicalUnits) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Spans_To_Meters) {
-    vector<string> args = { "1", "Span", "Meter"};
+    vector<string> args = { "1", "Span", "Meter" };
 
     Act(args);
 
@@ -394,7 +394,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Spans_To_Meters) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Spans) {
-    vector<string> args = { "0.1778", "Meter", "Span"};
+    vector<string> args = { "0.1778", "Meter", "Span" };
 
     Act(args);
 
@@ -402,7 +402,7 @@ TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Spans) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Versts) {
-    vector<string> args = { "1066.8", "Meter", "Verst"};
+    vector<string> args = { "1066.8", "Meter", "Verst" };
 
     Act(args);
 
@@ -410,15 +410,15 @@ TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Versts) {
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Meters_To_Inches) {
-	vector<string> args = { "0.0254", "Meter", "Inch" };
+    vector<string> args = { "0.0254", "Meter", "Inch" };
 
-	Act(args);
+    Act(args);
 
-	Assert("0.0254 meters is 1 inches");
+    Assert("0.0254 meters is 1 inches");
 }
 
 TEST_F(LengthConverterAppTest, Can_Convert_Versts_To_Meters) {
-    vector<string> args = { "1", "Verst", "Meter"};
+    vector<string> args = { "1", "Verst", "Meter" };
 
     Act(args);
 
