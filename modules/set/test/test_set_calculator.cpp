@@ -103,7 +103,7 @@ TEST_F(SetCalculatorTest, Test_Disjunction_Operation) {
     Assert("Result: 3 5 7*");
 }
 
-TEST_F(SetCalculatorTest, Test_Сonjunction_Operation) {
+TEST_F(SetCalculatorTest, Test_Conjunction_Operation) {
     vector<string> args = { "2", "3", "5", "1", "5", "Conj" };
 
     Act(args);

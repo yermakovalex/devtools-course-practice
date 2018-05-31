@@ -28,4 +28,4 @@ class SetCalculator {
     std::string message_;
 };
 
-#endif  //MODULES_SET_INCLUDE_SET_CALCULATOR_H_
+#endif  // MODULES_SET_INCLUDE_SET_CALCULATOR_H_

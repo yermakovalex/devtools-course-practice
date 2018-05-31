@@ -10,7 +10,7 @@
 
 SetCalculator::SetCalculator() : message_("") {}
 
-void SetCalculator::help(const char* appname, const char* message = "") {
+void SetCalculator::help(const char* appname, const char* message) {
     message_ = std::string(message) +
         "Please provide arguments in the following format:\n\n"
 
