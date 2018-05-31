@@ -55,8 +55,6 @@ TStack<ValType>::TStack(int _size, ValType* data) {
         for (int i = 0; i < size; i++) {
             pMem[i] = data[i];
         }
-    } else {
-        throw std::logic_error("Wrong size");
     }
 }
 
