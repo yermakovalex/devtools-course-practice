@@ -27,7 +27,7 @@ void SetCalculator::help(const char* appname, const char* message = "") {
 
 std::string SetCalculator::operator()(int argc, const char ** argv) {
     Arguments args;
-    if (!parseArguments(argc, argv, args))
+    if (!parseArguments(argc, argv, &args))
         return message_;
 
     std::stringstream ss;
@@ -73,13 +73,11 @@ bool SetCalculator::parseArguments(int argc, const char** argv, Arguments* out_a
     }
 
     int size1 = std::atoi(argv[1]);
-    cout << "size1 = " << size1 << endl;
     if (argc < size1 + 4) {
         help(argv[0], "ERROR: Wrong counts of args. Check size1\n\n");
         return false;
     }
     int size2 = std::atoi(argv[2 + size1]);
-    cout << "size2 = " << size2 << endl;
     if (argc < size1 + 4 + size2) {
         help(argv[0], "ERROR: Wrong counts of args. Check size2\n\n");
         return false;
@@ -87,7 +85,7 @@ bool SetCalculator::parseArguments(int argc, const char** argv, Arguments* out_a
 
     for (int i = 2; i < size1 + 3; i++) {
         if(std::atoi(argv[i]) >= 0 && std::atoi(argv[i]) < 10) {
-            out_args.vec1.emplace_back(std::atoi(argv[i]));
+            out_args->vec1.emplace_back(std::atoi(argv[i]));
         } else {
             help(argv[0], "ERROR: Check the elements of the vector1\n\n");
             return false;
@@ -95,7 +93,7 @@ bool SetCalculator::parseArguments(int argc, const char** argv, Arguments* out_a
     }
     for (int i = 3 + size1; i < size2 + 4 + size1; i++) {
         if (std::atoi(argv[i]) >= 0 && std::atoi(argv[i]) < 10) {
-            out_args.vec2.emplace_back(std::atoi(argv[i]));
+            out_args->vec2.emplace_back(std::atoi(argv[i]));
         } else {
             help(argv[0], "ERROR: Check the elements of the vector2\n\n");
             return false;
@@ -104,4 +102,3 @@ bool SetCalculator::parseArguments(int argc, const char** argv, Arguments* out_a
 
     return true;
 }
-
