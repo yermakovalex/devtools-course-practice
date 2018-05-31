@@ -30,7 +30,7 @@ class BinarySearchAppTest : public ::testing::Test {
     void Assert1(std::string expected) {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
- 
+
     void Assert2(std::string expected) {
         EXPECT_FALSE(RE::PartialMatch(output_, RE(expected)));
     }
