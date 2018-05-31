@@ -85,3 +85,59 @@ TEST_F(WagesAppTest, error_when_argv_5_is_null) {
 
     Assert("Argument 5 is not correct");
 }
+
+TEST(Application, can_double_to_string) {
+    Application app;
+    std::string str = app.DoubleToString(12.12);
+
+    EXPECT_EQ(str.length(), 5);
+}
+
+TEST(Application, can_string_to_double) {
+    Application app;
+    double val = app.StringToDouble("12.12");
+
+    EXPECT_EQ(val, 12.12);
+}
+
+TEST(Application, can_int_to_Month) {
+    Application app;
+    app.IntToMonth(1);
+    app.IntToMonth(2);
+    app.IntToMonth(3);
+    app.IntToMonth(4);
+    app.IntToMonth(5);
+    app.IntToMonth(6);
+    app.IntToMonth(7);
+    app.IntToMonth(8);
+    app.IntToMonth(9);
+    app.IntToMonth(10);
+    app.IntToMonth(11);
+
+
+    EXPECT_EQ(app.IntToMonth(12), December);
+}
+
+TEST(Application, can_app)
+{
+    Application app;
+    unsigned int argc = 6;
+    char** argv = new char*[argc];
+    argv[1] = const_cast<char*>("CalculateWages");
+    argv[2] = const_cast<char*>("10000");
+    argv[3] = const_cast<char*>("1");
+    argv[4] = const_cast<char*>("1");
+    argv[5] = const_cast<char*>("1");
+
+    app(argc, argv);
+
+    argv[1] = const_cast<char*>("HourlyPay");
+    app(argc, argv);
+
+    argv[1] = const_cast<char*>("CalculationOvertimePayment");
+    app(argc, argv);
+
+    argv[1] = const_cast<char*>("Something");
+
+    ASSERT_NO_THROW(app(argc, argv));
+}
