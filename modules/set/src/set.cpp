@@ -19,8 +19,8 @@ void set::Insert(int k) {
 }
 
 void set::Insert(const std::vector<int>& vec) {
-	for (auto i = vec.begin(); i != vec.end(); i++)
-		Insert(*i);
+    for (auto i = vec.begin(); i != vec.end(); i++)
+        Insert(*i);
 }
 
 int set::GetN(int k) {
@@ -35,14 +35,14 @@ int set::Get(int k) {
 }
 
 std::vector<int> set::GetElements() {
-	std::vector<int> res;
-	for (int i = 0; i < 10; i++)
-		if (this->GetN(i) != 0)
-			res.emplace_back(i);
+    std::vector<int> res;
+    for (int i = 0; i < 10; i++)
+        if (this->GetN(i) != 0)
+            res.emplace_back(i);
 
-	if (res.empty())
-		res.emplace_back(0);
-	return res;
+    if (res.empty())
+        res.emplace_back(0);
+    return res;
 }
 
 set set :: operator+(const set& x) {

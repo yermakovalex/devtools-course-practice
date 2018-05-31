@@ -48,7 +48,7 @@ TEST_F(SetCalculatorTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST_F(SetCalculatorTest, Test_Less_Args_Cmd) {
-    vector<string> args = { "2", "5", "Disj" };
+    vector<string> args = { "0", "Disj" };
 
     Act(args);
 
@@ -80,7 +80,7 @@ TEST_F(SetCalculatorTest, Test_Wrong_Counts_Of_Args_Size2) {
 }
 
 TEST_F(SetCalculatorTest, Test_Wrong_Elements_Vector1) {
-    vector<string> args = { "3", "1", "26", "5", "2", "7", "Conj" };
+    vector<string> args = { "3", "1", "26", "5", "1", "7", "Conj" };
 
     Act(args);
 
@@ -96,11 +96,11 @@ TEST_F(SetCalculatorTest, Test_Wrong_Elements_Vector2) {
 }
 
 TEST_F(SetCalculatorTest, Test_Disjunction_Operation) {
-    vector<string> args = { "2", "3", "5", "1", "7", "Disj" };
+    vector<string> args = { "0", "1", "7", "Disj" };
 
     Act(args);
 
-    Assert("Result: 3 5 7*");
+    Assert("Result: 7*");
 }
 
 TEST_F(SetCalculatorTest, Test_Conjunction_Operation) {

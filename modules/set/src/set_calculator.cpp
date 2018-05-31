@@ -37,14 +37,14 @@ std::string SetCalculator::operator()(int argc, const char ** argv) {
     A.Insert(args.vec1);
     B.Insert(args.vec2);
 
-    switch(args.op) {
+    switch (args.op) {
     case Op::Disj:
         C = A + B;
         break;
     case Op::Conj:
         C = A * B;
         break;
-    }	
+    }
 
     std::vector<int> res = C.GetElements();
     for (auto i = res.begin(); i != res.end() - 1; i++)
@@ -56,16 +56,17 @@ std::string SetCalculator::operator()(int argc, const char ** argv) {
     return message_;
 }
 
-bool SetCalculator::parseArguments(int argc, const char** argv, Arguments* out_args) {
-    if(argc < 4) {
+bool SetCalculator::parseArguments(int argc, const char** argv, 
+                                   Arguments* out_args) {
+    if (argc < 4) {
         help(argv[0], "ERROR: Less args in cmd\n\n");
         return false;
     }
 
     auto op = std::string(argv[argc - 1]);
-    if(op == "Conj") {
+    if (op == "Conj") {
         out_args->op = Op::Conj;
-    } else if(op == "Disj") {
+    } else if (op == "Disj") {
         out_args->op = Op::Disj;
     } else {
         help(argv[0], "ERROR: Wrong operation!\n\n");
@@ -84,7 +85,7 @@ bool SetCalculator::parseArguments(int argc, const char** argv, Arguments* out_a
     }
 
     for (int i = 2; i < size1 + 3; i++) {
-        if(std::atoi(argv[i]) >= 0 && std::atoi(argv[i]) < 10) {
+        if (std::atoi(argv[i]) >= 0 && std::atoi(argv[i]) < 10) {
             out_args->vec1.emplace_back(std::atoi(argv[i]));
         } else {
             help(argv[0], "ERROR: Check the elements of the vector1\n\n");
