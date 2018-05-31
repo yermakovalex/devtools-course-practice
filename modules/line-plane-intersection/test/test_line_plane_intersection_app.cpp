@@ -14,7 +14,7 @@ using std::vector;
 using std::string;
 
 class LinePlaneIntersectionAppTest : public ::testing::Test {
-protected:
+ protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
 
@@ -33,7 +33,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     LinePlaneIntersectionApp app_;
     string output_;
 };
@@ -58,7 +58,7 @@ TEST_F(LinePlaneIntersectionAppTest,
 TEST_F(LinePlaneIntersectionAppTest,
     Can_Detect_Invalid_Numeric_Format_Double) {
     vector<string> args = { "Intersect", "it_isn't_number", "0", "3", "0",
-                           "1", "1", "-3", "0", "0", "0", "9", "-11", "1", "12", "-14"};
+"1", "1", "-3", "0", "0", "0", "9", "-11", "1", "12", "-14"};
 
     Act(args);
 
@@ -68,7 +68,7 @@ TEST_F(LinePlaneIntersectionAppTest,
 TEST_F(LinePlaneIntersectionAppTest,
     Can_Detect_Invalid_Operation_Format) {
     vector<string> args = { "it_isn't_operation", "0", "0", "3", "0",
-                           "1", "1", "-3", "0", "0", "0", "9", "-11", "1", "12", "-14"};
+"1", "1", "-3", "0", "0", "0", "9", "-11", "1", "12", "-14"};
 
     Act(args);
 
@@ -77,7 +77,7 @@ TEST_F(LinePlaneIntersectionAppTest,
 
 TEST_F(LinePlaneIntersectionAppTest, Can_Plane_Intersection_Line) {
     vector<string> args = { "Intersect", "0", "0", "3", "0", "1",
-                           "1", "-3", "0", "0", " 0", "9", "-11", "1", "12", "-14"};
+"1", "-3", "0", "0", " 0", "9", "-11", "1", "12", "-14"};
 
     Act(args);
 
@@ -86,7 +86,7 @@ TEST_F(LinePlaneIntersectionAppTest, Can_Plane_Intersection_Line) {
 
 TEST_F(LinePlaneIntersectionAppTest, Can_Not_Plane_Intersection_Line) {
     vector<string> args = { "Intersect", "0", "1", "0",
-        "-0.5", "0", "0", "1", "0", "1", "0", "-2", "1", "1", "0", "1" };
+"-0.5", "0", "0", "1", "0", "1", "0", "-2", "1", "1", "0", "1" };
 
     Act(args);
 
@@ -95,7 +95,7 @@ TEST_F(LinePlaneIntersectionAppTest, Can_Not_Plane_Intersection_Line) {
 
 TEST_F(LinePlaneIntersectionAppTest, Can_To_Get_Not_Intersect_PlaneLine) {
     vector<string> args = { "Isnt_it_intersected", "0", "1", "0",
-        "-0.5", "0", "0", "1", "0", "1", "0", "-2", "1", "1", "0", "1" };
+"-0.5", "0", "0", "1", "0", "1", "0", "-2", "1", "1", "0", "1" };
 
     Act(args);
 
@@ -103,8 +103,8 @@ TEST_F(LinePlaneIntersectionAppTest, Can_To_Get_Not_Intersect_PlaneLine) {
 }
 
 TEST_F(LinePlaneIntersectionAppTest, Can_Not_To_Get_Not_Intersect_PlaneLine) {
-    vector<string> args = { "Isnt_it_intersected",  "0", "0", "3", "0", "1", "1",
-        "-3", "0", "0", " 0", "9", "-11", "1", "12", "-14" };
+    vector<string> args = { "Isnt_it_intersected", "0",
+"0", "3", "0", "1", "1", "-3", "0", "0", " 0", "9", "-11", "1", "12", "-14" };
 
     Act(args);
 
