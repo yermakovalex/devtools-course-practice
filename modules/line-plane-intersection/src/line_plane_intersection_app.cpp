@@ -85,7 +85,7 @@ std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv) {
         return message_;
 
     try {
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 3; i++) {
             args.plane[i] = {
                 parseDouble(argv[count1]),
                 parseDouble(argv[count2]),
@@ -94,7 +94,7 @@ std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv) {
             count2 += 3;
             count3 += 3;
         }
-        for (int i = 0; i < 2; i++){
+        for (int i = 0; i < 2; i++) {
             args.line[i] = {
                 parseDouble(argv[count1]),
                 parseDouble(argv[count2]),
@@ -114,20 +114,20 @@ std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv) {
         args.line[0], args.line[1]);
     isnt_intersect = line_plane_intesect.GetNotIntersectPlaneLine();
 
-    if (args.operation == "PlaneIntersectLine"){
+    if (args.operation == "PlaneIntersectLine") {
         if (isnt_intersect == false)
             stream << "dot of intersection is = " << dot_of_intesection.x
             << ", " << dot_of_intesection.y << ", " << dot_of_intesection.z;
         else
             stream << "The plane is not intersecting the line";
     }
-    if (args.operation == "GetNotIntersectPlaneLine"){
+    if (args.operation == "GetNotIntersectPlaneLine") {
         if (isnt_intersect == true)
             stream << "The plane is not intersecting the line";
         else
             stream << "The plane is intersecting the line";
     }
-    
+
     message_ = stream.str();
 
     return message_;
