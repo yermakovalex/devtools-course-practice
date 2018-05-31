@@ -12,7 +12,7 @@ using std::vector;
 using std::string;
 
 class BinarySearchAppTest : public ::testing::Test {
-protected:
+ protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
 
@@ -31,7 +31,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     BinarySearchApp app_;
     string output_;
 };
