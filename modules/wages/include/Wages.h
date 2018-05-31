@@ -31,8 +31,7 @@ class Wages {
     bool controlMROT(const double field);
     bool controlField(const double field);
     void controlOvertime(const double overtime);
-    void controlAdministrativeLeaveHours(const double
-    administrativeLeaveHours);
+    void controlAdministrativeLeaveHours(const double administrativeLeaveHours);
 
     // methods for calculating
     double getNumberWorkingDaysInCurrentMonth();
