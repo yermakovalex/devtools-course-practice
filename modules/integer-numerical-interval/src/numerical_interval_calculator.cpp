@@ -115,60 +115,53 @@ std::string NumericalIntervalCalculator::operator()(int argc,
     if (!parseArguments(argc, argv, &args))
         return message_;
 
-    try {
-        switch (args.type_of_operation) {
-            case Operation::ep:
-            {
-                pair<int, int> endPoints = args.interval1.getEndPoints();
-                message_ = std::to_string(endPoints.first) + " " +
-                    std::to_string(endPoints.second);
-                break;
-            }
-            case Operation::ap:
-            {
-                vector<int> allPoints = args.interval1.getAllPoints();
-                message_ = "";
-                for (auto point : allPoints)
-                    message_ += std::to_string(point) + " ";
-                break;
-            }
-            case Operation::pc:
-            {
-                bool isContained
-                    = args.interval1.isContainPoints(args.numbers);
-                if (isContained)
-                    message_ = "Contained points\n";
-                else
-                    message_ = "Not contained points\n";
-                break;
-            }
-            case Operation::ro:
-            {
-                bool isOverlapse
-                    = args.interval1.isHaveOverlapsRange(args.interval2);
-                if (isOverlapse)
-                    message_ = "Ranges overlapsed\n";
-                else
-                    message_ = "Ranges not overlapsed\n";
-                break;
-            }
-            case Operation::rc:
-            {
-                bool isContained
-                    = args.interval1.isContainsRange(args.interval2);
-                if (isContained)
-                    message_ = "Contained range\n";
-                else
-                    message_ = "Not contained range\n";
-                break;
-            }
-            default:
-                break;
+    switch (args.type_of_operation) {
+        case Operation::ep:
+        {
+            pair<int, int> endPoints = args.interval1.getEndPoints();
+            message_ = std::to_string(endPoints.first) + " " +
+                std::to_string(endPoints.second);
+            break;
         }
+        case Operation::ap:
+        {
+            vector<int> allPoints = args.interval1.getAllPoints();
+            message_ = "";
+            for (auto point : allPoints)
+                message_ += std::to_string(point) + " ";
+            break;
+        }
+        case Operation::pc:
+        {
+            bool isContained
+                = args.interval1.isContainPoints(args.numbers);
+            if (isContained)
+                message_ = "Contained points\n";
+            else
+                message_ = "Not contained points\n";
+            break;
+        }
+        case Operation::ro:
+        {
+            bool isOverlapse
+                = args.interval1.isHaveOverlapsRange(args.interval2);
+            if (isOverlapse)
+                message_ = "Ranges overlapsed\n";
+            else
+                message_ = "Ranges not overlapsed\n";
+            break;
+        }
+        case Operation::rc:
+        {
+            bool isContained
+                = args.interval1.isContainsRange(args.interval2);
+            if (isContained)
+                message_ = "Contained range\n";
+            else
+                message_ = "Not contained range\n";
+            break;
+        }
+    }
 
-        return message_;
-    }
-    catch (const std::string& str) {
-        return str;
-    }
+    return message_;
 }
