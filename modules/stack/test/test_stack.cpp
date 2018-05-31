@@ -143,13 +143,6 @@ TEST(Gladyshev_Alexey_StackTest, Cant_pop_from_empty_5e2shAra) {
     EXPECT_ANY_THROW(stack.Pop());
 }
 
-TEST(Volkov_Daniel_StackTest, Cant_create_whis_array) {
-    // Arrange
-    int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
-    // Act & Assert
-    EXPECT_ANY_THROW(TStack<int>* stack = new TStack<int>(-1, arr));
-}
-
 TEST(Volkov_Daniel_StackTest, Can_create_whis_array) {
     // Arrange
     int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
