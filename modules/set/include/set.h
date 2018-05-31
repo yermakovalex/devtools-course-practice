@@ -16,7 +16,7 @@ class set{
 
     void Insert(int k);
     void Insert(const std::vector<int>& vec);
-    
+
     int Get(int k);
     int GetN(int k);
     std::vector<int> GetElements();
