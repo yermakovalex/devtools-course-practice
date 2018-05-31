@@ -185,8 +185,8 @@ TEST(Levitsky_Ilya_setTest, Insert_Vector_Elements) {
     A.Insert(res);
 
     // Assert
-    EXPECT_EQ(2, C.GetN(2));
-    EXPECT_EQ(3, C.GetN(3));
+    EXPECT_EQ(2, A.GetN(2));
+    EXPECT_EQ(3, A.GetN(3));
 }
 
 TEST(Levitsky_Ilya_setTest, Test_BF) {
