@@ -18,4 +18,3 @@ add_subdirectory(application)
 #############################################
 
 include("CTestTests.txt")
-
