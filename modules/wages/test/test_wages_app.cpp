@@ -138,5 +138,5 @@ TEST(Application, can_app) {
 
     argv[1] = const_cast<char*>("Something");
 
-    ASSERT_NO_THROW(app(argc, argv));
+    ASSERT_NO_THROW(app.GetCalculatedValues());
 }
