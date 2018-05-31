@@ -103,28 +103,29 @@ std::string rpn::convertToRpn(const std::string &s) {
     TStack<char> operationStack(s.length() / 2);
 
     for (size_t i = 0; i < s.length(); i++) {
-        if ('0' <= s[i] && s[i] <= '9')
+        if ('0' <= s[i] && s[i] <= '9') {
             res += s[i];
-        else if (_Contains(OPERATORS, s[i])) {
+        } else if (_Contains(OPERATORS, s[i])) {
             res += " ";
 
             if (operationStack.isEmpty())
                 operationStack.Push(s[i]);
-            else if (_Priority(s[i]) > _Priority(operationStack.Peek()))
+            else if (_Priority(s[i]) > _Priority(operationStack.Peek())) {
                 operationStack.Push(s[i]);
-            else {
-                while (!operationStack.isEmpty() && operationStack.Peek() != '('
-                        && _Priority(operationStack.Peek()) >= _Priority(s[i])) {
+            } else {
+                while (!operationStack.isEmpty()
+                        && operationStack.Peek() != '('
+                        && _Priority(operationStack.Peek())
+                            >= _Priority(s[i])) {
                     res += operationStack.Pop();
                     res += " ";
                 }
 
                 operationStack.Push(s[i]);
             }
-        }
-        else if (s[i] == '(')
+        } else if (s[i] == '(') {
             operationStack.Push(s[i]);
-        else if (s[i] == ')') {
+        } else if (s[i] == ')') {
             char op;
             while ((op = operationStack.Pop()) != '(') {
                 res += " ";
