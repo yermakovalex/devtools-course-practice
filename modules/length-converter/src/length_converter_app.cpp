@@ -39,7 +39,7 @@ bool LengthConverterApp::validateNumberOfArguments(int argc,
     return true;
 }
 
-double parseDouble(const char* arg) {
+double ParseDouble(const char* arg) {
     char* end;
     double value = strtod(arg, &end);
 
@@ -50,7 +50,7 @@ double parseDouble(const char* arg) {
     return value;
 }
 
-LengthUnit parseLengthUnit(const char* arg) {
+LengthUnit ParseLengthUnit(const char* arg) {
     LengthUnit lenUnit;
     if (strcmp(arg, "Centimeter") == 0) {
         lenUnit = Centimeter;
@@ -87,9 +87,9 @@ std::string LengthConverterApp::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.originalValue = parseDouble(argv[1]);
-        args.originalLengthUnit = parseLengthUnit(argv[2]);
-        args.targetLengthUnit = parseLengthUnit(argv[3]);
+        args.originalValue = ParseDouble(argv[1]);
+        args.originalLengthUnit = ParseLengthUnit(argv[2]);
+        args.targetLengthUnit = ParseLengthUnit(argv[3]);
     }
     catch (std::string& str) {
         return str;
