@@ -9,7 +9,7 @@
 class LinePlaneIntersectionApp {
  private:
     std::string message_;
-    void Help(const char* appname, const char* message = "");
+    void Help(const char* appname, const char* message = " ");
     bool ValidateNumberOfArguments(int argc, const char** argv);
     typedef struct {
         std::string operation;
