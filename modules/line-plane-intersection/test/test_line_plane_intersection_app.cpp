@@ -43,7 +43,7 @@ TEST_F(LinePlaneIntersectionAppTest, Do_Print_Help_Without_Arguments) {
 
     Act(args);
 
-    Assert("This is an application to check the intersection\\..*");
+    Assert(" This is an application to check the intersection\\..*");
 }
 
 TEST_F(LinePlaneIntersectionAppTest,
