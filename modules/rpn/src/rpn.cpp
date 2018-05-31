@@ -7,8 +7,6 @@
 
 #include "include/TStack.h"
 
-#define OPERATORS "+-*/^"
-
 int rpn::_Pow(int a, int b) {
     if (b < 0) {
         if (a == 0)  // 1/0
@@ -31,23 +29,15 @@ int rpn::_Pow(int a, int b) {
     return res;
 }
 
-bool rpn::_Contains(const std::string &s, char c) {
-    for (size_t i = 0; i < s.length(); i++) {
-        if (s[i] == c)
-            return true;
-    }
-
-    return false;
-}
-
 char rpn::_Priority(char a) {
     switch (a) {
+    case '(': return 0;
     case '+': return 1;
     case '-': return 1;
     case '*': return 2;
     case '/': return 2;
     case '^': return 3;
-    default: return 0;
+    default: throw INVALID_SYMBOL;
     }
 }
 
@@ -62,7 +52,8 @@ int rpn::_Calculate(int num1, int num2, char operation) {
             throw DIVISION_BY_ZERO;
         return num1 / num2;
 
-    default: return _Pow(num1, num2);
+    case '^': return _Pow(num1, num2);
+    default: throw INVALID_OPERATOR;
     }
 }
 
@@ -82,7 +73,7 @@ int rpn::calculateRpn(const std::string &s) {
                 numIsPrepared = false;
             }
 
-            if (_Contains(OPERATORS, s[i])) {
+            if (s[i] != ' ') {
                 int op2 = operandStack.Pop();
                 int op1 = operandStack.Pop();
                 int res = _Calculate(op1, op2, s[i]);
@@ -105,7 +96,15 @@ std::string rpn::convertToRpn(const std::string &s) {
     for (size_t i = 0; i < s.length(); i++) {
         if ('0' <= s[i] && s[i] <= '9') {
             res += s[i];
-        } else if (_Contains(OPERATORS, s[i])) {
+        } else if (s[i] == '(') {
+            operationStack.Push(s[i]);
+        } else if (s[i] == ')') {
+            char op;
+            while ((op = operationStack.Pop()) != '(') {
+                res += " ";
+                res += op;
+            }
+        } else if (s[i] != ' ') {
             res += " ";
 
             if (operationStack.isEmpty()) {
@@ -122,14 +121,6 @@ std::string rpn::convertToRpn(const std::string &s) {
                 }
 
                 operationStack.Push(s[i]);
-            }
-        } else if (s[i] == '(') {
-            operationStack.Push(s[i]);
-        } else if (s[i] == ')') {
-            char op;
-            while ((op = operationStack.Pop()) != '(') {
-                res += " ";
-                res += op;
             }
         }
     }

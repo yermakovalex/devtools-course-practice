@@ -129,7 +129,14 @@ TEST(Convert_to_RPN, Parentheses_Nested) {
 TEST(Convert_to_RPN, Parentheses_Error) {
     // Arrange
     std::string s("2 * (3 + 4))");
-    std::string answer("2 1 3 - ^ 2 *");
+
+    // Act & Assert
+    EXPECT_THROW(rpn::convertToRpn(s), int);  // throws POP_EMPTY_STACK
+}
+
+TEST(Convert_to_RPN, Throw_On_Invalid_Symbols) {
+    // Arrange
+    std::string s("2 + ?3");
 
     // Act & Assert
     EXPECT_THROW(rpn::convertToRpn(s), int);  // throws POP_EMPTY_STACK

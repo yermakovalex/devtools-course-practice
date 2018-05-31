@@ -118,9 +118,17 @@ TEST(Calculate_RPN, Exponent_Negative) {
     EXPECT_EQ(res, 0);
 }
 
-TEST(Calculate_RPN, Skip_Invalid_Symbols) {
+TEST(Calculate_RPN, Throw_On_Invalid_Symbols) {
     // Arrange
-    std::string s("@2sf3%+()");  // "2 3 +"
+    std::string s("2 3 f +");
+
+    // Assert
+    EXPECT_THROW(rpn::calculateRpn(s), int);
+}
+
+TEST(Calculate_RPN, Skip_Multiple_Spaces) {
+    // Arrange
+    std::string s("  2    3  + ");
 
     // Act
     int res = rpn::calculateRpn(s);
