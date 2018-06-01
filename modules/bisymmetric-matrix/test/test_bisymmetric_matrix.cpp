@@ -20,20 +20,14 @@ TEST(Bisymmetric_Matrix, Can_Copy) {
     // Arrange
     Matrix a(5);
     Matrix b(5);
-    bool proper = false;
 
     std::ifstream is("../../../../modules/bisymmetric-matrix/test/matrix1.txt");
     is >> a;
     is.close();
 
     a.Output();
-
-    // Act
-    b = a;
-    if (a == b)
-        proper = true;
     
-    // Assert
+    // Act & Assert
     EXPECT_EQ(a, b);
 }
 
@@ -64,7 +58,6 @@ TEST(Bisymmetric_Matrix, Can_Subtract) {
     Matrix a(5);
     Matrix b(5);
     Matrix res(5);
-    bool equalMatrix = false;
 
     std::ifstream is("../../../../modules/bisymmetric-matrix/test/matrix1.txt");
     is >> a;
@@ -86,7 +79,6 @@ TEST(Bisymmetric_Matrix, Can_Multiply_With_Number) {
     // Arrange
     Matrix a(5);
     Matrix res(5);
-    bool equalMatrix = false;
 
     std::ifstream is("../../../../modules/bisymmetric-matrix/test/matrix1.txt");
     is >> a;
@@ -127,8 +119,6 @@ TEST(Bisymmetric_Matrix, Subtract_Matrix_with_Different_Sizes) {
     Matrix a(5);
     Matrix b(3);
     Matrix res(5);
-    bool equalMatrix = false;
-    char throwMsg;
 
     std::ifstream is("../../../../modules/bisymmetric-matrix/test/matrix1.txt");
     is >> a;
