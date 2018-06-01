@@ -4,8 +4,7 @@
 #define MODULES_CHECK_LINE_SEGMENT_CROSS_INCLUDE_LINESEGMENT_H_
 
 class LineSegment {
-
-public:
+ public:
     LineSegment();
     LineSegment(double _x1, double _y1, double _x2, double _y2);
     LineSegment(const LineSegment&);
@@ -14,7 +13,7 @@ public:
     bool isCross (LineSegment&);
     double vectorProduct(const LineSegment& line);
 
-private:
+ private:
     double scalarProduct(const LineSegment& line);
     int sign(double _x1, double _y1);
     double x1, y1, x2, y2;
