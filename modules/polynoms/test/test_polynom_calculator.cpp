@@ -91,3 +91,19 @@ TEST_F(PolynomCalculatorTest, Can_Mult_Polynoms) {
 
     Assert("12.00000");
 }
+
+TEST_F(PolynomCalculatorTest, Add_When_One_Polynom_Without_Args) {
+    vector<string> args = {"2", "3y", "+", "2"};
+
+    Act(args);
+
+    Assert("8.00000");
+}
+
+TEST_F(PolynomCalculatorTest, Polynoms_Without_Args) {
+    vector<string> args = {"2", "3", "+"};
+
+    Act(args);
+
+    Assert("5.00000");
+}
