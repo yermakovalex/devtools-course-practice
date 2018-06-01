@@ -143,10 +143,19 @@ TEST(Gladyshev_Alexey_StackTest, Cant_pop_from_empty_5e2shAra) {
     EXPECT_ANY_THROW(stack.Pop());
 }
 
-TEST(Gladyshev_Alexey_StackTest, Cant_Top_from_empty_5e2shAra) {
+TEST(Volkov_Daniel_StackTest, Can_create_whis_array) {
     // Arrange
-    TStack<int> stack(5);
-
+    int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
     // Act & Assert
-    EXPECT_ANY_THROW(stack.Top());
+    EXPECT_NO_THROW(TStack<int>* Stack = new TStack<int>(10, arr));
+}
+
+TEST(Volkov_Daniel_StackTest, correct_values_constructor_with_array) {
+    // Arrange
+    TStack<int>* stack;
+    int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+    // Act
+    stack = new TStack<int>(10, arr);
+    // Assert
+    EXPECT_EQ(stack->Pop(), 0);
 }
