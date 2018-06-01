@@ -1,4 +1,4 @@
-// Copyright 2017 Kulikova Svetlana
+// Copyright 2018 Kulikova Svetlana
 
 #include <stdlib.h>
 #include <stdio.h>
