@@ -83,26 +83,19 @@ std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv) {
         return message_;
 
     try {
-        int count1 = 2;
-        int count2 = 3;
-        int count3 = 4;
+        int count = 2;
         for (int i = 0; i < 3; i++) {
             args.plane[i] = {
-                parseDouble(argv[count1]),
-                parseDouble(argv[count2]),
-                parseDouble(argv[count3]) };
-            count1 += 3;
-            count2 += 3;
-            count3 += 3;
+                parseDouble(argv[count++]),
+                parseDouble(argv[count++]),
+                parseDouble(argv[count++]) };
+
         }
         for (int i = 0; i < 2; i++) {
             args.line[i] = {
-                parseDouble(argv[count1]),
-                parseDouble(argv[count2]),
-                parseDouble(argv[count3]) };
-            count1 += 3;
-            count2 += 3;
-            count3 += 3;
+                parseDouble(argv[count++]),
+                parseDouble(argv[count++]),
+                parseDouble(argv[count++]) };
         }
         args.operation = parseOperation(argv[1]);
     }
