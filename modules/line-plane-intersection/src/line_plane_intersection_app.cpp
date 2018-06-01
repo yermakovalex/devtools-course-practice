@@ -107,16 +107,12 @@ std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv) {
         args.line[0], args.line[1]);
     isnt_intersect = line_plane_intesect.GetNotIntersectPlaneLine();
 
-    if (args.operation == "PlaneIntersectLine") {
-        if (isnt_intersect == false)
+    if (isnt_intersect == true)
+        stream << "The plane is not intersecting the line";
+    else {
+        if (args.operation == "PlaneIntersectLine")
             stream << "dot of intersection is = " << dot_of_intesection.x
             << ", " << dot_of_intesection.y << ", " << dot_of_intesection.z;
-        else
-            stream << "The plane is not intersecting the line";
-    }
-    if (args.operation == "GetNotIntersectPlaneLine") {
-        if (isnt_intersect == true)
-            stream << "The plane is not intersecting the line";
         else
             stream << "The plane is intersecting the line";
     }
