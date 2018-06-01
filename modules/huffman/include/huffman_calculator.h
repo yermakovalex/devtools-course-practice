@@ -9,7 +9,6 @@ class HuffmanCalculator {
  public:
     HuffmanCalculator();
     std::string operator()(int argc, const char** argv);
-
  private:
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
