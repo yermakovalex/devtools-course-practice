@@ -37,20 +37,18 @@ double LineSegment::vectorProduct(const LineSegment &line) {
 }
 
 int LineSegment::sign(double  _x1, double _y1) {
-    if (vectorProduct(LineSegment(x1, y1, _x1, _y1))>0)
+    if (vectorProduct(LineSegment(x1, y1, _x1, _y1)) > 0)
         return 1;
-    else if (vectorProduct(LineSegment(x1, y1, _x1, _y1))<0)
+    else if (vectorProduct(LineSegment(x1, y1, _x1, _y1)) < 0)
         return -1;
     else
         return 0;
 }
 
-bool LineSegment::isCross (LineSegment& line) {
+bool LineSegment::isCross(LineSegment& line) {
     if (sign(line.x1, line.y1)* sign(line.x2, line.y2) <= 0
-            && line.sign(x1, y1)* line.sign(x2,y2)<=0){
+            && line.sign(x1, y1)* line.sign(x2, y2) <= 0)
         return true;
-    }
-    else {
+    else
         return false;
-    }
 }
