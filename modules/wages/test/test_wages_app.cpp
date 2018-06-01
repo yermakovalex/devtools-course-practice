@@ -136,7 +136,8 @@ TEST(Application, can_app) {
     argv[1] = const_cast<char*>("CalculationOvertimePayment");
     app(argc, argv);
 
-    argv[1] = const_cast<char*>("Something");
+    argv[1] = const_cast<char*>("CalculationWagesWithoutOvertime");
+    app(argc, argv);
 
     ASSERT_NO_THROW(app.GetCalculatedValues());
 }
