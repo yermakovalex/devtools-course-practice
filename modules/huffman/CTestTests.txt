@@ -52,9 +52,9 @@ set_tests_properties (${prefix}_can_Encode_Special_Symbol_From_Str PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Encode_With_Spaces_And_Quots
-    COMMAND ${APPLICATION} "text1"" text2"
+    NAME ${prefix}_can_Encode_With_Spaces
+    COMMAND ${APPLICATION} "text1 text2"
 )
-set_tests_properties (${prefix}_can_Encode_With_Spaces_And_Quots PROPERTIES
-    PASS_REGULAR_EXPRESSION "\"\"\" is encoded as \"1001\"\n"
+set_tests_properties (${prefix}_can_Encode_With_Spaces PROPERTIES
+    PASS_REGULAR_EXPRESSION "\"\ \" is encoded as \"1010\"\n"
     LABELS "${MODULE}")
