@@ -83,10 +83,6 @@ std::string GraphDiameterApp::operator()(int argc, const char** argv) {
     catch(std::string& str) {
         return str;
     }
-    catch (std::exception& exc) {
-        return
-            std::string("Wrong format integer number or out of range");
-    }
 
     GraphDiameter graph(args.size, args.matrix);
     std::ostringstream stream;
