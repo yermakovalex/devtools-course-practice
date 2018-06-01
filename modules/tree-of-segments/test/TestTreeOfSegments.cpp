@@ -56,14 +56,14 @@ TEST(TreeOfSegments, can_compare_trees) {
 }
 
 TEST(TreeOfSegments, can_create_copy_tree) {
-    //Arrange
+    // Arrange
     int n = 3;
     int* a = new int[3];
     a[0] = 1;
     a[1] = 2;
     a[2] = 100;
 
-    //Act
+    // Act
     TreeOfSegmets<int> ts1(n, a);
 
     // Assert
@@ -123,7 +123,7 @@ TEST(TreeOfSegments, can_equate_itself) {
 }
 
 TEST(TreeOfSegments, can_find_sum) {
-    //Arrange
+    // Arrange
     int n = 3;
     int* a = new int[3];
     a[0] = 1;
@@ -181,7 +181,7 @@ TEST(TreeOfSegments, can_not_find_sum_with_right_less_left) {
 
     // Act
     TreeOfSegmets<int> ts1(n, a);
- 
+
     // Assert
     ASSERT_ANY_THROW(ts1.sum(2, 0));
 }
