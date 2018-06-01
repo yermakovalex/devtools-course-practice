@@ -3,9 +3,25 @@
 #include "include/Triangles.h"
 #include <math.h>
 
+Vertex::Vertex() {
+    x = 0;
+    y = 0;
+}
+
 Vertex::Vertex(double _x, double _y) {
   x = _x;
   y = _y;
+}
+
+Triangles::Triangles(Vertex _first, Vertex _second, Vertex _third) :
+        first(_first), second(_second), third(_third) {
+    // constructor with parameters
+    double right = (third.x - first.x) / (second.x - first.x);
+    double left = (third.y - first.y) / (second.y - first.y);
+    if (right == left) {
+        throw std::logic_error
+        ("These points do not form a triangle!They lie on one straight line!!");
+    }
 }
 
 double Triangles::Length(Vertex a, Vertex b) {

@@ -12,13 +12,13 @@ DescretePD::DescretePD() {}
 void DescretePD::setData(const std::vector<double> &values,
   const std::vector<double> &probabilities) {
     if (values.size() != probabilities.size()) {
-        throw std::logic_error("Sizes of vectors do not match");
+        throw std::string("Sizes of vectors do not match");
     } else {
         if (verifyProbabilities(probabilities)) {
             values_ = values;
             probabilities_ = probabilities;
         } else {
-            throw std::logic_error("Invalid probabilities values");
+            throw std::string("Invalid probabilities values");
         }
     }
   }

@@ -1,6 +1,7 @@
 // Copyright 2018 Krasikova Ekaterina
 #include "include/leftist_heap.h"
 #include <queue>
+#include <string>
 #include <stdexcept>
 leftist_heap::leftist_heap() {
     root = nullptr;
@@ -123,14 +124,26 @@ void leftist_heap::insert(int k) {
 }
 int leftist_heap::minKey() {
     if (root == nullptr)
-        throw std::logic_error("Can't find minimum in empty heap");
+        throw std::string("Can't find minimum in empty heap");
     return root->key;
 }
 void leftist_heap::deleteMin() {
     if (root == nullptr)
-        throw std::logic_error("Can't delete node from empty heap");
+        throw std::string("Can't delete node from empty heap");
     leftist_heap left(root->left), *right = new leftist_heap(root->right);
     left.merge(right);
     root = left.root;
     left.root = nullptr;
+}
+leftist_heap::operator std::string() {
+    leftist_heap h = *this;
+    std::string str;
+    while (h.root != nullptr) {
+        str += std::to_string(h.minKey());
+        str += ' ';
+        h.deleteMin();
+    }
+    if (str.size())
+        str.pop_back();
+    return str;
 }

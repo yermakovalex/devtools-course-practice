@@ -90,3 +90,12 @@ TEST(Gorelova_Ksenia_SearchTree_Test, can_destroy_empty_tree) {
     ASSERT_NO_THROW(tree->~SearchTree());
     delete tree;
 }
+
+TEST(Gladyshev_Alexey_SearchTree_Test, I_must_cover_PrintTree) {
+    SearchTree tree;
+    tree.Insert(47);
+    tree.Insert(46);
+    tree.Insert(48);
+
+    ASSERT_NO_THROW(tree.PrintTree());
+}

@@ -8,14 +8,14 @@
 class ConverterNumbersInWords {
  public:
   ConverterNumbersInWords();
-  explicit ConverterNumbersInWords(const double number);
-  void SetNumber(const double number);
+  explicit ConverterNumbersInWords(const int number);
+  void SetNumber(const int number);
   double GetNumber();
 
   std::string ConvertToWords();
 
  private:
-  double number;
+  int number;
   int GetLastDigit(int number);
   int GetTen(int number);
   int GetHundred(int number);

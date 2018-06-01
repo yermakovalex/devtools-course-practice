@@ -1,0 +1,108 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a numerical integration application"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 1.0 2.0
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 4 arguments."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format_Double
+    COMMAND ${APPLICATION} pi 1.0 2 RiemannSumLeft
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_Double PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format_Int
+    COMMAND ${APPLICATION} 0.0 1.0 pi RiemannSumLeft
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_Int PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Method_Format
+    COMMAND ${APPLICATION} 1.0 1.0 1 Hello
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Method_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong method format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_RiemannSumLeft
+    COMMAND ${APPLICATION} 1.0 10.0 1000 RiemannSumLeft
+)
+set_tests_properties (${prefix}_can_RiemannSumLeft PROPERTIES
+    PASS_REGULAR_EXPRESSION "result = 402.783"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_TrapezoidalRule
+    COMMAND ${APPLICATION} 1.0 10.0 1000 TrapezoidalRule
+)
+set_tests_properties (${prefix}_can_TrapezoidalRule PROPERTIES
+    PASS_REGULAR_EXPRESSION "result = 403.333"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_SimpsonRule
+    COMMAND ${APPLICATION} 1.0 10.0 1000 SimpsonRule
+)
+set_tests_properties (${prefix}_can_SimpsonRule PROPERTIES
+    PASS_REGULAR_EXPRESSION "result = 403.333"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Simpson3_8Rule
+    COMMAND ${APPLICATION} 1.0 10.0 1000 Simpson3_8Rule
+)
+set_tests_properties (${prefix}_can_Simpson3_8Rule PROPERTIES
+    PASS_REGULAR_EXPRESSION "result = 403.333"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_BooleRule
+    COMMAND ${APPLICATION} 1.0 10.0 1000 BooleRule
+)
+set_tests_properties (${prefix}_can_BooleRule PROPERTIES
+    PASS_REGULAR_EXPRESSION "result = 403.333"
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_NewtonCotes5
+    COMMAND ${APPLICATION} 1.0 10.0 1000 NewtonCotes5
+)
+set_tests_properties (${prefix}_can_NewtonCotes5 PROPERTIES
+    PASS_REGULAR_EXPRESSION "result = 403.333"
+    LABELS "${MODULE}")
+    
+add_test(
+    NAME ${prefix}_can_GaussianQuadrature
+    COMMAND ${APPLICATION} 1.0 10.0 1000 GaussianQuadrature
+)
+set_tests_properties (${prefix}_can_GaussianQuadrature PROPERTIES
+    PASS_REGULAR_EXPRESSION "result = 403.333"
+    LABELS "${MODULE}")

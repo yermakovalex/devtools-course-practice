@@ -43,7 +43,7 @@ class Huffman {
     Huffman() {
       H_tree = nullptr;
     }
-    explicit Huffman(char* text);  // constructor fills frequency array
+    explicit Huffman(const char* text);  // constructor fills frequency array
     ~Huffman();
     map<char, char*> Encode();  // Encode function
 };

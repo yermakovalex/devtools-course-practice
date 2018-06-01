@@ -223,3 +223,9 @@ TEST(MatrixCalculatorTest, correct_inverse) {
 
     EXPECT_EQ(matrix1.InverseMatrix(), real_res);
 }
+
+TEST(MatrixCalculatorTest, right_output) {
+    MatrixCalculator matrix1(1, 1);
+
+    ASSERT_NO_THROW(std::cout << matrix1);
+}

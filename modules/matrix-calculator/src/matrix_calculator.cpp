@@ -3,21 +3,21 @@
 #include "include/matrix_calculator.h"
 #include <iostream>
 #include <cmath>
+#include <string>
 #include <cstddef>
 #include <vector>
-using matrix_type = std::vector<std::vector<double>>;
+
 
 MatrixCalculator::MatrixCalculator() {
-    matrix = std::vector<std::vector<double > >
-        (1, std::vector<double>(1, 0.0));
+    matrix = std::vector<std::vector<double>> (1, std::vector<double>(1, 0.0));
 }
 
-MatrixCalculator::MatrixCalculator(const int rows, const int columns) {
+MatrixCalculator::MatrixCalculator(int rows, int columns) {
     if (rows < 0 || columns < 0) {
         throw "Enter positive integer numbers";
     }
 
-    matrix = std::vector<std::vector<double > >(rows,
+    matrix = std::vector<std::vector<double>>(rows,
         std::vector<double>(columns, 0.0));
 }
 
@@ -25,7 +25,7 @@ MatrixCalculator::MatrixCalculator(const MatrixCalculator& _matrix) {
     matrix = _matrix.matrix;
 }
 
-void MatrixCalculator::SetMatrix(matrix_type &_vector) {
+void MatrixCalculator::SetMatrix(matrix_type& _vector) {
     for (size_t i = 1; i < _vector.size(); i++) {
         if (_vector[i - 1].size() != _vector[i].size()) {
             throw "Size of columns should be the same";
@@ -51,14 +51,13 @@ bool MatrixCalculator::AreSizesEqual(const MatrixCalculator& _matrix) const {
 }
 
 MatrixCalculator& MatrixCalculator::operator=
-    (const MatrixCalculator& _matrix) {
+                                  (const MatrixCalculator& _matrix) {
     matrix = _matrix.matrix;
-
     return *this;
 }
 
 MatrixCalculator MatrixCalculator::operator+
-    (const MatrixCalculator& _matrix) const {
+                                  (const MatrixCalculator& _matrix) const {
     MatrixCalculator result(*this);
 
     if (!AreSizesEqual(_matrix)) {
@@ -74,7 +73,7 @@ MatrixCalculator MatrixCalculator::operator+
 }
 
 MatrixCalculator MatrixCalculator::operator-
-    (const MatrixCalculator& _matrix) const {
+                                  (const MatrixCalculator& _matrix) const {
     MatrixCalculator result(*this);
 
     if (!AreSizesEqual(_matrix)) {
@@ -91,7 +90,7 @@ MatrixCalculator MatrixCalculator::operator-
 }
 
 MatrixCalculator MatrixCalculator::operator*
-           (const MatrixCalculator& _matrix) const {
+                                   (const MatrixCalculator& _matrix) const {
     if (matrix[0].size() != _matrix.matrix.size()) {
         throw "Size of rows should be equal to size of columns";
     } else {
@@ -111,7 +110,7 @@ MatrixCalculator MatrixCalculator::operator*
 
 double MatrixCalculator::determinant() const {
     if (matrix.size() != matrix[0].size()) {
-        throw "Matrix should be squard";
+        throw "Matrix should be square";
     }
 
     double tmp, det = 1;
@@ -143,12 +142,12 @@ double MatrixCalculator::determinant() const {
 }
 
 MatrixCalculator MatrixCalculator::InverseMatrix() const {
-    if (this->determinant() == 0) {
+    double det = determinant();
+    if (det == 0) {
         throw "Determinant must not be equal to zero";
     }
 
     MatrixCalculator inverse_matrix(*this);
-    double det = this->determinant();
 
     for (size_t i = 0; i < matrix.size(); i++) {
         for (size_t j = 0; j < matrix.size(); j++) {
@@ -184,11 +183,34 @@ MatrixCalculator MatrixCalculator::Prepare_for_minores(int n,
 }
 
 MatrixCalculator MatrixCalculator::Transpon(int n) const {
-    MatrixCalculator temp(*this);;
+    MatrixCalculator temp(*this);
 
     for (size_t i = 0; i < (size_t)n; i++)
         for (size_t j = 0; j < (size_t)n; j++)
             temp.matrix[j][i] = matrix[i][j];
 
     return temp;
+}
+
+std::ostream& operator<<(std::ostream& stream,
+                         const MatrixCalculator & result) {
+  for (size_t i = 0; i < result.matrix.size(); i++) {
+      for (size_t j = 0; j < result.matrix[i].size(); j++) {
+        std::cout << result.matrix[i][j] << " ";
+      }
+      std::cout << '\n';
+    }
+    return stream;
+  }
+
+std::string MatrixCalculator::matrix_to_string() {
+  std::string s;
+  for (size_t i = 0; i < matrix.size(); i++) {
+      for (size_t j = 0; j < matrix.size(); j++) {
+        s += matrix[i][j];
+        s += " ";
+      }
+      s += '\n';
+    }
+    return s;
 }

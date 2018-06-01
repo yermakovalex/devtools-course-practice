@@ -5,12 +5,12 @@
 #include <string>
 #include <stdexcept>
 
-ConverterNumbersInWords::ConverterNumbersInWords() : number(0.0) {}
+ConverterNumbersInWords::ConverterNumbersInWords() : number(0) {}
 
-ConverterNumbersInWords::ConverterNumbersInWords(const double number_)
+ConverterNumbersInWords::ConverterNumbersInWords(const int number_)
   : number(number_) {}
 
-void ConverterNumbersInWords::SetNumber(const double number_) {
+void ConverterNumbersInWords::SetNumber(const int number_) {
   number = number_;
 }
 
@@ -19,28 +19,27 @@ double ConverterNumbersInWords::GetNumber() {
 }
 
 std::string ConverterNumbersInWords::ConvertToWords() {
-  int number_ = static_cast<int>(number);
-  int hundred = GetRemainderOfDivisionBy1000(number_);
-  int thousand = GetThousand(number_);
-  int million = GetMillion(number_);
+  int hundred = GetRemainderOfDivisionBy1000(number);
+  int thousand = GetThousand(number);
+  int million = GetMillion(number);
 
   std::string result = "";
-  if (number < 0.0) {
+  if (number < 0) {
     return GetWorldForElementaryNumber(-1);
   } else {
-    if (number == 0.0) {
+    if (number == 0) {
       result = "zero";
-    } else if (number <= 999999999.0) {
+    } else if (number <= 999999999) {
       if (million != 0) {
         result = GetWordsForNumberFrom_1_To_999(million) + " million";
-        number_ = number_ % 1000000;
-        if (number_ != 0)
+        number = number % 1000000;
+        if (number != 0)
           result += " ";
       }
       if (thousand != 0) {
         result += GetWordsForNumberFrom_1_To_999(thousand) + " thousand";
-        number_ = number_ % 1000;
-        if (number_ != 0)
+        number = number % 1000;
+        if (number != 0)
           result += " ";
       }
       if (hundred != 0) {
@@ -48,7 +47,7 @@ std::string ConverterNumbersInWords::ConvertToWords() {
       }
     } else {
       throw std::
-        logic_error("Input error: number is too large for our converter.\n");
+        string("Input error: number is too large for our converter.\n");
     }
   }
   return result;
@@ -234,7 +233,7 @@ std::string ConverterNumbersInWords::GetWorldForElementaryNumber(int number) {
     return "nine hundred";
     break;
   default:
-    throw std::logic_error("Input error: number must be pozitive.\n");
+    throw std::string("Input error: number must be pozitive.\n");
     break;
   }
 }

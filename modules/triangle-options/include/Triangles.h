@@ -9,10 +9,7 @@
 struct Vertex {
   double x, y;  // the coordinates of the point
 
-  Vertex() {
-    x = 0;
-    y = 0;
-  }
+  Vertex();
   Vertex(double _x, double _y);
 
   bool operator==(const Vertex& a) const {
@@ -31,15 +28,7 @@ class Triangles {  // class of calculation of parameters of triangle
 
  public:
   Vertex Get_Vertex(num_of_ver num) const;
-  Triangles(Vertex _first, Vertex _second, Vertex _third) : first(_first),
-    second(_second), third(_third) {  // constructor with parameters
-  double right = (third.x - first.x) / (second.x - first.x);
-  double left = (third.y - first.y) / (second.y - first.y);
-  if (right == left) {
-    throw std::logic_error
-    ("These points do not form a triangle!They lie on one straight line!!");
-  }
-  }
+  Triangles(Vertex _first, Vertex _second, Vertex _third);
   Triangles(const Triangles& obj);  // copy constructor
 
   // numeric parameter
