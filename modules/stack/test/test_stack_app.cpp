@@ -16,7 +16,7 @@ using std::string;
 class StackAppTest : public ::testing::Test {
  protected:
     void Act(vector<string> args) {
-		vector<const char*> options;
+        vector<const char*> options;
         options.push_back("appname");
         for (size_t i = 0; i < args.size(); ++i) {
             options.push_back(args[i].c_str());
