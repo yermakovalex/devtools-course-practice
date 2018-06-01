@@ -45,7 +45,7 @@ std::string StackApp::operator()(int argc, const char** argv) {
         data = new int[size];
         for (int i = 0; i < size; i++)
             data[i] = parseInt(argv[i + 2]);
-        TStack<int> hc(size, data);
+        TStack<int> dc(size, data);
         std::ostringstream stream;
         stream << "Your stack is full!\n{ ";
         for (int i = 0; i < size-1; i++) {
