@@ -69,10 +69,10 @@ TEST_F(DebtServiceCalculatorTest, Can_Detect_Wrong_Number_Format_Int) {
 
     Act(args);
 
-    Assert("Wrong number format!.*");
+    Assert("Wrong number format!");
 }
 
-TEST_F(DebtServiceCalculatorTest, Can_Detect_Wrong_Operation_Format_Type) {
+TEST_F(DebtServiceCalculatorTest, Can_Detect_Wrong_Number_Format_Type) {
     vector<string> args = { "1", "1", "1", "33", "2" };
 
     Act(args);
@@ -80,7 +80,7 @@ TEST_F(DebtServiceCalculatorTest, Can_Detect_Wrong_Operation_Format_Type) {
     Assert("Type of service not defined!");
 }
 
-TEST_F(DebtServiceCalculatorTest, Can_Detect_Wrong_Operation_Format_Operation) {
+TEST_F(DebtServiceCalculatorTest, Can_Detect_Wrong_Operation_Format) {
     vector<string> args = { "1", "1", "1", "2", "33" };
 
     Act(args);

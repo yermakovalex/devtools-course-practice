@@ -1,4 +1,4 @@
-// Copyright 2018 Sharov Ivan
+// Copyright 2018 Vyunov Roman
 
 #include "include/debt_service.h"
 
