@@ -27,7 +27,7 @@ class Application {
     double administrativeLeaveHours,
     double overtime, Month month);
 
-    std::string operator()(int argc, char** argv);
+    std::string operator()(int argc, const char** argv);
 };
 
 #endif   //  MODULES_WAGES_INCLUDE_WAGES_APP_H_

@@ -10,16 +10,16 @@ using std::vector;
 
 class WagesAppTest : public::testing::Test {
  protected:
-    void Act(vector<std::string> args_) {
-        char** argv = new char*[6];
-        argv[0] = const_cast<char*>("appname");
-        for (unsigned int i = 1; i < args_.size() + 1; i++) {
-            argv[i] = new char[args_[i - 1].length()];
-            for (unsigned int j = 0; j < args_[i - 1].length(); j++)
-                argv[i][j] = args_[i - 1][j];
+        void Act(vector<std::string> args_) {
+        vector<const char*> options;
+
+        options.push_back("appname");
+        for (size_t i = 0; i < args_.size(); ++i) {
+            options.push_back(args_[i].c_str());
         }
 
-        int argc = static_cast<int>(args_.size());
+        const char** argv = &options.front();
+        int argc = static_cast<int>(args_.size()) + 1;
 
         output_ = app_(argc, argv);
     }
@@ -112,23 +112,24 @@ TEST(Application, can_int_to_Month) {
 TEST(Application, can_app) {
     Application app;
     unsigned int argc = 6;
-    char** argv = new char*[argc];
-    argv[1] = const_cast<char*>("CalculateWages");
-    argv[2] = const_cast<char*>("10000");
-    argv[3] = const_cast<char*>("1");
-    argv[4] = const_cast<char*>("1");
-    argv[5] = const_cast<char*>("1");
+    vector<const char*> argv;
+    argv.push_back(const_cast<char*>("CalculateWages"));
+    argv.push_back(const_cast<char*>("10000"));
+    argv.push_back(const_cast<char*>("1"));
+    argv.push_back(const_cast<char*>("1"));
+    argv.push_back(const_cast<char*>("1"));
+    const char** arg = &argv.front();
 
-    app(argc, argv);
+    app(argc, arg);
 
-    argv[1] = const_cast<char*>("HourlyPay");
-    app(argc, argv);
+    arg[1] = const_cast<char*>("HourlyPay");
+    app(argc, arg);
 
-    argv[1] = const_cast<char*>("CalculationOvertimePayment");
-    app(argc, argv);
+    arg[1] = const_cast<char*>("CalculationOvertimePayment");
+    app(argc, arg);
 
-    argv[1] = const_cast<char*>("CalculationWagesWithoutOvertime");
-    app(argc, argv);
+    arg[1] = const_cast<char*>("CalculationWagesWithoutOvertime");
+    app(argc, arg);
 
     ASSERT_NO_THROW(app.GetCalculatedValues());
 }

@@ -147,7 +147,7 @@ double administrativeLeaveHours, double overtime, Month month) {
     return "\nOvertime payment = " + DoubleToString(calculatedValues) + "\n";
 }
 
-std::string Application::operator()(int argc, char ** argv) {
+std::string Application::operator()(int argc, const char ** argv) {
     if (argc == 0)
         return "Argument 1 is not correct";
     if (argc == 1)
