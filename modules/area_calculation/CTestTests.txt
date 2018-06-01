@@ -18,3 +18,26 @@ add_test(
 set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "This is a area calculation application\\..*"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Uncorrectly_Numbers_Arguments
+    COMMAND ${APPLICATION} 1 2.0
+)
+set_tests_properties (${prefix}_can_Uncorrectly_Numbers_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be Should be size multiplication 2 plus 1 arguments\\..*"
+    LABELS "${MODULE}")
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_First_Argument
+    COMMAND ${APPLICATION} 1uy 1.0 2.0 
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_First_Argument PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong int format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Double_Type_Argument
+    COMMAND ${APPLICATION} 3 1.0,0 2.0 3.0 4.0 5.0 6.0
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Double_Type_Argument PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong double format!"
+    LABELS "${MODULE}")

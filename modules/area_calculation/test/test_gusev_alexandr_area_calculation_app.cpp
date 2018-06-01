@@ -24,10 +24,8 @@ class AreaCalculationAppTest : public ::testing::Test {
         for (size_t i = 0; i < args_.size(); ++i) {
             options.push_back(args_[i].c_str());
         }
-
         const char** argv = &options.front();
         int argc = static_cast<int>(args_.size()) + 1;
-
         output_ = app_(argc, argv);
     }
 
@@ -49,12 +47,20 @@ TEST_F(AreaCalculationAppTest, No_Arguments_Test) {
     Assert("This is a area calculation application\\..*");
 }
 TEST_F(AreaCalculationAppTest, UnCorrectly_Arguments_Test) {
-	// Arrange
-	vector<string> args = { "3", "1.0.1", "2.0", "3.0", "1.0", "2.0", "1.0"};
-	// Act
-	Act(args);
-	// Assert
-	Assert("Wrong number format!");
+    // Arrange
+    vector<string> args = { "3", "1.0.1", "2.0", "3.0", "1.0", "2.0", "1.0"};
+    // Act
+    Act(args);
+    // Assert
+    Assert("Wrong double format!");
+}
+TEST_F(AreaCalculationAppTest, UnCorrectly_Int_Arguments_Test) {
+    // Arrange
+    vector<string> args = { "3.0", "1.0", "2.0", "3.0", "1.0", "2.0", "1.0" };
+    // Act
+    Act(args);
+    // Assert
+    Assert("Wrong int format!");
 }
 TEST_F(AreaCalculationAppTest, Correctly_Area_Calculation_Test) {
     // Arrange
@@ -64,11 +70,11 @@ TEST_F(AreaCalculationAppTest, Correctly_Area_Calculation_Test) {
     // Assert
     Assert("area = 1");
 }
-/*TEST_F(AreaCalculationAppTest, Uncorrectly_Number_Arguments_Test) {
-	// Arrange
-	vector<string> args = { "1", "2"};
-	// Act
-	Act(args);
-	// Assert
-	Assert("ERROR: Should be size * 2 + 1 arguments\\..");
-}*/
+TEST_F(AreaCalculationAppTest, Uncorrectly_Number_Arguments_Test) {
+    // Arrange
+    vector<string> args = { "3", "2.0"};
+    // Act
+    Act(args);
+    // Assert
+    Assert("ERROR: Should be size multiplication 2 plus 1 arguments\\..*");
+}
