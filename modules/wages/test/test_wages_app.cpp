@@ -46,7 +46,7 @@ TEST_F(WagesAppTest, error_when_argv_1_is_null) {
 }
 
 TEST_F(WagesAppTest, error_when_argv_2_is_null) {
-    vector<std::string> argc = {"10000"};
+    vector<std::string> argc = {"1"};
 
     Act(argc);
 
@@ -54,7 +54,7 @@ TEST_F(WagesAppTest, error_when_argv_2_is_null) {
 }
 
 TEST_F(WagesAppTest, error_when_argv_3_is_null) {
-    vector<std::string> argc = {"10000", "1"};
+    vector<std::string> argc = {"1", "1"};
 
     Act(argc);
 
@@ -62,7 +62,7 @@ TEST_F(WagesAppTest, error_when_argv_3_is_null) {
 }
 
 TEST_F(WagesAppTest, error_when_argv_4_is_null) {
-    vector<std::string> argc = { "10000", "1", "1" };
+    vector<std::string> argc = { "1", "1", "1" };
 
     Act(argc);
 
@@ -70,7 +70,7 @@ TEST_F(WagesAppTest, error_when_argv_4_is_null) {
 }
 
 TEST_F(WagesAppTest, error_when_argv_5_is_null) {
-    vector<std::string> argc = { "10000", "1", "1", "1"};
+    vector<std::string> argc = { "1", "1", "1", "1"};
 
     Act(argc);
 
