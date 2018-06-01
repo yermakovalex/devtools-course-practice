@@ -15,8 +15,8 @@ void QuickSortApp::help(const char* appname, const char* message) {
           "This is a quick sort application.\n\n" +
           "Please provide arguments in the following format:\n\n"+
 
-          "  $ " + appname + " <num of array>, <left index>,  " +
-          "<right index> , <array> \n\n" +
+          "  $ " + appname + " <num of array>, <first index>,  " +
+          "<last index> , <array> \n\n" +
 
           "Examples: " +
           " $" + appname + "9, 0, 8, 0 3 1 5 7 4 2 6 9 ";
