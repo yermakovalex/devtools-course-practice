@@ -89,7 +89,6 @@ std::string LinePlaneIntersectionApp::operator()(int argc, const char ** argv) {
                 parseDouble(argv[count++]),
                 parseDouble(argv[count++]),
                 parseDouble(argv[count++]) };
-
         }
         for (int i = 0; i < 2; i++) {
             args.line[i] = {
