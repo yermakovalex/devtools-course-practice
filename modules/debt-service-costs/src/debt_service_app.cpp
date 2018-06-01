@@ -45,8 +45,7 @@ bool DebtServiceCalculator::
         if ((argc != 6) && (argc != 7)) {
             help(argv[0], "ERROR: Should be 5 or 6 arguments.\n\n");
             return false;
-        }
-        else
+        } else
             return true;
     }
 }
