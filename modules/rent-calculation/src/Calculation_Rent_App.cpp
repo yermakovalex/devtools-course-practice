@@ -3,10 +3,10 @@
 #include "include/Calculation_Rent.h"
 #include "include/Calculation_Rent_App.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstdint>
+#include <cstring>
 #include <string>
 #include <sstream>
 

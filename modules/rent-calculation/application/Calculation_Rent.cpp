@@ -1,7 +1,7 @@
 // Copyright 2018 Lenkin Slava
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <string>
 
 #include "include/Calculation_Rent_App.h"
