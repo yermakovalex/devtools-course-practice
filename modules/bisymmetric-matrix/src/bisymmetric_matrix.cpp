@@ -34,11 +34,11 @@ void Matrix::Input(void) {
 void Matrix::Output(void) {
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++)
-            cout << GetElem(i, j) << "\t";
-        cout << endl;
+            std::cout << GetElem(i, j) << "\t";
+        std::cout << std::endl;
     }
 
-    cout << endl;
+    std::cout << std::endl;
 }
 
 int Matrix::GetElem(int row, int col) {
