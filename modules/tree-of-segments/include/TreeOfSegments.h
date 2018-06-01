@@ -7,13 +7,13 @@
 
 template<class T>
 class TreeOfSegmets {
-protected: 
+ protected:
     int n;
     T* arr;
     void build(T* a, int vert, int left, int right);
     T sum(int vert, int lbord, int rbord, int left, int right);
     void update(int vert, int lbord, int rbord, int pos, T val);
-public: 
+ public:
     TreeOfSegmets(int size, T* a);
     TreeOfSegmets(const TreeOfSegmets<T>& st);
     ~TreeOfSegmets();

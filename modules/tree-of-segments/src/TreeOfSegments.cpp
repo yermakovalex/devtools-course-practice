@@ -1,7 +1,7 @@
 // Copyright 2018 Kovshov Andrey
 
-#ifndef  MODULES_TREE_OF_SEGMENTS_CPP_
-#define  MODULES_TREE_OF_SEGMENTS_CPP_
+#ifndef MODULES_TREE_OF_SEGMENTS_SRC_TREEOFSEGMENTS_CPP_
+#define MODULES_TREE_OF_SEGMENTS_SRC_TREEOFSEGMENTS_CPP_
 
 #include <algorithm>
 #include <stdexcept>
@@ -114,4 +114,4 @@ TreeOfSegmets<T> & TreeOfSegmets<T>::operator=(const TreeOfSegmets<T> & st) {
     return *this;
 }
 
-#endif  // MODULES_TREE_OF_SEGMENTS_CPP_
+#endif  // MODULES_TREE_OF_SEGMENTS_SRC_TREEOFSEGMENTS_CPP_
