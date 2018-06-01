@@ -5,8 +5,10 @@
 
 #include <string>
 #include <vector>
+#include <utility>
 
 using std::vector;
+using std::pair;
 
 class IntegerNumericalInterval {
  public:
@@ -22,7 +24,7 @@ class IntegerNumericalInterval {
     bool isContainsRange(const IntegerNumericalInterval& ni) const;
 
     vector<int> getAllPoints() const;
-    vector<int> getEndPoints() const;
+    pair<int, int> getEndPoints() const;
 
     bool operator == (const IntegerNumericalInterval& ni) const;
     bool operator != (const IntegerNumericalInterval& ni) const;

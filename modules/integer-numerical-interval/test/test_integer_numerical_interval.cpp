@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 #include <vector>
 #include <string>
+#include <utility>
 
 #include "include/integer_numerical_interval.h"
 
@@ -53,25 +54,25 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
 }
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest,
-    Can_not_Create_Wrong_Interval_Position) {
+    Can_Not_Create_Wrong_Interval_Position) {
     // Assert
     EXPECT_ANY_THROW(IntegerNumericalInterval(7, 5, true, true));
 }
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest,
-    Can_not_Create_Wrong_Interval_Point) {
+    Can_Not_Create_Wrong_Interval_Point) {
     // Assert
     EXPECT_ANY_THROW(IntegerNumericalInterval(5, 5, false, false));
 }
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest,
-    Can_not_Create_Wrong_Interval_Empty) {
+    Can_Not_Create_Wrong_Interval_Empty) {
     // Assert
     EXPECT_ANY_THROW(IntegerNumericalInterval(4, 5, false, false));
 }
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest,
-    Can_not_Create_Wrong_Interval_From_String) {
+    Can_Not_Create_Wrong_Interval_From_String) {
     // Arrange
     std::string interval = "[15,11]";
 
@@ -138,10 +139,10 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
 TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_End_Points) {
     // Arrange
     IntegerNumericalInterval ni("[1,2]");
-    vector<int> endPointsR = { 1, 2 };
+    pair<int, int> endPointsR = { 1, 2 };
 
     // Act
-    vector<int> endPoints = ni.getEndPoints();
+    pair<int, int> endPoints = ni.getEndPoints();
 
     // Assert
     EXPECT_EQ(endPoints, endPointsR);
@@ -150,10 +151,10 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_End_Points) {
 TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_End_Points_Point) {
     // Arrange
     IntegerNumericalInterval ni("[1,1]");
-    vector<int> endPointsR = { 1, 1 };
+    pair<int, int> endPointsR = { 1, 1 };
 
     // Act
-    vector<int> endPoints = ni.getEndPoints();
+    pair<int, int> endPoints = ni.getEndPoints();
 
     // Assert
     EXPECT_EQ(endPoints, endPointsR);
@@ -163,10 +164,10 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
     Can_Get_End_Points_Open_Interval) {
     // Arrange
     IntegerNumericalInterval ni("(1,6)");
-    vector<int> endPointsR = { 2, 5 };
+    pair<int, int> endPointsR = { 2, 5 };
 
     // Act
-    vector<int> endPoints = ni.getEndPoints();
+    pair<int, int> endPoints = ni.getEndPoints();
 
     // Assert
     EXPECT_EQ(endPoints, endPointsR);
@@ -176,10 +177,10 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
     Can_Get_End_Points_Open_Interval_With_One_Point) {
     // Arrange
     IntegerNumericalInterval ni("(1,3)");
-    vector<int> endPointsR = { 2, 2 };
+    pair<int, int> endPointsR = { 2, 2 };
 
     // Act
-    vector<int> endPoints = ni.getEndPoints();
+    pair<int, int> endPoints = ni.getEndPoints();
 
     // Assert
     EXPECT_EQ(endPoints, endPointsR);
@@ -318,4 +319,55 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
 
     // Assert
     EXPECT_TRUE(ni.isHaveOverlapsRange(ni1));
+}
+
+TEST(Gribov_Pavel_IntegerNumericalIntervalTest,
+    Can_Not_Create_Wrong_Interval_Position_From_String) {
+    // Arrange
+    std::string interval = "[7,5]";
+
+    // Assert
+    EXPECT_ANY_THROW(IntegerNumericalInterval ni(interval));
+}
+
+TEST(Gribov_Pavel_IntegerNumericalIntervalTest,
+    Can_Not_Create_Wrong_Negative_Interval_Empty_From_String) {
+    // Arrange
+    std::string interval = "(-5,-4)";
+
+    // Assert
+    EXPECT_ANY_THROW(IntegerNumericalInterval ni(interval));
+}
+
+TEST(Gribov_Pavel_IntegerNumericalIntervalTest,
+    Can_Create_Negative_Interval_From_String) {
+    // Arrange
+    std::string interval = "[-5,-4]";
+
+    // Assert
+    EXPECT_NO_THROW(IntegerNumericalInterval ni(interval));
+}
+
+TEST(Gribov_Pavel_IntegerNumericalIntervalTest,
+    Can_Convert_Interval_With_Different_Border_To_String) {
+    // Arrange
+    std::string interval = "(-5,4)";
+    std::string str;
+
+    IntegerNumericalInterval ni(interval);
+
+    // Act
+    str = std::string(ni);
+
+    // Assert
+    EXPECT_EQ(interval, str);
+}
+
+TEST(Gribov_Pavel_IntegerNumericalIntervalTest,
+    Can_Not_Create_Interval_From_String_Trash) {
+    // Arrange
+    std::string interval = "privet";
+
+    // Assert
+    EXPECT_ANY_THROW(IntegerNumericalInterval ni(interval));
 }
