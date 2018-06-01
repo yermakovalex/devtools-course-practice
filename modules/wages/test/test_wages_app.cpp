@@ -37,7 +37,7 @@ class WagesAppTest : public::testing::Test {
     Application app;
 };
 
-TEST_F(WagesAppTest, _when_argv_1_is_null) {
+TEST_F(WagesAppTest, when_argv_1_is_null) {
     vector<std::string> argc = {};
 
     Act(argc);
@@ -45,7 +45,7 @@ TEST_F(WagesAppTest, _when_argv_1_is_null) {
     Assert("Argument 1 is not correct");
 }
 
-TEST_F(WagesAppTest, _when_argv_2_is_null) {
+TEST_F(WagesAppTest, when_argv_2_is_null) {
     vector<std::string> argc = {"1"};
 
     Act(argc);
@@ -53,7 +53,7 @@ TEST_F(WagesAppTest, _when_argv_2_is_null) {
     Assert("Argument 2 is not correct");
 }
 
-TEST_F(WagesAppTest, _when_argv_3_is_null) {
+TEST_F(WagesAppTest, when_argv_3_is_null) {
     vector<std::string> argc = {"1", "1"};
 
     Act(argc);
@@ -61,7 +61,7 @@ TEST_F(WagesAppTest, _when_argv_3_is_null) {
     Assert("Argument 3 is not correct");
 }
 
-TEST_F(WagesAppTest, _when_argv_4_is_null) {
+TEST_F(WagesAppTest, when_argv_4_is_null) {
     vector<std::string> argc = { "1", "1", "1" };
 
     Act(argc);
@@ -69,7 +69,7 @@ TEST_F(WagesAppTest, _when_argv_4_is_null) {
     Assert("Argument 4 is not correct");
 }
 
-TEST_F(WagesAppTest, _when_argv_5_is_null) {
+TEST_F(WagesAppTest, when_argv_5_is_null) {
     vector<std::string> argc = { "1", "1", "1", "1"};
 
     Act(argc);
