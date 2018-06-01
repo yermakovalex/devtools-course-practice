@@ -67,7 +67,3 @@ bool LineSegment::isCross (LineSegment& line)
     }
 }
 
-LineSegment::~LineSegment()
-{
-
-}
