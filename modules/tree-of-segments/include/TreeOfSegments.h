@@ -1,19 +1,19 @@
- // Copyright 2018 Kovshov Andrey
+// Copyright 2018 Kovshov Andrey
 
-#ifndef MODULES_TREE_OF_SEGMENTS_H_
-#define MODULES_TREE_OF_SEGMENTS_H_
+#ifndef MODULES_TREE_OF_SEGMENTS_INCLUDE_TREEOFSEGMENTS_H_
+#define MODULES_TREE_OF_SEGMENTS_INCLUDE_TREEOFSEGMENTS_H_
 
 #define MAXSIZE 300000
 
 template<class T>
 class TreeOfSegmets {
-protected:
+protected: 
     int n;
     T* arr;
     void build(T* a, int vert, int left, int right);
     T sum(int vert, int lbord, int rbord, int left, int right);
     void update(int vert, int lbord, int rbord, int pos, T val);
-public:
+public: 
     TreeOfSegmets(int size, T* a);
     TreeOfSegmets(const TreeOfSegmets<T>& st);
     ~TreeOfSegmets();
@@ -25,5 +25,5 @@ public:
 
 #include "src/TreeOfSegments.cpp"
 
-#endif  // MODULES_TREE_OF_SEGMENTS_H_
+#endif  // MODULES_TREE_OF_SEGMENTS_INCLUDE_TREEOFSEGMENTS_H_
 
