@@ -40,7 +40,6 @@ bool GraphDiameterApp::validateNumberOfArguments(int argc, const char** argv) {
 
 int parseInt(const char* arg) {
     char* end;
-    // int value = std::stoi(std::string(arg));
     int value = strtod(arg, &end);
 
     if (end[0]) {
@@ -49,17 +48,6 @@ int parseInt(const char* arg) {
 
     return value;
 }
-
-// double parseDouble(const char* arg) {
-//     char* end;
-//     double value = strtod(arg, &end);
-
-//     if (end[0]) {
-//         throw std::string("Wrong number format!");
-//     }
-
-//     return value;
-// }
 
 std::string GraphDiameterApp::operator()(int argc, const char** argv) {
     Arguments args;
