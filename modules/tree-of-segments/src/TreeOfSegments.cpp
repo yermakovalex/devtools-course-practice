@@ -9,10 +9,9 @@
 
 template<class T>
 void TreeOfSegmets<T>::build(T* a, int vert, int lbord, int rbord) {
-	if (lbord == rbord) {
-		arr[vert] = a[lbord];
-	}
-    else {
+    if (lbord == rbord) {
+        arr[vert] = a[lbord];
+    } else {
         int middle = (lbord + rbord) / 2;
         build(a, vert * 2 + 1, lbord, middle);
         build(a, vert * 2 + 2, middle + 1, rbord);
@@ -34,10 +33,9 @@ T TreeOfSegmets<T>::sum(int vert, int lbord, int rbord, int left, int right) {
 
 template<class T>
 void TreeOfSegmets<T>::update(int vert, int lbord, int rbord, int pos, T val) {
-	if (lbord == rbord) {
-		arr[vert] = val;
-	}
-    else {
+    if (lbord == rbord) {
+         arr[vert] = val;
+    } else {
         int middle = (lbord + rbord) / 2;
         if (pos <= middle)
             update(vert * 2 + 1, lbord, middle, pos, val);
