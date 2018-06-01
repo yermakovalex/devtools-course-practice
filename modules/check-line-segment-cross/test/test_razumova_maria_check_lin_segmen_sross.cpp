@@ -34,6 +34,7 @@ TEST (Razumova_Maria_LineCross, Can_create_via_copyng)
 
     //Act
     LineSegment line2(line);
+
     //Assert
     EXPECT_EQ(line, line2);
 }
@@ -63,8 +64,10 @@ TEST(Razumova_Maria_LineCross, Can_compare_not_equal_lines)
      //Arrange
      LineSegment line1(1,1,3,4);
      LineSegment line2(2,2,2,2);
+
      //Act
      line2 = line1;
+
      //Assert
      EXPECT_EQ(line1, line2);
  }
@@ -74,8 +77,10 @@ TEST(Razumova_Maria_LineCross, Can_compare_not_equal_lines)
      //Arrange
      LineSegment line1(1,1,3,4);
      LineSegment line2(2,2,2,2);
+
      //Act
      line2 = line1;
+
      //Assert
      EXPECT_EQ(line1, line2);
  }
