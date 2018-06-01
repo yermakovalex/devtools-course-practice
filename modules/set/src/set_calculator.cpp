@@ -31,9 +31,7 @@ std::string SetCalculator::operator()(int argc, const char ** argv) {
         return message_;
 
     std::stringstream ss;
-    set A;
-    set B;
-    set C;
+    set A, B, C;
     A.Insert(args.vec1);
     B.Insert(args.vec2);
 
