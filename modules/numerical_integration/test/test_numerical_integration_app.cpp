@@ -1,5 +1,4 @@
-// Copyright 2018 Kulikova Svrtlana
-
+// Copyright 2018 Kulikova Svetlana
 #include <gtest/gtest.h>
 
 #include <string>
