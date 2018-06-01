@@ -19,7 +19,7 @@ class WagesAppTest : public::testing::Test {
         }
 
         const char** argv = &options.front();
-        int argc = static_cast<int>(args_.size()) + 1;
+        int argc = static_cast<int>(args_.size());
 
         output_ = app_(argc, argv);
     }
@@ -113,6 +113,7 @@ TEST(Application, can_app) {
     Application app;
     unsigned int argc = 6;
     vector<const char*> argv;
+    argv.push_back(const_cast<char*>("appname"));
     argv.push_back(const_cast<char*>("CalculateWages"));
     argv.push_back(const_cast<char*>("10000"));
     argv.push_back(const_cast<char*>("1"));
@@ -122,13 +123,16 @@ TEST(Application, can_app) {
 
     app(argc, arg);
 
-    arg[1] = const_cast<char*>("HourlyPay");
+    argv[1] = const_cast<char*>("HourlyPay");
+    arg = &argv.front();
     app(argc, arg);
 
-    arg[1] = const_cast<char*>("CalculationOvertimePayment");
+    argv[1] = const_cast<char*>("CalculationOvertimePayment");
+    arg = &argv.front();
     app(argc, arg);
 
-    arg[1] = const_cast<char*>("CalculationWagesWithoutOvertime");
+    argv[1] = const_cast<char*>("CalculationWagesWithoutOvertime");
+    arg = &argv.front();
     app(argc, arg);
 
     ASSERT_NO_THROW(app.GetCalculatedValues());
