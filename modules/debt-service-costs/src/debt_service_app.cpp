@@ -36,7 +36,8 @@ void DebtServiceCalculator::help(const char* appname, const char* message) {
         " <Summa of payment> - input amount\n\n";
 }
 
-bool DebtServiceCalculator::validateNumberOfArguments(int argc, const char** argv) {
+bool DebtServiceCalculator::
+     validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
@@ -45,8 +46,8 @@ bool DebtServiceCalculator::validateNumberOfArguments(int argc, const char** arg
             help(argv[0], "ERROR: Should be 5 or 6 arguments.\n\n");
             return false;
         }
-        else return true;
-
+        else
+            return true;
     }
 }
 
@@ -76,9 +77,8 @@ DebtServiceType parseType(const char* arg) {
     char* end;
     DebtServiceType Type;
     int value = strtol(arg, &end, 10);
-    
-    switch (value)
-    {
+
+    switch (value) {
     case 0: {
         Type = ONE_PAYMENT_AT_THE_END;
         break;
@@ -101,7 +101,7 @@ int parseOperation(const char* arg) {
     char* end;
     int value = strtol(arg, &end, 10);
 
-    if ((value!=1) && (value != 2) && (value != 3) && (value != 4)) {
+    if ((value != 1) && (value != 2) && (value != 3) && (value != 4)) {
         throw std::string("Operation not defined!");
     }
 
@@ -120,7 +120,7 @@ std::string DebtServiceCalculator::operator()(int argc, const char** argv) {
         args.loan_rate = parseFloat(argv[3]);
         args.service_type = parseType(argv[4]);
         args.operation = parseOperation(argv[5]);
-        if(argc==7) args.summa = parseFloat(argv[6]);
+        if (argc == 7) args.summa = parseFloat(argv[6]);
     }
     catch(std::string& str) {
         return str;

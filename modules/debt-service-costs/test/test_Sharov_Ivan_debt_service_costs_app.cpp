@@ -15,8 +15,7 @@ using std::vector;
 using std::string;
 
 class DebtServiceCalculatorTest : public ::testing::Test {
-protected:
-
+ protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
 
@@ -35,7 +34,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     DebtServiceCalculator app_;
     string output_;
 };
@@ -113,7 +112,6 @@ TEST_F(DebtServiceCalculatorTest,
     Act(args);
 
     Assert("It was = 2; amount of payment = 2; current balance = 0");
-
 }
 
 TEST_F(DebtServiceCalculatorTest,
@@ -123,6 +121,4 @@ TEST_F(DebtServiceCalculatorTest,
     Act(args);
 
     Assert("The amount of Ivanov = 2; the amount of Borodin = 2");
-
 }
-
