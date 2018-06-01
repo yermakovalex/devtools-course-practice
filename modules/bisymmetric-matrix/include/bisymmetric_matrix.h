@@ -23,9 +23,10 @@ public:
 	int GetElem(int row, int col);
 
 	Matrix& operator =(const Matrix &x);
-	Matrix operator +(const Matrix &x) const;
+	Matrix operator +(const Matrix &x);
 	Matrix operator -(const Matrix &x) const;
 	Matrix operator *(int t) const;
+	bool operator ==(const Matrix &x) const;
 
 	friend std::istream &operator >> (std::istream &is, const Matrix &m);
 };

@@ -27,6 +27,7 @@ public:
 	Vector operator +(const Vector &x) const;
 	Vector operator -(const Vector &x) const;
 	Vector operator *(int t) const;
+	bool operator !=(const Vector &x);
 
 	friend std::istream &operator >> (std::istream &is, const Vector &v);
 

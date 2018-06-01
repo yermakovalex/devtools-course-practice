@@ -1,4 +1,4 @@
-#include "Vector.h"
+#include "include/vector.h"
 
 // Конструктор по умолчанию
 Vector::Vector(int l, int s)
@@ -117,8 +117,18 @@ Vector Vector::operator *(int t) const
 	return res;
 }
 
-std::istream &operator >> (std::istream &is, const Vector &v)
+bool Vector::operator !=(const Vector &x)
 {
 	for (int i = 0; i < n; i++)
-		cin >> v[i];
+		if (a[i] != x.a[i])
+			return true;
+
+	return false;
+}
+
+std::istream &operator >> (std::istream &is, const Vector &v)
+{
+	for (int i = 0; i < v.n; i++)
+		is >> v.a[i];
+	return is;
 }

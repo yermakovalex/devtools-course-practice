@@ -94,7 +94,7 @@ Matrix& Matrix::operator =(const Matrix &x)
 }
 
 // Сложение матриц
-Matrix Matrix::operator +(const Matrix &x) const
+Matrix Matrix::operator +(const Matrix &x) 
 {
 	if (n != x.n)
 		throw "It is not possible to sum matrices with different sizes.";
@@ -132,8 +132,24 @@ Matrix Matrix::operator *(const int t) const
 	return res;
 }
 
+bool Matrix::operator ==(const Matrix &x) const
+{
+	if (n != x.n)
+		throw "Matrices are with different sizes";
+
+	for (int i = 0; i < n; i++)
+	{
+		if (M[i] != x.M[i])
+			return false;
+	}
+
+	return true;
+}
+
 std::istream &operator >> (std::istream &is, const Matrix &m)
 {
-	for (int i = 0; i < n; i++)
-		is >> m[i];
+	for (int i = 0; i < m.n; i++)
+		is >> m.M[i];
+
+	return is;
 }
