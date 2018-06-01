@@ -5,32 +5,29 @@
 
 using namespace std;
 
-// Вектор с устанавливаемым начальным индексом
-class Vector
-{
-private:
-	int *a; // Указатель на массив
-	int n; // Длина массива
-	int start; // Начальный индекс
+class Vector {
+ private:
+    int *a;
+    int n;
+    int start;
 
-public:
-	Vector(int l = 1, int s = 1);
-	Vector(const Vector &x);
-	~Vector(void);
+ public:
+    Vector(int l = 1, int s = 1);
+    Vector(const Vector &x);
+    ~Vector(void);
 
-	void Input(void);
-	void Output(void);
-	int Sum(void);
+    void Input(void);
+    void Output(void);
+    int Sum(void);
 
-	int& operator [](int i);
-	Vector& operator =(const Vector &x);
-	Vector operator +(const Vector &x) const;
-	Vector operator -(const Vector &x) const;
-	Vector operator *(int t) const;
-	bool operator !=(const Vector &x);
+    int& operator [](int i);
+    Vector& operator =(const Vector &x);
+    Vector operator +(const Vector &x) const;
+    Vector operator -(const Vector &x) const;
+    Vector operator *(int t) const;
+    bool operator !=(const Vector &x);
 
-	friend std::istream &operator >> (std::istream &is, const Vector &v);
-
+    friend std::istream &operator >> (std::istream &is, const Vector &v);
 };
 
 #endif  // MODULES_BISYMMETRIC_MATRIX_INCLUDE_VECTOR_H_

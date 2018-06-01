@@ -1,4 +1,4 @@
-// Copyright 2018 Zinoviev Vladimir
+// Copyright 2018 Ioanu Daniel
 
 #include <gtest/gtest.h>
 
