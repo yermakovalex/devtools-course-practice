@@ -12,7 +12,7 @@ class WagesAppTest : public::testing::Test {
  protected:
     void Act(vector<std::string> args_) {
         char** argv = new char*[6];
-		argv[0] = const_cast<char*>("appname");
+        argv[0] = const_cast<char*>("appname");
         for (unsigned int i = 1; i < args_.size() + 1; i++) {
             argv[i] = new char[args_[i - 1].length()];
             for (unsigned int j = 0; j < args_[i - 1].length(); j++)
@@ -25,12 +25,12 @@ class WagesAppTest : public::testing::Test {
     }
 
     void Assert(std::string expected) {
-		 EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
-	 }
+        EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
+    }
 
-private:
-	Application app_;
-	std::string output_;
+ private:
+    Application app_;
+    std::string output_;
 
  private:
     std::string output;
