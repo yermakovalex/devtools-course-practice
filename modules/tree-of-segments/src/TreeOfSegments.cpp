@@ -9,8 +9,9 @@
 
 template<class T>
 void TreeOfSegmets<T>::build(T* a, int vert, int lbord, int rbord) {
-    if (lbord == rbord)
-        arr[vert] = a[lbord];
+	if (lbord == rbord) {
+		arr[vert] = a[lbord];
+	}
     else {
         int middle = (lbord + rbord) / 2;
         build(a, vert * 2 + 1, lbord, middle);
@@ -26,15 +27,16 @@ T TreeOfSegmets<T>::sum(int vert, int lbord, int rbord, int left, int right) {
     if (lbord == left && rbord == right)
         return arr[vert];
     int middle = (lbord + rbord) / 2;
-    T res = sum(vert * 2 + 1, lbord, middle, left, std::min(middle, right)) 
+    T res = sum(vert * 2 + 1, lbord, middle, left, std::min(middle, right))
     + sum(vert * 2 + 2, middle + 1, rbord, std::max(left, middle+1), right);
     return res;
 }
 
 template<class T>
 void TreeOfSegmets<T>::update(int vert, int lbord, int rbord, int pos, T val) {
-    if (lbord == rbord)
-        arr[vert] = val;
+	if (lbord == rbord) {
+		arr[vert] = val;
+	}
     else {
         int middle = (lbord + rbord) / 2;
         if (pos <= middle)
@@ -47,13 +49,13 @@ void TreeOfSegmets<T>::update(int vert, int lbord, int rbord, int pos, T val) {
 
 template<class T>
 TreeOfSegmets<T>::TreeOfSegmets(int size, T * a) {
-    if (size<=0) 
+    if (size <= 0)
         throw std::invalid_argument("Negative_size");
-    if (size>MAXSIZE)
+    if (size > MAXSIZE)
         throw std::invalid_argument("Too_big_size");
     n = size;
-    arr = new T[4*n];
-    for (int i = 0; i < 4*n; ++i)
+    arr = new T[4 * n];
+    for (int i = 0; i < 4 * n; ++i)
         arr[i] = 0;
     build(a, 0, 0, n - 1);
 }
@@ -73,20 +75,20 @@ TreeOfSegmets<T>::~TreeOfSegmets() {
 
 template<class T>
 T TreeOfSegmets<T>::sum(int left, int right) {
-    if (left<0)
+    if (left < 0)
         throw std::invalid_argument("Negative_left");
-    if (right>=n)
+    if (right >= n)
         throw std::invalid_argument("Too_big_right");
-    if (left>right)
+    if (left > right)
         throw std::invalid_argument("Right is less then left");
     return sum(0, 0, n - 1, left, right);
 }
 
 template<class T>
 void TreeOfSegmets<T>::update(int pos, T val) {
-    if (pos<0)
+    if (pos < 0)
         throw std::invalid_argument("Negative_vertex");
-    if (pos >=n)
+    if (pos >= n)
         throw std::invalid_argument("Too_big_vertex");
     update(0, 0, n - 1, pos, val);
 }
