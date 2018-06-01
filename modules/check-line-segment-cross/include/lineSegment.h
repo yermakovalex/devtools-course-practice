@@ -10,7 +10,7 @@ class LineSegment {
     LineSegment(const LineSegment&);
     LineSegment& operator=(const LineSegment&);
     bool operator==(const LineSegment& line) const;
-    bool isCross (LineSegment&);
+    bool isCross(LineSegment&);
     double vectorProduct(const LineSegment& line);
 
  private:
