@@ -21,14 +21,14 @@ Vector::~Vector(void) {
 
 void Vector::Input(void) {
     for (int i = 0; i < n; i++)
-        cin >> a[i];
+        std::cin >> a[i];
 }
 
 void Vector::Output(void) {
     for (int i = 0; i < n; i++)
-        cout << a[i] << "\t";
+        std::cout << a[i] << "\t";
 
-    cout << endl;
+    std::cout << std::endl;
 }
 
 int Vector::Sum(void) {

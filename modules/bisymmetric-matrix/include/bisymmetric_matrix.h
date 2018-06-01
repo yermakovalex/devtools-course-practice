@@ -3,9 +3,9 @@
 #ifndef MODULES_BISYMMETRIC_MATRIX_INCLUDE_BISYMMETRIC_MATRIX_H_
 #define MODULES_BISYMMETRIC_MATRIX_INCLUDE_BISYMMETRIC_MATRIX_H_
 
-#include <iostream>
+#include "include/vector.h"
 
-#include "vector.h"
+#include <iostream>
 
 class Matrix {
  private:
