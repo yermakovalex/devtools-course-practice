@@ -25,4 +25,4 @@ class DebtServiceCalculator {
     } Arguments;
 };
 
-#endif  // MODULES_DEBT_SERVICE_COSTS_INCLUDE_DEBT_SERVICE_APP_H
+#endif  // MODULES_DEBT_SERVICE_COSTS_INCLUDE_DEBT_SERVICE_APP_H_
