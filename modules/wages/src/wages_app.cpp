@@ -179,6 +179,4 @@ std::string Application::operator()(int argc, char ** argv) {
             StringToDouble(argv[3]), StringToDouble(argv[4]),
             IntToMonth(argv[5][0] - '0'));
     }
-
-    return "Wrong variable";
 }

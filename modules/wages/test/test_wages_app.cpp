@@ -2,86 +2,77 @@
 
 #include <gtest/gtest.h>
 #include <string>
+#include<vector>
 #include"include/wages_app.h"
 
 using ::testing::internal::RE;
+using std::vector;
 
 class WagesAppTest : public::testing::Test {
  protected:
-    void Act(int argc, char** argv) {
-        output = app(argc, argv);
+    void Act(vector<std::string> args_) {
+        char** argv = new char*[6];
+		argv[0] = "appname";
+        for (unsigned int i = 1; i < args_.size() + 1; i++) {
+            argv[i] = new char[args_[i - 1].length()];
+            for (unsigned int j = 0; j < args_[i - 1].length(); j++)
+                argv[i][j] = args_[i - 1][j];
+        }
+
+        int argc = static_cast<int>(args_.size());
+
+        output_ = app_(argc, argv);
     }
 
     void Assert(std::string expected) {
-        EXPECT_TRUE(RE::PartialMatch(output, RE(expected)));
-    }
+		 EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
+	 }
+
+private:
+	Application app_;
+	std::string output_;
 
  private:
     std::string output;
     Application app;
 };
 
-TEST_F(WagesAppTest, error_when_argc_negative) {
-    int argc = -1;
-    char** argv;
-    argv = new char*[1];
-
-    Act(argc, argv);
-
-    Assert("Wrong variable");
-}
-
 TEST_F(WagesAppTest, error_when_argv_1_is_null) {
-    const int size = 6;
-    int argc = 0;
-    char** argv;
-    argv = new char*[size];
+    vector<std::string> argc = {};
 
-    Act(argc, argv);
+    Act(argc);
 
     Assert("Argument 1 is not correct");
 }
 
 TEST_F(WagesAppTest, error_when_argv_2_is_null) {
-    const int size = 6;
-    int argc = 1;
-    char** argv;
-    argv = new char*[size];
+    vector<std::string> argc = {"10000"};
 
-    Act(argc, argv);
+    Act(argc);
 
     Assert("Argument 2 is not correct");
 }
 
 TEST_F(WagesAppTest, error_when_argv_3_is_null) {
-    const int size = 6;
-    int argc = 2;
-    char** argv;
-    argv = new char*[size];
+    vector<std::string> argc = {"10000", "1"};
 
-    Act(argc, argv);
+    Act(argc);
 
     Assert("Argument 3 is not correct");
 }
 
 TEST_F(WagesAppTest, error_when_argv_4_is_null) {
-    const int size = 6;
-    int argc = 3;
-    char** argv;
-    argv = new char*[size];
+    vector<std::string> argc = { "10000", "1", "1" };
 
-    Act(argc, argv);
+    Act(argc);
 
     Assert("Argument 4 is not correct");
 }
 
 TEST_F(WagesAppTest, error_when_argv_5_is_null) {
-    const int size = 6;
-    int argc = 4;
-    char** argv;
-    argv = new char*[size];
+    vector<std::string> argc = { "10000", "1", "1", "1"};
 
-    Act(argc, argv);
+    Act(argc);
 
     Assert("Argument 5 is not correct");
 }

@@ -5,14 +5,6 @@
 set(prefix "${MODULE}")
 
 add_test(
-    NAME ${prefix}_when_argc_negative
-    COMMAND ${APPLICATION}
-)
-set_tests_properties (${prefix}_when_argc_negative PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong variable"
-    LABELS "${MODULE}")
-
-add_test(
     NAME ${prefix}_when_argv_1_is_null
     COMMAND ${APPLICATION}
 )
@@ -22,7 +14,7 @@ set_tests_properties (${prefix}_when_argv_1_is_null PROPERTIES
 
 add_test(
     NAME ${prefix}_when_argv_2_is_null
-    COMMAND ${APPLICATION}
+    COMMAND ${APPLICATION} 10000
 )
 set_tests_properties (${prefix}_when_argv_2_is_null PROPERTIES
     PASS_REGULAR_EXPRESSION "Argument 2 is not correct"
@@ -30,7 +22,7 @@ set_tests_properties (${prefix}_when_argv_2_is_null PROPERTIES
 
 add_test(
     NAME ${prefix}_when_argv_3_is_null
-    COMMAND ${APPLICATION}
+    COMMAND ${APPLICATION} 10000 1
 )
 set_tests_properties (${prefix}_when_argv_3_is_null PROPERTIES
     PASS_REGULAR_EXPRESSION "Argument 3 is not correct"
@@ -38,7 +30,7 @@ set_tests_properties (${prefix}_when_argv_3_is_null PROPERTIES
 
 add_test(
     NAME ${prefix}_when_argv_4_is_null
-    COMMAND ${APPLICATION}
+    COMMAND ${APPLICATION} 10000 1 1
 )
 set_tests_properties (${prefix}_when_argv_4_is_null PROPERTIES
     PASS_REGULAR_EXPRESSION "Argument 4 is not correct"
@@ -46,7 +38,7 @@ set_tests_properties (${prefix}_when_argv_4_is_null PROPERTIES
 
 add_test(
     NAME ${prefix}_when_argv_5_is_null
-    COMMAND ${APPLICATION}
+    COMMAND ${APPLICATION} 10000 1 1 1
 )
 set_tests_properties (${prefix}_when_argv_5_is_null PROPERTIES
     PASS_REGULAR_EXPRESSION "Argument 5 is not correct"
