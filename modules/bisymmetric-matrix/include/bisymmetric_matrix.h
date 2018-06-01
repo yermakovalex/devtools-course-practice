@@ -5,16 +5,15 @@
 
 #include <iostream>
 
-#include "Vector.h"
+#include "vector.h"
 
-class Matrix
-{
+class Matrix {
  private:
     int n;
     Vector *M;
 
  public:
-    Matrix(int size = 1);
+    explicit Matrix(int size = 1);
     Matrix(const Matrix &x);
     ~Matrix(void);
 
@@ -31,4 +30,4 @@ class Matrix
     friend std::istream &operator >> (std::istream &is, const Matrix &m);
 };
 
-#endif  // MODULES_BLOCK_MATRIX_INCLUDE_BLOCK_MATRIX_H_
+#endif  // MODULES_BISYMMETRIC_MATRIX_INCLUDE_BISYMMETRIC_MATRIX_H_
