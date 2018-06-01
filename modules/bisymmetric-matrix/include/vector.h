@@ -14,7 +14,7 @@ class Vector {
     int start;
 
  public:
-    Vector(int l = 1, int s = 1);
+    explicit Vector(int l = 1, int s = 1);
     Vector(const Vector &x);
     ~Vector(void);
 
@@ -22,12 +22,12 @@ class Vector {
     void Output(void);
     int Sum(void);
 
-    int& operator [](int i);
-    Vector& operator =(const Vector &x);
-    Vector operator +(const Vector &x) const;
-    Vector operator -(const Vector &x) const;
-    Vector operator *(int t) const;
-    bool operator !=(const Vector &x);
+    int& operator[](int i);
+    Vector& operator=(const Vector &x);
+    Vector operator+(const Vector &x) const;
+    Vector operator-(const Vector &x) const;
+    Vector operator*(int t) const;
+    bool operator!=(const Vector &x);
 
     friend std::istream &operator >> (std::istream &is, const Vector &v);
 };

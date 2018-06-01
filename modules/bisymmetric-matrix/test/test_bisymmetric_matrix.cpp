@@ -4,6 +4,15 @@
 
 #include <gtest/gtest.h>
 #include <fstream>
+#include <cstdio>
+
+#ifdef WINDOWS
+    #include <direct.h>
+    #define getWorkingDir _getcwd
+#else
+    #include <unistd.h>
+    #define getWorkingDir getcwd
+#endif
 
 TEST(Bisymmetric_Matrix, Can_Create) {
     // Arrange & Act
@@ -25,6 +34,10 @@ TEST(Bisymmetric_Matrix, Can_Copy) {
     is >> a;
     is.close();
 
+	char path[FILENAME_MAX];
+	getWorkingDir(path, sizeof(path));
+	printf("%s", path);
+	
     a.Output();
     
     // Act & Assert
@@ -37,9 +50,12 @@ TEST(Bisymmetric_Matrix, Can_Add) {
     Matrix b(5);
     Matrix res(5);
 
-    std::ifstream is("../../../../modules/bisymmetric-matrix/test/matrix1.txt");
+    // std::ifstream is("../../../../modules/bisymmetric-matrix/test/matrix1.txt");
+    std::ifstream is("test/matrix1.txt");
     is >> a;
     is.close();
+
+    a.Output();
 
     std::ifstream ist("../../../../modules/bisymmetric-matrix/test/matrix1.txt");
     ist >> b;
