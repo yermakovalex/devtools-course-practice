@@ -1,13 +1,13 @@
 // Copyright 2018 Ermachenko Boris
 
-#include "include/fractional_number.h"
-#include "include/Fractional_app.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
+#include "include/fractional_number.h"
+#include "include/Fractional_app.h"
 
 Fractional_app::Fractional_app() : message_("") {}
 
@@ -29,8 +29,7 @@ forArguments(int argc, const char** argv) {
     if (argc == 1) {
         help_message();
         return false;
-    }
-    else if (argc != 6) {
+    } else if (argc != 6) {
         message_ = "ERROR: Should be 5 arguments.\n\n";
         return false;
     }
@@ -50,24 +49,25 @@ double Fractional_app::GetParam(const char* arg) {
 
 bool isEqual(const char*p, char*q)
 {
-    while (*p&&*q)
+    while (*p && *q) {
         if (*p++ != *q++)
             return false;
+    }
     return true;
 }
 
 char Fractional_app::GetOperation(const char* arg) {
     char operation;
-    if (isEqual(arg,"+")) {
+    if (isEqual(arg, "+")) {
         operation = '+';
     }
-    else 	if (isEqual(arg, "-")) {
+    else if (isEqual(arg, "-")) {
         operation = '-';
     }
-    else 	if (isEqual(arg, "/")) {
+    else if (isEqual(arg, "/")) {
         operation = '/';
     }
-    else 	if (isEqual(arg, "*")) {
+    else if (isEqual(arg, "*")) {
         operation = '*';
     }
     else {

@@ -9,7 +9,7 @@
 
 int main(int argc, const char** argv) {
     // FractionalCalculator app;
-	Fractional_app app;
+    Fractional_app app;
     std::string output = app(argc, argv);
     printf("%s\n", output.c_str());
     return 0;

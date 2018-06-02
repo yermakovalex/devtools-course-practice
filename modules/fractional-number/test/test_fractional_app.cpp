@@ -8,7 +8,7 @@
 #include <functional>
 #include <iterator>
 
-#include "include/fractional_app.h"
+#include "include/Fractional_app.h"
 
 using ::testing::internal::RE;
 using std::vector;
