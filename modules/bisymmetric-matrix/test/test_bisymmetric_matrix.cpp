@@ -19,7 +19,7 @@ TEST(Bisymmetric_Matrix, Can_Create) {
     is.close();
 
     // Assert
-    EXPECT_EQ(1, m.GetElem(1,1));
+    EXPECT_EQ(1, m.GetElem(1, 1));
 }
 
 TEST(Bisymmetric_Matrix, Can_Copy) {

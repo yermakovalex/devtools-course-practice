@@ -77,7 +77,7 @@ Vector Vector::operator+(const Vector &x) const {
 
 Vector Vector::operator-(const Vector &x) const {
     if (n != x.n)
-        throw "It is not possible to find the difference of the vectors of different sizes.";
+        throw "Vectors are with different sizes.";
 
     Vector res(n, start);
 

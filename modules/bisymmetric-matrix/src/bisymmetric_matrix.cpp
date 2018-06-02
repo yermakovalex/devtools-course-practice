@@ -9,9 +9,8 @@ Matrix::Matrix(int size) {
     for (int i = 0; i <= size / 2; i++)
         M[i] = static_cast<Vector>(i + 1, 1);
 
-    for (int i = int(size / 2) + 1; i < size; i++)
+    for (int i = static_cast<int>(size / 2) + 1; i < size; i++)
         M[i] = static_cast<Vector>(size - i, 1);
-    
 }
 
 Matrix::Matrix(const Matrix &x) {
