@@ -70,11 +70,16 @@ std::string Application::operator()(int argc, const char** argv) {
             stream << "Regex is not match" << std::endl;
         break;
     case 'g':
+        regex.isMatch(args.target.c_str());
         char * tmp = new char[args.target.size()];
         snprintf(tmp, args.target.size() - 1, args.target.c_str());
         regex.getMatch(tmp, args.target.size());
-        stream << "Find : " << std::string(tmp) << std::endl <<
-            "Begin position : " << regex.getMatchIndex() << std::endl;
+        if (regex.getMatchIndex() != -1) {
+            stream << "Find : " << std::string(tmp) << std::endl <<
+                "Begin position : " << regex.getMatchIndex() << std::endl;
+        } else {
+            stream << "Nothing found" << std::endl;
+        }
         break;
     }
     message_ = stream.str();
