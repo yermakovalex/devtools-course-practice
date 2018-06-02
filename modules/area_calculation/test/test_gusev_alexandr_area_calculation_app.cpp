@@ -78,3 +78,31 @@ TEST_F(AreaCalculationAppTest, Uncorrectly_Number_Arguments_Test) {
     // Assert
     Assert("ERROR: Should be size multiplication 2 plus 1 arguments\\..*");
 }
+TEST_F(AreaCalculationAppTest, Square_Area_Calculation_Test) {
+    // Arrange
+    vector<string> args = { "4", "1.0", "1.0", "2.0", "2.0",
+               "1.0", "3.0", "3.0", "1.0" };
+    // Act
+    Act(args);
+    // Assert
+    Assert("area = 2");
+}
+TEST_F(AreaCalculationAppTest, Trapezium_Area_Calculation_Test) {
+    // Arrange
+    vector<string> args = { "4", "1.0", "1.0", "2.0", "3.0",
+               "1.0", "3.0", "3.0", "1.0" };
+    // Act
+    Act(args);
+    // Assert
+    Assert("area = 3");
+}
+TEST_F(AreaCalculationAppTest, Trapezieum_Area_Calculation_Test) {
+    // Arrange
+    vector<string> args = { "8", "1.0", "1.0", "2.0", "2.0",
+        "3.0", "3.0", "4.0", "4.0", "-3.0", "-2.0", "-2.0",
+        "-1.0", "-1.0", "-2.0", "-2.0", "-3.0" };
+    // Act
+    Act(args);
+    // Assert
+    Assert("area = 4");
+}
