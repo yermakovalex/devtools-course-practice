@@ -95,11 +95,11 @@ TEST_F(PriorityQueueAppTest, do_correct_work) {
 
 TEST_F(PriorityQueueAppTest, complete_work) {
     // Arrange
-    vector<string> args = { "4",
-        "Music", "Video", "Imagine", "Game",
-        "2",     "9",     "5",       "1",
-        "7",     "5",     "2",       "2",
-        "2",     "2",     "4",       "3"};
+    vector<string> args = { "2",
+        "M", "V",
+        "1", "2",
+        "2", "2",
+        "1", "1"};
 
     // Act
     Act(args);
@@ -109,34 +109,12 @@ TEST_F(PriorityQueueAppTest, complete_work) {
         "In moment 1\n" +
         "\tNot working element\n" +
         "In moment 2\n" +
-        "\tImagine go into queue\n" +
-        "\tGame go into queue\n" +
-        "\tImagine is working\n" +
+        "\tM go into queue\n" +
+        "\tV go into queue\n" +
+        "\tV is working\n" +
+        "\tV finished\n" +
         "In moment 3\n" +
-        "\tImagine is working\n" +
-        "In moment 4\n" +
-        "\tImagine is working\n" +
-        "In moment 5\n" +
-        "\tVideo go into queue\n" +
-        "\tImagine is working\n" +
-        "\tImagine finished\n" +
-        "In moment 6\n" +
-        "\tVideo is working\n" +
-        "In moment 7\n" +
-        "\tMusic go into queue\n" +
-        "\tVideo is working\n" +
-        "\tVideo finished\n" +
-        "In moment 8\n" +
-        "\tMusic is working\n" +
-        "In moment 9\n" +
-        "\tMusic is working\n" +
-        "\tMusic finished\n" +
-        "In moment 10\n" +
-        "\tGame is working\n" +
-        "In moment 11\n" +
-        "\tGame is working\n" +
-        "In moment 12\n" +
-        "\tGame is working\n" +
-        "\tGame finished\n" +
+        "\tM is working\n" +
+        "\tM finished\n" +
         "Finish!\n");
 }
