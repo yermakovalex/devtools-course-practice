@@ -22,8 +22,6 @@ Vector::~Vector(void) {
 }
 
 int& Vector::operator[](int i) {
-    if (i - start < 0 || i - start >= n)
-        throw "Index is out of range in Vector::operator[].";
     return a[i - start];
 }
 

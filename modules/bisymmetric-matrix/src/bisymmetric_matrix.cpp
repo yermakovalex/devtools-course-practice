@@ -92,9 +92,6 @@ Matrix Matrix::operator *(const int t) const {
 }
 
 bool Matrix::operator ==(const Matrix &x) const {
-    if (n != x.n)
-        throw "Matrices are with different sizes";
-
     for (int i = 0; i < n; i++) {
         if (M[i] != x.M[i])
             return false;
