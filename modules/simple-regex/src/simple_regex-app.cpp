@@ -1,6 +1,7 @@
 // Copyright 2018 Vyunov Roman
 
-#include "include\simple_regex-app.h"
+#include "include/simple_regex.h"
+#include "include/simple_regex-app.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -76,7 +77,8 @@ std::string Application::operator()(int argc, const char** argv) {
         char * tmp;
         strcpy(tmp, args.target.c_str());
         regex.getMatch(tmp, args.target.size());
-        stream << "Find : " << std::string(tmp) << std::endl << "Begin position : " << regex.getMatchIndex() << std::endl;
+        stream << "Find : " << std::string(tmp) << std::endl << 
+            "Begin position : " << regex.getMatchIndex() << std::endl;
         break;
     }
     message_ = stream.str();

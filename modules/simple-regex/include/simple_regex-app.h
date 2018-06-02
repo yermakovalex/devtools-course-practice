@@ -3,20 +3,18 @@
 #ifndef MODULES_SIMPLE_REGEX_INCLUDE_SIMPLE_REGEX_APP_H_
 #define MODULES_SIMPLE_REGEX_INCLUDE_SIMPLE_REGEX_APP_H_
 
-#include "simple_regex.h"
 #include <string>
 
 class Application {
-public:
+ public:
     Application();
     std::string operator()(int argc, const char** argv);
 
-private:
+ private:
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
-    typedef struct
-    {
+    typedef struct {
         char mode;
         std::string target;
         std::string regex;
