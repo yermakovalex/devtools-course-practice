@@ -44,7 +44,6 @@ class QuadEqTest: public ::testing::Test {
 };
 
 TEST_F(QuadEqTest, Able_Print_Help_No_Arguments) {
-    
     // Arrange
     vector<string> args = {};
 
@@ -56,7 +55,7 @@ TEST_F(QuadEqTest, Able_Print_Help_No_Arguments) {
 TEST_F(QuadEqTest, Able_Check_Number_Arguments) {
     // Arrange
     vector<string> args = { "1", "2", "3", "4"};
-    
+
     Act(args);
 
     Assert("ERROR: Should be 3 arguments*");
@@ -65,7 +64,7 @@ TEST_F(QuadEqTest, Able_Check_Number_Arguments) {
 TEST_F(QuadEqTest, Able_Check_Type) {
     // Arrange
     vector<string> args = { "smth", "2", "4" };
-    
+
     Act(args);
 
     Assert("Wrong number format!");
@@ -74,7 +73,7 @@ TEST_F(QuadEqTest, Able_Check_Type) {
 TEST_F(QuadEqTest, Able_Get_Correct_Roots1) {
     // Arrange
     vector<string> args = { "1", "-2", "3" };
-    
+
     Act(args);
 
     // Assert
