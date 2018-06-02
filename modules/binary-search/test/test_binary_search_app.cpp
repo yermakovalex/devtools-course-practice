@@ -27,14 +27,10 @@ class BinarySearchAppTest : public ::testing::Test {
         output_ = app_(argc, argv);
     }
 
-    void Assert1(std::string expected) {
+    void Assert(std::string expected) {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
-
-    void Assert2(std::string expected) {
-        EXPECT_FALSE(RE::PartialMatch(output_, RE(expected)));
-    }
-
+ 
  private:
     BinarySearchApp app_;
     string output_;
@@ -45,15 +41,15 @@ TEST_F(BinarySearchAppTest, Do_Print_Help_Without_Arguments) {
 
     Act(args);
 
-    Assert1("This is a binary search application\\..*");
+    Assert("This is a binary search application\\..*");
 }
 
 TEST_F(BinarySearchAppTest, Is_Checking_Number_Of_Arguments) {
-    vector<string> args = { "1", "2" };
+    vector<string> args = { "1" };
 
     Act(args);
 
-    Assert2("ERROR: Should be more arguments\\..*");
+    Assert("ERROR: Should be more arguments\\..*");
 }
 
 TEST_F(BinarySearchAppTest, Can_Detect_Wrong_Number_Format) {
@@ -61,7 +57,7 @@ TEST_F(BinarySearchAppTest, Can_Detect_Wrong_Number_Format) {
 
     Act(args);
 
-    Assert1("Wrong number format!.*");
+    Assert("Wrong number format!.*");
 }
 
 TEST_F(BinarySearchAppTest, Can_Detect_Wrong_Format_Of_Arguments) {
@@ -69,13 +65,13 @@ TEST_F(BinarySearchAppTest, Can_Detect_Wrong_Format_Of_Arguments) {
 
     Act(args);
 
-    Assert1("Wrong number format!.*");
+    Assert("Wrong number format!.*");
 }
 
 TEST_F(BinarySearchAppTest, Can_Search) {
-    vector<string> args = { "7,", "7,", "4", "1" , "5" , "3" , "4", "7", "9" };
+    vector<string> args = { "7, ", "7, ", "4 ", "1 " , "5 " , "3 " , "4 ", "7 ", "9" };
 
     Act(args);
 
-    Assert2("5");
+    Assert("5");
 }
