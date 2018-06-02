@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <string>
 #include <sstream>
+#include <vector>
 #include "include/priority_queue.h"
 #include "include/priority_queue_app.h"
 
@@ -14,7 +15,7 @@ using std::vector;
 using std::string;
 
 class PriorityQueueAppTest : public ::testing::Test {
-protected:
+ protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
         options.push_back("appname");
@@ -27,7 +28,7 @@ protected:
     void Assert(std::string expected) {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
-private:
+ private:
     PriorityQueueApp app_;
     string output_;
 };
@@ -94,7 +95,7 @@ TEST_F(PriorityQueueAppTest, do_correct_work) {
 
 TEST_F(PriorityQueueAppTest, complete_work) {
     // Arrange
-    vector<string> args = { "4", 
+    vector<string> args = { "4",
         "Music", "Video", "Imagine", "Game",
         "2",     "9",     "5",       "1",
         "7",     "5",     "2",       "2",
