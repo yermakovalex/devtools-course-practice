@@ -6,12 +6,12 @@
 #include <iostream>
 
 class Vector {
-private:
+ private:
     int *a;
     int n;
     int start;
 
-public:
+ public:
     explicit Vector(int l = 1, int s = 1);
     Vector(const Vector &x);
     ~Vector(void);

@@ -8,11 +8,11 @@
 #include "include/vector.h"
 
 class Matrix {
-private:
+ private:
     int n;
     Vector *M;
 
-public:
+ public:
     explicit Matrix(int size = 1);
     Matrix(const Matrix &x);
     ~Matrix(void);

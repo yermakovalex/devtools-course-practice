@@ -169,20 +169,3 @@ TEST(Bisymmetric_Matrix, Add_Matrix_with_Different_Size) {
     // Act & Assert
     EXPECT_ANY_THROW(a + b);
 }
-
-TEST(Bisymmetric_Matrix, Compare_Matrix_with_Different_Size) {
-    // Arrange
-    Matrix a(5);
-    Matrix b(3);
-
-    std::ifstream is(MATRIX);
-    is >> a;
-    is.close();
-
-    std::ifstream ist(MATRIX2);
-    is >> b;
-    is.close();
-
-    // Act & Assert
-    EXPECT_ANY_THROW(a == b);
-}
