@@ -79,45 +79,39 @@ std::string Fractional_app:: operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.a1 = GetParam(argv[1]);
-        args.b1 = GetParam(argv[2]);
+        args.numerator1 = GetParam(argv[1]);
+        args.denominator1 = GetParam(argv[2]);
         args.operation = GetOperation(argv[3]);
-        args.a2 = GetParam(argv[4]);
-        args.b2 = GetParam(argv[5]);
+        args.numerator2 = GetParam(argv[4]);
+        args.denominator2 = GetParam(argv[5]);
     }
     catch (std::string& str) {
             return message_;
         }
     FractionalNumber Argument1;
     FractionalNumber Argument2;
-    Argument1.setNumerator(args.a1);
-    Argument1.setDenominator(args.b1);
-    Argument2.setNumerator(args.a2);
-    Argument2.setDenominator(args.b2);
+    Argument1.setNumerator(args.numerator1);
+    Argument1.setDenominator(args.denominator1);
+    Argument2.setNumerator(args.numerator2);
+    Argument2.setDenominator(args.denominator2);
     FractionalNumber Rezult_value;
     std::ostringstream stream;
     switch (args.operation) {
     case '+':
         Rezult_value = Argument1 + Argument2;
-        stream  << Rezult_value.getNumerator()  << "/"
-        <<Rezult_value.getDenominator();
         break;
     case '-':
         Rezult_value = Argument1 - Argument2;
-        stream << Rezult_value.getNumerator() << "/"
-            << Rezult_value.getDenominator();
         break;
     case '*':
         Rezult_value = Argument1 * Argument2;
-        stream << Rezult_value.getNumerator() << "/"
-            << Rezult_value.getDenominator();
         break;
     case '/':
         Rezult_value = Argument1 / Argument2;
-        stream << Rezult_value.getNumerator() << "/"
-            << Rezult_value.getDenominator();
         break;
         }
+    stream << Rezult_value.getNumerator() << "/"
+    << Rezult_value.getDenominator();
     message_ = stream.str();
     return message_;
 }

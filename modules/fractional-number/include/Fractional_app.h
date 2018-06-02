@@ -16,11 +16,11 @@ class Fractional_app {
     bool forArguments(int argc, const char** argv);
     std::string message_;
     typedef struct {
-        double a1;
-        double b1;
+        double numerator1;
+        double denominator1;
         char operation;
-        double a2;
-        double b2;
+        double numerator2;
+        double denominator2;
     } Arguments;
 };
 
