@@ -250,5 +250,5 @@ TEST(TreeOfSegments, can_not_update_tree_with_to_big_vertex) {
     TreeOfSegmets<int> ts1(n, a);
 
     // Assert
-	ASSERT_ANY_THROW(ts1.update(-4, 5));
+    ASSERT_ANY_THROW(ts1.update(-4, 5));
 }
