@@ -37,7 +37,7 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
 
 add_test(
     NAME ${prefix}_Able_Get_Correct_Roots1
-    COMMAND ${APPLICATION} -1 2 3
+    COMMAND ${APPLICATION} 1 2 3
 )
 set_tests_properties (${prefix}_Able_Get_Correct_Roots1 PROPERTIES
     PASS_REGULAR_EXPRESSION "Result: There are no real roots "
