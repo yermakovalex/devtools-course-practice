@@ -106,7 +106,6 @@ TEST(Bisymmetric_Matrix, Not_Equal_Matrix) {
     // Arrange
     Matrix a(5);
     Matrix b(5);
-    bool equalMatrix = false;
 
     std::ifstream is(MATRIX);
     is >> a;
@@ -116,12 +115,8 @@ TEST(Bisymmetric_Matrix, Not_Equal_Matrix) {
     ist >> b;
     ist.close();
 
-    // Act
-    if (a == b)
-        equalMatrix = true;
-
-    // Assert
-    EXPECT_FALSE(equalMatrix);
+    // Act & Assert
+    EXPECT_FALSE(a == b);
 }
 
 TEST(Bisymmetric_Matrix, Subtract_Matrix_with_Different_Sizes) {
