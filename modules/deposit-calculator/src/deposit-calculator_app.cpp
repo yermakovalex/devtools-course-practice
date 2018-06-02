@@ -26,7 +26,7 @@ bool DepositCalculApp::validateNumberOfArguments
      if (argc == 1) {
         help(argv[0]);
         return false;
- } else if (argc != 5) {
+     } else if (argc != 5) {
         help(argv[0], "ERROR: Should be 4 arguments.\n\n");
         return false;
     }
@@ -39,7 +39,7 @@ int parseInt(const char* arg) {
 }
 
 float parseFloat(const char* arg) {
-	float value = std::stof(std::string(arg));
+    float value = std::stof(std::string(arg));
     return value;
 }
 
@@ -53,7 +53,8 @@ std::string DepositCalculApp::operator()(int argc, const char** argv) {
         args.percentage = parseFloat(argv[2]);
         args.duration = parseInt(argv[3]);
         args.type_capital = parseInt(argv[4]);
-        Deposit dc(args.amount, args.percentage, args.duration, args.type_capital);
+        Deposit dc(args.amount, args.percentage, args.duration,
+            args.type_capital);
         std::ostringstream stream;
         stream << "Your profit: " << static_cast<int>(dc.getIncome());
         message_ = stream.str();
