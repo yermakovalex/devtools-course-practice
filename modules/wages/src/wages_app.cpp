@@ -148,15 +148,15 @@ double administrativeLeaveHours, double overtime, Month month) {
 }
 
 std::string Application::operator()(int argc, const char ** argv) {
-    if (argc == 0)
-        return "Argument 1 is not correct";
     if (argc == 1)
-        return "Argument 2 is not correct";
+        return "Argument 1 is not correct";
     if (argc == 2)
-        return "Argument 3 is not correct";
+        return "Argument 2 is not correct";
     if (argc == 3)
-        return "Argument 4 is not correct";
+        return "Argument 3 is not correct";
     if (argc == 4)
+        return "Argument 4 is not correct";
+    if (argc == 5)
         return "Argument 5 is not correct";
 
     if (argc > 1) {

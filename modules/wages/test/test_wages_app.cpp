@@ -19,7 +19,7 @@ class WagesAppTest : public::testing::Test {
         }
 
         const char** argv = &options.front();
-        int argc = static_cast<int>(args_.size());
+        int argc = static_cast<int>(args_.size() + 1);
 
         output_ = app_(argc, argv);
     }

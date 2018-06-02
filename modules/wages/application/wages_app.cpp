@@ -4,7 +4,7 @@
 #include<string>
 #include"include/wages_app.h"
 
-int main(int argc, char** argv) {
+int main(int argc, const char** argv) {
     Application app;
     std::string str = app(argc, argv);
     std::cout << str;
