@@ -47,9 +47,8 @@ double Fractional_app::GetParam(const char* arg) {
     return value;
 }
 
-bool isEqual(const char*p, string s) {
-    char *q = new char[s.length() + 1];
-    strcpy(q, s.c_str());
+bool isEqual(const char*p, std::string const&s) {
+    const char *q = s.c_str();
     while (*p && *q) {
         if (*p++ != *q++)
             return false;
