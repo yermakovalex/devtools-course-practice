@@ -12,7 +12,7 @@ set_tests_properties (${prefix}_can_Run PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Work
+    NAME ${prefix}_Decode_Work
     COMMAND ${APPLICATION} -d hello sky
 )
 set_tests_properties (${prefix}_can_Work PROPERTIES
@@ -36,9 +36,17 @@ set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Work_2
+    NAME ${prefix}_Encode_Work
     COMMAND ${APPLICATION} -e OTMSd sky
 )
 set_tests_properties (${prefix}_can_Work PROPERTIES
     PASS_REGULAR_EXPRESSION "Encode message = hello"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_checking_arguments
+    COMMAND ${APPLICATION} -b OTMSd sky
+)
+set_tests_properties (${prefix}_can_Work PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong param format"
     LABELS "${MODULE}")
