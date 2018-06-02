@@ -70,7 +70,7 @@ TEST_F(BinarySearchAppTest, Can_Detect_Wrong_Format_Of_Arguments) {
 
 TEST_F(BinarySearchAppTest, Can_Search) {
     vector<string> args =
-    { "7, ", "7, ", "4 ", "1 " , "5 " , "3 " , "4 ", "7 ", "9" };
+    { "7, ", "7, ", "4", "1" , "5" , "3" , "4", "7", "9" };
 
     Act(args);
 
