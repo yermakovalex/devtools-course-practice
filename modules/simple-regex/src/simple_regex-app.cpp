@@ -83,6 +83,5 @@ std::string Application::operator()(int argc, const char** argv) {
         break;
     }
     message_ = stream.str();
-
     return message_;
 }
