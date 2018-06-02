@@ -14,7 +14,7 @@ private:
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
-    struct
+    typedef struct
     {
         std::string mode;
         std::string target;
