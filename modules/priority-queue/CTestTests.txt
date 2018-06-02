@@ -42,19 +42,3 @@ add_test(
 set_tests_properties (${prefix}_do_correct_work PROPERTIES
     PASS_REGULAR_EXPRESSION "Priority Queue:\nIn moment 1\n\tabc go into queue\n\tabc is working\n\tabc finished\nFinish!\n"
     LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_complete_work1
-    COMMAND ${APPLICATION} 2 T V 2 1 2 2 1 1
-)
-set_tests_properties (${prefix}_complete_work1 PROPERTIES
-    PASS_REGULAR_EXPRESSION "Priority Queue:\nIn moment 1\n\tNot working element\nIn moment 2\n\tT go into queue\n\tV go in queue\n\tT is working\n\tT finished\nIn moment 3\n\tV is working\n\tV finished\nFinish!\n"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_complete_work2
-    COMMAND ${APPLICATION} 2 T V 2 1 2 3 1 1
-)
-set_tests_properties (${prefix}_complete_work2 PROPERTIES
-    PASS_REGULAR_EXPRESSION "Priority Queue:\nIn moment 1\n\tNot working element\nIn moment 2\n\tT go into queue\ntT is working\n\tT finished\nIn moment 3\n\tV go in queue\n\tV is working\n\tV finished\nFinish!\n"
-    LABELS "${MODULE}")
