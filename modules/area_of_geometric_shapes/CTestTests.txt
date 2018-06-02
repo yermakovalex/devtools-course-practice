@@ -82,3 +82,43 @@ add_test(
 set_tests_properties (${prefix}_Cant_Calculate_Sphere_Negative PROPERTIES
     PASS_REGULAR_EXPRESSION "Number can't be less then zero"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Arguments
+    COMMAND ${APPLICATION} zzzz qqqqqq
+)
+set_tests_properties (${prefix}_can_Check_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Usage:*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Wont_Calculate_Sphere_Volume_Odd_Parameters
+    COMMAND ${APPLICATION} -s 1 2
+)
+set_tests_properties (${prefix}_can_Check_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Usage:*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Wont_Calculate_Cylinder_Volume_Odd_Parameters
+    COMMAND ${APPLICATION} -c 1 2 12
+)
+set_tests_properties (${prefix}_can_Check_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Usage:*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Wont_Calculate_Cone_Volume_Odd_Parameters
+    COMMAND ${APPLICATION} -n 1 2 12
+)
+set_tests_properties (${prefix}_can_Check_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Usage:*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format
+    COMMAND ${APPLICATION} -s pi
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
