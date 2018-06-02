@@ -93,13 +93,9 @@ TEST_F(PriorityQueueAppTest, do_correct_work) {
         "Finish!\n");
 }
 
-TEST_F(PriorityQueueAppTest, complete_work) {
+TEST_F(PriorityQueueAppTest, do_correct_work2) {
     // Arrange
-    vector<string> args = { "2",
-        "M", "V",
-        "1", "2",
-        "2", "2",
-        "1", "1"};
+    vector<string> args = { "1", "abc", "1", "2", "1" };
 
     // Act
     Act(args);
@@ -109,12 +105,8 @@ TEST_F(PriorityQueueAppTest, complete_work) {
         "In moment 1\n" +
         "\tNot working element\n" +
         "In moment 2\n" +
-        "\tM go into queue\n" +
-        "\tV go into queue\n" +
-        "\tV is working\n" +
-        "\tV finished\n" +
-        "In moment 3\n" +
-        "\tM is working\n" +
-        "\tM finished\n" +
+        "\tabc go into queue\n" +
+        "\tabc is working\n" +
+        "\tabc finished\n" +
         "Finish!\n");
 }
