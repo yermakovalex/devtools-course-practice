@@ -48,3 +48,13 @@ bool LineSegment::isCross(LineSegment& line) {
     else
         return false;
 }
+
+
+bool LineSegment::isCross(double _x1, double _y1, double _x2, double _y2) {
+    LineSegment line(_x1, _y1, _x2, _y2);
+    if (sign(line.x1, line.y1)* sign(line.x2, line.y2) <= 0
+            && line.sign(x1, y1)* line.sign(x2, y2) <= 0)
+        return true;
+    else
+        return false;
+}

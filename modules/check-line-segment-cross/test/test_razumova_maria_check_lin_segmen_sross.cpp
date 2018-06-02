@@ -127,3 +127,47 @@ TEST(Razumova_Maria_LineCross, check_cross_touching_line_segments_crossed) {
     // Assert
     EXPECT_TRUE(line1.isCross(line2));
 }
+
+TEST(Razumova_Maria_LineCross, check_cross_line_segments_setted_points_crossed) {
+    // Arrange
+    LineSegment line1(1, 1, 4, 1);
+    double x1, y1, x2, y2;
+
+    // Act
+    x1 = 2;
+    y1 = -3;
+    x2 = 2;
+    y2 = 8;
+
+    // Assert
+    EXPECT_TRUE(line1.isCross(x1, y1, x2, y2));
+}
+
+TEST(Razumova_Maria_LineCross, check_cross_line_setted_points_segments_not_crossed) {
+    // Arrange
+    LineSegment line1(1, 1, 4, 1);
+    double x1, y1, x2, y2;
+
+    // Act
+    x1 = 2;
+    y1 = -3;
+    x2 = 2;
+    y2 = 0;
+
+    // Assert
+    EXPECT_FALSE(line1.isCross(x1, y1, x2, y2));
+}
+TEST(Razumova_Maria_LineCross, check_cross_touching_line_setted_points_segments_crossed) {
+    // Arrange
+    LineSegment line1(1, 2, 6, 2);
+    LineSegment line2(4, -6, 4, 2);
+    double x1, y1, x2, y2;
+
+    // Act
+    x1 = 4;
+    y1 = -6;
+    x2 = 4;
+    y2 = 2;
+    // Assert
+    EXPECT_TRUE(line1.isCross(x1, y1, x2, y2));
+}
