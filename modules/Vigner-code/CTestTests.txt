@@ -12,7 +12,7 @@ set_tests_properties (${prefix}_can_Run PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_Decode_Work
+    NAME ${prefix}_decode_Work
     COMMAND ${APPLICATION} -d hello sky
 )
 set_tests_properties (${prefix}_can_Work PROPERTIES
@@ -36,7 +36,7 @@ set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_Encode_Work
+    NAME ${prefix}_encode_Work
     COMMAND ${APPLICATION} -e OTMSd sky
 )
 set_tests_properties (${prefix}_can_Work PROPERTIES
