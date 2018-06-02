@@ -34,3 +34,11 @@ add_test(
 set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "This is a Vigner code  application"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Work_2
+    COMMAND ${APPLICATION} -e OTMSd sky
+)
+set_tests_properties (${prefix}_can_Work PROPERTIES
+    PASS_REGULAR_EXPRESSION "Encode message = hello"
+    LABELS "${MODULE}")
