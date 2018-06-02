@@ -8,5 +8,5 @@ TEST(Vyunov_Roman_SimpleRegexAppTest, parseOperation_i) {
     // Arrange
 
     // Act & Assert
-    EXPECT_NO_THROW(Application app());
+    EXPECT_NO_THROW(Application app);
 }
