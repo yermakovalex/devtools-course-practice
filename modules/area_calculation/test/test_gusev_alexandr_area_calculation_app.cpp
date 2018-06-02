@@ -96,7 +96,7 @@ TEST_F(AreaCalculationAppTest, Trapezium_Area_Calculation_Test) {
     // Assert
     Assert("area = 3");
 }
-TEST_F(AreaCalculationAppTest, Trapezieum_Area_Calculation_Test) {
+TEST_F(AreaCalculationAppTest, Octagon_Area_Calculation_Test) {
     // Arrange
     vector<string> args = { "8", "1.0", "1.0", "2.0", "2.0",
         "3.0", "3.0", "4.0", "4.0", "-3.0", "-2.0", "-2.0",
@@ -105,4 +105,12 @@ TEST_F(AreaCalculationAppTest, Trapezieum_Area_Calculation_Test) {
     Act(args);
     // Assert
     Assert("area = 4");
+}
+TEST_F(AreaCalculationAppTest, Zero_Area_Calculation_Test) {
+    // Arrange
+    vector<string> args = { "3", "1.0", "1.0", "1.0", "2.0", "2.0", "2.0"};
+    // Act
+    Act(args);
+    // Assert
+    Assert("area = 0");
 }
