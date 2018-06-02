@@ -44,6 +44,14 @@ set_tests_properties (${prefix}_encode_Work PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_encode_Work_2
+    COMMAND ${APPLICATION} -e iZTi key
+)
+set_tests_properties (${prefix}_encode_Work_2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Encode message = test"
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_checking_arguments
     COMMAND ${APPLICATION} -b OTMSd sky
 )
