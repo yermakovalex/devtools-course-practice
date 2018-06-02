@@ -74,7 +74,7 @@ std::string Application::operator()(int argc, const char** argv) {
             stream << "Regex is not match" << std::endl;
         break;
     case 'g':
-        char * tmp;
+        char * tmp = new char[args.target.size()];
         strcpy(tmp, args.target.c_str());
         regex.getMatch(tmp, args.target.size());
         stream << "Find : " << std::string(tmp) << std::endl << 
