@@ -17,7 +17,6 @@ class Matrix {
     Matrix(const Matrix &x);
     ~Matrix(void);
 
-    void Input(void);
     void Output(void);
     int GetElem(int row, int col);
 

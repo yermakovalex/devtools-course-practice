@@ -21,11 +21,6 @@ Vector::~Vector(void) {
     delete[] a;
 }
 
-void Vector::Input(void) {
-    for (int i = 0; i < n; i++)
-        std::cin >> a[i];
-}
-
 void Vector::Output(void) {
     for (int i = 0; i < n; i++)
         std::cout << a[i] << "\t";

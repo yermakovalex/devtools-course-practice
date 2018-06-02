@@ -16,7 +16,6 @@ class Vector {
     Vector(const Vector &x);
     ~Vector(void);
 
-    void Input(void);
     void Output(void);
     int Sum(void);
 

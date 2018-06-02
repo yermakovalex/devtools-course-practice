@@ -25,11 +25,6 @@ Matrix::~Matrix(void) {
     delete[] M;
 }
 
-void Matrix::Input(void) {
-    for (int i = 0; i < n; i++)
-        M[i].Input();
-}
-
 void Matrix::Output(void) {
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++)
