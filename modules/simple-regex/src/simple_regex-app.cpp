@@ -72,7 +72,7 @@ std::string Application::operator()(int argc, const char** argv) {
     case 'g':
         regex.isMatch(args.target.c_str());
         char * tmp = new char[args.target.size()];
-        snprintf(tmp, args.target.size() - 1, args.target.c_str());
+        strcpy_s(tmp, args.target.size(), args.target.c_str());
         regex.getMatch(tmp, args.target.size());
         if (regex.getMatchIndex() != -1) {
             stream << "Find : " << std::string(tmp) << std::endl <<
