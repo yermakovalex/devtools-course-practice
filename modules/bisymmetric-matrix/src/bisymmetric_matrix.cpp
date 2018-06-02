@@ -43,8 +43,7 @@ int Matrix::GetElem(int row, int col) {
             return M[row - 1][col];
         else
             return M[n + 1 - col - 1][n + 1 - row];
-    }
-    else {
+    } else {
         if (row + col <= n + 1)
             return M[col - 1][row];
         else
@@ -104,7 +103,7 @@ bool Matrix::operator ==(const Matrix &x) const {
     return true;
 }
 
-std::istream &operator >> (std::istream &is, const Matrix &m) {
+std::istream &operator>>(std::istream &is, const Matrix &m) {
     for (int i = 0; i < m.n; i++)
         is >> m.M[i];
 
