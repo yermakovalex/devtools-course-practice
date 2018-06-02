@@ -22,10 +22,10 @@ TEST(Bisymmetric_Matrix, Can_Create) {
     EXPECT_EQ(1, m.GetElem(1, 1));
 }
 
-TEST(Bisymmetric_Matrix, Can_Copy) {
+TEST(Bisymmetric_Matrix, Can_Copy_Numbers) {
     // Arrange
     Matrix a(5);
-    Matrix b(5);
+    Matrix b(a);
 
     std::ifstream is(MATRIX);
     is >> a;
