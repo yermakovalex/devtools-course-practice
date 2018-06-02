@@ -33,7 +33,7 @@ TEST(Bisymmetric_Matrix, Can_Copy_Numbers) {
 
     a.Output();
 
-    a = b;
+    b = a;
 
     // Act & Assert
     EXPECT_EQ(a, b);
@@ -128,7 +128,6 @@ TEST(Bisymmetric_Matrix, Subtract_Matrix_with_Different_Sizes) {
     // Arrange
     Matrix a(5);
     Matrix b(3);
-    Matrix res(5);
 
     std::ifstream is(MATRIX);
     is >> a;
@@ -140,4 +139,50 @@ TEST(Bisymmetric_Matrix, Subtract_Matrix_with_Different_Sizes) {
 
     // Act & Assert
     EXPECT_ANY_THROW(a - b);
+}
+
+TEST(Bisymmetric_Matrix, Out_of_Index_Element) {
+    // Arrange
+    Matrix a(5);
+
+    std::ifstream is(MATRIX);
+    is >> a;
+    is.close();
+
+    // Act & Assert
+    EXPECT_ANY_THROW(a.GetElem(10, 10));
+}
+
+TEST(Bisymmetric_Matrix, Add_Matrix_with_Different_Size) {
+    // Arrange
+    Matrix a(5);
+    Matrix b(3);
+
+    std::ifstream is(MATRIX);
+    is >> a;
+    is.close();
+
+    std::ifstream ist(MATRIX2);
+    is >> b;
+    is.close();
+
+    // Act & Assert
+    EXPECT_ANY_THROW(a + b);
+}
+
+TEST(Bisymmetric_Matrix, Compare_Matrix_with_Different_Size) {
+    // Arrange
+    Matrix a(5);
+    Matrix b(3);
+
+    std::ifstream is(MATRIX);
+    is >> a;
+    is.close();
+
+    std::ifstream ist(MATRIX2);
+    is >> b;
+    is.close();
+
+    // Act & Assert
+    EXPECT_ANY_THROW(a == b);
 }

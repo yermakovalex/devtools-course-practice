@@ -15,10 +15,9 @@ Matrix::Matrix(int size) {
 
 Matrix::Matrix(const Matrix &x) {
     n = x.n;
-
     M = new Vector[n];
     for (int i = 0; i < n; i++)
-        M[i] = x.M[i];
+        M[i] = Vector(x.M[i]);
 }
 
 Matrix::~Matrix(void) {
@@ -44,7 +43,8 @@ int Matrix::GetElem(int row, int col) {
             return M[row - 1][col];
         else
             return M[n + 1 - col - 1][n + 1 - row];
-    } else {
+    }
+    else {
         if (row + col <= n + 1)
             return M[col - 1][row];
         else
@@ -53,12 +53,6 @@ int Matrix::GetElem(int row, int col) {
 }
 
 Matrix& Matrix::operator =(const Matrix &x) {
-    if (n != x.n) {
-        n = x.n;
-        delete[] M;
-        M = new Vector[n];
-    }
-
     for (int i = 0; i < n; i++)
         M[i] = x.M[i];
 

@@ -21,22 +21,6 @@ Vector::~Vector(void) {
     delete[] a;
 }
 
-void Vector::Output(void) {
-    for (int i = 0; i < n; i++)
-        std::cout << a[i] << "\t";
-
-    std::cout << std::endl;
-}
-
-int Vector::Sum(void) {
-    int sum = 0;
-
-    for (int i = 0; i < n; i++)
-        sum += a[i];
-
-    return sum;
-}
-
 int& Vector::operator[](int i) {
     if (i - start < 0 || i - start >= n)
         throw "Index is out of range in Vector::operator[].";
@@ -59,9 +43,6 @@ Vector& Vector::operator=(const Vector &x) {
 }
 
 Vector Vector::operator+(const Vector &x) const {
-    if (n != x.n)
-        throw "It is not possible to sum vectors with different sizes.";
-
     Vector res(n, start);
 
     for (int i = 0; i < n; i++)
@@ -71,9 +52,6 @@ Vector Vector::operator+(const Vector &x) const {
 }
 
 Vector Vector::operator-(const Vector &x) const {
-    if (n != x.n)
-        throw "Vectors are with different sizes.";
-
     Vector res(n, start);
 
     for (int i = 0; i < n; i++)
@@ -99,7 +77,7 @@ bool Vector::operator!=(const Vector &x) {
     return false;
 }
 
-std::istream &operator>>(std::istream &is, const Vector &v) {
+std::istream &operator >> (std::istream &is, const Vector &v) {
     for (int i = 0; i < v.n; i++)
         is >> v.a[i];
     return is;
