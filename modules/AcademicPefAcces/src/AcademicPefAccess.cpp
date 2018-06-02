@@ -21,8 +21,12 @@ void AcademicPefAccess::help(const char *appname,
         "<amountMarks> <marks> \n\n" +
 
         "Where first and second arguments are string value" +
-        "(first is one of medium, amount or id) " +
-        "amountMarks, id and marks are non-negative integer.\n";
+        "amountMarks, id and marks are non-negative integer " +
+        "first is one of medium, amount or id.\n" +
+      
+         "* medium - calculation of the average value of marks\n" +
+         "* amount - output the number of marks\n" +
+         "* id - output of student id\n";
 }
 
 bool AcademicPefAccess::validateNumberOfArguments(int argc,
