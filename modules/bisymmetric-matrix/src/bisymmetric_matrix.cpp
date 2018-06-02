@@ -7,10 +7,10 @@ Matrix::Matrix(int size) {
     M = new Vector[size];
 
     for (int i = 0; i <= size / 2; i++)
-        M[i] = static_cast<Vector>(i + 1, 1);
+        M[i] = Vector(i + 1, 1);
 
     for (int i = static_cast<int>(size / 2) + 1; i < size; i++)
-        M[i] = static_cast<Vector>(size - i, 1);
+        M[i] = Vector(size - i, 1);
 }
 
 Matrix::Matrix(const Matrix &x) {
