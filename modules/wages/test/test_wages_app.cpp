@@ -134,7 +134,7 @@ TEST(Application, can_app) {
     argv[1] = const_cast<char*>("CalculationWagesWithoutOvertime");
     arg = &argv.front();
     app(argc, arg);
-    app(-1,arg);
+    app(-1, arg);
 
     ASSERT_NO_THROW(app.GetCalculatedValues());
 }
