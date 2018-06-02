@@ -15,7 +15,7 @@ add_test(
     NAME ${prefix}_decode_Work
     COMMAND ${APPLICATION} -d hello sky
 )
-set_tests_properties (${prefix}_can_Work PROPERTIES
+set_tests_properties (${prefix}_decode_Work PROPERTIES
     PASS_REGULAR_EXPRESSION "Decode message = OTMSd"
     LABELS "${MODULE}")
 
@@ -39,7 +39,7 @@ add_test(
     NAME ${prefix}_encode_Work
     COMMAND ${APPLICATION} -e OTMSd sky
 )
-set_tests_properties (${prefix}_can_Work PROPERTIES
+set_tests_properties (${prefix}_encode_Work PROPERTIES
     PASS_REGULAR_EXPRESSION "Encode message = hello"
     LABELS "${MODULE}")
 
@@ -47,6 +47,6 @@ add_test(
     NAME ${prefix}_checking_arguments
     COMMAND ${APPLICATION} -b OTMSd sky
 )
-set_tests_properties (${prefix}_can_Work PROPERTIES
+set_tests_properties (${prefix}_checking_arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong param format"
     LABELS "${MODULE}")
