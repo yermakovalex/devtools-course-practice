@@ -4,6 +4,7 @@
 #include <exception>
 #include <cstdlib>
 #include <string>
+#include <cstring>
 #include <sstream>
 
 #include "include/priority_queue_app.h"
@@ -84,44 +85,44 @@ std::string PriorityQueueApp::operator()(int argc, const char** argv) {
         return
             std::string("Wrong format integer number or out of range");
     }
-	try {
-		PriorityQueue<int> pq;
-		std::ostringstream stream;
-		stream << "Priority Queue:\n";
-		int finished_count = 0;
-		int work_element = -1;
-		int time_work = 0;
-		int time = 0;
-		while (finished_count != args.n) {
-			time++;
-			stream << "In moment " << time << "\n";
-			for (int i = 0; i < args.n; ++i)
-				if (args.element_time_start[i] == time) {
-					stream << "\t" << args.element_names[i] << " go into queue\n";
-					pq.Push(i, args.element_priority[i]);
-				}
-			if (work_element == -1) {
-				if (pq.Empty())
-					stream << "\tNot working element\n";
-				else {
-					work_element = pq.ExtractMax();
-					pq.DeleteMax();
-				}
-			}
-			if (work_element != -1) {
-				time_work++;
-				stream << "\t" << args.element_names[work_element] << " is working\n";
-			}
-			if (args.element_time_work[work_element] == time_work) {
-				stream << "\t" << args.element_names[work_element] << " finished\n";
-				work_element = -1;
-				time_work = 0;
-				finished_count++;
-			}
-		}
-		stream << "Finish!\n";
-		message_ = stream.str();
-		return message_;
+    try {
+        PriorityQueue<int> pq;
+        std::ostringstream stream;
+        stream << "Priority Queue:\n";
+        int finished_count = 0;
+        int work_element = -1;
+        int time_work = 0;
+        int time = 0;
+        while (finished_count != args.n) {
+            time++;
+            stream << "In moment " << time << "\n";
+            for (int i = 0; i < args.n; ++i)
+                if (args.element_time_start[i] == time) {
+                    stream << "\t" << args.element_names[i] << " go into queue\n";
+                    pq.Push(i, args.element_priority[i]);
+                }
+            if (work_element == -1) {
+                if (pq.Empty())
+                    stream << "\tNot working element\n";
+                else {
+                    work_element = pq.ExtractMax();
+                    pq.DeleteMax();
+                }
+            }
+            if (work_element != -1) {
+                time_work++;
+                stream << "\t" << args.element_names[work_element] << " is working\n";
+            }
+            if (args.element_time_work[work_element] == time_work) {
+                stream << "\t" << args.element_names[work_element] << " finished\n";
+                work_element = -1;
+                time_work = 0;
+                finished_count++;
+            }
+        }
+        stream << "Finish!\n";
+        message_ = stream.str();
+        return message_;
     }
     catch (std::exception& exc) {
         return std::string(exc.what());

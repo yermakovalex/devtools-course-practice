@@ -6,10 +6,10 @@
 #include <string>
 
 class PriorityQueueApp {
-public:
+ public:
     PriorityQueueApp();
     std::string operator()(int argc, const char** argv);
-private:
+ private:
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
@@ -22,4 +22,4 @@ private:
     } Arguments;
 };
 
-#endif // MODULES_PRIORITY_QUEUE_INCLUDE_PRIORITY_QUEUE_APP_H_
+#endif  // MODULES_PRIORITY_QUEUE_INCLUDE_PRIORITY_QUEUE_APP_H_
