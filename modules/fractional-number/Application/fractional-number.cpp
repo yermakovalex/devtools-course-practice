@@ -8,8 +8,8 @@
 #include "include/Fractional_app.h"
 
 int main(int argc, const char** argv) {
-    //FractionalCalculator app;
-	Fraction_app app;
+    // FractionalCalculator app;
+	Fractional_app app;
     std::string output = app(argc, argv);
     printf("%s\n", output.c_str());
     return 0;
