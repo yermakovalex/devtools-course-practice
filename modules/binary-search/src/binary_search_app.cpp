@@ -24,7 +24,7 @@ bool BinarySearchApp::validateNumberOfArguments(int argc, const char ** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    } else if (argc <= 2) {
+    } else if (argc != atoi(argv[2])) {
         help(argv[0], "Error: Should be more arguments.\n\n");
         return false;
     }
@@ -54,8 +54,8 @@ std::string BinarySearchApp::operator()(int argc, const char** argv) {
     catch (std::string& str) {
         return str;
     }
-    BinarySearch bSearch(args.mas, args.num);
-    out << bSearch.Search(args.elem);
+    BinarySearch *bSearch = new BinarySearch(args.mas, args.num);
+    out << bSearch->Search(args.elem);
 
     message_ = out.str();
     return message_;
