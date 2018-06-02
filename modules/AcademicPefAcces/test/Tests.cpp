@@ -3,12 +3,6 @@
 #include <string>
 #include "include/Student.h"
 
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
-
 TEST(Student, can_create_student_with_negative_amount_marks) {
     int marks[] = { 2, 4, 5, 2, 5, 5 };
     Student st(1, -1, marks, "Matyasov", "381608-2");
