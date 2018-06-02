@@ -23,7 +23,6 @@ void AcademicPefAccess::help(const char *appname,
         "Where first and second arguments are string value" +
         "amountMarks, id and marks are non-negative integer " +
         "first is one of medium, amount or id.\n" +
-      
          "* medium - calculation of the average value of marks\n" +
          "* amount - output the number of marks\n" +
          "* id - output of student id\n";
