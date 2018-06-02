@@ -191,6 +191,7 @@ TEST(TreeOfSegments, can_not_find_sum_with_too_big_right) {
     // Assert
     ASSERT_ANY_THROW(ts1.sum(0, 10));
 }
+
 TEST(TreeOfSegments, can_not_find_sum_with_right_less_left) {
     // Arrange
     int n = 3;
@@ -249,5 +250,5 @@ TEST(TreeOfSegments, can_not_update_tree_with_to_big_vertex) {
     TreeOfSegmets<int> ts1(n, a);
 
     // Assert
-    ASSERT_ANY_THROW(ts1.update(-4, 5))
+	ASSERT_ANY_THROW(ts1.update(-4, 5));
 }
