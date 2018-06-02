@@ -109,8 +109,8 @@ bool TreeOfSegmets<T>::operator!=(const TreeOfSegmets<T>& st) const {
     for (int i = 0; i < 4 * n; ++i) {
         if (arr[i] != st.arr[i])
             return true;
-	}
-	return false;
+    }
+    return false;
 }
 
 template<class T>

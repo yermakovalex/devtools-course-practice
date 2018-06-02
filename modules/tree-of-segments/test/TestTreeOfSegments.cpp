@@ -215,10 +215,11 @@ TEST(TreeOfSegments, can_update_tree) {
     a[2] = 100;
 
     // Act
-    TreeOfSegmets<int> ts1(n, a);
+	TreeOfSegmets<int> ts1(n, a);
 
     // Assert
     ASSERT_NO_THROW(ts1.update(1, 5));
+    EXPECT_EQ(ts1.sum(1, 2), 5 + a[2]);
 }
 
 TEST(TreeOfSegments, can_not_update_tree_with_negative_vertex) {
@@ -248,5 +249,5 @@ TEST(TreeOfSegments, can_not_update_tree_with_to_big_vertex) {
     TreeOfSegmets<int> ts1(n, a);
 
     // Assert
-    ASSERT_ANY_THROW(ts1.update(-4, 5));
+    ASSERT_ANY_THROW(ts1.update(-4, 5))
 }
