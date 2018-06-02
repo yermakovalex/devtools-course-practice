@@ -48,56 +48,56 @@ TEST(Razumova_Maria_LineCross, Can_compare_not_equal_lines) {
     // Arrange
     LineSegment line1(1, 0, 0, 1);
     LineSegment line2(1, 0, 1, 1);
-    
+
     // Act & Assert
     EXPECT_FALSE(line1 == line2);
 }
 
- TEST(Razumova_Maria_LineCross, Can_assign_different_lines) {
-     // Arrange
-     LineSegment line1(1, 1, 3, 4);
-     LineSegment line2(2, 2, 2, 2);
+TEST(Razumova_Maria_LineCross, Can_assign_different_lines) {
+    // Arrange
+    LineSegment line1(1, 1, 3, 4);
+    LineSegment line2(2, 2, 2, 2);
 
-     // Act
-     line2 = line1;
+    // Act
+    line2 = line1;
 
-     // Assert
-     EXPECT_EQ(line1, line2);
- }
+    // Assert
+    EXPECT_EQ(line1, line2);
+}
 
- TEST(Razumova_Maria_LineCross, Can_assign_equal_lines) {
-     // Arrange
-     LineSegment line1(1, 1, 3, 4);
-     LineSegment line2(2, 2, 2, 2);
+TEST(Razumova_Maria_LineCross, Can_assign_equal_lines) {
+    // Arrange
+    LineSegment line1(1, 1, 3, 4);
+    LineSegment line2(2, 2, 2, 2);
 
-     // Act
-     line2 = line1;
+    // Act
+    line2 = line1;
 
-     // Assert
-     EXPECT_EQ(line1, line2);
- }
+    // Assert
+    EXPECT_EQ(line1, line2);
+}
 
- TEST(Razumova_Maria_LineCross, Can_assign_line_to_itself) {
-     // Arrange
-     LineSegment line(1, 1, 1, 1);
+TEST(Razumova_Maria_LineCross, Can_assign_line_to_itself) {
+    // Arrange
+    LineSegment line(1, 1, 1, 1);
 
-     // Act
-     // Assert
-     ASSERT_NO_THROW(line = line);
- }
+    // Act
+    // Assert
+    ASSERT_NO_THROW(line = line);
+}
 
- TEST(Razumova_Maria_LineCross, Can_calculate_vector_product) {
-     // Arrange
-     LineSegment line1(1, 2, 3, 4);
-     LineSegment line2(4, 4, 5, 2);
-     double prod;
+TEST(Razumova_Maria_LineCross, Can_calculate_vector_product) {
+    // Arrange
+    LineSegment line1(1, 2, 3, 4);
+    LineSegment line2(4, 4, 5, 2);
+    double prod;
 
-     // Act
-     prod = (3 - 1) * (2 - 4) - (5 - 4) * (4 - 2);
+    // Act
+    prod = (3 - 1) * (2 - 4) - (5 - 4) * (4 - 2);
 
-     // Assert
-     EXPECT_EQ(prod, line1.vectorProduct(line2));
- }
+    // Assert
+    EXPECT_EQ(prod, line1.vectorProduct(line2));
+}
 
 TEST(Razumova_Maria_LineCross, check_cross_line_segments_crossed) {
     // Arrange
