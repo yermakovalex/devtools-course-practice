@@ -95,7 +95,7 @@ TEST_F(PriorityQueueAppTest, do_correct_work) {
 
 TEST_F(PriorityQueueAppTest, do_correct_work2) {
     // Arrange
-    vector<string> args = { "1", "abc", "1", "2", "1" };
+    vector<string> args = { "1", "abc", "2", "1", "1" };
 
     // Act
     Act(args);
@@ -103,8 +103,6 @@ TEST_F(PriorityQueueAppTest, do_correct_work2) {
     // Assert
     Assert(std::string("Priority Queue:\n") +
         "In moment 1\n" +
-        "\tNot working element\n" +
-        "In moment 2\n" +
         "\tabc go into queue\n" +
         "\tabc is working\n" +
         "\tabc finished\n" +
