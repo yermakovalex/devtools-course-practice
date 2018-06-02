@@ -1,4 +1,4 @@
-// Copyright 2017 Levitsky Ilya
+// Copyright 2018 Levitsky Ilya
 
 #include <stdlib.h>
 #include <stdio.h>
