@@ -26,6 +26,8 @@ TEST(Bisymmetric_Matrix, Can_Copy) {
     is.close();
 
     a.Output();
+
+	a = b;
     
     // Act & Assert
     EXPECT_EQ(a, b);
