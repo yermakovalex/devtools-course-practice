@@ -103,6 +103,17 @@ bool TreeOfSegmets<T>::operator==(const TreeOfSegmets<T>& st) const {
 }
 
 template<class T>
+bool TreeOfSegmets<T>::operator!=(const TreeOfSegmets<T>& st) const {
+    if (n != st.n)
+        return true;
+    for (int i = 0; i < 4 * n; ++i) {
+        if (arr[i] != st.arr[i])
+            return true;
+	}
+	return false;
+}
+
+template<class T>
 TreeOfSegmets<T> & TreeOfSegmets<T>::operator=(const TreeOfSegmets<T> & st) {
     if (*this == st)
         return *this;

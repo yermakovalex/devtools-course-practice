@@ -20,6 +20,7 @@ class TreeOfSegmets {
     T sum(int left, int right);
     void update(int pos, T val);
     bool operator==(const TreeOfSegmets<T>& st) const;
+    bool operator!=(const TreeOfSegmets<T>& st) const;
     TreeOfSegmets<T>& operator=(const TreeOfSegmets<T>& st);
 };
 

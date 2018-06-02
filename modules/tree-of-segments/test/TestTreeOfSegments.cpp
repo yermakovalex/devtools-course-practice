@@ -55,6 +55,26 @@ TEST(TreeOfSegments, can_compare_trees) {
     EXPECT_TRUE(ts1 == ts2);
 }
 
+TEST(TreeOfSegments, can_nocompare_trees) {
+	// Arrange
+	int n = 3;
+	int* a = new int[3];
+	a[0] = 1;
+	a[1] = 2;
+	a[2] = 100;
+	int* b = new int[3];
+	b[0] = 5;
+	b[1] = 2;
+	b[2] = 100;
+
+	// Act
+	TreeOfSegmets<int> ts1(n, a);
+	TreeOfSegmets<int> ts2(n, b);
+
+	// Assert
+	EXPECT_TRUE(ts1 != ts2);
+}
+
 TEST(TreeOfSegments, can_create_copy_tree) {
     // Arrange
     int n = 3;
