@@ -69,7 +69,7 @@ std::string PriorityQueueApp::operator()(int argc, const char** argv) {
         args.element_priority = new int[args.n];
         args.element_time_start = new int[args.n];
         args.element_time_work = new int[args.n];
-        for (int i = 0; i < args.n; ++i) 
+        for (int i = 0; i < args.n; ++i)
             args.element_names[i] = std::string(argv[2 + i]);
         for (int i = 0; i < args.n; ++i)
             args.element_priority[i] = parseInt(argv[2 + args.n + i]);
@@ -98,23 +98,26 @@ std::string PriorityQueueApp::operator()(int argc, const char** argv) {
             stream << "In moment " << time << "\n";
             for (int i = 0; i < args.n; ++i)
                 if (args.element_time_start[i] == time) {
-                    stream << "\t" << args.element_names[i] << " go into queue\n";
+                    stream << "\t" << args.element_names[i];
+                    stream << " go into queue\n";
                     pq.Push(i, args.element_priority[i]);
                 }
             if (work_element == -1) {
-                if (pq.Empty())
+                if (pq.Empty()) {
                     stream << "\tNot working element\n";
-                else {
+                } else {
                     work_element = pq.ExtractMax();
                     pq.DeleteMax();
                 }
             }
             if (work_element != -1) {
                 time_work++;
-                stream << "\t" << args.element_names[work_element] << " is working\n";
+                stream << "\t" << args.element_names[work_element];
+                stream << " is working\n";
             }
             if (args.element_time_work[work_element] == time_work) {
-                stream << "\t" << args.element_names[work_element] << " finished\n";
+                stream << "\t" << args.element_names[work_element];
+                stream << " finished\n";
                 work_element = -1;
                 time_work = 0;
                 finished_count++;
