@@ -47,8 +47,7 @@ double Fractional_app::GetParam(const char* arg) {
     return value;
 }
 
-bool isEqual(const char*p, char*q)
-{
+bool isEqual(const char*p, char*q) {
     while (*p && *q) {
         if (*p++ != *q++)
             return false;
@@ -60,17 +59,13 @@ char Fractional_app::GetOperation(const char* arg) {
     char operation;
     if (isEqual(arg, "+")) {
         operation = '+';
-    }
-    else if (isEqual(arg, "-")) {
+    } else if (isEqual(arg, "-")) {
         operation = '-';
-    }
-    else if (isEqual(arg, "/")) {
+    } else if (isEqual(arg, "/")) {
         operation = '/';
-    }
-    else if (isEqual(arg, "*")) {
+    } else if (isEqual(arg, "*")) {
         operation = '*';
-    }
-    else {
+    } else {
         help_message("Wrong operation format!");
         throw std::string("Wrong operation format!");
     }
