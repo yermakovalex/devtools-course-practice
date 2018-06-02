@@ -53,7 +53,6 @@ int parseInt(const char *arg) {
 std::string parseName(const char *arg) {
     std::string op;
     for (int i = 0; arg[i] != 0; i++) {
-        char name = arg[i];
         if (!isalpha(arg[i])) {
             throw std::string("Wrong name format!");
         }
