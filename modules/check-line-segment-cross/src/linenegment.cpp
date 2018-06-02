@@ -28,10 +28,6 @@ bool LineSegment::operator ==(const LineSegment& line) const {
             && x2 == line.x2 && y2 == line.y2);
 }
 
-double LineSegment::scalarProduct(const LineSegment &line) {
-    return (x2 - x1) * (line.x2 - line.x1) + (y2 - y1) * (line.y2 - line.y1);
-}
-
 double LineSegment::vectorProduct(const LineSegment &line) {
     return (x2 - x1) * (line.y2 - line.y1) - (line.x2 - line.x1) * (y2 - y1);
 }

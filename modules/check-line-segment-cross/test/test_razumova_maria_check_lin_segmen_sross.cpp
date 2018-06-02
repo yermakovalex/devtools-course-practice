@@ -118,3 +118,12 @@ TEST(Razumova_Maria_LineCross, check_cross_line_segments_not_crossed) {
     // Assert
     EXPECT_FALSE(line1.isCross(line2));
 }
+TEST(Razumova_Maria_LineCross, check_cross_touching_line_segments_crossed) {
+    // Arrange
+    LineSegment line1(1, 2, 6, 2);
+    LineSegment line2(4, -6, 4, 2);
+
+    // Act
+    // Assert
+    EXPECT_TRUE(line1.isCross(line2));
+}
