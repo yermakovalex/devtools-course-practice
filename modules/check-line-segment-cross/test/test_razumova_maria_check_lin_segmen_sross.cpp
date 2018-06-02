@@ -102,7 +102,7 @@ TEST(Razumova_Maria_LineCross, Can_calculate_vector_product) {
 TEST(Razumova_Maria_LineCross, check_cross_line_segments_crossed) {
     // Arrange
     LineSegment line1(1, 1, 4, 1);
-    LineSegment line2(2,-3, 2, 8);
+    LineSegment line2(2, -3, 2, 8);
 
     // Act
     // Assert
@@ -112,7 +112,7 @@ TEST(Razumova_Maria_LineCross, check_cross_line_segments_crossed) {
 TEST(Razumova_Maria_LineCross, check_cross_line_segments_not_crossed) {
     // Arrange
     LineSegment line1(1, 1, 4, 1);
-    LineSegment line2(2,-3, 2, 0);
+    LineSegment line2(2, -3, 2, 0);
 
     // Act
     // Assert
