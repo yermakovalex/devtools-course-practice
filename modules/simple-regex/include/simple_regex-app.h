@@ -3,6 +3,7 @@
 #ifndef MODULES_SIMPLE_REGEX_INCLUDE_SIMPLE_REGEX_APP_H_
 #define MODULES_SIMPLE_REGEX_INCLUDE_SIMPLE_REGEX_APP_H_
 
+#include "simple_regex.h"
 #include <string>
 
 class Application {
@@ -16,7 +17,7 @@ private:
     std::string message_;
     typedef struct
     {
-        std::string mode;
+        char mode;
         std::string target;
         std::string regex;
     } Arguments;
