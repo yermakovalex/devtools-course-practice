@@ -44,44 +44,58 @@ class QuadEqTest: public ::testing::Test {
 };
 
 TEST_F(QuadEqTest, Able_Print_Help_No_Arguments) {
-  vector<string> args = {};
+    // Arrange
+    vector<string> args = {};
 
-  Act(args);
+    Act(args);
 
-  Assert("This is a quadratic equation calculator");
+    Assert("This is a quadratic equation calculator");
 }
 
 TEST_F(QuadEqTest, Able_Check_Number_Arguments) {
+    // Arrange
     vector<string> args = { "1", "2", "3", "4"};
+
     Act(args);
 
     Assert("ERROR: Should be 3 arguments*");
 }
 
 TEST_F(QuadEqTest, Able_Check_Type) {
+    // Arrange
     vector<string> args = { "smth", "2", "4" };
+
     Act(args);
 
     Assert("Wrong number format!");
 }
 
 TEST_F(QuadEqTest, Able_Get_Correct_Roots1) {
+    // Arrange
     vector<string> args = { "1", "-2", "3" };
+
     Act(args);
 
+    // Assert
     AssertFull("Result: There are no real roots ");
 }
 
 TEST_F(QuadEqTest, Able_Get_Correct_Roots2) {
+    // Arrange
     vector<string> args = { "1", "2", "1" };
+
     Act(args);
 
+    // Assert
     AssertFull("Result: There is one real root: -1");
 }
 
 TEST_F(QuadEqTest, Able_Get_Correct_Roots3) {
+    // Arrange
     vector<string> args = { "1", "-6", "5" };
+
     Act(args);
 
+    // Assert
     AssertFull("Result: There are two real roots: 1 5");
 }
