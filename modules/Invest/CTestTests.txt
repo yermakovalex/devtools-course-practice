@@ -29,7 +29,7 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Number_Format
-    COMMAND ${APPLICATION} 1 p 2.0 2 FindNPV
+    COMMAND ${APPLICATION} 1 p 2.0 2 NPV
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong number format!"
@@ -45,7 +45,7 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Function_Format PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Find_Npv
-    COMMAND ${APPLICATION} 2 5 4 3 2 1 FindNPV
+    COMMAND ${APPLICATION} 2 5 4 3 2 1 NPV
 )
 set_tests_properties (${prefix}_can_Find_Npv PROPERTIES
     PASS_REGULAR_EXPRESSION "NPV = 3.9802"
@@ -53,7 +53,7 @@ set_tests_properties (${prefix}_can_Find_Npv PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Find_Npv_with_parameter
-    COMMAND ${APPLICATION} 2 5 4 3 2 1 FindNPV 2
+    COMMAND ${APPLICATION} 2 5 4 3 2 1 NPV 2
 )
 set_tests_properties (${prefix}_can_Find_Npv_with_parameter PROPERTIES
     PASS_REGULAR_EXPRESSION "NPV = 3.96078"
@@ -61,7 +61,7 @@ set_tests_properties (${prefix}_can_Find_Npv_with_parameter PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Find_Irr
-    COMMAND ${APPLICATION} 2 5 4 3 2 1 FindIRR
+    COMMAND ${APPLICATION} 2 5 4 3 2 1 IRR
 )
 set_tests_properties (${prefix}_can_Find_Irr PROPERTIES
     PASS_REGULAR_EXPRESSION "IRR = -2"
@@ -69,7 +69,7 @@ set_tests_properties (${prefix}_can_Find_Irr PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Find_Recoupment_Time
-    COMMAND ${APPLICATION} 2 5 4 3 2 1 FindRecoupmentTime
+    COMMAND ${APPLICATION} 2 5 4 3 2 1 RecoupmentTime
 )
 set_tests_properties (${prefix}_can_Find_Recoupment_Time PROPERTIES
     PASS_REGULAR_EXPRESSION "RecoupmentTime = 0"
@@ -77,7 +77,7 @@ set_tests_properties (${prefix}_can_Find_Recoupment_Time PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Find_Pbindex
-    COMMAND ${APPLICATION} 2 5 4 3 0 1 FindPBIndex
+    COMMAND ${APPLICATION} 2 5 4 3 0 1 PBIndex
 )
 set_tests_properties (${prefix}_can_Find_Pbindex PROPERTIES
     PASS_REGULAR_EXPRESSION "PBIndex = 2.00667"

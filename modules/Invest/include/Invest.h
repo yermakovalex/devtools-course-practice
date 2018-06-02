@@ -1,4 +1,4 @@
-// Copyright 2018 Chernenko Valery
+// Copyright 2018 Churakov Sergey
 
 #ifndef MODULES_INVEST_INCLUDE_INVEST_H_
 #define MODULES_INVEST_INCLUDE_INVEST_H_

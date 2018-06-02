@@ -58,7 +58,7 @@ TEST_F(InvestorTest, Is_Checking_Number_Of_Arguments) {
 }
 
 TEST_F(InvestorTest, can_Detect_Wrong_Number_Format) {
-    vector<string> args = {"1", "p", "2.0", "2", "FindNPV"};
+    vector<string> args = {"1", "p", "2.0", "2", "NPV"};
 
     Act(args);
 
@@ -74,7 +74,7 @@ TEST_F(InvestorTest, can_Detect_Wrong_Function_Format) {
 }
 
 TEST_F(InvestorTest, can_Find_Npv) {
-    vector<string> args = {"2", "5", "4", "3", "2.0" , "1" , "FindNPV"};
+    vector<string> args = {"2", "5", "4", "3", "2.0" , "1" , "NPV"};
 
     Act(args);
 
@@ -82,7 +82,7 @@ TEST_F(InvestorTest, can_Find_Npv) {
 }
 
 TEST_F(InvestorTest, can_Find_Npv_with_parameter) {
-    vector<string> args = {"2", "5", "4", "3", "2.0", "1", "FindNPV", "2"};
+    vector<string> args = {"2", "5", "4", "3", "2.0", "1", "NPV", "2"};
 
     Act(args);
 
@@ -90,7 +90,7 @@ TEST_F(InvestorTest, can_Find_Npv_with_parameter) {
 }
 
 TEST_F(InvestorTest, can_Find_Irr) {
-    vector<string> args = {"2", "5", "4", "3", "2.0" , "1" , "FindIRR"};
+    vector<string> args = {"2", "5", "4", "3", "2.0" , "1" , "IRR"};
 
     Act(args);
 
@@ -99,7 +99,7 @@ TEST_F(InvestorTest, can_Find_Irr) {
 
 TEST_F(InvestorTest, can_Find_Recoupment_Time) {
     vector<string> args =
-            {"2", "5", "4", "3", "2.0" , "1" , "FindRecoupmentTime"};
+            {"2", "5", "4", "3", "2.0" , "1" , "RecoupmentTime"};
 
     Act(args);
 
@@ -107,7 +107,7 @@ TEST_F(InvestorTest, can_Find_Recoupment_Time) {
 }
 
 TEST_F(InvestorTest, can_Find_Pbindex) {
-    vector<string> args = {"2", "5", "4", "3", "0" , "1" , "FindPBIndex"};
+    vector<string> args = {"2", "5", "4", "3", "0" , "1" , "PBIndex"};
 
     Act(args);
 

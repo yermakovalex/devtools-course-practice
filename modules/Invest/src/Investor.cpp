@@ -16,9 +16,12 @@ void Investor::help(const char* appname, const char* message) {
     message_ = std::string(message) +
         "This is a Investor application.\n\n" +
         "Please provide arguments in the following format:\n\n" +
-        "  $ " + appname + " <int YearCount> <money* Incomes>" +
-        " <money* Expenses> <double RatePercent>" +
-        " <char* Function> [double RateParameter]\n\n";
+        "  $ " + appname + " <YearCount> <money* Incomes>" +
+        " <money* Expenses> <RatePercent>" +
+        " <Function>\n\n" +
+        "Function can be five types -" +
+        "NPV, NPV + [RateParameter], IRR" +
+        "RecoupmentTime, PBIndex\n\n";
 }
 
 bool Investor::validateNumberOfArguments(int argc, const char** argv) {
@@ -29,7 +32,7 @@ bool Investor::validateNumberOfArguments(int argc, const char** argv) {
         int year = atoi(argv[1]);
         if (argc == 4 + year * 2 ||
            (argc == 5 + year * 2 &&
-            !strcmp(argv[2 + year * 2 + 1], "FindNPV"))) {
+            !strcmp(argv[2 + year * 2 + 1], "NPV"))) {
             return true;
         } else {
             help(argv[0], "Wrong Parameters!\n");
@@ -65,12 +68,12 @@ std::string Investor::operator()(int argc, const char** argv) {
             args.Expenses.push_back(parseDouble(argv[2 +args.YearCount + i]));
         args.RatePercent = parseDouble(argv[2 + args.YearCount*2]);
         args.Function = argv[2 + args.YearCount * 2 + 1];
-        if (strcmp(args.Function.c_str(), "FindNPV") != 0 &&
-            strcmp(args.Function.c_str(), "FindIRR") != 0 &&
-            strcmp(args.Function.c_str(), "FindRecoupmentTime") != 0 &&
-            strcmp(args.Function.c_str(), "FindPBIndex") != 0)
+        if (strcmp(args.Function.c_str(), "NPV") != 0 &&
+            strcmp(args.Function.c_str(), "IRR") != 0 &&
+            strcmp(args.Function.c_str(), "RecoupmentTime") != 0 &&
+            strcmp(args.Function.c_str(), "PBIndex") != 0)
             throw std::string("Wrong Operation!\n");
-        if (strcmp(args.Function.c_str(), "FindNPV") ==  0 &&
+        if (strcmp(args.Function.c_str(), "NPV") ==  0 &&
             argc == 5 + args.YearCount * 2)
             args.RateParameter = parseDouble(argv[argc-1]);
         else
@@ -83,14 +86,14 @@ std::string Investor::operator()(int argc, const char** argv) {
     Investition invest(args.YearCount, args.Incomes,
                        args.Expenses, args.RatePercent);
     std::ostringstream stream;
-    if (!strcmp(args.Function.c_str(), "FindNPV") &&
+    if (!strcmp(args.Function.c_str(), "NPV") &&
                 argc == 5 + args.YearCount * 2) {
         stream << "NPV = " << invest.FindNPV(args.RateParameter);
-    } else if (!strcmp(args.Function.c_str(), "FindNPV")) {
+    } else if (!strcmp(args.Function.c_str(), "NPV")) {
         stream << "NPV = " << invest.FindNPV();
-    } else if (!strcmp(args.Function.c_str(), "FindIRR")) {
+    } else if (!strcmp(args.Function.c_str(), "IRR")) {
         stream << "IRR = " << invest.FindIRR();
-    } else if (!strcmp(args.Function.c_str(), "FindRecoupmentTime")) {
+    } else if (!strcmp(args.Function.c_str(), "RecoupmentTime")) {
         stream << "RecoupmentTime = " << invest.FindRecoupmentTime();
     } else {
         stream << "PBIndex = " << invest.FindPBIndex();
