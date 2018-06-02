@@ -6,12 +6,12 @@
 #include <string>
 
 class Fractional_app {
-public:
+ public:
     Fractional_app();
     std::string operator()(int argc, const char** argv);
-private:
+ private:
     void help_message(const char* message = "");
-    double GetParam(const char* arg="");
+    double GetParam(const char* arg = "");
     char GetOperation(const char* arg);
     bool forArguments(int argc, const char** argv);
     std::string message_;
