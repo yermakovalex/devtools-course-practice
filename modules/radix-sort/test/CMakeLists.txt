@@ -24,4 +24,4 @@ add_test(
     COMMAND ${target}
 )
 set_tests_properties (${MODULE}_gtest PROPERTIES
-LABELS "${MODULE}")
+    LABELS "${MODULE}")
