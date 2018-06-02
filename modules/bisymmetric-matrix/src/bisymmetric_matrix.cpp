@@ -1,17 +1,17 @@
 // Copyright 2018 Ioanu Daniel
 
 #include "include/bisymmetric_matrix.h"
-#include <stdexcept>
 
 Matrix::Matrix(int size) {
     n = size;
     M = new Vector[size];
 
     for (int i = 0; i <= size / 2; i++)
-        M[i] = Vector(i + 1, 1);
+        M[i] = static_cast<Vector>(i + 1, 1);
 
     for (int i = int(size / 2) + 1; i < size; i++)
-        M[i] = Vector(size - i, 1);
+        M[i] = static_cast<Vector>(size - i, 1);
+    
 }
 
 Matrix::Matrix(const Matrix &x) {
@@ -85,7 +85,7 @@ Matrix Matrix::operator +(const Matrix &x) {
 
 Matrix Matrix::operator -(const Matrix &x) const {
     if (n != x.n)
-        throw "It is not possible to find the difference of the matrices of different sizes.";
+        throw "Matrices are with different sizes";
 
     Matrix res(n);
 
