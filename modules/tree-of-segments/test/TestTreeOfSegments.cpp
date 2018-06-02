@@ -215,7 +215,7 @@ TEST(TreeOfSegments, can_update_tree) {
     a[2] = 100;
 
     // Act
-	TreeOfSegmets<int> ts1(n, a);
+    TreeOfSegmets<int> ts1(n, a);
 
     // Assert
     ASSERT_NO_THROW(ts1.update(1, 5));
