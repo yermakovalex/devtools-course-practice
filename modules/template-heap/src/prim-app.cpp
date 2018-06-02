@@ -24,7 +24,8 @@ void PrimApp::help(const char* message) {
     " minimum spanning tree based on binary heap.\n\n" +
     "Please provide arguments in the following format:\n\n" +
 
-    "  $ template-heap -[p] [path to file] -[d] [demention]\n\n" +
+    "  $ template-heap -[h] [help] -[p] [path to file] -[d] [demention]\n\n" +
+    "\t-h    show help message\n" +
     "\t-p    path to .txt file, contains adjacency matrix for grapth\n" +
     "\t-d    heap demention (optional, default is 2)\n";
 }
@@ -32,7 +33,10 @@ void PrimApp::help(const char* message) {
 bool PrimApp::validateArguments(int argc, const char** argv) {
   if (argc == 1) {
     message_ = std::string("This application implements Prim's algorithm\n") +
-      "Usage:  template-heap -[p] [path to file] -[d] [demention]\n";
+      "Usage:  template-heap -[h] help -[p] [path to file] -[d] [demention]\n";
+    return false;
+  } else if (argv[1][0] == '-' && argv[1][1] == 'h') {
+    help("");
     return false;
   } else if (argc > 1 && (argv[1][0] != '-' || argv[1][1] != 'p')) {
     help("ERROR: Wrong argument format\n\n");

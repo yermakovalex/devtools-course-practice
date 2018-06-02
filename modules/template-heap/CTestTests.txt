@@ -20,6 +20,14 @@ set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_can_Print_Help_With_Help_Key
+    COMMAND ${APPLICATION} -h
+)
+set_tests_properties (${prefix}_can_Print_Help_With_Help_Key PROPERTIES
+    PASS_REGULAR_EXPRESSION "This application implements Prim's algorithm"
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_can_Check_Arguments
     COMMAND ${APPLICATION} 1
 )
