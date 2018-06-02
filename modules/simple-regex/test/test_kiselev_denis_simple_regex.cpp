@@ -1,18 +1,15 @@
-// Copyright 2018 Kiselev Denis
+// Copyright 2018 Vyunov Roman
 
 #include <gtest/gtest.h>
 
 #include "include/simple_regex.h"
 
-TEST(Kiselev_Denis_SimpleRegexTest, Can_Create_SimpleRegex) {
+TEST(Vyunov_Roman_SimpleRegexTest, Can_Create_SimpleRegex) {
     // Arrange
     const char* regex = "Hel\\wo, wor\\w\\w!";
 
-    // Act
-    SimpleRegex myRegex(regex);
-
-    // Assert
-    EXPECT_EQ(regex, myRegex.getRegex());
+    // Act & Assert
+    EXPECT_NO_THROW(SimpleRegex myRegex(regex));
 }
 
 TEST(Kiselev_Denis_SimpleRegexTest, Can_Get_Regex) {
