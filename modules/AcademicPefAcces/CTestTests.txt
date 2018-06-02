@@ -69,7 +69,7 @@ set_tests_properties (${prefix}_can_Print_medium PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Print_amount
-    COMMAND ${APPLICATION} amount 1 2
+    COMMAND ${APPLICATION} amount 1 name 1 2
 )
 set_tests_properties (${prefix}_can_Print_amount PROPERTIES
     PASS_REGULAR_EXPRESSION "Amount of marks = 1"
