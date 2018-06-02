@@ -6,9 +6,7 @@
 
 TEST(Vyunov_Roman_SimpleRegexAppTest, parseOperation_i) {
     // Arrange
-    Application app;
-    app.
 
     // Act & Assert
-    EXPECT_NO_THROW(parseOpe);
+    EXPECT_NO_THROW(Application app());
 }
