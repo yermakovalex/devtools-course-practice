@@ -1,0 +1,52 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a priority queue application"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_do_error_if_too_few_arguments
+    COMMAND ${APPLICATION} 1 2
+)
+set_tests_properties (${prefix}_do_error_if_too_few_arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 2 +.*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_do_error_if_lenght_name_more_20
+    COMMAND ${APPLICATION} 1 abcdefghijklmnopqrstuvwxyz 1 1 1
+)
+set_tests_properties (${prefix}_do_error_if_lenght_name_more_20 PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Lenght names should be less then 20.*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_do_correct_work
+    COMMAND ${APPLICATION} 1 abc 1 1 1
+)
+set_tests_properties (${prefix}_do_correct_work PROPERTIES
+    PASS_REGULAR_EXPRESSION "Priority Queue:\nIn moment 1\n\tabc go into queue\n\tabc is working\n\tabc finished\nFinish!\n"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_complete_work
+    COMMAND ${APPLICATION} 4 Music Video Imagine Game 2 9 5 1 7 5 2 2 2 2 4 3
+)
+set_tests_properties (${prefix}_complete_work PROPERTIES
+    PASS_REGULAR_EXPRESSION "Priority Queue:\nIn moment 1\n\tNot working element\nIn moment 2\n\tImagine go into queue\n\tGame go into queue\n\tImagine is working\nIn moment 3\n\tImagine is working\nIn moment 4\n\tImagine is working\nIn moment 5\n\tVideo go into queue\n\tImagine is working\n\tImagine finished\nIn moment 6\n\tVideo is working\nIn moment 7\n\tMusic go into queue\n\tVideo is working\n\tVideo finished\nIn moment 8\n\tMusic is working\nIn moment 9\n\tMusic is working\n\tMusic finished\nIn moment 10\n\tGame is working\nIn moment 11\n\tGame is working\nIn moment 12\n\tGame is working\n\tGame finished\nFinish!\n"
+    LABELS "${MODULE}")
