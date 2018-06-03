@@ -95,36 +95,45 @@ std::string PriorityQueueApp::operator()(int argc, const char** argv) {
         int time = 0;
         while (finished_count != args.n) {
             time++;
-            stream << "In moment " << time << "\n";
+            stream << time;
+			bool ch = true;
             for (int i = 0; i < args.n; ++i)
                 if (args.element_time_start[i] == time) {
-                    stream << "\t" << args.element_names[i];
-                    stream << " go into queue\n";
-                    pq.Push(i, args.element_priority[i]);
+					if (ch) {
+						stream << "\tGo: ";
+						ch = false;
+						stream << args.element_names[i];
+					}
+					else {
+						stream << " " << args.element_names[i];
+					}
+					pq.Push(i, args.element_priority[i]);
                 }
+			if (!ch)
+				stream << "\n";
             if (work_element == -1) {
                 if (pq.Empty()) {
-                    stream << "\tNot working element\n";
+                    stream << "\tNot work";
                 } else {
                     work_element = pq.ExtractMax();
                     pq.DeleteMax();
                 }
             }
-            if (work_element != -1) {
-                time_work++;
-                stream << "\t" << args.element_names[work_element];
-                stream << " is working\n";
-            }
-            if (args.element_time_work[work_element] == time_work) {
-                stream << "\t" << args.element_names[work_element];
-                stream << " finished\n";
-                work_element = -1;
-                time_work = 0;
-                finished_count++;
-            }
+			if (work_element != -1) {
+				time_work++;
+				stream << "\tWork: " << args.element_names[work_element];
+				if (args.element_time_work[work_element] == time_work) {
+					stream << " (finished)";
+					work_element = -1;
+					time_work = 0;
+					finished_count++;
+				}
+			}
+			stream << "\n";
         }
         stream << "Finish!\n";
         message_ = stream.str();
+		std::cout << message_ << "\n";
         return message_;
     }
     catch (std::exception& exc) {

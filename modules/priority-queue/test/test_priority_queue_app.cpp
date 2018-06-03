@@ -86,25 +86,30 @@ TEST_F(PriorityQueueAppTest, do_correct_work) {
 
     // Assert
     Assert(std::string("Priority Queue:\n") +
-        "In moment 1\n" +
-        "\tabc go into queue\n" +
-        "\tabc is working\n" +
-        "\tabc finished\n" +
-        "Finish!\n");
+		"1\tGo: abc\n" +
+		"\tWork: abc \\(finished\\)\n" +
+		"Finish!\n");
 }
 
-TEST_F(PriorityQueueAppTest, do_correct_work2) {
-    // Arrange
-    vector<string> args = { "1", "abc", "2", "1", "1" };
+TEST_F(PriorityQueueAppTest, do_complete_work) {
+	// Arrange
+	vector<string> args = { "3", 
+		     "A", "B", "C",
+		     "1", "2", "3",
+	         "2", "2", "3",
+	         "1", "1", "1"};
 
-    // Act
-    Act(args);
+	// Act
+	Act(args);
 
-    // Assert
-    Assert(std::string("Priority Queue:\n") +
-        "In moment 1\n" +
-        "\tabc go into queue\n" +
-        "\tabc is working\n" +
-        "\tabc finished\n" +
-        "Finish!\n");
+	// Assert
+	Assert(std::string("Priority Queue:\n") +
+		"1\tNot work\n" +
+		"2\tGo: A B\n" +
+		"\tWork: B \\(finished\\)\n" +
+		"3\tGo: C\n" +
+		"\tWork: C \\(finished\\)\n" +
+		"4\tWork: A \\(finished\\)\n" +
+		"Finish!\n"
+	);
 }
