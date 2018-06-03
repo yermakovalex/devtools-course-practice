@@ -44,17 +44,6 @@ TEST_F(PriorityQueueAppTest, do_print_help_without_arguments) {
     Assert("This is a priority queue application\\..*");
 }
 
-TEST_F(PriorityQueueAppTest, do_error_if_too_few_arguments) {
-    // Arrange
-    vector<string> args = {"1", "2"};
-
-    // Act
-    Act(args);
-
-    // Assert
-    Assert("ERROR: Should be 2 +.*");
-}
-
 TEST_F(PriorityQueueAppTest, do_error_if_lenght_name_more_20) {
     // Arrange
     vector<string> args = { "1", "abcdefghijklmnopqrstuvwxyz", "1", "1", "1"};
@@ -64,6 +53,18 @@ TEST_F(PriorityQueueAppTest, do_error_if_lenght_name_more_20) {
 
     // Assert
     Assert("ERROR: Lenght names should be less then 20.*");
+}
+
+
+TEST_F(PriorityQueueAppTest, do_error_if_too_few_arguments) {
+    // Arrange
+    vector<string> args = { "1", "2" };
+
+    // Act
+    Act(args);
+
+    // Assert
+    Assert("ERROR: Should be 2 +.*");
 }
 
 TEST_F(PriorityQueueAppTest, do_error_out_of_range) {
