@@ -17,11 +17,6 @@ std::string Calc::toString(int number, size_t base) {
     char *bufP = buf;
     char *resP = res;
 
-    if (number < 0) {
-        number = -number;
-        *resP++ = '-';
-    }
-
     do {
         unsigned r;
         r = number % base;
