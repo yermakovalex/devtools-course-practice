@@ -1,6 +1,8 @@
 // Copyright 2018 Levitsky Ilya
 #include "include/set.h"
 
+#include <vector>
+
 set::set(int mp) {
     MaxPow = mp;
     BF = bitfield(mp);
@@ -18,6 +20,11 @@ void set::Insert(int k) {
     BF.SetBit(k);
 }
 
+void set::Insert(const std::vector<int>& vec) {
+    for (auto i = vec.begin(); i != vec.end(); i++)
+        Insert(*i);
+}
+
 int set::GetN(int k) {
     if (Get(k)) {
         return k;
@@ -27,6 +34,17 @@ int set::GetN(int k) {
 
 int set::Get(int k) {
     return BF.GetBit(k);
+}
+
+std::vector<int> set::GetElements() {
+    std::vector<int> res;
+    for (int i = 0; i < 10; i++)
+        if (this->GetN(i) != 0)
+            res.emplace_back(i);
+
+    if (res.empty())
+        res.emplace_back(0);
+    return res;
 }
 
 set set :: operator+(const set& x) {

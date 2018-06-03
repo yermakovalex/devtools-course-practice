@@ -1,6 +1,7 @@
 // Copyright 2018 Levitsky Ilya
 
 #include <gtest/gtest.h>
+#include <vector>
 
 #include "include/set.h"
 
@@ -146,6 +147,46 @@ TEST(Levitsky_Ilya_setTest, Can_Copy) {
 
     // Assert
     EXPECT_EQ(5, B.GetN(5));
+}
+
+TEST(Levitsky_Ilya_setTest, Get_Vector_Elements) {
+    // Arrange
+    set A;
+    std::vector<int> res;
+
+    // Act
+    A.Insert(5);
+    A.Insert(7);
+    res = A.GetElements();
+
+    // Assert
+    EXPECT_EQ(5, res[0]);
+    EXPECT_EQ(7, res[1]);
+}
+
+TEST(Levitsky_Ilya_setTest, Get_Empty_Vector_Elements) {
+    // Arrange
+    set A;
+    std::vector<int> res;
+
+    // Act
+    res = A.GetElements();
+
+    // Assert
+    EXPECT_EQ(0, res[0]);
+}
+
+TEST(Levitsky_Ilya_setTest, Insert_Vector_Elements) {
+    // Arrange
+    set A;
+    std::vector<int> res {2, 3};
+
+    // Act
+    A.Insert(res);
+
+    // Assert
+    EXPECT_EQ(2, A.GetN(2));
+    EXPECT_EQ(3, A.GetN(3));
 }
 
 TEST(Levitsky_Ilya_setTest, Test_BF) {
