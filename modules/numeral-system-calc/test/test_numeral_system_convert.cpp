@@ -1,12 +1,13 @@
 // Copyright 2018 Yermakov Alexey
 
+#include <climits>
 #include <gtest/gtest.h>
 
 #include "include/numeral_system_calc.h"
 
 TEST(Numeral_System_Convert, Can_Convert) {
     // Arrange
-    long n = 86;
+    int n = 86;
 
     // Act
     std::string res2 = Calc::toString(n, 2);
@@ -21,7 +22,7 @@ TEST(Numeral_System_Convert, Can_Convert) {
 
 TEST(Numeral_System_Convert, Convert_Negative) {
     // Arrange
-    long n = -86;
+    int n = -86;
 
     // Act
     std::string res2 = Calc::toString(n, 2);
@@ -36,7 +37,7 @@ TEST(Numeral_System_Convert, Convert_Negative) {
 
 TEST(Numeral_System_Convert, Convert_Max) {
     // Arrange
-    long n = LONG_MAX;
+    int n = INT_MAX;
 
     // Act
     std::string res2 = Calc::toString(n, 2);
@@ -51,7 +52,7 @@ TEST(Numeral_System_Convert, Convert_Max) {
 
 TEST(Numeral_System_Convert, Convert_Min) {
     // Arrange
-    long n = LONG_MIN;
+    int n = INT_MIN;
 
     // Act
     std::string res2 = Calc::toString(n, 2);

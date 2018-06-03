@@ -7,13 +7,12 @@
 #define INVALID_OPERATOR 1101
 #define DIVISION_BY_ZERO 1201
 
-std::string Calc::toString(long number, size_t base) {
+std::string Calc::toString(int number, size_t base) {
     const char *DIGITS = "0123456789ABCDEF";
     char res[34];
     char buf[34];
     char *bufP = buf;
     char *resP = res;
-    unsigned r;
 
     if (number < 0) {
         number = -number;
@@ -21,6 +20,7 @@ std::string Calc::toString(long number, size_t base) {
     }
 
     do {
+        unsigned r;
         r = number % base;
         *bufP++ = DIGITS[r];
         number = number / base;
@@ -34,7 +34,7 @@ std::string Calc::toString(long number, size_t base) {
     return std::string(res);
 }
 
-long Calc::calculate(const std::string &s) {
+int Calc::calculate(const std::string &s) {
     return _CalculateRpn(const_cast<char *>(_ConvertToRpn(s).c_str()));
 }
 
@@ -49,7 +49,7 @@ char Calc::_Priority(char a) {
     }
 }
 
-long Calc::_Calculate(long num1, long num2, char operation) {
+int Calc::_Calculate(int num1, int num2, char operation) {
     switch (operation) {
     case '+': return num1 + num2;
     case '-': return num1 - num2;
@@ -64,8 +64,8 @@ long Calc::_Calculate(long num1, long num2, char operation) {
     }
 }
 
-long Calc::_CalculateRpn(char *s) {
-    std::stack<long> operandStack;
+int Calc::_CalculateRpn(char *s) {
+    std::stack<int> operandStack;
     char *p = s;
     while (*p != '\0') {
         if (*p == '1') {
@@ -84,11 +84,11 @@ long Calc::_CalculateRpn(char *s) {
         } else if (*p == ' ') {
             p++;
         } else {
-            long op2 = operandStack.top();
+            int op2 = operandStack.top();
             operandStack.pop();
-            long op1 = operandStack.top();
+            int op1 = operandStack.top();
             operandStack.pop();
-            long res = _Calculate(op1, op2, *p);
+            int res = _Calculate(op1, op2, *p);
             operandStack.push(res);
             p++;
         }
@@ -100,45 +100,46 @@ long Calc::_CalculateRpn(char *s) {
 std::string Calc::_ConvertToRpn(const std::string &s) {
     std::string res("");
 
-    std::stack<char> operationStack;
+    std::stack<char> opStack;
 
     for (size_t i = 0; i < s.length(); i++) {
-        if ('0' <= s[i] && s[i] <= '9' || 'A' <= s[i] && s[i] <= 'F' || s[i] == 'x') {
+        if (('0' <= s[i] && s[i] <= '9') || ('A' <= s[i] && s[i] <= 'F')
+                || s[i] == 'x') {
             res += s[i];
         } else if (s[i] == '(') {
-            operationStack.push(s[i]);
+            opStack.push(s[i]);
         } else if (s[i] == ')') {
             char op;
-            while ((op = operationStack.top(), operationStack.pop(), op) != '(') {
+            while ((op = opStack.top(), opStack.pop(), op) != '(') {
                 res += " ";
                 res += op;
             }
         } else if (s[i] != ' ') {
             res += " ";
 
-            if (operationStack.empty()) {
-                operationStack.push(s[i]);
-            } else if (_Priority(s[i]) > _Priority(operationStack.top())) {
-                operationStack.push(s[i]);
+            if (opStack.empty()) {
+                opStack.push(s[i]);
+            } else if (_Priority(s[i]) > _Priority(opStack.top())) {
+                opStack.push(s[i]);
             } else {
-                while (!operationStack.empty()
-                        && operationStack.top() != '('
-                        && _Priority(operationStack.top())
+                while (!opStack.empty()
+                        && opStack.top() != '('
+                        && _Priority(opStack.top())
                             >= _Priority(s[i])) {
-                    res += operationStack.top();
-                    operationStack.pop();
+                    res += opStack.top();
+                    opStack.pop();
                     res += " ";
                 }
 
-                operationStack.push(s[i]);
+                opStack.push(s[i]);
             }
         }
     }
 
-    while (!operationStack.empty()) {
+    while (!opStack.empty()) {
         res += " ";
-        res += operationStack.top();
-        operationStack.pop();
+        res += opStack.top();
+        opStack.pop();
     }
 
     return res;
