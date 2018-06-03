@@ -38,12 +38,11 @@ int Calc::calculate(const std::string &s) {
 
 char Calc::_Priority(char a) {
     switch (a) {
-    case '(': return 0;
     case '+': return 1;
     case '-': return 1;
     case '*': return 2;
     case '/': return 2;
-    default: throw INVALID_OPERATOR;
+    default: return 0;
     }
 }
 

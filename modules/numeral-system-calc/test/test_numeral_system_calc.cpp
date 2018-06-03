@@ -124,3 +124,11 @@ TEST(Numeral_System_Calculate, Invalid_Operator) {
     // Act & Assert
     EXPECT_THROW(Calc::calculate(s), int);
 }
+
+TEST(Numeral_System_Calculate, Division_By_Zero) {
+    // Arrange
+    std::string s("016351 + 05017 / 0x0");
+
+    // Act & Assert
+    EXPECT_THROW(Calc::calculate(s), int);
+}
