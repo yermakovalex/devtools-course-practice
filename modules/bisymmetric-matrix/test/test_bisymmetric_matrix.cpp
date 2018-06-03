@@ -25,15 +25,13 @@ TEST(Bisymmetric_Matrix, Can_Create) {
 TEST(Bisymmetric_Matrix, Can_Copy_Numbers) {
     // Arrange
     Matrix a(5);
-    Matrix b(a);
 
     std::ifstream is(MATRIX);
     is >> a;
     is.close();
 
-    a.Output();
-
-    b = a;
+    Matrix b(a);
+    b.Output();
 
     // Act & Assert
     EXPECT_EQ(a, b);
@@ -49,8 +47,6 @@ TEST(Bisymmetric_Matrix, Can_Add) {
     is >> a;
     is.close();
 
-    a.Output();
-
     std::ifstream ist(MATRIX);
     ist >> b;
     ist.close();
@@ -58,6 +54,7 @@ TEST(Bisymmetric_Matrix, Can_Add) {
     std::ifstream resIs(ADD_RES);
     resIs >> res;
     resIs.close();
+    res.Output();
 
     // Act & Assert
     EXPECT_EQ(a + b, res);
