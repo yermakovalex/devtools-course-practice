@@ -49,7 +49,7 @@ TEST_F(BinarySearchAppTest, Is_Checking_Number_Of_Arguments) {
 
     Act(args);
 
-    Assert("ERROR: Should be more arguments\\..*");
+    Assert("Error: Should be more arguments\\..*");
 }
 
 TEST_F(BinarySearchAppTest, Can_Detect_Wrong_Number_Format) {
