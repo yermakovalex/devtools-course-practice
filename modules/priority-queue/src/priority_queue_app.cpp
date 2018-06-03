@@ -83,7 +83,7 @@ std::string PriorityQueueApp::operator()(int argc, const char** argv) {
     }
     catch (std::exception& exc) {
         return
-            std::string("Wrong format integer number or out of range");
+            std::string("Wrong format integer number or out of range\n");
     }
     try {
         PriorityQueue<int> pq;

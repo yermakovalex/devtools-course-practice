@@ -66,6 +66,17 @@ TEST_F(PriorityQueueAppTest, do_error_if_lenght_name_more_20) {
     Assert("ERROR: Lenght names should be less then 20.*");
 }
 
+TEST_F(PriorityQueueAppTest, do_error_out_of_range) {
+    // Arrange
+    vector<string> args = { "1", "abc", "1", "gg", "1" };
+
+    // Act
+    Act(args);
+
+    // Assert
+    Assert("Wrong format integer number or out of range\n");
+}
+
 TEST_F(PriorityQueueAppTest, do_work) {
     // Arrange
     vector<string> args = { "1", "abc", "1", "1", "1" };
