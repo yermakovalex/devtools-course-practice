@@ -1,0 +1,68 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a regex finder application."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 1 2
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Inavalid_Operator
+    COMMAND ${APPLICATION} abc world "Hello world!"
+)
+set_tests_properties (${prefix}_can_Detect_Inavalid_Operator PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong operation format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Valid_Operator_i_Can_Find_regex
+    COMMAND ${APPLICATION} -i world "Hello world!"
+)
+set_tests_properties (${prefix}_Valid_Operator_i_Can_Find_regex PROPERTIES
+    PASS_REGULAR_EXPRESSION "Regex is match"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Valid_Operator_i_Cant_Find_regex
+    COMMAND ${APPLICATION} -i worl\d "Hello world!"
+)
+set_tests_properties (${prefix}_Valid_Operator_i_Cant_Find_regex PROPERTIES
+    PASS_REGULAR_EXPRESSION "Regex is not match"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Valid_Operator_g_Can_Find_regex
+    COMMAND ${APPLICATION} -g world "Hello world!"
+)
+set_tests_properties (${prefix}_Valid_Operator_g_Can_Find_regex PROPERTIES
+    PASS_REGULAR_EXPRESSION "Find : world\nBegin position : 6"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Valid_Operator_g_Cant_Find_regex
+    COMMAND ${APPLICATION} -g worl\d "Hello world!"
+)
+set_tests_properties (${prefix}_Valid_Operator_g_Cant_Find_regex PROPERTIES
+    PASS_REGULAR_EXPRESSION "Nothing found"
+    LABELS "${MODULE}")
