@@ -100,8 +100,6 @@ int Dheap::minChail(int i) {
         for (int j = s + 1; j < last + 1; j++) {
             int tmp = key(j);
             if (minKey > tmp) {
-                minKey = key(j);
-                s = j;
             }
         }
         return s;
