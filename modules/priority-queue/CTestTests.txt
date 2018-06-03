@@ -44,6 +44,14 @@ set_tests_properties (${prefix}_do_error_out_of_range PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_do_error_if_negative_priority
+    COMMAND ${APPLICATION} 1 abc -1 1 1
+)
+set_tests_properties (${prefix}_do_error_if_negative_priority PROPERTIES
+    PASS_REGULAR_EXPRESSION "Priority is negstive"
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_do_correct_work
     COMMAND ${APPLICATION} 1 abc 1 1 1
 )

@@ -78,9 +78,6 @@ std::string PriorityQueueApp::operator()(int argc, const char** argv) {
         for (int i = 0; i < args.n; ++i)
             args.element_time_work[i] = parseInt(argv[2 + 3*args.n + i]);
     }
-    catch (std::string& str) {
-        return str;
-    }
     catch (std::exception& exc) {
         return
             std::string("Wrong format integer number or out of range\n");

@@ -77,6 +77,17 @@ TEST_F(PriorityQueueAppTest, do_error_out_of_range) {
     Assert("Wrong format integer number or out of range\n");
 }
 
+TEST_F(PriorityQueueAppTest, do_error_if_negative_priority) {
+    // Arrange
+    vector<string> args = { "1", "abc", "-1", "1", "1" };
+
+    // Act
+    Act(args);
+
+    // Assert
+    Assert("Priority is negstive");
+}
+
 TEST_F(PriorityQueueAppTest, do_work) {
     // Arrange
     vector<string> args = { "1", "abc", "1", "1", "1" };
