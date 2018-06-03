@@ -6,7 +6,7 @@
 
 TEST(Sharov_Ivan_WagesTest, Calling_An_Empty_Constructor) {
     // Arrange
-    double oklad = 10000;
+    double salary = 10000;
     double admin_hours = 0;
     double overtime_hours = 0;
     Month month = January;
@@ -15,7 +15,7 @@ TEST(Sharov_Ivan_WagesTest, Calling_An_Empty_Constructor) {
     Wages ivan;
 
     // Assert
-    EXPECT_TRUE(ivan.getSalary() == oklad);
+    EXPECT_TRUE(ivan.getSalary() == salary);
     EXPECT_TRUE(ivan.getAdministrativeLeaveHours() == admin_hours);
     EXPECT_TRUE(ivan.getOvertime() == overtime_hours);
     EXPECT_TRUE(ivan.getMonth() == month);
@@ -448,4 +448,14 @@ TEST(Sharov_Ivan_WagesTest, Set_Negative_Overtime_Hours) {
 
     // Act & assert
     ASSERT_ANY_THROW(ivan.setOvertime(overtime_hours));
+}
+
+TEST(Matyasov_Mixail_WagesTest, can_create_default_wages) {
+    Wages w;
+
+    EXPECT_EQ(w.getOvertime(), 0);
+}
+
+TEST(Matyasov_Mixail_WagesTest, no_throw_then_create_with_negative_values) {
+    ASSERT_ANY_THROW(Wages w(-2, -3, -4, September));
 }
