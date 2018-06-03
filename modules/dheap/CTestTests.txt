@@ -34,3 +34,11 @@ add_test(
 set_tests_properties (${prefix}C_can_Find_Min PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Incorrect element count!"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}C_can_Find_Min2
+    COMMAND ${APPLICATION} 3 5 1 2 6 5 1
+)
+set_tests_properties (${prefix}C_can_Find_Min2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Incorrect element count!"
+    LABELS "${MODULE}")

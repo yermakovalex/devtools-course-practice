@@ -8,10 +8,6 @@
 int parseInt(const char *arg) {
     char *end;
     int value = strtol(arg, &end, 10);
-
-    if (end[0]) {
-        throw std::string("Wrong int format!");
-    }
     return value;
 }
 
@@ -26,12 +22,17 @@ void MinSearcher::help(const char *appname, const char *message) {
 }
 
 bool MinSearcher::validateNumberOfArguments(int argc, const char **argv) {
+    std::ostringstream stream;
     if (argc < 3) {
-        help(argv[0], "ERROR: You should provide at least 3 arguments!\n\n");
+        stream << "ERROR: You should provide at least 3 arguments!\n\n";
+        help(argv[0], stream.str().c_str());
         return false;
     }
     if (argc != parseInt(argv[2]) + 2) {
-        help(argv[0], "ERROR: Incorrect element count!\n\n");
+        int t = parseInt(argv[2]) + 2;
+        stream << "ERROR: Incorrect element count!\n\n"
+               << "argc " << argc << "argv+2 " << t;
+        help(argv[0], stream.str().c_str());
         return false;
     }
     return true;
@@ -39,9 +40,6 @@ bool MinSearcher::validateNumberOfArguments(int argc, const char **argv) {
 
 std::string MinSearcher::operator()(int argc, const char **argv) {
     if (validateNumberOfArguments(argc, argv)) {
-        if (!validateNumberOfArguments(argc, argv)) {
-            return message_;
-        }
         std::ostringstream stream;
         Vertex tmp;
         Dheap dh(parseInt(argv[1]), parseInt(argv[2]));

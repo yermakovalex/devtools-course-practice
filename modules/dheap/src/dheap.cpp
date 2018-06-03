@@ -62,9 +62,6 @@ void Dheap::swap(int iFir, int iSec) {
 int Dheap::up(int i) {
     int p = (i - 1) / d;
     while ((i != 0) && (key(p) > key(i))) {
-        swap(i, p);
-        i = p;
-        p = (i - 1) / d;
     }
     return i;
 }
@@ -76,7 +73,7 @@ void Dheap::del(int i) {
     storage.pop_back();
     elemCount--;
     if ((i != 0) && (key(i) < key((i - 1) / d))) {
-        points[(2 * storage[i]) + 1] = up(i);
+
     } else {
         points[(2 * storage[i]) + 1] = down(i);
     }
