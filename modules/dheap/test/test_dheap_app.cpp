@@ -59,11 +59,11 @@ TEST_F(DheapAppTest, Not_Enough_Arguments) {
 
 TEST_F(DheapAppTest, Can_Find_Min) {
     // Arrange
-    std::vector <std::string> args = {"3" , "1", "1"};
+    std::vector <std::string> args = {"3" , "3", "2", "3", "1"};
     // Act
     Act(args);
     // Assert
-    Assert("min=1");
+    Assert("min=2");
 }
 
 TEST_F(DheapAppTest, Can_Find_Min2) {
