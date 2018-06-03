@@ -2,7 +2,7 @@
 
 #include "include/binary_search_app.h"
 #include "include/binary_search.h"
-
+#include <string>
 #include <sstream>
 
 BinarySearchApp::BinarySearchApp() : message_("") {}
