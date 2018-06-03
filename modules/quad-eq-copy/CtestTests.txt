@@ -1,0 +1,60 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a quadratic equation calculator"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 1 2
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format
+    COMMAND ${APPLICATION} smth 2 2
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Able_Get_Correct_Roots1
+    COMMAND ${APPLICATION} 1 2 3
+)
+set_tests_properties (${prefix}_Able_Get_Correct_Roots1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result: There are no real roots "
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Able_Get_Correct_Roots2
+    COMMAND ${APPLICATION} 1 2 1
+)
+set_tests_properties (${prefix}_Able_Get_Correct_Roots2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result: There is one real root: -1"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Able_Get_Correct_Roots3
+    COMMAND ${APPLICATION} 1 -6 5
+)
+set_tests_properties (${prefix}_Able_Get_Correct_Roots3 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result: There are two real roots: 1 5"
+    LABELS "${MODULE}")
