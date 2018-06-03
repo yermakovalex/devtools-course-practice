@@ -182,7 +182,7 @@ TEST(Razumova_Maria_LineCross, check_cross_with_point_not_crossed) {
     EXPECT_FALSE(line1.isCross(line2));
 }
 
-TEST(Razumova_Maria_LineCross, check_cross_with_point_crossed){
+TEST(Razumova_Maria_LineCross, check_cross_with_point_crossed) {
     // Arrange
     LineSegment line1(1, 1, 4, 1);
     LineSegment line2(2, 1, 2, 1);
