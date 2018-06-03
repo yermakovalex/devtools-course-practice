@@ -96,21 +96,20 @@ std::string PriorityQueueApp::operator()(int argc, const char** argv) {
         while (finished_count != args.n) {
             time++;
             stream << time;
-			bool ch = true;
+            bool ch = true;
             for (int i = 0; i < args.n; ++i)
                 if (args.element_time_start[i] == time) {
-					if (ch) {
-						stream << "\tGo: ";
-						ch = false;
-						stream << args.element_names[i];
-					}
-					else {
-						stream << " " << args.element_names[i];
-					}
-					pq.Push(i, args.element_priority[i]);
+                    if (ch) {
+                        stream << "\tGo: ";
+                        ch = false;
+                        stream << args.element_names[i];
+                    } else {
+                        stream << " " << args.element_names[i];
+                    }
+                    pq.Push(i, args.element_priority[i]);
                 }
-			if (!ch)
-				stream << "\n";
+            if (!ch)
+                stream << "\n";
             if (work_element == -1) {
                 if (pq.Empty()) {
                     stream << "\tNot work";
@@ -119,21 +118,20 @@ std::string PriorityQueueApp::operator()(int argc, const char** argv) {
                     pq.DeleteMax();
                 }
             }
-			if (work_element != -1) {
-				time_work++;
-				stream << "\tWork: " << args.element_names[work_element];
-				if (args.element_time_work[work_element] == time_work) {
-					stream << " (finished)";
-					work_element = -1;
-					time_work = 0;
-					finished_count++;
-				}
-			}
-			stream << "\n";
+            if (work_element != -1) {
+                time_work++;
+                stream << "\tWork: " << args.element_names[work_element];
+                if (args.element_time_work[work_element] == time_work) {
+                    stream << " (finished)";
+                    work_element = -1;
+                    time_work = 0;
+                    finished_count++;
+                }
+            }
+            stream << "\n";
         }
         stream << "Finish!\n";
         message_ = stream.str();
-		std::cout << message_ << "\n";
         return message_;
     }
     catch (std::exception& exc) {

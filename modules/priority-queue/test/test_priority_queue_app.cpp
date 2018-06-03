@@ -92,24 +92,24 @@ TEST_F(PriorityQueueAppTest, do_correct_work) {
 }
 
 TEST_F(PriorityQueueAppTest, do_complete_work) {
-	// Arrange
-	vector<string> args = { "3", 
-		     "A", "B", "C",
-		     "1", "2", "3",
-	         "2", "2", "3",
-	         "1", "1", "1"};
+    // Arrange
+    vector<string> args = { "3", 
+            "A", "B", "C",
+            "1", "2", "3",
+            "2", "2", "3",
+            "1", "1", "1"};
 
-	// Act
-	Act(args);
+    // Act
+    Act(args);
 
-	// Assert
-	Assert(std::string("Priority Queue:\n") +
-		"1\tNot work\n" +
-		"2\tGo: A B\n" +
-		"\tWork: B \\(finished\\)\n" +
-		"3\tGo: C\n" +
-		"\tWork: C \\(finished\\)\n" +
-		"4\tWork: A \\(finished\\)\n" +
-		"Finish!\n"
-	);
+    // Assert
+    Assert(std::string("Priority Queue:\n") +
+        "1\tNot work\n" +
+        "2\tGo: A B\n" +
+        "\tWork: B \\(finished\\)\n" +
+        "3\tGo: C\n" +
+        "\tWork: C \\(finished\\)\n" +
+        "4\tWork: A \\(finished\\)\n" +
+        "Finish!\n"
+    );
 }
