@@ -10,6 +10,8 @@
 using std::set;
 using std::stringstream;
 
+set<char> Monom::ok_symbols = { '^', '.', ',', '+', '-' };
+
 Monom::Monom() : m_coff(1.0) {
 }
 
@@ -21,16 +23,13 @@ Monom::Monom(const Monom & rhs) :
     m_coff(rhs.m_coff) {
 }
 
-Monom::Monom(const string & str_monom) {
-    static set<char> ok_symbols = { '^', '.', ',', '+', '-' };
-    m_coff = 1.0;
+Monom::Monom(const string & str_monom) : Monom() {
     string s;
     for (auto&c : str_monom) {
         if (!(isspace(c) || !(isalpha(c) || isdigit(c) || ok_symbols.count(c))))
             s += c;
     }
-    if (s.empty()) return;
-    StrParseSymbols(StrEmplaceSpaces(s));
+    if (!s.empty()) StrParseSymbols(StrEmplaceSpaces(s));
 }
 
 Monom & Monom::operator=(const Monom & z) {
@@ -114,7 +113,6 @@ Monom Monom::operator/(const Monom & rhs) {
 }
 
 string Monom::StrEmplaceSpaces(const string& s_in) {
-    if (s_in.empty()) return "";
     auto s(s_in);
     for (size_t i = 0; i < s.size(); ++i) {
         if (isalpha(s[i]) || s[i] == '^') {
@@ -132,7 +130,6 @@ string Monom::StrEmplaceSpaces(const string& s_in) {
 }
 
 void Monom::StrParseSymbols(const string & s) {
-    if (s.empty()) return;
     stringstream ss(s);
     string temp;
     double found = 0.0;
