@@ -15,7 +15,7 @@ using std::vector;
 using std::string;
 
 class SimpleRegexTest : public ::testing::Test {
-protected:
+ protected:
     // virtual void SetUp() {}
 
     void Act(vector<string> args_) {
@@ -36,7 +36,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     Application app_;
     string output_;
 };
