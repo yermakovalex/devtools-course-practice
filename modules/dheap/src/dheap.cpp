@@ -34,15 +34,9 @@ Vertex Dheap::pop() {
 void Dheap::push(Vertex v) {
     storage.push_back(v.first);
     points[2 * v.first] = v.second;
-    points[2 * v.first + 1] = storage.size() - 1;
-    int pos = up(storage.size() - 1);
+    points[2 * v.first + 1] = static_cast<int>(storage.size()) - 1;
+    int pos = up(static_cast<int>(storage.size()) - 1);
     points[2 * v.first + 1] = pos;
-}
-
-void Dheap::decreaseKey(int vNum, int lVal) {
-    points[(2 * vNum)] = lVal;
-    int toUp = points[(2 * vNum) + 1];
-    up(toUp);
 }
 
 int Dheap::getVal(int vNum) {
@@ -117,3 +111,5 @@ int Dheap::minChail(int i) {
         return s;
     }
 }
+
+Dheap::~Dheap() {}

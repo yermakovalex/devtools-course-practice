@@ -10,7 +10,7 @@ if(MSVC)
     add_definitions(/D _VARIADIC_MAX=10)
 endif()
 
-add_executable(${target} ${srcs} ${hdrs} ../include/dheap.h ../src/dheap.cpp)
+add_executable(${target} ${srcs} ${hdrs} )
 set_target_properties(${target} PROPERTIES
     LABELS "${MODULE};Test")
 

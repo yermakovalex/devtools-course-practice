@@ -19,6 +19,8 @@ class Dheap {
     void push(Vertex v);
     void decreaseKey(int vNum, int lVal);
     int getVal(int vNum);
+    ~Dheap();
+
  private:
     int elemCount;
     int d;
