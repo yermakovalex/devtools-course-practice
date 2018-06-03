@@ -14,7 +14,7 @@ typedef std::pair<int, int> Vertex;  // vertex number and path length
 Dheap::Dheap(int d, int elemCount) {
     this->elemCount = elemCount;
     this->d = d;
-    points.resize(2 * elemCount + 2, EMPTY);
+    points.resize(20 * elemCount + 2, EMPTY);
     // storage.resize(elemCount);
 }
 
