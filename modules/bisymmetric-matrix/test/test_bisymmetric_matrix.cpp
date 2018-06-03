@@ -22,7 +22,7 @@ TEST(Bisymmetric_Matrix, Can_Create) {
     EXPECT_EQ(1, m.GetElem(1, 1));
 }
 
-TEST(Bisymmetric_Matrix, Can_Copy_Numbers) {
+TEST(Bisymmetric_Matrix, Can_Copy) {
     // Arrange
     Matrix a(5);
 
@@ -160,4 +160,19 @@ TEST(Bisymmetric_Matrix, Add_Matrix_with_Different_Size) {
 
     // Act & Assert
     EXPECT_ANY_THROW(a + b);
+}
+
+TEST(Bisymmetric_Matrix, Can_Copy_Numbers) {
+    // Arrange
+    Matrix a(5);
+    Matrix b(5);
+
+    std::ifstream is(MATRIX);
+    is >> a;
+    is.close();
+
+    b = a;
+
+    // Act & Assert
+    EXPECT_EQ(a, b);
 }
