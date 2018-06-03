@@ -2,6 +2,8 @@
 
 #include <gtest/gtest.h>
 
+#include <string>
+
 #include "include/numeral_system_calc.h"
 
 TEST(Numeral_System_Calculate, Parse_Number) {

@@ -2,6 +2,8 @@
 
 #include "include/numeral_system_calc.h"
 
+#include <cstdlib>
+
 #include <stack>
 #include <string>
 
