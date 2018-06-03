@@ -1,0 +1,76 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Please provide arguments in the following format:*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Test_Bad_Operation
+    COMMAND ${APPLICATION} 2 3 4 1 5 op
+)
+set_tests_properties (${prefix}_Test_Bad_Operation PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Wrong operation!*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Test_Wrong_Counts_Of_Args_Size1
+    COMMAND ${APPLICATION} 3 1 2 0 Disj
+)
+set_tests_properties (${prefix}_Test_Wrong_Counts_Of_Args_Size1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Wrong counts of args. Check size1*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Test_Wrong_Counts_Of_Args_Size2
+    COMMAND ${APPLICATION} 3 1 2 4 2 6 Disj
+)
+set_tests_properties (${prefix}_Test_Wrong_Counts_Of_Args_Size2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Wrong counts of args. Check size2*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Test_Wrong_Elements_Vector1
+    COMMAND ${APPLICATION} 2 5 17 3 4 7 9 Conj
+)
+set_tests_properties (${prefix}_Test_Wrong_Elements_Vector1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Check the elements of the vector1*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Test_Wrong_Elements_Vector2
+    COMMAND ${APPLICATION} 2 5 7 3 4 75 9 Conj
+)
+set_tests_properties (${prefix}_Test_Wrong_Elements_Vector1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Check the elements of the vector2*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Test_Disjunction_Operation
+    COMMAND ${APPLICATION} 0 1 7 Disj
+)
+set_tests_properties (${prefix}_Test_Disjunction_Operation PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result: 1 7"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Test_Сonjunction_Operation
+    COMMAND ${APPLICATION} 2 3 5 1 5 Conj
+)
+set_tests_properties (${prefix}_Test_Сonjunction_Operation PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result: 5"
+    LABELS "${MODULE}")

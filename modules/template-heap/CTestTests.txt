@@ -1,0 +1,92 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This application implements Prim's algorithm"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_With_Help_Key
+    COMMAND ${APPLICATION} -h
+)
+set_tests_properties (${prefix}_can_Print_Help_With_Help_Key PROPERTIES
+    PASS_REGULAR_EXPRESSION "This application implements Prim's algorithm"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Arguments
+    COMMAND ${APPLICATION} 1
+)
+set_tests_properties (${prefix}_can_Check_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Wrong argument format"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format
+    COMMAND ${APPLICATION} -p ./PrimGraph.txt -d j
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Demention
+    COMMAND ${APPLICATION} -p ./PrimGraph.txt -d 0
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Demention PROPERTIES
+    PASS_REGULAR_EXPRESSION "invalid dimension"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Do_Print_Help_With_Invalid_Key
+    COMMAND ${APPLICATION} -p ./PrimGraph.txt -a j
+)
+set_tests_properties (${prefix}_Do_Print_Help_With_Invalid_Key PROPERTIES
+    PASS_REGULAR_EXPRESSION "This application implements Prim's algorithm"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_File_Name
+    COMMAND ${APPLICATION} -p ./PrimGraph1.txt
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_File_Name PROPERTIES
+    PASS_REGULAR_EXPRESSION "FILE NOT FOUND!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Compute_Core
+    COMMAND ${APPLICATION} -p ./PrimGraph.txt -d 2
+)
+set_tests_properties (${prefix}_can_Compute_Core PROPERTIES
+    PASS_REGULAR_EXPRESSION "Distance 2 First 0 Second 1\nDistance 4 First 0 Second 3\nDistance 1 First 3 Second 2\n"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Compute_Core_Without_Demention
+    COMMAND ${APPLICATION} -p ./PrimGraph.txt
+)
+set_tests_properties (${prefix}_can_Compute_Core_Without_Demention PROPERTIES
+    PASS_REGULAR_EXPRESSION "Distance 2 First 0 Second 1\nDistance 4 First 0 Second 3\nDistance 1 First 3 Second 2\n"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Compute_Core_With_Differenr_Dimention
+    COMMAND ${APPLICATION} -p ./PrimGraph.txt -d 3
+)
+set_tests_properties (${prefix}_can_Compute_Core_With_Differenr_Dimention PROPERTIES
+    PASS_REGULAR_EXPRESSION "Distance 2 First 0 Second 1\nDistance 4 First 0 Second 3\nDistance 1 First 3 Second 2\n"
+    LABELS "${MODULE}")
