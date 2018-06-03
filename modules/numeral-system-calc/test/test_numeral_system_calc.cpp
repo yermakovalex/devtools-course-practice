@@ -91,7 +91,8 @@ TEST(Numeral_System_Calculate, Different_Operators) {
 
 TEST(Numeral_System_Calculate, Parentheses) {
     // Arrange
-    std::string s("040 - (101 + 017 - 0xF) * 10 / 05");  // 32 - (5 + 15 - 15) * 2 / 5
+    // 32 - (5 + 15 - 15) * 2 / 5
+    std::string s("040 - (101 + 017 - 0xF) * 10 / 05");
     int answer = 30;
 
     // Act
@@ -103,7 +104,8 @@ TEST(Numeral_System_Calculate, Parentheses) {
 
 TEST(Numeral_System_Calculate, Parentheses_Nested) {
     // Arrange
-    std::string s("040 - (101 + (017 - 0xF) * 10) / 05");  // 32 - (5 + (15 - 15) * 2) / 5
+    // 32 - (5 + (15 - 15) * 2) / 5
+    std::string s("040 - (101 + (017 - 0xF) * 10) / 05");
     int answer = 31;
 
     // Act

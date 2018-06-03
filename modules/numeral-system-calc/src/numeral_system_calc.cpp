@@ -3,6 +3,7 @@
 #include "include/numeral_system_calc.h"
 
 #include <stack>
+#include <string>
 
 #define INVALID_OPERATOR 1101
 #define DIVISION_BY_ZERO 1201
