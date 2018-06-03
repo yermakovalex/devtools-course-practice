@@ -40,7 +40,7 @@ add_test(
     COMMAND ${APPLICATION} 1 abc 1 1 1
 )
 set_tests_properties (${prefix}_do_correct_work PROPERTIES
-    PASS_REGULAR_EXPRESSION "Priority Queue:\n1\tGo: abc\n\tWork: abc \(finished\)\nFinish!\n"
+    PASS_REGULAR_EXPRESSION "Priority Queue:\n1\tGo: abc\n\tWork: abc - finished\nFinish!\n"
     LABELS "${MODULE}")
 
 add_test(
@@ -48,5 +48,5 @@ add_test(
     COMMAND ${APPLICATION} 3 A B C 1 2 3 2 2 3 1 1 1
 )
 set_tests_properties (${prefix}_do_complete_work PROPERTIES
-    PASS_REGULAR_EXPRESSION "Priority Queue:\n1\tNot work\n2\tGo: A B\n\tWork: B \(finished\)\n3\tGo: C\n\tWork: C \(finished\)\n4\tWork: A \(finished\)\nFinish!\n"
+    PASS_REGULAR_EXPRESSION "Priority Queue:\n1\tNot work\n2\tGo: A B\n\tWork: B - finished\n3\tGo: C\n\tWork: C - finished\n4\tWork: A - finished\nFinish!\n"
     LABELS "${MODULE}")

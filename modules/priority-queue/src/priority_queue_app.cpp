@@ -122,7 +122,7 @@ std::string PriorityQueueApp::operator()(int argc, const char** argv) {
                 time_work++;
                 stream << "\tWork: " << args.element_names[work_element];
                 if (args.element_time_work[work_element] == time_work) {
-                    stream << " (finished)";
+                    stream << " - finished";
                     work_element = -1;
                     time_work = 0;
                     finished_count++;
