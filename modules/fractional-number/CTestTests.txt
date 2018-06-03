@@ -121,7 +121,13 @@ add_test(
 set_tests_properties (${prefix}_can_Add PROPERTIES
     PASS_REGULAR_EXPRESSION "8/1"
     LABELS "${MODULE}")
-
+add_test(
+    NAME ${prefix}_can_Divide
+    COMMAND ${APPLICATION} 1 2 / 3 4 
+)
+set_tests_properties (${prefix}_can_Divide PROPERTIES
+    PASS_REGULAR_EXPRESSION "2/3"
+    LABELS "${MODULE}")
 add_test(
     NAME ${prefix}_can_Diff
     COMMAND ${APPLICATION} 75 165 - 87 170
@@ -136,12 +142,4 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Mult PROPERTIES
     PASS_REGULAR_EXPRESSION "0/1"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_Divide
-    COMMAND ${APPLICATION} 1 2 / 3 4 
-)
-set_tests_properties (${prefix}_can_Divide PROPERTIES
-    PASS_REGULAR_EXPRESSION "2/3"
     LABELS "${MODULE}")
