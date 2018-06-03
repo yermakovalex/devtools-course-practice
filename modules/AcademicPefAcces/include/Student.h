@@ -1,10 +1,10 @@
 // Copyright 2018 Matyasov Mixail
+
 #ifndef MODULES_ACADEMICPEFACCES_INCLUDE_STUDENT_H_
 #define MODULES_ACADEMICPEFACCES_INCLUDE_STUDENT_H_
 #include<iostream>
 #include<string>
 #include<cstdlib>
-
 
 const int MAX = 255;
 

@@ -3,26 +3,28 @@
 #include "include/Cone.h"
 
 #include <string>
+#include <sstream>
 
-const double pi = 3.141592653589793238463;
 
-Cone::Cone() : radius(0), l(0) {}
+const double pi = 3.14;
 
-Cone::Cone(const double& _rad, const double& _l) {
-    if (!negativeNumbers(_rad, _l)) {
+Cone::Cone() : radius(0), h(0) {}
+
+Cone::Cone(const double& _rad, const double& _h) {
+    if (!negativeNumbers(_rad, _h)) {
         radius = _rad;
-        l = _l;
+        h = _h;
     } else {
-        throw std::string("Numbers can't be less then zero");
+        throw std::string("Number can't be less then zero");
     }
 }
 
 Cone::Cone(const Cone & _c)
-           : radius(_c.getRad()), l(_c.getL()) {}
+           : radius(_c.getRad()), h(_c.getH()) {}
 
 Cone & Cone::operator=(const Cone & _c) {
     radius = _c.radius;
-    l = _c.l;
+    h = _c.h;
 
     return *this;
 }
@@ -31,20 +33,20 @@ double Cone::getRad() const {
     return radius;
 }
 
-double Cone::getL() const {
-    return l;
+double Cone::getH() const {
+    return h;
 }
 
 void Cone::setRad(const double _rad) {
     radius = _rad;
 }
 
-void Cone::setL(const double _l) {
-    l = _l;
+void Cone::setH(const double _h) {
+    h = _h;
 }
 
 bool Cone::operator==(const Cone & _c) const {
-    return radius == _c.getRad() && l == _c.getL();
+    return radius == _c.getRad() && h == _c.getH();
 }
 
 bool Cone::operator!=(const Cone & _c) const {
@@ -52,9 +54,9 @@ bool Cone::operator!=(const Cone & _c) const {
 }
 
 double Cone::areaCone() const {
-    return pi * radius * (radius + l);
+    return pi * radius * (radius + h);
 }
 
-bool Cone::negativeNumbers(const double _rad, const double _l) {
-    return _rad < 0 || _l < 0;
+bool Cone::negativeNumbers(const double _rad, const double _h) {
+    return _rad < 0 || _h < 0;
 }

@@ -12,69 +12,69 @@
 TEST(AreaOfGeometricShapes, Get_Radius_From_Cone) {
     // Arrange
     double radius = 2.5;
-    double l = 5.3;
-    Cone cone(radius, l);
+    double h = 5.3;
+    Cone cone(radius, h);
 
     // Act & Assert
     EXPECT_EQ(radius, cone.getRad());
 }
 
-TEST(AreaOfGeometricShapes, Get_L_From_Cone) {
+TEST(AreaOfGeometricShapes, Get_H_From_Cone) {
     // Arrange
     double radius = 7.1;
-    double l = 15.9;
-    Cone cone(radius, l);
+    double h = 15.9;
+    Cone cone(radius, h);
 
     // Act & Assert
-    EXPECT_EQ(l, cone.getL());
+    EXPECT_EQ(h, cone.getH());
 }
 
-TEST(AreaOfGeometricShapes, Set_Radius_And_L_From_Cone) {
+TEST(AreaOfGeometricShapes, Set_Radius_And_H_From_Cone) {
     // Arrange
     Cone cone;
     double radius = 3.8;
-    double l = 7.4;
+    double h = 7.4;
 
     // Act
     cone.setRad(radius);
-    cone.setL(l);
+    cone.setH(h);
 
     // Assert
     EXPECT_EQ(radius, cone.getRad());
-    EXPECT_EQ(l, cone.getL());
+    EXPECT_EQ(h, cone.getH());
 }
 
 TEST(AreaOfGeometricShapes, Comparison_Operator) {
     // Arrange
     double radius = 7.9;
-    double l = 15.2;
+    double h = 15.2;
     Cone cone1(3.1, 6.5);
-    Cone cone2(radius, l);
+    Cone cone2(radius, h);
 
     // Act
     cone1 = cone2;
 
     // Assert
     EXPECT_EQ(cone1.getRad(), cone2.getRad());
-    EXPECT_EQ(cone1.getL(), cone2.getL());
+    EXPECT_EQ(cone1.getH(), cone2.getH());
 }
 
 TEST(AreaOfGeometricShapes, Negative_Rad_Cone) {
     // Arrange
     double radius = -7.1;
-    double l = 15.9;
+    double h = 15.9;
 
     // Act & Assert
-    ASSERT_ANY_THROW(Cone cone(radius, l));
+    ASSERT_ANY_THROW(Cone cone(radius, h));
 }
 
-TEST(AreaOfGeometricShapes, Negative_L_Cone) {
+TEST(AreaOfGeometricShapes, Negative_H_Cone) {
     // Arrange
     double radius = 7.1;
-    double l = -15.9;
+    double h = -15.9;
 
     // Act & Assert
-    ASSERT_ANY_THROW(Cone cone(radius, l));
+    ASSERT_ANY_THROW(Cone cone(radius, h));
 }
 
 TEST(AreaOfGeometricShapes, Area_Calculation_Cone) {
@@ -86,7 +86,7 @@ TEST(AreaOfGeometricShapes, Area_Calculation_Cone) {
     res = cone.areaCone();
 
     // Assert
-    EXPECT_NEAR(res, 43.5425, 0.0001);
+    EXPECT_NEAR(res, 43.5204, 0.0001);
 }
 
 TEST(AreaOfGeometricShapes, Copy_Cone) {
@@ -98,14 +98,14 @@ TEST(AreaOfGeometricShapes, Copy_Cone) {
 
     // Assert
     EXPECT_EQ(cone1.getRad(), cone2.getRad());
-    EXPECT_EQ(cone1.getL(), cone2.getL());
+    EXPECT_EQ(cone1.getH(), cone2.getH());
 }
 
 TEST(AreaOfGeometricShapes, Equal_Test_Cone) {
     // Arrange
     double radius = 7.1;
-    double l = 15.9;
-    Cone cone1(radius, l);
+    double h = 15.9;
+    Cone cone1(radius, h);
     Cone cone2(cone1);
 
     // Act & Assert
@@ -114,9 +114,9 @@ TEST(AreaOfGeometricShapes, Equal_Test_Cone) {
 TEST(AreaOfGeometricShapes, Not_Equal_Test_Cone) {
     // Arrange
     double radius = 7.1;
-    double l = 15.9;
+    double h = 15.9;
     Cone cone1(2.1, 4.5);
-    Cone cone2(radius, l);
+    Cone cone2(radius, h);
 
     // Act & Assert
     EXPECT_TRUE(cone1 != cone2);

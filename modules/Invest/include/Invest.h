@@ -5,9 +5,9 @@
 #include <vector>
 
 typedef double money;
-enum ERRORS {WRONG_VALUE};
+enum ERRORS { WRONG_VALUE };
 
-class Investition{
+class Investition {
  private:
     money* Incomes;
     money* Expenses;
@@ -17,7 +17,7 @@ class Investition{
  public:
     Investition();
     Investition(const int& years, std::vector<money> Income_arr,
-                std::vector<money> Expenses_arr, const double& rate);
+        std::vector<money> Expenses_arr, const double& rate);
     ~Investition();
     void SetRate(const double& rate);
     void SetYearCount(const int& years);
@@ -36,4 +36,4 @@ class Investition{
     double FindPBIndex() const;
 };
 
-#endif  //  MODULES_INVEST_INCLUDE_INVEST_H_
+#endif  // MODULES_INVEST_INCLUDE_INVEST_H_

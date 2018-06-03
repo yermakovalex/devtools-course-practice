@@ -6,24 +6,24 @@
 class Cone {
  public:
     Cone();
-    Cone(const double& _rad, const double& _l);
+    Cone(const double& _rad, const double& _h);
     Cone(const Cone& _c);
 
     Cone& operator=(const Cone& _c);
 
     double getRad() const;
-    double getL() const;
+    double getH() const;
     void setRad(const double _rad);
-    void setL(const double _l);
+    void setH(const double _h);
 
     bool operator==(const Cone& _c) const;
     bool operator!=(const Cone& _c) const;
 
     double areaCone() const;
  private:
-    bool negativeNumbers(const double _rad, const double _l);
+    bool negativeNumbers(const double _rad, const double _h);
     double radius;
-    double l;
+    double h;
 };
 
 #endif  // MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CONE_H_

@@ -4,6 +4,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <utility>
 
 #include "include/integer_numerical_interval.h"
 
@@ -19,7 +20,7 @@ IntegerNumericalInterval::IntegerNumericalInterval(const int leftBorder, const
 
     if (!this->isInitializationCorrect(leftBorder, rightBorder, isIncludeLeft,
         isIncludeRight))
-        throw("Invalid interval");
+        throw(std::string("Wrong interval!\n"));
     leftBorder_ = leftBorder;
     rightBorder_ = rightBorder;
     isIncludeLeft_ = isIncludeLeft;
@@ -40,11 +41,11 @@ IntegerNumericalInterval::IntegerNumericalInterval(const std::string &
         if (chF == '(')
             isIncludeLeft_ = false;
         else
-            throw("Wrong interval");
+            throw(std::string("Wrong interval!\n"));
     }
 
     if (comma != ',')
-        throw("Wrong interval");
+        throw(std::string("Wrong interval!\n"));
 
     if (chS == ']') {
         isIncludeRight_ = true;
@@ -52,12 +53,12 @@ IntegerNumericalInterval::IntegerNumericalInterval(const std::string &
         if (chS == ')')
             isIncludeRight_ = false;
         else
-            throw("Wrong interval");
+            throw(std::string("Wrong interval!\n"));
     }
 
     if (!isInitializationCorrect(leftBorder_, rightBorder_,
         isIncludeLeft_, isIncludeRight_))
-        throw("Wrong interval");
+        throw(std::string("Wrong interval!\n"));
 }
 
 IntegerNumericalInterval::IntegerNumericalInterval(const
@@ -71,9 +72,9 @@ IntegerNumericalInterval::IntegerNumericalInterval(const
 
 bool IntegerNumericalInterval::isContainPoints(const vector<int>& points)
     const {
-    vector<int> endPoints = getEndPoints();
-    int begin = endPoints[0];
-    int end = endPoints[1];
+    pair<int, int> endPoints = getEndPoints();
+    int begin = endPoints.first;
+    int end = endPoints.second;
     int size = points.size();
 
     for (int i = 0; i < size; ++i)
@@ -86,40 +87,46 @@ bool IntegerNumericalInterval::isContainPoints(const vector<int>& points)
 bool IntegerNumericalInterval::isHaveOverlapsRange(
     const IntegerNumericalInterval & ni) const {
 
-    vector<int> endPoints = getEndPoints();
-    vector<int> endPointsNI = ni.getEndPoints();
-    if ((endPointsNI[0] >= endPoints[0] && endPointsNI[0] <= endPoints[1]) ||
-        (endPointsNI[1] >= endPoints[0] && endPointsNI[1] <= endPoints[1]) ||
-        (endPointsNI[0] <= endPoints[0] && endPointsNI[1] >= endPoints[1]))
+    pair<int, int> endPoints = getEndPoints();
+    pair<int, int> endPointsNI = ni.getEndPoints();
+    if ((endPointsNI.first >= endPoints.first
+         && endPointsNI.first <= endPoints.second) ||
+        (endPointsNI.second >= endPoints.first
+         && endPointsNI.second <= endPoints.second) ||
+        (endPointsNI.first <= endPoints.first
+          && endPointsNI.second >= endPoints.second))
         return true;
     return false;
 }
 
 bool IntegerNumericalInterval::isContainsRange(
     const IntegerNumericalInterval & ni) const {
-    vector<int> endPoints = getEndPoints();
-    vector<int> endPointsNI = ni.getEndPoints();
-    if (endPointsNI[0] >= endPoints[0] && endPointsNI[1] <= endPoints[1])
+    pair<int, int> endPoints = getEndPoints();
+    pair<int, int> endPointsNI = ni.getEndPoints();
+    if (endPointsNI.first >= endPoints.first
+        && endPointsNI.second <= endPoints.second)
         return true;
     else
         return false;
 }
 
 vector<int> IntegerNumericalInterval::getAllPoints() const {
-    vector<int> endPoints = getEndPoints();
-    int size = endPoints[1] - endPoints[0] + 1;
+    pair<int, int> endPoints = getEndPoints();
+    int size = endPoints.second - endPoints.first + 1;
     vector<int> points(size);
 
-    int num = endPoints[0];
+    int num = endPoints.first;
     for (int i = 0; i < size; ++i)
         points[i] = num++;
     return points;
 }
 
-vector<int> IntegerNumericalInterval::getEndPoints() const {
-    vector<int> points(2);
-    isIncludeLeft_ ? points[0] = leftBorder_ : points[0] = leftBorder_ + 1;
-    isIncludeRight_ ? points[1] = rightBorder_ : points[1] = rightBorder_ - 1;
+pair<int, int> IntegerNumericalInterval::getEndPoints() const {
+    pair<int, int> points;
+    isIncludeLeft_ ? points.first = leftBorder_
+                   : points.first = leftBorder_ + 1;
+    isIncludeRight_ ? points.second = rightBorder_
+                    : points.second = rightBorder_ - 1;
     return points;
 }
 

@@ -1,0 +1,92 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a debtservice calculator application"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 1 2
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 5 or 6 arguments."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format_Float
+    COMMAND ${APPLICATION} abc 1 1 2 1
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_Float PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format_Int
+    COMMAND ${APPLICATION} 10 pi 1 1 1
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_Int PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format_Type
+    COMMAND ${APPLICATION} 1 1 1 33 2
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_Type PROPERTIES
+    PASS_REGULAR_EXPRESSION "Type of service not defined!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Operation_Format
+    COMMAND ${APPLICATION} 1 1 1 2 33
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Operation not defined!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_The_Amount_Of_Payments_For_The_Entire_Loan_Period
+    COMMAND ${APPLICATION} 1 1 1 1 1
+)
+set_tests_properties (${prefix}_can_Calculate_The_Amount_Of_Payments_For_The_Entire_Loan_Period PROPERTIES
+    PASS_REGULAR_EXPRESSION "The amount of payments for the entire loan period = 2"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Find_Out_The_Balance_On_A_Debt
+    COMMAND ${APPLICATION} 1 1 1 0 2
+)
+set_tests_properties (${prefix}_can_Find_Out_The_Balance_On_A_Debt PROPERTIES
+    PASS_REGULAR_EXPRESSION "Find out the balance on a debt = 2"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Enter_An_Amount_And_Find_Out_The_Balance_On_A_Debt
+    COMMAND ${APPLICATION} 1 1 1 2 3 2
+)
+set_tests_properties (${prefix}_can_Enter_An_Amount_And_Find_Out_The_Balance_On_A_Debt PROPERTIES
+    PASS_REGULAR_EXPRESSION "It was = 2; amount of payment = 2; current balance = 0"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Create_Two_Identical_Debts_With_The_Same_Service
+    COMMAND ${APPLICATION} 1 1 1 2 4
+)
+set_tests_properties (${prefix}_can_Create_Two_Identical_Debts_With_The_Same_Service PROPERTIES
+    PASS_REGULAR_EXPRESSION "The amount of Ivanov = 2; the amount of Borodin = 2"
+    LABELS "${MODULE}")

@@ -3,8 +3,10 @@
 #include "include/Cylinder.h"
 
 #include <string>
+#include <sstream>
 
-const double pi = 3.141592653589793238463;
+
+const double pi = 3.14;
 
 Cylinder::Cylinder() : radius(0), h(0) {}
 
@@ -13,7 +15,7 @@ Cylinder::Cylinder(const double& _rad, const double& _h) {
         radius = _rad;
         h = _h;
     } else {
-        throw std::string("Numbers can't be less then zero");
+        throw std::string("Number can't be less then zero");
     }
 }
 

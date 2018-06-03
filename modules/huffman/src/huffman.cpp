@@ -13,7 +13,7 @@ using std::priority_queue;
 using std::vector;
 using std::map;
 
-Huffman::Huffman(char* text) {
+Huffman::Huffman(const char* text) {
   if (text == nullptr) {
     throw std::invalid_argument("Text is null");
   }

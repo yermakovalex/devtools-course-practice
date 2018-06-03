@@ -15,6 +15,7 @@ class TStack {
  public:
     explicit TStack(int _size = 1);     // Initializer constructor
     TStack(const TStack& S);            // Copy Constructor
+    TStack(int _size, ValType* data);
     ~TStack(void);                      // Destructor
 
     // Access Methods
@@ -44,6 +45,17 @@ TStack<ValType>::TStack(int _size) {
 
     if (pMem == NULL)
         throw std::logic_error("Out of memory");
+}
+
+template <class ValType>
+TStack<ValType>::TStack(int _size, ValType* data) {
+    if (_size >= 1) {
+        sp = size = _size;
+        pMem = new ValType[size];
+        for (int i = 0; i < size; i++) {
+            pMem[i] = data[i];
+        }
+    }
 }
 
 template <class ValType>
@@ -102,9 +114,10 @@ int TStack<ValType>::IsFull(void) {
 
 template <class ValType>
 int TStack<ValType>::operator == (const TStack& S) {
-    int res = 0, counter = 0;
+    int res = 0;
 
     if ((size == S.size) && (sp == S.sp)) {
+        int counter = 0;
         for (; (counter < sp) && (pMem[counter] == S.pMem[counter]);
                 counter++) {}
 

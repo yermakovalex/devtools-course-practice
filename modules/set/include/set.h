@@ -3,6 +3,7 @@
 #define MODULES_SET_INCLUDE_SET_H_
 
 #include <iostream>
+#include <vector>
 #include "include/bitfield.h"
 
 class set{
@@ -14,8 +15,11 @@ class set{
     set(set&);
 
     void Insert(int k);
+    void Insert(const std::vector<int>& vec);
+
     int Get(int k);
     int GetN(int k);
+    std::vector<int> GetElements();
 
     set operator+(const set&);
     set operator*(const set&);
