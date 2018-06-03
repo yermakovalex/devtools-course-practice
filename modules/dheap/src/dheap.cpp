@@ -73,7 +73,6 @@ void Dheap::del(int i) {
     storage.pop_back();
     elemCount--;
     if ((i != 0) && (key(i) < key((i - 1) / d))) {
-
     } else {
         points[(2 * storage[i]) + 1] = down(i);
     }
