@@ -128,7 +128,7 @@ TEST(Razumova_Maria_LineCross, check_cross_touching_line_segments_crossed) {
     EXPECT_TRUE(line1.isCross(line2));
 }
 
-TEST(Razumova_Maria_LineCross, check_cross_line_segments_setted_points_crossed) {
+TEST(Razumova_Maria_LineCross, cross_lines_setted_points_crossed) {
     // Arrange
     LineSegment line1(1, 1, 4, 1);
     double x1, y1, x2, y2;
@@ -143,7 +143,7 @@ TEST(Razumova_Maria_LineCross, check_cross_line_segments_setted_points_crossed) 
     EXPECT_TRUE(line1.isCross(x1, y1, x2, y2));
 }
 
-TEST(Razumova_Maria_LineCross, check_cross_line_setted_points_segments_not_crossed) {
+TEST(Razumova_Maria_LineCross, cross_lines_setted_points_not_crossed) {
     // Arrange
     LineSegment line1(1, 1, 4, 1);
     double x1, y1, x2, y2;
@@ -157,7 +157,7 @@ TEST(Razumova_Maria_LineCross, check_cross_line_setted_points_segments_not_cross
     // Assert
     EXPECT_FALSE(line1.isCross(x1, y1, x2, y2));
 }
-TEST(Razumova_Maria_LineCross, check_cross_touching_line_setted_points_segments_crossed) {
+TEST(Razumova_Maria_LineCross, cross_touching_line_setted_points_crossed) {
     // Arrange
     LineSegment line1(1, 2, 6, 2);
     LineSegment line2(4, -6, 4, 2);
@@ -172,7 +172,7 @@ TEST(Razumova_Maria_LineCross, check_cross_touching_line_setted_points_segments_
     EXPECT_TRUE(line1.isCross(x1, y1, x2, y2));
 }
 
-TEST(Razumova_Maria_LineCross, check_cross_with_point_not_crossed){
+TEST(Razumova_Maria_LineCross, check_cross_with_point_not_crossed) {
     // Arrange
     LineSegment line1(1, 1, 4, 1);
     LineSegment line2(2, -3, 2, -3);
@@ -182,7 +182,7 @@ TEST(Razumova_Maria_LineCross, check_cross_with_point_not_crossed){
     EXPECT_FALSE(line1.isCross(line2));
 }
 
-TEST(Razumova_Maria_LineCross, check_cross_with_point_crossed){
+TEST(Razumova_Maria_LineCross, check_cross_with_point_crossed) {
     // Arrange
     LineSegment line1(1, 1, 4, 1);
     LineSegment line2(2, 1, 2, 1);
