@@ -43,11 +43,14 @@ std::string MinSearcher::operator()(int argc, const char **argv) {
             return message_;
         }
         std::ostringstream stream;
+        Vertex tmp;
         Dheap dh(parseInt(argv[1]), parseInt(argv[2]));
-        for (int i = 3; i < argc; i++) {
-            dh.push(std::make_pair(i, parseInt(argv[i])));
+        for (int i = 3; i < argc + 1; i++) {
+            tmp.first = parseInt(argv[i]);
+            tmp.second = i;
+            dh.push(tmp);
         }
-        stream << "min=" << dh.pop().second;
+        stream << "min=" << dh.pop().first;
         message_ = stream.str();
     }
     return message_;
