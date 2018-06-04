@@ -14,7 +14,7 @@ typedef std::pair<int, int> Vertex;  // vertex number and path length
 Dheap::Dheap(int d, int elemCount) {
     this->elemCount = elemCount;
     this->d = d;
-    points.resize(2 * elemCount + 2, EMPTY);
+    points.resize(20 * elemCount + 2, EMPTY);
     // storage.resize(elemCount);
 }
 
@@ -34,15 +34,9 @@ Vertex Dheap::pop() {
 void Dheap::push(Vertex v) {
     storage.push_back(v.first);
     points[2 * v.first] = v.second;
-    points[2 * v.first + 1] = storage.size() - 1;
-    int pos = up(storage.size() - 1);
+    points[2 * v.first + 1] = static_cast<int>(storage.size()) - 1;
+    int pos = up(static_cast<int>(storage.size()) - 1);
     points[2 * v.first + 1] = pos;
-}
-
-void Dheap::decreaseKey(int vNum, int lVal) {
-    points[(2 * vNum)] = lVal;
-    int toUp = points[(2 * vNum) + 1];
-    up(toUp);
 }
 
 int Dheap::getVal(int vNum) {
@@ -68,9 +62,6 @@ void Dheap::swap(int iFir, int iSec) {
 int Dheap::up(int i) {
     int p = (i - 1) / d;
     while ((i != 0) && (key(p) > key(i))) {
-        swap(i, p);
-        i = p;
-        p = (i - 1) / d;
     }
     return i;
 }
@@ -82,7 +73,6 @@ void Dheap::del(int i) {
     storage.pop_back();
     elemCount--;
     if ((i != 0) && (key(i) < key((i - 1) / d))) {
-        points[(2 * storage[i]) + 1] = up(i);
     } else {
         points[(2 * storage[i]) + 1] = down(i);
     }
@@ -110,10 +100,10 @@ int Dheap::minChail(int i) {
         for (int j = s + 1; j < last + 1; j++) {
             int tmp = key(j);
             if (minKey > tmp) {
-                minKey = key(j);
-                s = j;
             }
         }
         return s;
     }
 }
+
+Dheap::~Dheap() {}

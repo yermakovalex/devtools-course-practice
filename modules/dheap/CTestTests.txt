@@ -1,0 +1,44 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}C_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}C_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}C_check_Uncorrect_Number_Of_Arguments
+    COMMAND ${APPLICATION} 3 1 2 3 1 2 1
+)
+set_tests_properties (${prefix}C_check_Uncorrect_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Incorrect element count!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}C_No_Arguments_Test
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}C_No_Arguments_Test PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: You should provide at least 3 arguments!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}C_can_Find_Min
+    COMMAND ${APPLICATION} 3 1 1
+)
+set_tests_properties (${prefix}C_can_Find_Min PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Incorrect element count!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}C_can_Find_Min2
+    COMMAND ${APPLICATION} 3 5 1 2 6 5 1
+)
+set_tests_properties (${prefix}C_can_Find_Min2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Incorrect element count!"
+    LABELS "${MODULE}")
