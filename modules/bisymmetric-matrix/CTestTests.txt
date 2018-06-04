@@ -21,7 +21,7 @@ set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
 
 add_test(
     NAME ${prefix}Can_Add
-    COMMAND ${APPLICATION} ../../../../../modules/bisymmetric-matrix/test/matrix1.txt ../../../../../modules/bisymmetric-matrix/test/matrix2.txt +
+    COMMAND ${APPLICATION} ../../../../modules/bisymmetric-matrix/test/matrix1.txt ../../../../modules/bisymmetric-matrix/test/matrix2.txt +
 )
 set_tests_properties (${prefix}Can_Add PROPERTIES
     PASS_REGULAR_EXPRESSION "3 4 8 14 18"
@@ -29,7 +29,7 @@ set_tests_properties (${prefix}Can_Add PROPERTIES
 
 add_test(
     NAME ${prefix}Can_Substract
-    COMMAND ${APPLICATION} ../../../../../modules/bisymmetric-matrix/test/matrix1.txt ../../../../../modules/bisymmetric-matrix/test/matrix2.txt -
+    COMMAND ${APPLICATION} ../../../../modules/bisymmetric-matrix/test/matrix1.txt ../../../../modules/bisymmetric-matrix/test/matrix2.txt -
 )
 set_tests_properties (${prefix}Can_Substract PROPERTIES
     PASS_REGULAR_EXPRESSION "-1 0 0 0 0"
@@ -37,7 +37,7 @@ set_tests_properties (${prefix}Can_Substract PROPERTIES
 
 add_test(
     NAME ${prefix}Can_Multiply
-    COMMAND ${APPLICATION} ../../../../../modules/bisymmetric-matrix/test/matrix1.txt ../../../../../modules/bisymmetric-matrix/test/matrix2.txt *
+    COMMAND ${APPLICATION} ../../../../modules/bisymmetric-matrix/test/matrix1.txt ../../../../modules/bisymmetric-matrix/test/matrix2.txt *
 )
 set_tests_properties (${prefix}Can_Multiply PROPERTIES
     PASS_REGULAR_EXPRESSION "2 4 8 14 18"
@@ -45,7 +45,7 @@ set_tests_properties (${prefix}Can_Multiply PROPERTIES
 
 add_test(
     NAME ${prefix}Equal
-    COMMAND ${APPLICATION} ../../../../../modules/bisymmetric-matrix/test/matrix1.txt ../../../../../modules/bisymmetric-matrix/test/matrix1.txt =
+    COMMAND ${APPLICATION} ../../../../modules/bisymmetric-matrix/test/matrix1.txt ../../../../modules/bisymmetric-matrix/test/matrix1.txt =
 )
 set_tests_properties (${prefix}Equal PROPERTIES
     PASS_REGULAR_EXPRESSION "TRUE"
@@ -53,7 +53,7 @@ set_tests_properties (${prefix}Equal PROPERTIES
 
 add_test(
     NAME ${prefix}Not_Equal
-    COMMAND ${APPLICATION} ../../../../../modules/bisymmetric-matrix/test/matrix1.txt ../../../../../modules/bisymmetric-matrix/test/matrix3.txt =
+    COMMAND ${APPLICATION} ../../../../modules/bisymmetric-matrix/test/matrix1.txt ../../../../modules/bisymmetric-matrix/test/matrix3.txt =
 )
 set_tests_properties (${prefix}Not_Equal PROPERTIES
     PASS_REGULAR_EXPRESSION "FALSE"
@@ -61,7 +61,7 @@ set_tests_properties (${prefix}Not_Equal PROPERTIES
 
 add_test(
     NAME ${prefix}Invalid_File_1
-    COMMAND ${APPLICATION} ololo ../../../../../modules/bisymmetric-matrix/test/matrix1.txt =
+    COMMAND ${APPLICATION} ololo ../../../../modules/bisymmetric-matrix/test/matrix1.txt =
 )
 set_tests_properties (${prefix}Invalid_File_1 PROPERTIES
     PASS_REGULAR_EXPRESSION "Can not open"
@@ -69,7 +69,7 @@ set_tests_properties (${prefix}Invalid_File_1 PROPERTIES
 
 add_test(
     NAME ${prefix}Invalid_File_2
-    COMMAND ${APPLICATION} ../../../../../modules/bisymmetric-matrix/test/matrix1.txt trololo +
+    COMMAND ${APPLICATION} ../../../../modules/bisymmetric-matrix/test/matrix1.txt trololo +
 )
 set_tests_properties (${prefix}Invalid_File_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Can not open"
@@ -77,7 +77,7 @@ set_tests_properties (${prefix}Invalid_File_2 PROPERTIES
 
 add_test(
     NAME ${prefix}Throw_On_Different_Sizes
-    COMMAND ${APPLICATION} ../../../../../modules/bisymmetric-matrix/test/matrix1.txt ../../../../../modules/bisymmetric-matrix/test/matrix3.txt +
+    COMMAND ${APPLICATION} ../../../../modules/bisymmetric-matrix/test/matrix1.txt ../../../../modules/bisymmetric-matrix/test/matrix3.txt +
 )
 set_tests_properties (${prefix}Throw_On_Different_Sizes PROPERTIES
     PASS_REGULAR_EXPRESSION "It is not possible to sum matrices with different sizes"

@@ -19,7 +19,7 @@ void BisymmetricMatrixApp::help(const char *appname, const char *message) {
         appname + " <file_matrix1> <file_matrix2> <operator>\n\n" +
 
         "    Operators are allowed: +, -, *, =.\n\n" +
-        
+
         "    Operator `*` takes the first element of the second matrix " +
         "and multiplies it\nwith the first matrix.\n";
 }

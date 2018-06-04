@@ -5,8 +5,6 @@
 #include <string>
 #include <sstream>
 #include <vector>
-#include <cstdio>
-#include <unistd.h>
 
 #include "include/bisymmetric-matrix-app.h"
 
@@ -51,10 +49,6 @@ class BisymmetricMatrixAppTest : public ::testing::Test {
 
 TEST_F(BisymmetricMatrixAppTest, Do_Print_Help_Without_Arguments) {
     string args("");
-
-    char buf[255];
-    getcwd(buf, sizeof(buf));
-    printf("%s", buf);
 
     Act(args);
 

@@ -3,6 +3,7 @@
 #include "include/bisymmetric_matrix.h"
 
 #include <sstream>
+#include <string>
 
 Matrix::Matrix(int size) {
     n = size;
@@ -36,7 +37,7 @@ void Matrix::Output(void) const {
     std::cout << std::endl;
 }
 
-std::string Matrix::ToString(void) const{
+std::string Matrix::ToString(void) const {
     std::ostringstream ss;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++)
@@ -77,7 +78,7 @@ Matrix& Matrix::operator =(const Matrix &x) {
     return *this;
 }
 
-Matrix Matrix::operator +(const Matrix &x) const{
+Matrix Matrix::operator +(const Matrix &x) const {
     if (n != x.n)
         throw "It is not possible to sum matrices with different sizes.";
 
