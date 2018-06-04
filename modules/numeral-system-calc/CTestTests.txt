@@ -1,0 +1,109 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "    This calculator works with different numeral"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}Parse_Number
+    COMMAND ${APPLICATION} 030
+)
+set_tests_properties (${prefix}Parse_Number PROPERTIES
+    PASS_REGULAR_EXPRESSION "Binary: 11000"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}Calculate_Binary
+    COMMAND ${APPLICATION} 1110011101001 + 101000001111
+)
+set_tests_properties (${prefix}Calculate_Binary PROPERTIES
+    PASS_REGULAR_EXPRESSION "Binary: 10011011111000"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}Calculate_Octal
+    COMMAND ${APPLICATION} 016351 + 05017
+)
+set_tests_properties (${prefix}Calculate_Octal PROPERTIES
+    PASS_REGULAR_EXPRESSION "Binary: 10011011111000"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}Calculate_Hexadecimal
+    COMMAND ${APPLICATION} 0x1CE9 + 0xA0F
+)
+set_tests_properties (${prefix}Calculate_Hexadecimal PROPERTIES
+    PASS_REGULAR_EXPRESSION "Binary: 10011011111000"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}Calculate_Different_Radices
+    COMMAND ${APPLICATION} 101 + 017 + 0xF
+)
+set_tests_properties (${prefix}Calculate_Different_Radices PROPERTIES
+    PASS_REGULAR_EXPRESSION "Binary: 100011"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}Parse_Zero
+    COMMAND ${APPLICATION} 0 + 1 + 01 + 0 + 0xF + 0
+)
+set_tests_properties (${prefix}Parse_Zero PROPERTIES
+    PASS_REGULAR_EXPRESSION "Binary: 10001"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}Different_Operators
+    COMMAND ${APPLICATION} 101 + 017 - 0xF * 10 / 05
+)
+set_tests_properties (${prefix}Different_Operators PROPERTIES
+    PASS_REGULAR_EXPRESSION "Binary: 1110"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}Parentheses
+    COMMAND ${APPLICATION} 040 - (101 + 017 - 0xF) * 10 / 05
+)
+set_tests_properties (${prefix}Parentheses PROPERTIES
+    PASS_REGULAR_EXPRESSION "Binary: 11110"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}Parentheses_Nested
+    COMMAND ${APPLICATION} 040 - (101 + (017 - 0xF) * 10) / 05
+)
+set_tests_properties (${prefix}Parentheses_Nested PROPERTIES
+    PASS_REGULAR_EXPRESSION "Binary: 11111"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}Invalid_Operator
+    COMMAND ${APPLICATION} 016351 + 05017 % 0x1
+)
+set_tests_properties (${prefix}Invalid_Operator PROPERTIES
+    PASS_REGULAR_EXPRESSION "    This calculator works with different numeral"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}Division_By_Zero
+    COMMAND ${APPLICATION} 016351 + 05017 / 0x0
+)
+set_tests_properties (${prefix}Division_By_Zero PROPERTIES
+    PASS_REGULAR_EXPRESSION "    This calculator works with different numeral"
+    LABELS "${MODULE}")
