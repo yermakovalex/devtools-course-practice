@@ -47,7 +47,7 @@ std::string NumeralSystemApp::operator ()(int argc, const char *argv[]) {
     int answer;
     try {
         answer = Calc::calculate(expression);
-    } catch (int) {
+    } catch (...) {
         help(argv[0]);
         return message_;
     }

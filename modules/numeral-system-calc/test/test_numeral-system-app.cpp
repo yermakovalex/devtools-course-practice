@@ -4,6 +4,7 @@
 
 #include <string>
 #include <sstream>
+#include <vector>
 
 #include "include/numeral-system-app.h"
 
@@ -13,7 +14,6 @@ using std::string;
 
 class NumeralSystemAppTest : public ::testing::Test {
  protected:
-
     void Act(string args_) {
         vector<const char*> options;
 
@@ -22,7 +22,7 @@ class NumeralSystemAppTest : public ::testing::Test {
         string arg;
         vector<string> argsV;
         std::istringstream ss(args_);
-        while(ss >> arg) {
+        while (ss >> arg) {
             argsV.push_back(arg);
         }
 
