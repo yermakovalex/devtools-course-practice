@@ -1,7 +1,7 @@
 // Copyright 2018 Yermakov Alexey
 
-#ifndef MODULES_bisymmetric_matrix_CALC_INCLUDE_bisymmetric_matrix_APP_H_
-#define MODULES_bisymmetric_matrix_CALC_INCLUDE_bisymmetric_matrix_APP_H_
+#ifndef MODULES_BISYMMETRIC_MATRIX_INCLUDE_BISYMMETRIC_MATRIX_APP_H_
+#define MODULES_BISYMMETRIC_MATRIX_INCLUDE_BISYMMETRIC_MATRIX_APP_H_
 
 #include <string>
 
@@ -18,4 +18,4 @@ class BisymmetricMatrixApp {
     std::string arguments;
 };
 
-#endif  // MODULES_bisymmetric_matrix_CALC_INCLUDE_bisymmetric_matrix_APP_H_
+#endif  // MODULES_BISYMMETRIC_MATRIX_INCLUDE_BISYMMETRIC_MATRIX_APP_H_
