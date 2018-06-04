@@ -1,0 +1,61 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a sort integer array application."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Incorrect_Input1
+    COMMAND ${APPLICATION} 1aa 2bb
+)
+set_tests_properties (${prefix}_can_Detect_Incorrect_Input1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Incorrect_Input2
+    COMMAND ${APPLICATION} 123 19 631A124
+)
+set_tests_properties (${prefix}_can_Detect_Incorrect_Input2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Sort0
+    COMMAND ${APPLICATION} 1000 1
+)
+set_tests_properties (${prefix}_Can_Sort0 PROPERTIES
+    PASS_REGULAR_EXPRESSION "1 1000"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Sort1
+    COMMAND ${APPLICATION} 2 1 5 3 4
+)
+set_tests_properties (${prefix}_Can_Sort1 PROPERTIES
+    PASS_REGULAR_EXPRESSION "1 2 3 4 5"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Sort2
+    COMMAND ${APPLICATION} 9 9 9 1 0 0 1
+)
+set_tests_properties (${prefix}_Can_Sort2 PROPERTIES
+    PASS_REGULAR_EXPRESSION "0 0 1 1 9 9 9"
+    LABELS "${MODULE}")
