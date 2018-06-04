@@ -2,6 +2,8 @@
 
 #include "include/bisymmetric_matrix.h"
 
+#include <sstream>
+
 Matrix::Matrix(int size) {
     n = size;
     M = new Vector[size];
@@ -24,17 +26,28 @@ Matrix::~Matrix(void) {
     delete[] M;
 }
 
-void Matrix::Output(void) {
+void Matrix::Output(void) const {
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++)
-            std::cout << GetElem(i, j) << "\t";
+            std::cout << GetElem(i, j) << " ";
         std::cout << std::endl;
     }
 
     std::cout << std::endl;
 }
 
-int Matrix::GetElem(int row, int col) {
+std::string Matrix::ToString(void) const{
+    std::ostringstream ss;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++)
+            ss << GetElem(i, j) << " ";
+        ss << std::endl;
+    }
+    ss << std::endl;
+    return ss.str();
+}
+
+int Matrix::GetElem(int row, int col) const {
     if (row <= 0 || col <= 0 || row > n || col > n)
         throw "Invalid index in Matrix::GetElem.";
 
@@ -52,13 +65,19 @@ int Matrix::GetElem(int row, int col) {
 }
 
 Matrix& Matrix::operator =(const Matrix &x) {
+    if (n != x.n) {
+        n = x.n;
+        delete[] M;
+        M = new Vector[n];
+    }
+
     for (int i = 0; i < n; i++)
         M[i] = x.M[i];
 
     return *this;
 }
 
-Matrix Matrix::operator +(const Matrix &x) {
+Matrix Matrix::operator +(const Matrix &x) const{
     if (n != x.n)
         throw "It is not possible to sum matrices with different sizes.";
 
@@ -92,6 +111,9 @@ Matrix Matrix::operator *(const int t) const {
 }
 
 bool Matrix::operator ==(const Matrix &x) const {
+    if (n != x.n)
+        return false;
+
     for (int i = 0; i < n; i++) {
         if (M[i] != x.M[i])
             return false;
@@ -100,7 +122,13 @@ bool Matrix::operator ==(const Matrix &x) const {
     return true;
 }
 
-std::istream &operator>>(std::istream &is, const Matrix &m) {
+std::istream &operator>>(std::istream &is, Matrix &m) {
+    int newN;
+    is >> newN;
+    if (m.n != newN) {
+        m = Matrix(newN);
+    }
+
     for (int i = 0; i < m.n; i++)
         is >> m.M[i];
 

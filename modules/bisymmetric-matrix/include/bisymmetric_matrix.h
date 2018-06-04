@@ -4,6 +4,7 @@
 #define MODULES_BISYMMETRIC_MATRIX_INCLUDE_BISYMMETRIC_MATRIX_H_
 
 #include <iostream>
+#include <string>
 
 #include "include/vector.h"
 
@@ -17,16 +18,17 @@ class Matrix {
     Matrix(const Matrix &x);
     ~Matrix(void);
 
-    void Output(void);
-    int GetElem(int row, int col);
+    void Output(void) const;
+    std::string ToString(void) const;
+    int GetElem(int row, int col) const;
 
     Matrix& operator =(const Matrix &x);
-    Matrix operator +(const Matrix &x);
+    Matrix operator +(const Matrix &x) const;
     Matrix operator -(const Matrix &x) const;
     Matrix operator *(int t) const;
     bool operator ==(const Matrix &x) const;
 
-    friend std::istream &operator >> (std::istream &is, const Matrix &m);
+    friend std::istream &operator >> (std::istream &is, Matrix &m);
 };
 
 #endif  // MODULES_BISYMMETRIC_MATRIX_INCLUDE_BISYMMETRIC_MATRIX_H_
