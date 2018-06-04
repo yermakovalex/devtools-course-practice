@@ -27,16 +27,6 @@ Matrix::~Matrix(void) {
     delete[] M;
 }
 
-void Matrix::Output(void) const {
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n; j++)
-            std::cout << GetElem(i, j) << " ";
-        std::cout << std::endl;
-    }
-
-    std::cout << std::endl;
-}
-
 std::string Matrix::ToString(void) const {
     std::ostringstream ss;
     for (int i = 1; i <= n; i++) {
